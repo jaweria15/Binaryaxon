@@ -292,12 +292,12 @@ box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 .card h3 {
-color: var(--primary-purple);
+color: var(--white);
 margin-bottom: 15px;
 }
 
 .card p {
-color: #555;
+color: var(--primary-purple);
 line-height: 1.6;
 }
 :root {
@@ -1810,5 +1810,6 @@ to { opacity: 1; transform: translateX(0); }
 .animate-float1 { animation: float1 6s ease-in-out infinite; }
 .animate-float2 { animation: float2 8s ease-in-out infinite; }
 .animate-float3 { animation: float3 7s ease-in-out infinite; }
+
 
 

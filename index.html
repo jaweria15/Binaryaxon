@@ -20,19 +20,19 @@
                 <img src="assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon Logo">
             </div>
             <div class="nav-links">
-                <a href="#">Home</a>
-                <a href="#">Teams</a>
-                <a href="#">Services</a>
-                <a href="#">Products</a>
-                <a href="#">About Us</a>
+                <a href="#home">Home</a>
+                <a href="#Teams">Teams</a>
+                <a href="#Services">Services</a>
+                <a href="#Products">Products</a>
+                <a href="#Aboustus">About Us</a>
             </div>
-            <button class="btn-contact">Contact Us</button>
+<button class="btn-contact" onclick="scrollToContact()">Contact Us</button>
         </nav>
     </div>
 </header>
 
-    <section class="hero">
-      <video autoplay muted loop playsinline class="hero-video">
+<section id="home" class="hero">
+    <video autoplay muted loop playsinline class="hero-video">
         <source src="assets/images/landingvideo.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -47,7 +47,7 @@
         </div>
     </section>
 <div class="sections-wrapper">
-    <section class="about-section">
+    <section id="Aboutus" class="about-section">
     <h2 class="section-title">About Us</h2>
     <div class="card-grid">
         <div class="card">
@@ -73,7 +73,7 @@
     </div>
 </section>
 
-<section class="relative bg-slate-50 py-24 overflow-hidden">
+<section id="Services" class="relative bg-slate-50 py-24 overflow-hidden ">
     <div class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-200 rounded-full blur-3xl opacity-50"></div>
     <div class="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-amber-100 rounded-full blur-3xl opacity-50"></div>
 
@@ -395,7 +395,7 @@
     </div>
 </section>
 </section>  
-    <section class="team-section">
+    <section id = "Team" class="team-section">
     <div class="avatar-wrapper pos-1" data-name="Arsalan Ahmed" data-role="Senior Developer">
         <img src="assets/images/1.png" class="avatar" alt="Team Member">
     </div>
@@ -433,7 +433,7 @@
     </div>
 </section>
 
-<section class="contact-us-section">
+<section id="contact" class="contact-us-section">
     <div class="contact-main-container">
         <div class="contact-header-top">
             <h2 class="upgrade-title" style="color: var(--white);">GET IN TOUCH</h2>
@@ -593,5 +593,6 @@
 </body>
 
 </html>
+
 
 

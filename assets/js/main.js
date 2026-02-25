@@ -73,4 +73,11 @@ function showDetail(serviceId, element) {
     if(activeContent) {
         activeContent.classList.add('active');
     }
+
+}
+
+function scrollToContact() {
+    document.getElementById("contact").scrollIntoView({
+        behavior: "smooth"
+    });
 }

@@ -1782,7 +1782,7 @@ to { opacity: 1; transform: translateX(0); }
 }
 
 .card-back {
-    background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple);
+    background: linear-gradient(135deg, #7c3aed, #f59e0b);
     color: white;
     transform: rotateY(180deg);
     text-align: center;
@@ -1810,4 +1810,5 @@ to { opacity: 1; transform: translateX(0); }
 .animate-float1 { animation: float1 6s ease-in-out infinite; }
 .animate-float2 { animation: float2 8s ease-in-out infinite; }
 .animate-float3 { animation: float3 7s ease-in-out infinite; }
+
 

@@ -73,60 +73,108 @@
     </div>
 </section>
 
-<section id="Products" class="relative bg-slate-50 py-24 overflow-hidden ">
-    <div class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-200 rounded-full blur-3xl opacity-50"></div>
-    <div class="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-amber-100 rounded-full blur-3xl opacity-50"></div>
+<section id="Products" class="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-28 overflow-hidden">
+
+    <!-- Floating Background Icons -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <i class="fas fa-cart-shopping absolute text-white/5 text-7xl animate-float1 top-10 left-20"></i>
+        <i class="fas fa-chart-line absolute text-white/5 text-6xl animate-float2 top-40 right-32"></i>
+        <i class="fas fa-boxes-stacked absolute text-white/5 text-8xl animate-float3 bottom-20 left-40"></i>
+        <i class="fas fa-cash-register absolute text-white/5 text-6xl animate-float2 bottom-32 right-20"></i>
+        <i class="fas fa-school absolute text-white/5 text-7xl animate-float1 top-1/2 left-1/3"></i>
+    </div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-black text-slate-900 tracking-tight mb-4">OUR SERVICES</h2>
-            <div class="w-20 h-1.5 bg-amber-400 mx-auto rounded-full"></div>
-            <p class="mt-6 text-slate-600 max-w-2xl mx-auto text-lg">We combine innovative design with robust engineering to deliver world-class digital products.</p>
+        
+        <!-- Section Heading -->
+        <div class="text-center mb-20">
+            <h2 class="text-5xl font-black text-white tracking-tight mb-4">OUR PRODUCTS</h2>
+            <div class="w-24 h-1.5 bg-gradient-to-r from-purple-500 to-amber-400 mx-auto rounded-full"></div>
+            <p class="mt-6 text-slate-400 max-w-2xl mx-auto text-lg">
+                Powerful digital systems designed to automate, manage and scale your business operations.
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <div class="md:col-span-2 group relative bg-white border border-slate-200 p-8 rounded-3xl transition-all duration-500 hover:shadow-2xl hover:shadow-purple-200/50 overflow-hidden">
-                <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-palette text-8xl text-purple-600"></i>
-                </div>
-                <div class="relative z-10">
-                    <span class="inline-block px-4 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold uppercase tracking-widest mb-4">Popular</span>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Web Designing</h3>
-                    <p class="text-slate-600 mb-8 max-w-md">We craft immersive digital experiences. Our designs aren't just pretty—they're built to convert visitors into loyal customers through intuitive UI/UX.</p>
-                    <a href="#" class="inline-flex items-center text-purple-600 font-bold hover:gap-3 transition-all">
-                        More Details <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
-                </div>
-            </div>
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-            <div class="bg-slate-900 p-8 rounded-3xl text-white flex flex-col justify-between group hover:bg-slate-800 transition-colors">
-                <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-2xl group-hover:rotate-12 transition-transform">
-                    <i class="fas fa-code"></i>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-3 mt-8">Web Development</h3>
-                    <p class="text-slate-400 text-sm mb-6">Scalable, secure, and lightning-fast multi-platform solutions tailored for your growth.</p>
-                    <a href="#" class="text-amber-400 font-medium text-sm">Explore Tech Stack →</a>
+            <!-- Product Card -->
+            <div class="product-card group">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-cart-shopping text-4xl mb-6"></i>
+                        <h3>Ecommerce Website</h3>
+                    </div>
+                    <div class="card-back">
+                        <h3>Ecommerce Website</h3>
+                        <p>Complete online store solution with payment integration, order tracking & customer management.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="bg-white border border-slate-200 p-8 rounded-3xl hover:border-purple-400 transition-colors">
-                <i class="fas fa-mobile-screen text-3xl text-purple-600 mb-6 block"></i>
-                <h3 class="text-lg font-bold text-slate-900 mb-2">Mobile & Game Dev</h3>
-                <p class="text-slate-500 text-sm">User-friendly and secure mobile ecosystems for iOS and Android.</p>
+            <div class="product-card group">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-boxes-stacked text-4xl mb-6"></i>
+                        <h3>Inventory Management</h3>
+                    </div>
+                    <div class="card-back">
+                        <h3>Inventory Management</h3>
+                        <p>Smart stock tracking, supplier management and automated reporting system.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="bg-white border border-slate-200 p-8 rounded-3xl hover:border-purple-400 transition-colors">
-                <i class="fas fa-microchip text-3xl text-purple-600 mb-6 block"></i>
-                <h3 class="text-lg font-bold text-slate-900 mb-2">Enterprise Solutions</h3>
-                <p class="text-slate-500 text-sm">ERP systems that simplify complex business resources and workflows.</p>
+            <div class="product-card group">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-wallet text-4xl mb-6"></i>
+                        <h3>Account Management</h3>
+                    </div>
+                    <div class="card-back">
+                        <h3>Account Management</h3>
+                        <p>Financial tracking, expense control and real-time accounting dashboard.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="bg-white border border-slate-200 p-8 rounded-3xl hover:border-purple-400 transition-colors">
-                <i class="fas fa-chart-line text-3xl text-purple-600 mb-6 block"></i>
-                <h3 class="text-lg font-bold text-slate-900 mb-2">Data Warehousing</h3>
-                <p class="text-slate-500 text-sm">Strategic big data insights for informed decision-making.</p>
+            <div class="product-card group">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-cash-register text-4xl mb-6"></i>
+                        <h3>Point of Sale</h3>
+                    </div>
+                    <div class="card-back">
+                        <h3>Point of Sale</h3>
+                        <p>Fast billing system with barcode scanning and sales analytics integration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card group">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-utensils text-4xl mb-6"></i>
+                        <h3>Restaurant Management</h3>
+                    </div>
+                    <div class="card-back">
+                        <h3>Restaurant Management</h3>
+                        <p>Order processing, table booking and kitchen workflow automation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card group">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-school text-4xl mb-6"></i>
+                        <h3>School Management</h3>
+                    </div>
+                    <div class="card-back">
+                        <h3>School Management</h3>
+                        <p>Student records, attendance system, fee management & performance reports.</p>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -593,6 +641,7 @@
 </body>
 
 </html>
+
 
 
 

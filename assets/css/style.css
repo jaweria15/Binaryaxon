@@ -65,23 +65,19 @@ nav {
 }
 
 /* Nav Links ko center mein ya space-between adjust karna */
-.nav-link {
-    position: relative;
-    color: white;
-    font-weight: 500;
-    transition: color 0.3s ease;
+.nav-links {
+    display: flex;
+    gap: 30px;
+    flex-grow: 1;
+    justify-content: center; /* Links hamesha center rahenge */
 }
 
-.nav-link:hover {
-    color: #f59e0b;
-}
 .nav-links a {
     font-size: 16px; /* Font size thoda bada kiya */
     font-weight: 500;
     color: var(--white);
     text-decoration: none;
 }
-
 
 
 
@@ -1807,5 +1803,6 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 .animate-float1 { animation: float1 6s ease-in-out infinite; }
 .animate-float2 { animation: float2 8s ease-in-out infinite; }
 .animate-float3 { animation: float3 7s ease-in-out infinite; }
+
 
 

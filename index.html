@@ -6,7 +6,7 @@
     <title>Binary Axon | Tech Reality</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,14 +19,18 @@
             <div class="nav-logo" id="navLogo">
                 <img src="assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon Logo">
             </div>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
                 <a href="#Teams">Teams</a>
                 <a href="#Services">Services</a>
                 <a href="#Products">Products</a>
+                <a href="#WhyChooseUs">Why Choose Us</a>
                 <a href="#Aboutus">About Us</a>
             </div>
-<button class="btn-contact" onclick="scrollToContact()">Contact Us</button>
+<button class="btn nav-contact-btn" onclick="scrollToContact()"><span>Contact Us</span></button>
+<button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+</button>
         </nav>
     </div>
 </header>
@@ -43,7 +47,7 @@
             </div>
             <h1 class="tagline">Binary Axon provides wealth of technical and business expertise to its customers</h1>
             <p class="tagline">Terforming Ideas into Tech Relaity</p>
-            <button class="btn-main">Let Get Started</button>
+            <button class="btn"><span>Let Get Started</span></button>
         </div>
     </section>
 <div class="sections-wrapper">
@@ -73,113 +77,6 @@
     </div>
 </section>
 
-<section id="Products" class="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-28 overflow-hidden">
-
-    <!-- Floating Background Icons -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <i class="fas fa-cart-shopping absolute text-white/5 text-7xl animate-float1 top-10 left-20"></i>
-        <i class="fas fa-chart-line absolute text-white/5 text-6xl animate-float2 top-40 right-32"></i>
-        <i class="fas fa-boxes-stacked absolute text-white/5 text-8xl animate-float3 bottom-20 left-40"></i>
-        <i class="fas fa-cash-register absolute text-white/5 text-6xl animate-float2 bottom-32 right-20"></i>
-        <i class="fas fa-school absolute text-white/5 text-7xl animate-float1 top-1/2 left-1/3"></i>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-        
-        <!-- Section Heading -->
-        <div class="text-center mb-20">
-            <h2 class="text-5xl font-black text-white tracking-tight mb-4">OUR PRODUCTS</h2>
-            <div class="w-24 h-1.5 bg-gradient-to-r from-purple-500 to-amber-400 mx-auto rounded-full"></div>
-            <p class="mt-6 text-slate-400 max-w-2xl mx-auto text-lg">
-                Powerful digital systems designed to automate, manage and scale your business operations.
-            </p>
-        </div>
-
-        <!-- Products Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            <!-- Product Card -->
-            <div class="product-card group">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <i class="fas fa-cart-shopping text-4xl mb-6"></i>
-                        <h3>Ecommerce Website</h3>
-                    </div>
-                    <div class="card-back">
-                        <h3>Ecommerce Website</h3>
-                        <p>Complete online store solution with payment integration, order tracking & customer management.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card group">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <i class="fas fa-boxes-stacked text-4xl mb-6"></i>
-                        <h3>Inventory Management</h3>
-                    </div>
-                    <div class="card-back">
-                        <h3>Inventory Management</h3>
-                        <p>Smart stock tracking, supplier management and automated reporting system.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card group">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <i class="fas fa-wallet text-4xl mb-6"></i>
-                        <h3>Account Management</h3>
-                    </div>
-                    <div class="card-back">
-                        <h3>Account Management</h3>
-                        <p>Financial tracking, expense control and real-time accounting dashboard.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card group">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <i class="fas fa-cash-register text-4xl mb-6"></i>
-                        <h3>Point of Sale</h3>
-                    </div>
-                    <div class="card-back">
-                        <h3>Point of Sale</h3>
-                        <p>Fast billing system with barcode scanning and sales analytics integration.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card group">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <i class="fas fa-utensils text-4xl mb-6"></i>
-                        <h3>Restaurant Management</h3>
-                    </div>
-                    <div class="card-back">
-                        <h3>Restaurant Management</h3>
-                        <p>Order processing, table booking and kitchen workflow automation.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card group">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <i class="fas fa-school text-4xl mb-6"></i>
-                        <h3>School Management</h3>
-                    </div>
-                    <div class="card-back">
-                        <h3>School Management</h3>
-                        <p>Student records, attendance system, fee management & performance reports.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
 </div>
 
 
@@ -442,41 +339,150 @@
         </div>
     </div>
 </section>
-</section>  
-    <section id = "Teams" class="team-section">
-    <div class="avatar-wrapper pos-1" data-name="Arsalan Ahmed" data-role="Senior Developer">
-        <img src="assets/images/1.png" class="avatar" alt="Team Member">
-    </div>
-    
-    <div class="avatar-wrapper pos-2" data-name="Sara Khan" data-role="UI/UX Designer">
-        <img src="assets/images/2.png" class="avatar" alt="Team Member">
-    </div>
-    
-    <div class="avatar-wrapper pos-3" data-name="Zain Malik" data-role="Lead Architect">
-        <img src="assets/images/3.png" class="avatar" alt="Team Member">
+
+<!-- RADIAL ORBITAL TIMELINE — Products -->
+<section id="Products" class="orbital-section">
+    <div class="orbital-bg-img"></div>
+    <div class="orbital-dynamic-bg" id="orbitalDynamicBg"></div>
+
+    <div class="orbital-header">
+        <span class="orbital-label">Our Products</span>
+        <h2 class="orbital-title">Digital Solutions</h2>
+        <p class="orbital-subtitle">Click any product to learn more</p>
     </div>
 
-    <div class="avatar-wrapper pos-4" data-name="Ayesha Ali" data-role="Product Manager">
-        <img src="assets/images/3.png" class="avatar" alt="Team Member">
+    <div class="orbital-viewport" id="orbitalViewport">
+        <svg class="orbital-connections" id="orbitalSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+
+        <div class="orbital-center">
+            <div class="orbital-center-ring ring-1"></div>
+            <div class="orbital-center-ring ring-2"></div>
+            <div class="orbital-center-core"><i class="fas fa-cubes"></i></div>
+        </div>
+
+        <div class="orbital-path"></div>
+        <div class="orbital-nodes" id="orbitalNodes"></div>
+        <div class="orbital-detail-card" id="orbitalDetailCard"></div>
     </div>
 
-    <div class="avatar-wrapper pos-5" data-name="Bilal Raza" data-role="DevOps Engineer">
-        <img src="assets/images/1.png" class="avatar" alt="Team Member">
-    </div>
+    <p class="orbital-hint" id="orbitalHint">
+        <i class="fas fa-hand-pointer"></i> Tap a node to explore
+    </p>
+</section>
 
-    <div class="avatar-wrapper pos-6" data-name="Omar Farooq" data-role="Cloud Analyst">
-        <img src="assets/images/2.png" class="avatar" alt="Team Member">
+<!-- Why Choose Us -->
+<section id="WhyChooseUs" class="why-choose-section">
+    <div class="why-choose-bg"></div>
+    <div class="why-choose-container">
+        <h2 class="why-choose-title">Why Choose Us</h2>
+        <p class="why-choose-subtitle">Numbers that speak for our commitment</p>
+        <div class="why-choose-grid">
+            <div class="why-choose-card">
+                <div class="why-choose-icon"><i class="fas fa-smile-beam"></i></div>
+                <span class="why-choose-number" data-target="7">0</span>
+                <span class="why-choose-label">Happy Clients</span>
+            </div>
+            <div class="why-choose-card">
+                <div class="why-choose-icon"><i class="fas fa-rocket"></i></div>
+                <span class="why-choose-number" data-target="5">0</span>
+                <span class="why-choose-label">Projects</span>
+            </div>
+            <div class="why-choose-card">
+                <div class="why-choose-icon"><i class="fas fa-mug-hot"></i></div>
+                <span class="why-choose-number" data-target="700">0</span>
+                <span class="why-choose-label">Cups Of Coffee</span>
+            </div>
+            <div class="why-choose-card">
+                <div class="why-choose-icon"><i class="fas fa-users"></i></div>
+                <span class="why-choose-number" data-target="7">0</span>
+                <span class="why-choose-label">Hard Workers</span>
+            </div>
+        </div>
     </div>
+</section>
 
-    <div class="avatar-wrapper pos-7" data-name="Hiba Noor" data-role="Frontend Dev">
-        <img src="assets/images/profile.png" class="avatar" alt="Team Member">
-    </div>
-
-    <div class="team-content">
-        <h1>Our Expert Team</h1>
-        <p>Meet the brilliant minds transforming your ideas into reality.</p>
-        <div class="team-buttons">
-            <a href="#" class="btn-view-team">View All Members &rarr;</a>
+<!-- Teams — Spotlight Carousel -->
+<section id="Teams" class="team-section">
+    <div class="team-mesh-bg"></div>
+    <div class="team-glow team-glow-1"></div>
+    <div class="team-glow team-glow-2"></div>
+    <div class="team-inner">
+        <header class="team-header">
+            <span class="team-badge">The People Behind the Code</span>
+            <h2 class="team-title">Our Expert Team</h2>
+            <p class="team-subtitle">Click a card to spotlight — the minds turning your ideas into reality.</p>
+        </header>
+        <div class="team-carousel-wrap">
+            <button class="team-arrow team-arrow-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+            <div class="team-carousel" id="teamCarousel">
+                <div class="team-card" data-index="0">
+                    <div class="team-card-inner">
+                        <div class="team-card-photo"><img src="assets/images/1.png" alt="Arsalan Ahmed"></div>
+                        <div class="team-card-info">
+                            <h3>Arsalan Ahmed</h3>
+                            <p>Senior Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card" data-index="1">
+                    <div class="team-card-inner">
+                        <div class="team-card-photo"><img src="assets/images/2.png" alt="Sara Khan"></div>
+                        <div class="team-card-info">
+                            <h3>Sara Khan</h3>
+                            <p>UI/UX Designer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card" data-index="2">
+                    <div class="team-card-inner">
+                        <div class="team-card-photo"><img src="assets/images/3.png" alt="Zain Malik"></div>
+                        <div class="team-card-info">
+                            <h3>Zain Malik</h3>
+                            <p>Lead Architect</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card" data-index="3">
+                    <div class="team-card-inner">
+                        <div class="team-card-photo"><img src="assets/images/3.png" alt="Ayesha Ali"></div>
+                        <div class="team-card-info">
+                            <h3>Ayesha Ali</h3>
+                            <p>Product Manager</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card" data-index="4">
+                    <div class="team-card-inner">
+                        <div class="team-card-photo"><img src="assets/images/1.png" alt="Bilal Raza"></div>
+                        <div class="team-card-info">
+                            <h3>Bilal Raza</h3>
+                            <p>DevOps Engineer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card" data-index="5">
+                    <div class="team-card-inner">
+                        <div class="team-card-photo"><img src="assets/images/2.png" alt="Omar Farooq"></div>
+                        <div class="team-card-info">
+                            <h3>Omar Farooq</h3>
+                            <p>Cloud Analyst</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card" data-index="6">
+                    <div class="team-card-inner">
+                        <div class="team-card-photo"><img src="assets/images/profile.png" alt="Hiba Noor"></div>
+                        <div class="team-card-info">
+                            <h3>Hiba Noor</h3>
+                            <p>Frontend Dev</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="team-arrow team-arrow-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="team-cta">
+            <a href="#" class="btn"><span>View All Members</span> <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 </section>
@@ -492,19 +498,30 @@
             <div class="contact-form-side">
                 <h3>Send us a message</h3>
                 <form>
-                    <div class="input-row">
-                        <input type="text" placeholder="Name" required>
-                    </div>
-                    <div class="input-row">
-                        <input type="email" placeholder="Email" required>
-                    </div>
-                    <div class="input-row">
-                        <input type="text" placeholder="Subject">
-                    </div>
-                    <div class="input-row">
-                        <textarea placeholder="Message" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn-send-message">Send Message</button>
+                    <div class="form-group">
+    <input type="text" id="name" required placeholder=" " />
+    <label for="name" class="form-label" data-text="NAME">Name</label>
+</div>
+
+<div class="form-group">
+    <input type="email" id="email" required placeholder=" " />
+    <label for="email" class="form-label" data-text="EMAIL">Email</label>
+</div>
+<div class="form-group">
+    <input type="Subject" id="Subject" required placeholder=" " />
+    <label for="Subject" class="form-label" data-text="Subject">Subject</label>
+</div>
+<div class="form-group">
+    <textarea id="message" required placeholder=" " rows="4"></textarea>
+    <label for="message" class="form-label" data-text="MESSAGE">MESSAGE</label>
+</div>
+                    
+                   
+                    <button type="submit" class="btn">
+                        <span>
+                            Send Message
+                        </span>
+                    </button>
                 </form>
             </div>
 
@@ -539,6 +556,55 @@
 </section>
 
 <footer class="site-footer">
+    <!-- Our Clients — Colored Row -->
+    <section class="clients-colored-section">
+        <div class="max-w-7xl mx-auto px-6 mb-12">
+            <div class="flex items-center gap-4">
+                <span class="clients-colored-label">Our Clients</span>
+                <div class="clients-colored-line"></div>
+            </div>
+        </div>
+
+        <div class="relative flex overflow-hidden group">
+            <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#1A1A1B] to-transparent z-10"></div>
+            <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#1A1A1B] to-transparent z-10"></div>
+
+            <div class="animate-marquee flex items-center gap-8 py-4">
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="assets/images/clients/FM.png" alt="FM Sports" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Meta" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Meta" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="assets/images/clients/FM.png" alt="FM Sports" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="assets/images/clients/mSunSportsLogo.png" alt="mSun Sports" class="h-8 transition-all duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Original Our Clients — grayscale on idle, color on hover -->
     <section class="bg-[#1A1A1B] py-20 overflow-hidden relative">
     
     <div class="max-w-7xl mx-auto px-6 mb-12">

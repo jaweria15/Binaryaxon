@@ -6,10 +6,14 @@
     <title>Binary Axon | Tech Reality</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
 
@@ -19,168 +23,221 @@
             <div class="nav-logo" id="navLogo">
                 <img src="assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon Logo">
             </div>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
                 <a href="#Teams">Teams</a>
                 <a href="#Services">Services</a>
                 <a href="#Products">Products</a>
+                <a href="#WhyChooseUs">Why Choose Us</a>
                 <a href="#Aboutus">About Us</a>
             </div>
-<button class="btn-contact" onclick="scrollToContact()">Contact Us</button>
+<button class="btn nav-contact-btn " onclick="scrollToContact()"><span>Contact Us</span></button>
+<button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+</button>
         </nav>
     </div>
 </header>
 
+<!-- Update this div in your HTML - it should be right after body tag -->
+
 <section id="home" class="hero">
     <video autoplay muted loop playsinline class="hero-video">
         <source src="assets/images/landingvideo.mp4" type="video/mp4">
-        Your browser does not support the video tag.
     </video>
     <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="logo-text" id="heroLogo">
-                <img src="assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon">
-            </div>
-            <h1 class="tagline">Binary Axon provides wealth of technical and business expertise to its customers</h1>
-            <p class="tagline">Terforming Ideas into Tech Relaity</p>
-            <button class="btn-main">Let Get Started</button>
+    <div class="hero-content">
+        <div class="logo-text" id="heroLogo">
+            <img src="assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon" style="max-width: 600px; width: 100%; height: auto; margin: 0 auto;">
         </div>
-    </section>
-<div class="sections-wrapper">
-    <section id="Aboutus" class="about-section">
-    <h2 class="section-title">About Us</h2>
-    <div class="card-grid">
-        <div class="card">
-            <div class="card-icon"><i class="fas fa-city"></i></div>
-            <h3>Our Company</h3>
-            <p>We are software craftsman building scalable products which help businesses to strategize and implement technical initiatives.</p>
-        </div>
-        <div class="card">
-            <div class="card-icon"><i class="fas fa-users-gear"></i></div>
-            <h3>Our Team</h3>
-            <p>Binary Axon is the team of experts who implements ideas of our business partners same as they aspire.</p>
-        </div>
-        <div class="card">
-            <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
-            <h3>Our Passion</h3>
-            <p>We mix your ideas and needs with our customization and expertise to form software solutions for your business.</p>
-        </div>
-        <div class="card">
-            <div class="card-icon"><i class="fas fa-bullseye"></i></div>
-            <h3>Our Mission</h3>
-            <p>Binary Axon aims to help businesses to achieve organizational growth and we engineer new systems.</p>
-        </div>
+        <h1 class="tagline mt-5">Binary Axon provides wealth of technical and business expertise to its customers</h1>
+        <p class="tagline">Transforming Ideas into Tech Reality</p> <!-- Fixed typo: Terforming → Transforming -->
+        <button class="btn"><span>Let's Get Started</span></button> <!-- Fixed typo: Let → Let's -->
     </div>
 </section>
-
-<section id="Products" class="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-28 overflow-hidden">
-
-    <!-- Floating Background Icons -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <i class="fas fa-cart-shopping absolute text-white/5 text-7xl animate-float1 top-10 left-20"></i>
-        <i class="fas fa-chart-line absolute text-white/5 text-6xl animate-float2 top-40 right-32"></i>
-        <i class="fas fa-boxes-stacked absolute text-white/5 text-8xl animate-float3 bottom-20 left-40"></i>
-        <i class="fas fa-cash-register absolute text-white/5 text-6xl animate-float2 bottom-32 right-20"></i>
-        <i class="fas fa-school absolute text-white/5 text-7xl animate-float1 top-1/2 left-1/3"></i>
-    </div>
-
+   <section class="about-section py-15 bg-[#050505] relative overflow-hidden" id="Aboutus">
     <div class="max-w-7xl mx-auto px-6 relative z-10">
         
-        <!-- Section Heading -->
-        <div class="text-center mb-20">
-            <h2 class="text-5xl font-black text-white tracking-tight mb-4">OUR PRODUCTS</h2>
-            <div class="w-24 h-1.5 bg-gradient-to-r from-purple-500 to-amber-400 mx-auto rounded-full"></div>
-            <p class="mt-6 text-slate-400 max-w-2xl mx-auto text-lg">
-                Powerful digital systems designed to automate, manage and scale your business operations.
-            </p>
-        </div>
+       <div class="text-center mb-10">
+   
+    <h1 class="text-5xl font-bold text-white tracking-tighter" id="about-title">About Us</h1>
+    <div class="h-1 w-12 bg-[#635091] mx-auto mt-4" id="about-line"></div>
+</div>
 
-        <!-- Products Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            <!-- Product Card -->
-            <div class="product-card group">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <i class="fas fa-cart-shopping text-4xl mb-6"></i>
-                        <h3>Ecommerce Website</h3>
-                    </div>
-                    <div class="card-back">
-                        <h3>Ecommerce Website</h3>
-                        <p>Complete online store solution with payment integration, order tracking & customer management.</p>
-                    </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <div class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#FFC132]/50 transition-all duration-300 group">
+                <div class="text-[#FFC132] text-3xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-city"></i>
                 </div>
+                <h3 class="text-white font-bold text-xl mb-4">Our Company</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Software craftsmen building scalable products which help businesses to implement technical initiatives.</p>
             </div>
 
-            <div class="product-card group">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <i class="fas fa-boxes-stacked text-4xl mb-6"></i>
-                        <h3>Inventory Management</h3>
-                    </div>
-                    <div class="card-back">
-                        <h3>Inventory Management</h3>
-                        <p>Smart stock tracking, supplier management and automated reporting system.</p>
-                    </div>
+            <div class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#635091]/50 transition-all duration-300 group">
+                <div class="text-[#635091] text-3xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-users-gear"></i>
                 </div>
+                <h3 class="text-white font-bold text-xl mb-4">Our Team</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Binary Axon is a team of experts who implement ideas of our business partners same as they aspire.</p>
             </div>
 
-            <div class="product-card group">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <i class="fas fa-wallet text-4xl mb-6"></i>
-                        <h3>Account Management</h3>
-                    </div>
-                    <div class="card-back">
-                        <h3>Account Management</h3>
-                        <p>Financial tracking, expense control and real-time accounting dashboard.</p>
-                    </div>
+            <div class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#FFC132]/50 transition-all duration-300 group">
+                <div class="text-[#FFC132] text-3xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-lightbulb"></i>
                 </div>
+                <h3 class="text-white font-bold text-xl mb-4">Our Passion</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">We mix your ideas and needs with our expertise to form software solutions for your business.</p>
             </div>
 
-            <div class="product-card group">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <i class="fas fa-cash-register text-4xl mb-6"></i>
-                        <h3>Point of Sale</h3>
-                    </div>
-                    <div class="card-back">
-                        <h3>Point of Sale</h3>
-                        <p>Fast billing system with barcode scanning and sales analytics integration.</p>
-                    </div>
+            <div class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#635091]/50 transition-all duration-300 group">
+                <div class="text-[#635091] text-3xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-bullseye"></i>
                 </div>
-            </div>
-
-            <div class="product-card group">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <i class="fas fa-utensils text-4xl mb-6"></i>
-                        <h3>Restaurant Management</h3>
-                    </div>
-                    <div class="card-back">
-                        <h3>Restaurant Management</h3>
-                        <p>Order processing, table booking and kitchen workflow automation.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card group">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <i class="fas fa-school text-4xl mb-6"></i>
-                        <h3>School Management</h3>
-                    </div>
-                    <div class="card-back">
-                        <h3>School Management</h3>
-                        <p>Student records, attendance system, fee management & performance reports.</p>
-                    </div>
-                </div>
+                <h3 class="text-white font-bold text-xl mb-4">Our Mission</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Binary Axon aims to help businesses achieve organizational growth and we engineer new systems.</p>
             </div>
 
         </div>
     </div>
 </section>
-</div>
+
+<section class="relative bg-slate-50 py-24 overflow-hidden hidden">
+    <div class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-200 rounded-full blur-3xl opacity-50"></div>
+    <div class="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-amber-100 rounded-full blur-3xl opacity-50"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black text-slate-900 tracking-tight mb-4">OUR SERVICES</h2>
+            <div class="w-20 h-1.5 bg-amber-400 mx-auto rounded-full"></div>
+            <p class="mt-6 text-slate-600 max-w-2xl mx-auto text-lg">We combine innovative design with robust engineering to deliver world-class digital products.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="md:col-span-2 group relative bg-white border border-slate-200 p-8 rounded-3xl transition-all duration-500 hover:shadow-2xl hover:shadow-purple-200/50 overflow-hidden">
+                <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-palette text-8xl text-purple-600"></i>
+                </div>
+                <div class="relative z-10">
+                    <span class="inline-block px-4 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold uppercase tracking-widest mb-4">Popular</span>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Web Designing</h3>
+                    <p class="text-slate-600 mb-8 max-w-md">We craft immersive digital experiences. Our designs aren't just pretty—they're built to convert visitors into loyal customers through intuitive UI/UX.</p>
+                    <a href="#" class="inline-flex items-center text-purple-600 font-bold hover:gap-3 transition-all">
+                        More Details <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 p-8 rounded-3xl text-white flex flex-col justify-between group hover:bg-slate-800 transition-colors">
+                <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-2xl group-hover:rotate-12 transition-transform">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-3 mt-8">Web Development</h3>
+                    <p class="text-slate-400 text-sm mb-6">Scalable, secure, and lightning-fast multi-platform solutions tailored for your growth.</p>
+                    <a href="#" class="text-amber-400 font-medium text-sm">Explore Tech Stack →</a>
+                </div>
+            </div>
+
+            <div class="bg-white border border-slate-200 p-8 rounded-3xl hover:border-purple-400 transition-colors">
+                <i class="fas fa-mobile-screen text-3xl text-purple-600 mb-6 block"></i>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Mobile & Game Dev</h3>
+                <p class="text-slate-500 text-sm">User-friendly and secure mobile ecosystems for iOS and Android.</p>
+            </div>
+
+            <div class="bg-white border border-slate-200 p-8 rounded-3xl hover:border-purple-400 transition-colors">
+                <i class="fas fa-microchip text-3xl text-purple-600 mb-6 block"></i>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Enterprise Solutions</h3>
+                <p class="text-slate-500 text-sm">ERP systems that simplify complex business resources and workflows.</p>
+            </div>
+
+            <div class="bg-white border border-slate-200 p-8 rounded-3xl hover:border-purple-400 transition-colors">
+                <i class="fas fa-chart-line text-3xl text-purple-600 mb-6 block"></i>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Data Warehousing</h3>
+                <p class="text-slate-500 text-sm">Strategic big data insights for informed decision-making.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="OurProducts" class="py-24 bg-[#050505] relative overflow-hidden hidden" x-data="{ limit: 4, total: 6 }">
+    <div class="max-w-7xl mx-auto px-6 mb-12">
+        <h2 class="text-[#635091] font-mono tracking-[0.3em] uppercase text-xs mb-3">Inventory</h2>
+        <h1 class="text-4xl font-bold text-white tracking-tighter">Our <span class="text-[#FFC132]">Products</span></h1>
+        <div class="h-1 w-16 bg-[#FFC132] mt-4"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+        
+        <div class="product-card group relative h-[320px] rounded-[1.5rem] overflow-hidden border border-white/5 bg-[#0D0D0E]" x-show="true">
+            <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=500" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" alt="Product">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
+            
+            <div class="absolute inset-x-0 bottom-0 p-6 z-20 transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
+                <span class="text-[#635091] text-[10px] font-bold uppercase tracking-widest">Software</span>
+                <h3 class="text-xl font-bold text-white mt-1">Retail POS</h3>
+                <p class="text-gray-400 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Fast & secure billing system for retail shops.</p>
+            </div>
+        </div>
+
+        <div class="product-card group relative h-[320px] rounded-[1.5rem] overflow-hidden border border-white/5 bg-[#0D0D0E]">
+            <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=500" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" alt="Product">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
+            <div class="absolute inset-x-0 bottom-0 p-6 z-20 translate-y-4 group-hover:translate-y-0 transition-transform">
+                <span class="text-[#FFC132] text-[10px] font-bold uppercase tracking-widest">Management</span>
+                <h3 class="text-xl font-bold text-white mt-1">Gym Suite</h3>
+                <p class="text-gray-400 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Complete member & trainer tracking system.</p>
+            </div>
+        </div>
+
+        <div class="product-card group relative h-[320px] rounded-[1.5rem] overflow-hidden border border-white/5 bg-[#0D0D0E]">
+            <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=500" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" alt="Product">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
+            <div class="absolute inset-x-0 bottom-0 p-6 z-20 translate-y-4 group-hover:translate-y-0 transition-transform">
+                <span class="text-[#635091] text-[10px] font-bold uppercase tracking-widest">Utility</span>
+                <h3 class="text-xl font-bold text-white mt-1">HR Portal</h3>
+                <p class="text-gray-400 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Payroll and employee leave management.</p>
+            </div>
+        </div>
+
+        <div class="product-card group relative h-[320px] rounded-[1.5rem] overflow-hidden border border-white/5 bg-[#0D0D0E]">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" alt="Product">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
+            <div class="absolute inset-x-0 bottom-0 p-6 z-20 translate-y-4 group-hover:translate-y-0 transition-transform">
+                <span class="text-[#FFC132] text-[10px] font-bold uppercase tracking-widest">Enterprise</span>
+                <h3 class="text-xl font-bold text-white mt-1">Data Pro</h3>
+                <p class="text-gray-400 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Advanced analytics and BI dashboard.</p>
+            </div>
+        </div>
+
+        <template x-if="limit > 4">
+            <div class="contents">
+                <div class="product-card group relative h-[320px] rounded-[1.5rem] overflow-hidden border border-white/5 bg-[#0D0D0E]">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
+                    <div class="absolute inset-x-0 bottom-0 p-6 z-20 translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <h3 class="text-xl font-bold text-white">Cyber Shield</h3>
+                    </div>
+                </div>
+                <div class="product-card group relative h-[320px] rounded-[1.5rem] overflow-hidden border border-white/5 bg-[#0D0D0E]">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
+                    <div class="absolute inset-x-0 bottom-0 p-6 z-20 translate-y-4 group-hover:translate-y-0 transition-transform">
+                        <h3 class="text-xl font-bold text-white">Cloud Node</h3>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <div class="text-center mt-12" x-show="limit < total">
+        <button @click="limit = total" class="btn">
+            <span>LOAD MORE PRODUCTS</span>
+        </button>
+    </div>
+</section>
 
 
 <!-- <section class="products-section">
@@ -278,205 +335,526 @@
 
     </div>
 </section> -->
-<section id="Services" class="relative bg-gradient-to-br from-[#111827] via-[#1F2937] to-[#0F172A] py-24 overflow-hidden interactive-services">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
 
-        <!-- LEFT DETAIL AREA -->
-        <div class="w-full lg:w-1/2 relative min-h-[450px] flex flex-col justify-center">
-            
-            <div id="details-container">
+<section id="ProductSection" x-data="enhancedProductApp()" x-init="init()" 
+    class="relative min-h-screen py-16 lg:py-24 overflow-hidden bg-gradient-to-b from-[#050505] via-[#0a0a0f] to-[#050505] transition-all duration-1000">
+    
+    <!-- Animated Background Gradient -->
+    <div class="absolute inset-0 pointer-events-none opacity-20 lg:opacity-30"
+         :style="'background: radial-gradient(circle at ' + mouseX + '% ' + mouseY + '%, ' + products[activeIndex].color + ' 0%, transparent 70%)'">
+    </div>
+    
+    <!-- Floating Particles Effect (Lighter on mobile) -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-30 lg:opacity-100">
+        <div class="absolute top-20 left-10 w-30 lg:w-40 h-30 lg:h-40 bg-[#635091] rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+        <div class="absolute top-40 right-10 w-48 lg:w-72 h-48 lg:h-72 bg-[#FFC132] rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-20 left-20 w-48 lg:w-72 h-48 lg:h-72 bg-[#4a3b7a] rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+    </div>
 
-                <!-- Web Designing -->
-                <div class="detail-content active" id="content-web-design">
-                    <span class="text-yellow-400 font-semibold tracking-widest uppercase text-sm">Expertise 01</span>
-                    <h2 class="text-5xl font-extrabold text-white mt-4 mb-6 leading-tight">
-                        Web <span class="text-purple-400">Designing</span>
-                    </h2>
-                    <p class="text-slate-300 text-lg leading-relaxed max-w-md">
-                        Our expert team creates modern, fully responsive and visually engaging websites tailored to your business goals. 
-                        We focus on user experience, speed optimization and clean UI that converts visitors into customers.
-                    </p>
-                    <button class="mt-8 px-8 py-3 bg-yellow-400 text-black font-semibold rounded-full hover:scale-105 transition">
-                        More Details
-                    </button>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <!-- Header Section with Animation -->
+        <div class="text-center mb-10 lg:mb-16" x-intersect="$el.classList.add('animate-fade-in-up')">
+            <h2 class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
+                <span class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
+            </h2>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tighter mb-2 lg:mb-4">
+                Our Products
+                
+            </h1>
+            <p class="text-sm lg:text-base text-gray-400 max-w-2xl mx-auto px-4">Discover our comprehensive suite of digital solutions designed to transform your business</p>
+        </div>
+
+        <!-- Main Content Grid - Stack on mobile, side-by-side on desktop -->
+        <div class="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+            <!-- Left Side - Enhanced Detail Panel (Appears above cards on mobile) -->
+            <div class="w-full lg:col-span-5 z-20 order-2 lg:order-1" x-show="activeIndex !== null" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-[20px] lg:translate-y-0 lg:translate-x-[-20px]" x-transition:enter-end="opacity-100 translate-y-0 lg:translate-x-0">
+                <div class="backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 p-5 sm:p-6 lg:p-8 rounded-2xl lg:rounded-[2rem] border border-white/10 shadow-2xl relative overflow-hidden group">
+                    <!-- Decorative Corner -->
+                    <div class="absolute -top-20 -right-20 w-32 lg:w-40 h-32 lg:h-40 bg-[#635091] rounded-full opacity-20 blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+                    
+                    <!-- Product Icon/Logo - Smaller on mobile -->
+                    <div class="flex items-center gap-3 lg:gap-4 mb-4 lg:mb-6">
+                        <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl bg-gradient-to-br from-[#635091] to-[#FFC132] p-[2px]">
+                            <div class="w-full h-full rounded-xl lg:rounded-2xl bg-[#050505] flex items-center justify-center text-xl lg:text-3xl" x-html="products[activeIndex].icon"></div>
+                        </div>
+                        <div>
+                            <span class="text-[#FFC132] text-[10px] lg:text-sm font-mono" x-text="products[activeIndex].category"></span>
+                            <h3 x-text="products[activeIndex].name" class="text-xl lg:text-3xl font-bold text-white"></h3>
+                        </div>
+                    </div>
+
+                    <!-- Description with Typing Animation - Smaller text on mobile -->
+                    <div class="mb-4 lg:mb-6">
+                        <p id="product-desc" class="text-sm lg:text-base text-gray-300 leading-relaxed min-h-[60px] lg:min-h-[80px]"></p>
+                    </div>
+
+                    <!-- Key Features with Icons - 2 columns on mobile, grid on desktop -->
+                    <div class="grid grid-cols-2 gap-2 lg:gap-4 mb-4 lg:mb-6">
+                        <template x-for="(feature, idx) in products[activeIndex].features" :key="idx">
+                            <div class="flex items-center gap-1 lg:gap-2 text-xs lg:text-sm group/feature">
+                                <div class="w-5 h-5 lg:w-6 lg:h-6 rounded-lg bg-[#FFC132]/10 flex items-center justify-center group-hover/feature:bg-[#FFC132] transition-colors duration-300">
+                                    <i :class="feature.icon" class="text-[10px] lg:text-xs text-[#FFC132] group-hover/feature:text-black transition-colors"></i>
+                                </div>
+                                <span class="text-gray-300 group-hover/feature:text-white transition-colors" x-text="feature.text"></span>
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- Technologies/Tools Used - Scrollable on mobile -->
+                    <div class="mb-4 lg:mb-6">
+                        <p class="text-[10px] lg:text-xs text-[#FFC132] font-mono mb-2 lg:mb-3">TECHNOLOGIES</p>
+                        <div class="flex flex-wrap gap-1 lg:gap-2">
+                            <template x-for="(tech, idx) in products[activeIndex].technologies" :key="idx">
+                                <span class="px-2 lg:px-3 py-0.5 lg:py-1 text-[10px] lg:text-xs bg-white/5 border border-white/10 rounded-full text-gray-300 hover:bg-[#635091] hover:text-white transition-all duration-300">
+                                    <i :class="tech.icon" class="mr-0.5 lg:mr-1 text-[8px] lg:text-[10px]"></i>
+                                    <span x-text="tech.name"></span>
+                                </span>
+                            </template>
+                        </div>
+                    </div>
+
+                    <!-- Stats/Highlights - Smaller on mobile -->
+                    <div class="grid grid-cols-3 gap-2 lg:gap-4 mb-4 lg:mb-6 p-3 lg:p-4 bg-white/5 rounded-xl border border-white/5">
+                        <template x-for="(stat, idx) in products[activeIndex].stats" :key="idx">
+                            <div class="text-center">
+                                <div class="text-base lg:text-xl font-bold text-[#FFC132]" x-text="stat.value"></div>
+                                <div class="text-[8px] lg:text-xs text-gray-400" x-text="stat.label"></div>
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- Action Buttons - Full width on mobile -->
+                    <div class="flex gap-2 lg:gap-3">
+                        <button class="flex-1 px-4 lg:px-6 py-2 lg:py-3 bg-gradient-to-r from-[#FFC132] to-[#635091] text-black font-bold rounded-full hover:scale-105 transition-transform text-xs lg:text-sm uppercase tracking-wider flex items-center justify-center gap-1 lg:gap-2 group/btn">
+                            <span>Explore</span>
+                            <i class="fas fa-arrow-right group-hover/btn:translate-x-1 transition-transform text-[10px] lg:text-xs"></i>
+                        </button>
+                        <button class="px-4 lg:px-6 py-2 lg:py-3 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-[#635091] hover:border-[#635091] transition-all text-xs lg:text-sm uppercase tracking-wider">
+                            <i class="fas fa-play text-[10px] lg:text-xs"></i>
+                        </button>
+                    </div>
                 </div>
+            </div>
 
-                <!-- Web Development -->
-                <div class="detail-content hidden" id="content-web-dev">
-                    <span class="text-yellow-400 font-semibold tracking-widest uppercase text-sm">Expertise 02</span>
-                    <h2 class="text-5xl font-extrabold text-white mt-4 mb-6 leading-tight">
-                        Web <span class="text-purple-400">Development</span>
-                    </h2>
-                    <p class="text-slate-300 text-lg leading-relaxed max-w-md">
-                        We develop scalable and high-performance web applications using modern technologies. 
-                        From startups to enterprises, we build secure and multi-platform solutions according to your business needs.
-                    </p>
-                    <button class="mt-8 px-8 py-3 bg-yellow-400 text-black font-semibold rounded-full">
-                        More Details
-                    </button>
-                </div>
+            <!-- Right Side - 3D Card Carousel (Appears first on mobile) -->
+            <div class="w-full lg:col-span-7 relative h-[400px] sm:h-[450px] lg:h-[600px] flex justify-center items-center perspective-2000 order-1 lg:order-2 mb-6 lg:mb-0">
+                <!-- Navigation Arrows - Hidden on mobile (use dots instead) -->
+                <button @click="prevProduct" class="hidden lg:flex absolute -left-4 xl:left-0 z-30 w-10 lg:w-12 h-10 lg:h-12 rounded-full bg-white/5 border border-white/10 items-center justify-center text-white hover:bg-[#635091] hover:scale-110 transition-all duration-300 group">
+                    <i class="fas fa-chevron-left group-hover:translate-x-[-2px] transition-transform text-sm"></i>
+                </button>
+                <button @click="nextProduct" class="hidden lg:flex absolute -right-4 xl:right-0 z-30 w-10 lg:w-12 h-10 lg:h-12 rounded-full bg-white/5 border border-white/10 items-center justify-center text-white hover:bg-[#635091] hover:scale-110 transition-all duration-300 group">
+                    <i class="fas fa-chevron-right group-hover:translate-x-[2px] transition-transform text-sm"></i>
+                </button>
 
-                <!-- Mobile & Games -->
-                <div class="detail-content hidden" id="content-mobile-game">
-                    <span class="text-yellow-400 font-semibold tracking-widest uppercase text-sm">Expertise 03</span>
-                    <h2 class="text-5xl font-extrabold text-white mt-4 mb-6 leading-tight">
-                        Mobile & <span class="text-purple-400">Game Development</span>
-                    </h2>
-                    <p class="text-slate-300 text-lg leading-relaxed max-w-md">
-                        Binary Axon delivers user-friendly, secure and performance-optimized mobile apps and games 
-                        that run smoothly across Android and iOS platforms.
-                    </p>
-                    <button class="mt-8 px-8 py-3 bg-yellow-400 text-black font-semibold rounded-full">
-                        More Details
-                    </button>
-                </div>
-
-                <!-- Enterprise -->
-                <div class="detail-content hidden" id="content-enterprise">
-                    <span class="text-yellow-400 font-semibold tracking-widest uppercase text-sm">Expertise 04</span>
-                    <h2 class="text-5xl font-extrabold text-white mt-4 mb-6 leading-tight">
-                        Enterprise <span class="text-purple-400">Applications</span>
-                    </h2>
-                    <p class="text-slate-300 text-lg leading-relaxed max-w-md">
-                        We build powerful ERP systems and enterprise solutions to manage operations, 
-                        track business resources and improve productivity with smart automation.
-                    </p>
-                    <button class="mt-8 px-8 py-3 bg-yellow-400 text-black font-semibold rounded-full">
-                        More Details
-                    </button>
-                </div>
-
-                <!-- Data Warehousing -->
-                <div class="detail-content hidden" id="content-data">
-                    <span class="text-yellow-400 font-semibold tracking-widest uppercase text-sm">Expertise 05</span>
-                    <h2 class="text-5xl font-extrabold text-white mt-4 mb-6 leading-tight">
-                        Data <span class="text-purple-400">Warehousing</span>
-                    </h2>
-                    <p class="text-slate-300 text-lg leading-relaxed max-w-md">
-                        We provide big data and analytics solutions that help businesses gain insights, 
-                        track KPIs and make accurate data-driven decisions at the right time.
-                    </p>
-                    <button class="mt-8 px-8 py-3 bg-yellow-400 text-black font-semibold rounded-full">
-                        More Details
-                    </button>
-                </div>
-
-                <!-- Content Writing -->
-                <div class="detail-content hidden" id="content-writing">
-                    <span class="text-yellow-400 font-semibold tracking-widest uppercase text-sm">Expertise 06</span>
-                    <h2 class="text-5xl font-extrabold text-white mt-4 mb-6 leading-tight">
-                        Content <span class="text-purple-400">Writing</span>
-                    </h2>
-                    <p class="text-slate-300 text-lg leading-relaxed max-w-md">
-                        Our creative team writes compelling website content, blogs and marketing materials 
-                        that attract users and increase engagement.
-                    </p>
-                    <button class="mt-8 px-8 py-3 bg-yellow-400 text-black font-semibold rounded-full">
-                        More Details
-                    </button>
-                </div>
-
-                <!-- Hardware -->
-                <div class="detail-content hidden" id="content-hardware">
-                    <span class="text-yellow-400 font-semibold tracking-widest uppercase text-sm">Expertise 07</span>
-                    <h2 class="text-5xl font-extrabold text-white mt-4 mb-6 leading-tight">
-                        Hardware <span class="text-purple-400">Services</span>
-                    </h2>
-                    <p class="text-slate-300 text-lg leading-relaxed max-w-md">
-                        We provide high-quality hardware services and infrastructure setup at competitive prices 
-                        ensuring reliability and long-term performance.
-                    </p>
-                    <button class="mt-8 px-8 py-3 bg-yellow-400 text-black font-semibold rounded-full">
-                        More Details
-                    </button>
-                </div>
-
+                <!-- 3D Cards - Smaller on mobile -->
+                <template x-for="(p, index) in products" :key="index">
+                    <div @click="activeIndex = index; animateText()"
+                         :style="getCardStyle(index)"
+                         class="absolute w-[180px] sm:w-[220px] lg:w-[280px] h-[260px] sm:h-[320px] lg:h-[380px] rounded-2xl lg:rounded-[2rem] overflow-hidden cursor-pointer transition-all duration-700 ease-out group/card"
+                         :class="{'z-20': index === activeIndex, 'z-10': index !== activeIndex}">
+                        
+                        <!-- Card Image with Overlay -->
+                        <div class="absolute inset-0">
+                            <img :src="p.image" class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+                                 :class="index === activeIndex ? 'opacity-60' : 'opacity-80'"></div>
+                        </div>
+                        
+                        <!-- Card Content - Smaller text on mobile -->
+                        <div class="absolute inset-x-0 bottom-0 p-3 sm:p-4 lg:p-6 z-20 transform transition-transform duration-500"
+                             :class="index === activeIndex ? 'translate-y-0' : 'translate-y-8 lg:translate-y-12 group-hover/card:translate-y-4 lg:group-hover/card:translate-y-6'">
+                            
+                            <!-- Category Badge -->
+                            <span class="inline-block px-2 lg:px-3 py-0.5 lg:py-1 text-[8px] lg:text-xs font-mono bg-[#FFC132] text-black rounded-full mb-1 lg:mb-2"
+                                  x-text="p.category"></span>
+                            
+                            <!-- Product Name -->
+                            <h3 class="text-white font-bold text-sm sm:text-base lg:text-xl mb-1 lg:mb-2 leading-tight" x-text="p.name"></h3>
+                            
+                            <!-- Short Description (visible on hover/active) -->
+                            <p class="text-gray-300 text-[10px] sm:text-xs lg:text-sm mb-2 lg:mb-3 opacity-0 max-h-0 transition-all duration-500"
+                               :class="index === activeIndex ? 'opacity-100 max-h-20' : 'group-hover/card:opacity-100 group-hover/card:max-h-20'"
+                               x-text="p.shortDesc"></p>
+                            
+                            <!-- Feature Icons (appear on hover) - Smaller on mobile -->
+                            <div class="flex gap-1 lg:gap-2 opacity-0 transition-all duration-500 delay-100"
+                                 :class="index === activeIndex ? 'opacity-100' : 'group-hover/card:opacity-100'">
+                                <template x-for="(icon, idx) in p.icons" :key="idx">
+                                    <div class="w-5 h-5 lg:w-8 lg:h-8 rounded-lg bg-white/10 flex items-center justify-center backdrop-blur-sm">
+                                        <i :class="icon" class="text-[8px] lg:text-sm text-[#FFC132]"></i>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                        
+                        <!-- Active Indicator -->
+                        <div class="absolute top-2 lg:top-4 right-2 lg:right-4 w-1.5 lg:w-2 h-1.5 lg:h-2 rounded-full bg-[#FFC132] shadow-glow"
+                             :class="index === activeIndex ? 'opacity-100' : 'opacity-0'"></div>
+                    </div>
+                </template>
             </div>
         </div>
 
-        <!-- RIGHT SIDE COLORFUL CARDS -->
-        <div class="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-
-            <div class="service-selector-card bg-gradient-to-r from-purple-500/20 to-purple-700/20 hover:scale-105 transition p-6 rounded-2xl cursor-pointer"
-                 onclick="showDetail('web-design', this)">
-                <h3 class="text-white font-bold">Web Designing</h3>
-                <p class="text-slate-300 text-sm mt-2">Modern & Responsive UI</p>
-            </div>
-
-            <div class="service-selector-card bg-gradient-to-r from-blue-500/20 to-cyan-600/20 hover:scale-105 transition p-6 rounded-2xl cursor-pointer"
-                 onclick="showDetail('web-dev', this)">
-                <h3 class="text-white font-bold">Web Development</h3>
-                <p class="text-slate-300 text-sm mt-2">Scalable Applications</p>
-            </div>
-
-            <div class="service-selector-card bg-gradient-to-r from-pink-500/20 to-rose-600/20 hover:scale-105 transition p-6 rounded-2xl cursor-pointer"
-                 onclick="showDetail('mobile-game', this)">
-                <h3 class="text-white font-bold">Mobile & Games</h3>
-                <p class="text-slate-300 text-sm mt-2">Secure & Compatible</p>
-            </div>
-
-            <div class="service-selector-card bg-gradient-to-r from-green-500/20 to-emerald-600/20 hover:scale-105 transition p-6 rounded-2xl cursor-pointer"
-                 onclick="showDetail('enterprise', this)">
-                <h3 class="text-white font-bold">Enterprise Apps</h3>
-                <p class="text-slate-300 text-sm mt-2">ERP Solutions</p>
-            </div>
-
-            <div class="service-selector-card bg-gradient-to-r from-indigo-500/20 to-blue-600/20 hover:scale-105 transition p-6 rounded-2xl cursor-pointer"
-                 onclick="showDetail('data', this)">
-                <h3 class="text-white font-bold">Data Warehousing</h3>
-                <p class="text-slate-300 text-sm mt-2">Analytics & Insights</p>
-            </div>
-
-            <div class="service-selector-card bg-gradient-to-r from-yellow-500/20 to-orange-500/20 hover:scale-105 transition p-6 rounded-2xl cursor-pointer"
-                 onclick="showDetail('writing', this)">
-                <h3 class="text-white font-bold">Content Writing</h3>
-                <p class="text-slate-300 text-sm mt-2">Creative & Engaging</p>
-            </div>
-
-            <div class="service-selector-card bg-gradient-to-r from-gray-500/20 to-slate-600/20 hover:scale-105 transition p-6 rounded-2xl cursor-pointer"
-                 onclick="showDetail('hardware', this)">
-                <h3 class="text-white font-bold">Hardware Services</h3>
-                <p class="text-slate-300 text-sm mt-2">Reliable Infrastructure</p>
-            </div>
-
+        <!-- Progress Indicators - Visible on mobile for navigation -->
+        <div class="flex justify-center gap-1 lg:gap-2 mt-6 lg:mt-8">
+            <template x-for="(p, index) in products" :key="index">
+                <button @click="activeIndex = index" class="group">
+                    <div class="w-8 sm:w-10 lg:w-12 h-1 rounded-full transition-all duration-300"
+                         :class="index === activeIndex ? 'w-10 sm:w-14 lg:w-16 bg-[#FFC132]' : 'w-6 sm:w-8 lg:w-10 bg-white/20 group-hover:bg-white/40'"></div>
+                </button>
+            </template>
         </div>
     </div>
 </section>
-</section>  
-    <section id = "Teams" class="team-section">
-    <div class="avatar-wrapper pos-1" data-name="Arsalan Ahmed" data-role="Senior Developer">
-        <img src="assets/images/1.png" class="avatar" alt="Team Member">
-    </div>
-    
-    <div class="avatar-wrapper pos-2" data-name="Sara Khan" data-role="UI/UX Designer">
-        <img src="assets/images/2.png" class="avatar" alt="Team Member">
-    </div>
-    
-    <div class="avatar-wrapper pos-3" data-name="Zain Malik" data-role="Lead Architect">
-        <img src="assets/images/3.png" class="avatar" alt="Team Member">
+
+
+<section id="Services" class="py-16 lg:py-24 bg-[#050505] relative overflow-hidden" x-data="servicesApp()" x-init="init()">
+    <!-- Background Effects -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-[#635091]/20 rounded-full filter blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#FFC132]/20 rounded-full filter blur-3xl"></div>
     </div>
 
-    <div class="avatar-wrapper pos-4" data-name="Ayesha Ali" data-role="Product Manager">
-        <img src="assets/images/3.png" class="avatar" alt="Team Member">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 mb-10 lg:mb-16">
+        <h2 class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3">Capabilities</h2>
+        <h1 class="text-4xl sm:text-5xl lg:text-5xl font-bold text-white tracking-tighter">Our <span class="text-[#635091]">Services</span></h1>
+        <div class="h-1 w-16 lg:w-20 bg-[#635091] mt-4"></div>
+        <p class="text-gray-400 text-sm lg:text-base max-w-2xl mt-4">Comprehensive digital solutions tailored to elevate your business</p>
     </div>
 
-    <div class="avatar-wrapper pos-5" data-name="Bilal Raza" data-role="DevOps Engineer">
-        <img src="assets/images/1.png" class="avatar" alt="Team Member">
+    <!-- Services Grid - Shows only visible services -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 relative z-10">
+        <template x-for="(service, index) in visibleServices" :key="index">
+            <div class="service-card group relative h-[350px] sm:h-[400px] lg:h-[450px] rounded-2xl lg:rounded-[2rem] overflow-hidden border border-white/10 hover:border-[#FFC132]/30 transition-all duration-500">
+                <!-- Background Image -->
+                <img :src="service.image" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" :alt="service.title">
+                
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0D0D0E] via-[#0D0D0E]/80 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+                
+                <!-- Icon - Responsive sizing -->
+                <div class="absolute top-6 left-6 lg:top-8 lg:left-8 w-10 h-10 lg:w-14 lg:h-14 bg-[#050505]/80 backdrop-blur-md rounded-xl lg:rounded-2xl border border-white/20 flex items-center justify-center z-20"
+                     :style="'border-color: ' + service.color + '30'">
+                    <i :class="service.icon" class="text-lg lg:text-2xl" :style="'color: ' + service.color"></i>
+                </div>
+
+                <!-- Content - Responsive text sizes -->
+                <div class="absolute inset-x-0 bottom-0 p-5 lg:p-10 z-20 transform transition-transform duration-500 translate-y-0 lg:translate-y-8 group-hover:translate-y-0">
+                    <h3 class="text-xl lg:text-2xl font-bold text-white mb-2 lg:mb-3" x-html="service.title"></h3>
+                    
+                    <!-- Features List (visible on hover) -->
+                    <div class="space-y-1 lg:space-y-2 mb-3 lg:mb-4 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 delay-100 overflow-hidden">
+                        <template x-for="(feature, idx) in service.features" :key="idx">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-xs" :style="'color: ' + service.color"></i>
+                                <span class="text-gray-300 text-xs lg:text-sm" x-text="feature"></span>
+                            </div>
+                        </template>
+                    </div>
+                    
+                    <!-- Description - appears on hover -->
+                    <p class="text-gray-300 text-xs lg:text-sm leading-relaxed mb-3 lg:mb-4 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-500 delay-200"
+                       x-text="service.description"></p>
+                    
+                    <!-- Explore Link -->
+                    <div class="flex items-center gap-2 text-xs lg:text-sm font-bold uppercase tracking-widest cursor-pointer transition-all duration-300 hover:gap-3"
+                         :style="'color: ' + service.color">
+                        Explore More <i class="fas fa-chevron-right text-[8px] lg:text-[10px]"></i>
+                    </div>
+                </div>
+                
+                <!-- Corner Accent -->
+                <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-transparent to-white/5 rounded-bl-3xl"></div>
+            </div>
+        </template>
     </div>
 
-    <div class="avatar-wrapper pos-6" data-name="Omar Farooq" data-role="Cloud Analyst">
-        <img src="assets/images/2.png" class="avatar" alt="Team Member">
+    <!-- Load More Button -->
+    <div class="text-center mt-10 lg:mt-16" x-show="!showAll">
+        <button @click="loadMore" 
+                class="group relative px-8 lg:px-12 py-3 lg:py-4 bg-transparent border-2 border-[#635091] rounded-full overflow-hidden transition-all duration-300 hover:border-[#FFC132] hover:scale-105">
+            <!-- Button Background Animation -->
+            <span class="absolute inset-0 bg-gradient-to-r from-[#635091] to-[#FFC132] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            
+            <!-- Button Content -->
+            <span class="relative z-10 flex items-center gap-2 lg:gap-3 text-white font-bold text-sm lg:text-base">
+                <span>Load More Services</span>
+                <span class="flex items-center gap-1">
+                    <span class="w-1 h-1 bg-[#FFC132] rounded-full animate-pulse"></span>
+                    <span class="w-1 h-1 bg-[#FFC132] rounded-full animate-pulse animation-delay-200"></span>
+                    <span class="w-1 h-1 bg-[#635091] rounded-full animate-pulse animation-delay-400"></span>
+                </span>
+                <i class="fas fa-arrow-down group-hover:translate-y-1 transition-transform duration-300"></i>
+            </span>
+        </button>
     </div>
 
-    <div class="avatar-wrapper pos-7" data-name="Hiba Noor" data-role="Frontend Dev">
-        <img src="assets/images/profile.png" class="avatar" alt="Team Member">
+    <!-- Show Less Button (appears when all services are visible) -->
+    <div class="text-center mt-10 lg:mt-16" x-show="showAll">
+        <button @click="showLess" 
+                class="group relative px-8 lg:px-12 py-3 lg:py-4 bg-transparent border-2 border-[#FFC132] rounded-full overflow-hidden transition-all duration-300 hover:border-[#635091] hover:scale-105">
+            <span class="absolute inset-0 bg-gradient-to-r from-[#FFC132] to-[#635091] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+            <span class="relative z-10 flex items-center gap-2 lg:gap-3 text-white font-bold text-sm lg:text-base">
+                <span>Show Less</span>
+                <i class="fas fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"></i>
+            </span>
+        </button>
     </div>
 
-    <div class="team-content">
-        <h1>Our Expert Team</h1>
-        <p>Meet the brilliant minds transforming your ideas into reality.</p>
-        <div class="team-buttons">
-            <a href="#" class="btn-view-team">View All Members &rarr;</a>
+    <!-- Service Counter -->
+    <div class="text-center mt-6 lg:mt-8">
+        <p class="text-gray-500 text-xs lg:text-sm">
+            Showing <span x-text="visibleServices.length"></span> of <span x-text="services.length"></span> services
+        </p>
+    </div>
+</section>
+
+<!-- MAGIC PRODUCT BOOK — Products -->
+<!-- <section id="Products" class="orbital-section">
+    <div class="orbital-bg-img"></div>
+    <div class="orbital-dynamic-bg" id="orbitalDynamicBg"></div>
+
+    <div class="orbital-header">
+        <span class="orbital-label">Our Products</span>
+        <h2 class="orbital-title">Digital Solutions</h2>
+        <p class="orbital-subtitle">Click any product to learn more</p>
+    </div>
+
+    <div class="orbital-viewport" id="orbitalViewport">
+        <svg class="orbital-connections" id="orbitalSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+
+        <div class="orbital-center">
+            <div class="orbital-center-ring ring-1"></div>
+            <div class="orbital-center-ring ring-2"></div>
+            <div class="orbital-center-core"><i class="fas fa-cubes"></i></div>
+        </div>
+
+        <div class="orbital-path"></div>
+        <div class="orbital-nodes" id="orbitalNodes"></div>
+        <div class="orbital-detail-card" id="orbitalDetailCard"></div>
+    </div>
+
+    <p class="orbital-hint" id="orbitalHint">
+        <i class="fas fa-hand-pointer"></i> Tap a node to explore
+    </p>
+</section> -->
+
+<!-- Add global function for book controls -->
+<script>
+window.turnBookPage = function(direction) {
+    if (window.magicBook) {
+        window.magicBook.turnPage(direction);
+    }
+};
+</script>
+<script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+        }
+    }
+</script>
+
+<script type="module">
+    import * as THREE from 'three';
+
+    class MagicApp {
+        constructor() {
+            this.container = document.getElementById('magicCanvasContainer');
+            this.index = 0;
+            this.products = [
+                { name: 'School Management', color: 0x635091, icon: '🎓', desc: 'Complete student records and analytics.' },
+                { name: 'Restaurant POS', color: 0xffc132, icon: '🍽️', desc: 'Cloud-based ordering and kitchen display.' },
+                { name: 'E-Commerce', color: 0x00d2ff, icon: '🛍️', desc: 'Scale your business globally with AI.' }
+            ];
+
+            this.initThree();
+            this.updateUI();
+            window.addEventListener('resize', () => this.onWindowResize());
+        }
+
+        initThree() {
+            // Scene & Camera
+            this.scene = new THREE.Scene();
+            this.camera = new THREE.PerspectiveCamera(75, this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
+            this.camera.position.z = 5;
+
+            // Renderer
+            this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+            this.container.appendChild(this.renderer.domElement);
+
+            // Floating Light (This changes the background feel)
+            this.light = new THREE.PointLight(0xffffff, 50, 10);
+            this.light.position.set(0, 0, 2);
+            this.scene.add(this.light);
+
+            // Create a floating 3D object (Placeholder for the icons)
+            const geometry = new THREE.IcosahedronGeometry(1, 0);
+            const material = new THREE.MeshStandardMaterial({ color: 0xffffff, wireframe: true });
+            this.mesh = new THREE.Mesh(geometry, material);
+            this.scene.add(this.mesh);
+
+            this.animate();
+        }
+
+        updateUI() {
+            const p = this.products[this.index];
+            
+            // Update Text
+            document.getElementById('cardTitle').innerText = `${p.icon} ${p.name}`;
+            document.getElementById('cardDesc').innerText = p.desc;
+            
+            // Update Three.js Background Color & Mesh
+            this.mesh.material.color.setHex(p.color);
+            this.light.color.setHex(p.color);
+            
+            // Animation for the card
+            const card = document.getElementById('activeCard');
+            card.style.transform = 'scale(1.05)';
+            setTimeout(() => card.style.transform = 'scale(1)', 200);
+        }
+
+        next() {
+            this.index = (this.index + 1) % this.products.length;
+            this.updateUI();
+        }
+
+        prev() {
+            this.index = (this.index - 1 + this.products.length) % this.products.length;
+            this.updateUI();
+        }
+
+        onWindowResize() {
+            this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
+            this.camera.updateProjectionMatrix();
+            this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+        }
+
+        animate() {
+            requestAnimationFrame(() => this.animate());
+            this.mesh.rotation.y += 0.01;
+            this.mesh.rotation.x += 0.005;
+            this.renderer.render(this.scene, this.camera);
+        }
+    }
+
+    // Initialize the app and make it globally accessible for the buttons
+    window.magicApp = new MagicApp();
+</script>
+<!-- Why Choose Us -->
+<section id="WhyChooseUs" class="why-choose-section">
+    <div class="why-choose-bg"></div>
+    <div class="why-choose-container">
+        <h2 class="why-choose-title">Why Choose Us</h2>
+        <p class="why-choose-subtitle">Numbers that speak for our commitment</p>
+        <div class="why-choose-grid">
+            <div class="why-choose-card">
+                <div class="why-choose-icon"><i class="fas fa-smile-beam"></i></div>
+                <span class="why-choose-number" data-target="7">0</span>
+                <span class="why-choose-label">Happy Clients</span>
+            </div>
+            <div class="why-choose-card">
+                <div class="why-choose-icon"><i class="fas fa-rocket"></i></div>
+                <span class="why-choose-number" data-target="5">0</span>
+                <span class="why-choose-label">Projects</span>
+            </div>
+            <div class="why-choose-card">
+                <div class="why-choose-icon"><i class="fas fa-mug-hot"></i></div>
+                <span class="why-choose-number" data-target="700">0</span>
+                <span class="why-choose-label">Cups Of Coffee</span>
+            </div>
+            <div class="why-choose-card">
+                <div class="why-choose-icon"><i class="fas fa-users"></i></div>
+                <span class="why-choose-number" data-target="7">0</span>
+                <span class="why-choose-label">Hard Workers</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Teams — Spotlight Carousel -->
+<section id="Teams" class="team-section">
+    <div class="team-mesh-bg"></div>
+    <div class="team-glow team-glow-1"></div>
+    <div class="team-glow team-glow-2"></div>
+    <div class="team-inner">
+        <header class="team-header">
+            <span class="team-badge">The People Behind the Code</span>
+            <h2 class="team-title">Our Expert Team</h2>
+            <p class="team-subtitle">Click a card to spotlight — the minds turning your ideas into reality.</p>
+        </header>
+        <div class="team-carousel-wrap">
+            <button class="team-arrow team-arrow-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+            <div class="team-carousel" id="teamCarousel">
+                <div class="team-card" data-index="0">
+                    <div class="team-card-inner">
+                        <div class="team-card-photo"><img src="assets/images/1.png" alt="Arsalan Ahmed"></div>
+                        <div class="team-card-info">
+                            <h3>Arsalan Ahmed</h3>
+                            <p>Senior Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card" data-index="1">
+                    <div class="team-card-inner">
+                        <div class="team-card-photo"><img src="assets/images/2.png" alt="Sara Khan"></div>
+                        <div class="team-card-info">
+                            <h3>Sara Khan</h3>
+                            <p>UI/UX Designer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card" data-index="2">
+                    <div class="team-card-inner">
+                        <div class="team-card-photo"><img src="assets/images/3.png" alt="Zain Malik"></div>
+                        <div class="team-card-info">
+                            <h3>Zain Malik</h3>
+                            <p>Lead Architect</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card" data-index="3">
+                    <div class="team-card-inner">
+                        <div class="team-card-photo"><img src="assets/images/3.png" alt="Ayesha Ali"></div>
+                        <div class="team-card-info">
+                            <h3>Ayesha Ali</h3>
+                            <p>Product Manager</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card" data-index="4">
+                    <div class="team-card-inner">
+                        <div class="team-card-photo"><img src="assets/images/1.png" alt="Bilal Raza"></div>
+                        <div class="team-card-info">
+                            <h3>Bilal Raza</h3>
+                            <p>DevOps Engineer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card" data-index="5">
+                    <div class="team-card-inner">
+                        <div class="team-card-photo"><img src="assets/images/2.png" alt="Omar Farooq"></div>
+                        <div class="team-card-info">
+                            <h3>Omar Farooq</h3>
+                            <p>Cloud Analyst</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card" data-index="6">
+                    <div class="team-card-inner">
+                        <div class="team-card-photo"><img src="assets/images/profile.png" alt="Hiba Noor"></div>
+                        <div class="team-card-info">
+                            <h3>Hiba Noor</h3>
+                            <p>Frontend Dev</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="team-arrow team-arrow-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="team-cta">
+            <a href="#" class="btn"><span>View All Members</span> <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 </section>
@@ -492,26 +870,37 @@
             <div class="contact-form-side">
                 <h3>Send us a message</h3>
                 <form>
-                    <div class="input-row">
-                        <input type="text" placeholder="Name" required>
-                    </div>
-                    <div class="input-row">
-                        <input type="email" placeholder="Email" required>
-                    </div>
-                    <div class="input-row">
-                        <input type="text" placeholder="Subject">
-                    </div>
-                    <div class="input-row">
-                        <textarea placeholder="Message" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn-send-message">Send Message</button>
+                    <div class="form-group">
+    <input type="text" id="name" required placeholder=" " />
+    <label for="name" class="form-label" data-text="NAME">Name</label>
+</div>
+
+<div class="form-group">
+    <input type="email" id="email" required placeholder=" " />
+    <label for="email" class="form-label" data-text="EMAIL">Email</label>
+</div>
+<div class="form-group">
+    <input type="Subject" id="Subject" required placeholder=" " />
+    <label for="Subject" class="form-label" data-text="Subject">Subject</label>
+</div>
+<div class="form-group">
+    <textarea id="message" required placeholder=" " rows="4"></textarea>
+    <label for="message" class="form-label" data-text="MESSAGE">MESSAGE</label>
+</div>
+                    
+                   
+                    <button type="submit" class="btn">
+                        <span>
+                            Send Message
+                        </span>
+                    </button>
                 </form>
             </div>
 
             <div class="contact-info-side">
                 <div class="info-content">
                     <h2>Contact Us</h2>
-                    <div class="contact-accent-line"></div>
+                    <div class="contact-accent-line "></div>
                     <p>Reach out to us for support or to learn more about our services.</p>
                     
                     <div class="info-details">
@@ -539,6 +928,55 @@
 </section>
 
 <footer class="site-footer">
+    <!-- Our Clients — Colored Row -->
+    <section class="clients-colored-section">
+        <div class="max-w-7xl mx-auto px-6 mb-12">
+            <div class="flex items-center gap-4">
+                <span class="clients-colored-label">Our Clients</span>
+                <div class="clients-colored-line"></div>
+            </div>
+        </div>
+
+        <div class="relative flex overflow-hidden group">
+            <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#1A1A1B] to-transparent z-10"></div>
+            <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#1A1A1B] to-transparent z-10"></div>
+
+            <div class="animate-marquee flex items-center gap-8 py-4">
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="assets/images/clients/FM.png" alt="FM Sports" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Meta" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Meta" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="assets/images/clients/FM.png" alt="FM Sports" class="h-8 transition-all duration-500">
+                </div>
+                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                    <img src="assets/images/clients/mSunSportsLogo.png" alt="mSun Sports" class="h-8 transition-all duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Original Our Clients — grayscale on idle, color on hover -->
     <section class="bg-[#1A1A1B] py-20 overflow-hidden relative">
     
     <div class="max-w-7xl mx-auto px-6 mb-12">
@@ -597,7 +1035,7 @@
     <div class="footer-main">
         <div class="footer-container">
             <div class="footer-brand">
-                <img src="assets/images/binary-axon-logo.png" alt="Binary Axon" class="footer-logo">
+                <img src="assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon" class="footer-logo">
                 <p class="subsidiary">a subsidiary of Constellation Software Inc.</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -638,6 +1076,90 @@
     </div>
 </footer>
     <script src="assets/js/main.js"></script>
+    <!-- Add Three.js library -->
+
+
+<!-- Your Three.js script -->
+<script type="module">
+  import * as THREE from 'three';
+  
+  // Create a simple background scene
+  function initThreeBackground() {
+    const container = document.createElement('div');
+    container.style.position = 'fixed';
+    container.style.top = '0';
+    container.style.left = '0';
+    container.style.width = '100%';
+    container.style.height = '100%';
+    container.style.zIndex = '-1';
+    container.style.pointerEvents = 'none';
+    document.body.appendChild(container);
+    
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 0); // Transparent background
+    container.appendChild(renderer.domElement);
+    
+    // Create floating particles
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 500;
+    const posArray = new Float32Array(particlesCount * 3);
+    
+    for(let i = 0; i < particlesCount * 3; i += 3) {
+      posArray[i] = (Math.random() - 0.5) * 10;
+      posArray[i+1] = (Math.random() - 0.5) * 10;
+      posArray[i+2] = (Math.random() - 0.5) * 10;
+    }
+    
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    
+    const particlesMaterial = new THREE.PointsMaterial({
+      size: 0.02,
+      color: 0x635091, // Your primary purple color
+      transparent: true,
+      opacity: 0.6
+    });
+    
+    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particlesMesh);
+    
+    camera.position.z = 5;
+    
+    function animate() {
+      requestAnimationFrame(animate);
+      particlesMesh.rotation.y += 0.0005;
+      particlesMesh.rotation.x += 0.0002;
+      renderer.render(scene, camera);
+    }
+    
+    animate();
+    
+    // Handle resize
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  }
+  
+  // Initialize when page loads
+  window.addEventListener('load', initThreeBackground);
+</script>
+
+<!-- Add import map for Three.js -->
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
+    }
+  }
+</script>
+
+<!-- Your orbital three.js script -->
+<script type="module" src="assets/js/orbital-three.js"></script>
 </body>
 
 </html>

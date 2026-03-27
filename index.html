@@ -1,1156 +1,753 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binary Axon | Tech Reality</title>
+    <title>OrbexTech | Tech Reality</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script src="https://cdn.tailwindcss.com"></script>
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
+
 <body>
+    <div class="ambient-glow"></div>
+    <div class="ambient-glow ambient-glow-2"></div>
 
     <header class="main-header" id="header">
-    <div class="header-container">
-        <nav>
-            <div class="nav-logo" id="navLogo">
-                <img src="assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon Logo">
-            </div>
-            <div class="nav-links" id="navLinks">
-                <a href="#home">Home</a>
-                <a href="#Teams">Teams</a>
-                <a href="#Services">Services</a>
-                <a href="#Products">Products</a>
-                <a href="#WhyChooseUs">Why Choose Us</a>
-                <a href="#Aboutus">About Us</a>
-            </div>
-<button class="btn nav-contact-btn " onclick="scrollToContact()"><span>Contact Us</span></button>
-<button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-</button>
-        </nav>
-    </div>
-</header>
-
-<!-- Update this div in your HTML - it should be right after body tag -->
-
-<section id="home" class="hero">
-    <video autoplay muted loop playsinline class="hero-video">
-        <source src="assets/images/landingvideo.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <div class="logo-text" id="heroLogo">
-            <img src="assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon" style="max-width: 600px; width: 100%; height: auto; margin: 0 auto;">
-        </div>
-        <h1 class="tagline mt-5">Binary Axon provides wealth of technical and business expertise to its customers</h1>
-        <p class="tagline">Transforming Ideas into Tech Reality</p> <!-- Fixed typo: Terforming → Transforming -->
-        <button class="btn"><span>Let's Get Started</span></button> <!-- Fixed typo: Let → Let's -->
-    </div>
-</section>
-   <section class="about-section py-15 bg-[#050505] relative overflow-hidden" id="Aboutus">
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-        
-       <div class="text-center mb-10">
-   
-    <h1 class="text-5xl font-bold text-white tracking-tighter" id="about-title">About Us</h1>
-    <div class="h-1 w-12 bg-[#635091] mx-auto mt-4" id="about-line"></div>
-</div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            
-            <div class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#FFC132]/50 transition-all duration-300 group">
-                <div class="text-[#FFC132] text-3xl mb-6 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-city"></i>
+        <div class="header-container">
+            <nav>
+                <div class="nav-logo" id="navLogo">
+                    <img src="assets/images/logo1.png" alt="OrbexTech Logo" class="footer-logo">
                 </div>
-                <h3 class="text-white font-bold text-xl mb-4">Our Company</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Software craftsmen building scalable products which help businesses to implement technical initiatives.</p>
-            </div>
-
-            <div class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#635091]/50 transition-all duration-300 group">
-                <div class="text-[#635091] text-3xl mb-6 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-users-gear"></i>
+                <div class="nav-links" id="navLinks">
+                    <a href="#home">Home</a>
+                    <a href="#Aboutus">About Us</a>
+                    <a href="#Services">Services</a>
+                    <a href="#Process">Workflow</a>
+                    <a href="#Team">Team</a>
+                    <a href="#contact">Contact</a>
                 </div>
-                <h3 class="text-white font-bold text-xl mb-4">Our Team</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Binary Axon is a team of experts who implement ideas of our business partners same as they aspire.</p>
-            </div>
-
-            <div class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#FFC132]/50 transition-all duration-300 group">
-                <div class="text-[#FFC132] text-3xl mb-6 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <h3 class="text-white font-bold text-xl mb-4">Our Passion</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">We mix your ideas and needs with our expertise to form software solutions for your business.</p>
-            </div>
-
-            <div class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#635091]/50 transition-all duration-300 group">
-                <div class="text-[#635091] text-3xl mb-6 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-bullseye"></i>
-                </div>
-                <h3 class="text-white font-bold text-xl mb-4">Our Mission</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Binary Axon aims to help businesses achieve organizational growth and we engineer new systems.</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section class="relative bg-slate-50 py-24 overflow-hidden hidden">
-    <div class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-200 rounded-full blur-3xl opacity-50"></div>
-    <div class="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-amber-100 rounded-full blur-3xl opacity-50"></div>
-
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-black text-slate-900 tracking-tight mb-4">OUR SERVICES</h2>
-            <div class="w-20 h-1.5 bg-amber-400 mx-auto rounded-full"></div>
-            <p class="mt-6 text-slate-600 max-w-2xl mx-auto text-lg">We combine innovative design with robust engineering to deliver world-class digital products.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <div class="md:col-span-2 group relative bg-white border border-slate-200 p-8 rounded-3xl transition-all duration-500 hover:shadow-2xl hover:shadow-purple-200/50 overflow-hidden">
-                <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-palette text-8xl text-purple-600"></i>
-                </div>
-                <div class="relative z-10">
-                    <span class="inline-block px-4 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold uppercase tracking-widest mb-4">Popular</span>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Web Designing</h3>
-                    <p class="text-slate-600 mb-8 max-w-md">We craft immersive digital experiences. Our designs aren't just pretty—they're built to convert visitors into loyal customers through intuitive UI/UX.</p>
-                    <a href="#" class="inline-flex items-center text-purple-600 font-bold hover:gap-3 transition-all">
-                        More Details <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="bg-slate-900 p-8 rounded-3xl text-white flex flex-col justify-between group hover:bg-slate-800 transition-colors">
-                <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-2xl group-hover:rotate-12 transition-transform">
-                    <i class="fas fa-code"></i>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-3 mt-8">Web Development</h3>
-                    <p class="text-slate-400 text-sm mb-6">Scalable, secure, and lightning-fast multi-platform solutions tailored for your growth.</p>
-                    <a href="#" class="text-amber-400 font-medium text-sm">Explore Tech Stack →</a>
-                </div>
-            </div>
-
-            <div class="bg-white border border-slate-200 p-8 rounded-3xl hover:border-purple-400 transition-colors">
-                <i class="fas fa-mobile-screen text-3xl text-purple-600 mb-6 block"></i>
-                <h3 class="text-lg font-bold text-slate-900 mb-2">Mobile & Game Dev</h3>
-                <p class="text-slate-500 text-sm">User-friendly and secure mobile ecosystems for iOS and Android.</p>
-            </div>
-
-            <div class="bg-white border border-slate-200 p-8 rounded-3xl hover:border-purple-400 transition-colors">
-                <i class="fas fa-microchip text-3xl text-purple-600 mb-6 block"></i>
-                <h3 class="text-lg font-bold text-slate-900 mb-2">Enterprise Solutions</h3>
-                <p class="text-slate-500 text-sm">ERP systems that simplify complex business resources and workflows.</p>
-            </div>
-
-            <div class="bg-white border border-slate-200 p-8 rounded-3xl hover:border-purple-400 transition-colors">
-                <i class="fas fa-chart-line text-3xl text-purple-600 mb-6 block"></i>
-                <h3 class="text-lg font-bold text-slate-900 mb-2">Data Warehousing</h3>
-                <p class="text-slate-500 text-sm">Strategic big data insights for informed decision-making.</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section id="OurProducts" class="py-24 bg-[#050505] relative overflow-hidden hidden" x-data="{ limit: 4, total: 6 }">
-    <div class="max-w-7xl mx-auto px-6 mb-12">
-        <h2 class="text-[#635091] font-mono tracking-[0.3em] uppercase text-xs mb-3">Inventory</h2>
-        <h1 class="text-4xl font-bold text-white tracking-tighter">Our <span class="text-[#FFC132]">Products</span></h1>
-        <div class="h-1 w-16 bg-[#FFC132] mt-4"></div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-        
-        <div class="product-card group relative h-[320px] rounded-[1.5rem] overflow-hidden border border-white/5 bg-[#0D0D0E]" x-show="true">
-            <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=500" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" alt="Product">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
-            
-            <div class="absolute inset-x-0 bottom-0 p-6 z-20 transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
-                <span class="text-[#635091] text-[10px] font-bold uppercase tracking-widest">Software</span>
-                <h3 class="text-xl font-bold text-white mt-1">Retail POS</h3>
-                <p class="text-gray-400 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Fast & secure billing system for retail shops.</p>
-            </div>
-        </div>
-
-        <div class="product-card group relative h-[320px] rounded-[1.5rem] overflow-hidden border border-white/5 bg-[#0D0D0E]">
-            <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=500" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" alt="Product">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
-            <div class="absolute inset-x-0 bottom-0 p-6 z-20 translate-y-4 group-hover:translate-y-0 transition-transform">
-                <span class="text-[#FFC132] text-[10px] font-bold uppercase tracking-widest">Management</span>
-                <h3 class="text-xl font-bold text-white mt-1">Gym Suite</h3>
-                <p class="text-gray-400 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Complete member & trainer tracking system.</p>
-            </div>
-        </div>
-
-        <div class="product-card group relative h-[320px] rounded-[1.5rem] overflow-hidden border border-white/5 bg-[#0D0D0E]">
-            <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=500" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" alt="Product">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
-            <div class="absolute inset-x-0 bottom-0 p-6 z-20 translate-y-4 group-hover:translate-y-0 transition-transform">
-                <span class="text-[#635091] text-[10px] font-bold uppercase tracking-widest">Utility</span>
-                <h3 class="text-xl font-bold text-white mt-1">HR Portal</h3>
-                <p class="text-gray-400 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Payroll and employee leave management.</p>
-            </div>
-        </div>
-
-        <div class="product-card group relative h-[320px] rounded-[1.5rem] overflow-hidden border border-white/5 bg-[#0D0D0E]">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" alt="Product">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
-            <div class="absolute inset-x-0 bottom-0 p-6 z-20 translate-y-4 group-hover:translate-y-0 transition-transform">
-                <span class="text-[#FFC132] text-[10px] font-bold uppercase tracking-widest">Enterprise</span>
-                <h3 class="text-xl font-bold text-white mt-1">Data Pro</h3>
-                <p class="text-gray-400 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Advanced analytics and BI dashboard.</p>
-            </div>
-        </div>
-
-        <template x-if="limit > 4">
-            <div class="contents">
-                <div class="product-card group relative h-[320px] rounded-[1.5rem] overflow-hidden border border-white/5 bg-[#0D0D0E]">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
-                    <div class="absolute inset-x-0 bottom-0 p-6 z-20 translate-y-4 group-hover:translate-y-0 transition-transform">
-                        <h3 class="text-xl font-bold text-white">Cyber Shield</h3>
-                    </div>
-                </div>
-                <div class="product-card group relative h-[320px] rounded-[1.5rem] overflow-hidden border border-white/5 bg-[#0D0D0E]">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
-                    <div class="absolute inset-x-0 bottom-0 p-6 z-20 translate-y-4 group-hover:translate-y-0 transition-transform">
-                        <h3 class="text-xl font-bold text-white">Cloud Node</h3>
-                    </div>
-                </div>
-            </div>
-        </template>
-    </div>
-
-    <div class="text-center mt-12" x-show="limit < total">
-        <button @click="limit = total" class="btn">
-            <span>LOAD MORE PRODUCTS</span>
-        </button>
-    </div>
-</section>
-
-
-<!-- <section class="products-section">
-    <div class="products-container">
-        <h2 class="products-title">OUR PRODUCTS</h2>
-        <div class="products-underline"></div>
-
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-corner"></div>
-                <div class="product-icon"><i class="fas fa-calculator"></i></div>
-                <h3>Account Management System</h3>
-                <p>A comprehensive solution for tracking finances, managing ledgers, and generating real-time reports to keep your business profitable.</p>
-                <a href="#" class="product-link">→ More Details</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-corner"></div>
-                <div class="product-icon"><i class="fas fa-cash-register"></i></div>
-                <h3>Point of Sale (POS)</h3>
-                <p>Speed up your checkout process with our intuitive POS system, featuring inventory tracking and seamless sales integration.</p>
-                <a href="#" class="product-link">→ More Details</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-corner"></div>
-                <div class="product-icon"><i class="fas fa-school"></i></div>
-                <h3>School Management System</h3>
-                <p>Streamline student records, fee collection, and academic scheduling with our all-in-one platform designed for modern educators.</p>
-                <a href="#" class="product-link">→ More Details</a>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-<!-- <section class="relative bg-[#1A1A1B] py-24 overflow-hidden interactive-services">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
-        
-        <div class="w-full lg:w-1/2 relative min-h-[400px] flex flex-col justify-center">
-            <div class="absolute -top-10 -left-10 w-32 h-32 bg-[#7052A5] opacity-20 blur-3xl"></div>
-            
-            <div id="details-container">
-                <div class="detail-content active" id="content-web-design">
-                    <span class="text-[#F4B400] font-bold tracking-widest uppercase text-sm">Expertise 01</span>
-                    <h2 class="text-5xl font-black text-white mt-4 mb-6 leading-tight">Web <br><span class="text-[#7052A5]">Designing</span></h2>
-                    <p class="text-slate-400 text-lg leading-relaxed max-w-md">
-                        We are team of experts who designs and develop fully responsive web applications for any sort of business need in affordable prices.
-                    </p>
-                    <button class="mt-8 px-8 py-3 bg-[#F4B400] text-black font-bold rounded-full hover:scale-105 transition-transform">Start Designing</button>
-                </div>
-
-                <div class="detail-content" id="content-web-dev">
-                    <span class="text-[#F4B400] font-bold tracking-widest uppercase text-sm">Expertise 02</span>
-                    <h2 class="text-5xl font-black text-white mt-4 mb-6 leading-tight">Web <br><span class="text-[#7052A5]">Development</span></h2>
-                    <p class="text-slate-400 text-lg leading-relaxed max-w-md">
-                        We develop best-multi platform mobile applications according for our clients according to their business requirement.
-                    </p>
-                    <button class="mt-8 px-8 py-3 bg-[#F4B400] text-black font-bold rounded-full">Explore Tech</button>
-                </div>
-
-                </div>
-        </div>
-
-        <div class="w-full lg:w-1/2 flex flex-col gap-4">
-            <div class="service-selector-card active p-6 rounded-2xl flex items-center gap-6" onclick="showDetail('web-design', this)">
-                <div class="w-12 h-12 rounded-xl bg-[#7052A5]/20 flex items-center justify-center text-white text-xl">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <div>
-                    <h3 class="text-white font-bold text-lg">Web Designing</h3>
-                    <p class="text-slate-500 text-sm">Fully Responsive Solutions</p>
-                </div>
-            </div>
-
-            <div class="service-selector-card p-6 rounded-2xl flex items-center gap-6" onclick="showDetail('web-dev', this)">
-                <div class="w-12 h-12 rounded-xl bg-[#7052A5]/20 flex items-center justify-center text-white text-xl">
-                    <i class="fas fa-code"></i>
-                </div>
-                <div>
-                    <h3 class="text-white font-bold text-lg">Web Development</h3>
-                    <p class="text-slate-500 text-sm">Multi-platform Applications</p>
-                </div>
-            </div>
-
-            <div class="service-selector-card p-6 rounded-2xl flex items-center gap-6" onclick="showDetail('mobile-game', this)">
-                <div class="w-12 h-12 rounded-xl bg-[#7052A5]/20 flex items-center justify-center text-white text-xl">
-                    <i class="fas fa-gamepad"></i>
-                </div>
-                <div>
-                    <h3 class="text-white font-bold text-lg">Mobile & Games</h3>
-                    <p class="text-slate-500 text-sm">Secure & Compatible</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section> -->
-
-<section id="ProductSection" x-data="enhancedProductApp()" x-init="init()" 
-    class="relative min-h-screen py-16 lg:py-24 overflow-hidden bg-gradient-to-b from-[#050505] via-[#0a0a0f] to-[#050505] transition-all duration-1000">
-    
-    <!-- Animated Background Gradient -->
-    <div class="absolute inset-0 pointer-events-none opacity-20 lg:opacity-30"
-         :style="'background: radial-gradient(circle at ' + mouseX + '% ' + mouseY + '%, ' + products[activeIndex].color + ' 0%, transparent 70%)'">
-    </div>
-    
-    <!-- Floating Particles Effect (Lighter on mobile) -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-30 lg:opacity-100">
-        <div class="absolute top-20 left-10 w-30 lg:w-40 h-30 lg:h-40 bg-[#635091] rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-        <div class="absolute top-40 right-10 w-48 lg:w-72 h-48 lg:h-72 bg-[#FFC132] rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-        <div class="absolute bottom-20 left-20 w-48 lg:w-72 h-48 lg:h-72 bg-[#4a3b7a] rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        <!-- Header Section with Animation -->
-        <div class="text-center mb-10 lg:mb-16" x-intersect="$el.classList.add('animate-fade-in-up')">
-            <h2 class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
-                <span class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
-            </h2>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tighter mb-2 lg:mb-4">
-                Our Products
-                
-            </h1>
-            <p class="text-sm lg:text-base text-gray-400 max-w-2xl mx-auto px-4">Discover our comprehensive suite of digital solutions designed to transform your business</p>
-        </div>
-
-        <!-- Main Content Grid - Stack on mobile, side-by-side on desktop -->
-        <div class="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-            <!-- Left Side - Enhanced Detail Panel (Appears above cards on mobile) -->
-            <div class="w-full lg:col-span-5 z-20 order-2 lg:order-1" x-show="activeIndex !== null" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-[20px] lg:translate-y-0 lg:translate-x-[-20px]" x-transition:enter-end="opacity-100 translate-y-0 lg:translate-x-0">
-                <div class="backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5 p-5 sm:p-6 lg:p-8 rounded-2xl lg:rounded-[2rem] border border-white/10 shadow-2xl relative overflow-hidden group">
-                    <!-- Decorative Corner -->
-                    <div class="absolute -top-20 -right-20 w-32 lg:w-40 h-32 lg:h-40 bg-[#635091] rounded-full opacity-20 blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-                    
-                    <!-- Product Icon/Logo - Smaller on mobile -->
-                    <div class="flex items-center gap-3 lg:gap-4 mb-4 lg:mb-6">
-                        <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl bg-gradient-to-br from-[#635091] to-[#FFC132] p-[2px]">
-                            <div class="w-full h-full rounded-xl lg:rounded-2xl bg-[#050505] flex items-center justify-center text-xl lg:text-3xl" x-html="products[activeIndex].icon"></div>
-                        </div>
-                        <div>
-                            <span class="text-[#FFC132] text-[10px] lg:text-sm font-mono" x-text="products[activeIndex].category"></span>
-                            <h3 x-text="products[activeIndex].name" class="text-xl lg:text-3xl font-bold text-white"></h3>
-                        </div>
-                    </div>
-
-                    <!-- Description with Typing Animation - Smaller text on mobile -->
-                    <div class="mb-4 lg:mb-6">
-                        <p id="product-desc" class="text-sm lg:text-base text-gray-300 leading-relaxed min-h-[60px] lg:min-h-[80px]"></p>
-                    </div>
-
-                    <!-- Key Features with Icons - 2 columns on mobile, grid on desktop -->
-                    <div class="grid grid-cols-2 gap-2 lg:gap-4 mb-4 lg:mb-6">
-                        <template x-for="(feature, idx) in products[activeIndex].features" :key="idx">
-                            <div class="flex items-center gap-1 lg:gap-2 text-xs lg:text-sm group/feature">
-                                <div class="w-5 h-5 lg:w-6 lg:h-6 rounded-lg bg-[#FFC132]/10 flex items-center justify-center group-hover/feature:bg-[#FFC132] transition-colors duration-300">
-                                    <i :class="feature.icon" class="text-[10px] lg:text-xs text-[#FFC132] group-hover/feature:text-black transition-colors"></i>
-                                </div>
-                                <span class="text-gray-300 group-hover/feature:text-white transition-colors" x-text="feature.text"></span>
-                            </div>
-                        </template>
-                    </div>
-
-                    <!-- Technologies/Tools Used - Scrollable on mobile -->
-                    <div class="mb-4 lg:mb-6">
-                        <p class="text-[10px] lg:text-xs text-[#FFC132] font-mono mb-2 lg:mb-3">TECHNOLOGIES</p>
-                        <div class="flex flex-wrap gap-1 lg:gap-2">
-                            <template x-for="(tech, idx) in products[activeIndex].technologies" :key="idx">
-                                <span class="px-2 lg:px-3 py-0.5 lg:py-1 text-[10px] lg:text-xs bg-white/5 border border-white/10 rounded-full text-gray-300 hover:bg-[#635091] hover:text-white transition-all duration-300">
-                                    <i :class="tech.icon" class="mr-0.5 lg:mr-1 text-[8px] lg:text-[10px]"></i>
-                                    <span x-text="tech.name"></span>
-                                </span>
-                            </template>
-                        </div>
-                    </div>
-
-                    <!-- Stats/Highlights - Smaller on mobile -->
-                    <div class="grid grid-cols-3 gap-2 lg:gap-4 mb-4 lg:mb-6 p-3 lg:p-4 bg-white/5 rounded-xl border border-white/5">
-                        <template x-for="(stat, idx) in products[activeIndex].stats" :key="idx">
-                            <div class="text-center">
-                                <div class="text-base lg:text-xl font-bold text-[#FFC132]" x-text="stat.value"></div>
-                                <div class="text-[8px] lg:text-xs text-gray-400" x-text="stat.label"></div>
-                            </div>
-                        </template>
-                    </div>
-
-                    <!-- Action Buttons - Full width on mobile -->
-                    <div class="flex gap-2 lg:gap-3">
-                        <button class="flex-1 px-4 lg:px-6 py-2 lg:py-3 bg-gradient-to-r from-[#FFC132] to-[#635091] text-black font-bold rounded-full hover:scale-105 transition-transform text-xs lg:text-sm uppercase tracking-wider flex items-center justify-center gap-1 lg:gap-2 group/btn">
-                            <span>Explore</span>
-                            <i class="fas fa-arrow-right group-hover/btn:translate-x-1 transition-transform text-[10px] lg:text-xs"></i>
-                        </button>
-                        <button class="px-4 lg:px-6 py-2 lg:py-3 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-[#635091] hover:border-[#635091] transition-all text-xs lg:text-sm uppercase tracking-wider">
-                            <i class="fas fa-play text-[10px] lg:text-xs"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Side - 3D Card Carousel (Appears first on mobile) -->
-            <div class="w-full lg:col-span-7 relative h-[400px] sm:h-[450px] lg:h-[600px] flex justify-center items-center perspective-2000 order-1 lg:order-2 mb-6 lg:mb-0">
-                <!-- Navigation Arrows - Hidden on mobile (use dots instead) -->
-                <button @click="prevProduct" class="hidden lg:flex absolute -left-4 xl:left-0 z-30 w-10 lg:w-12 h-10 lg:h-12 rounded-full bg-white/5 border border-white/10 items-center justify-center text-white hover:bg-[#635091] hover:scale-110 transition-all duration-300 group">
-                    <i class="fas fa-chevron-left group-hover:translate-x-[-2px] transition-transform text-sm"></i>
+                <button class="btn nav-contact-btn " onclick="scrollToContact()"><span>Contact Us</span></button>
+                <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
                 </button>
-                <button @click="nextProduct" class="hidden lg:flex absolute -right-4 xl:right-0 z-30 w-10 lg:w-12 h-10 lg:h-12 rounded-full bg-white/5 border border-white/10 items-center justify-center text-white hover:bg-[#635091] hover:scale-110 transition-all duration-300 group">
-                    <i class="fas fa-chevron-right group-hover:translate-x-[2px] transition-transform text-sm"></i>
-                </button>
+            </nav>
+        </div>
+    </header>
 
-                <!-- 3D Cards - Smaller on mobile -->
-                <template x-for="(p, index) in products" :key="index">
-                    <div @click="activeIndex = index; animateText()"
-                         :style="getCardStyle(index)"
-                         class="absolute w-[180px] sm:w-[220px] lg:w-[280px] h-[260px] sm:h-[320px] lg:h-[380px] rounded-2xl lg:rounded-[2rem] overflow-hidden cursor-pointer transition-all duration-700 ease-out group/card"
-                         :class="{'z-20': index === activeIndex, 'z-10': index !== activeIndex}">
-                        
-                        <!-- Card Image with Overlay -->
-                        <div class="absolute inset-0">
-                            <img :src="p.image" class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
-                                 :class="index === activeIndex ? 'opacity-60' : 'opacity-80'"></div>
+    <!-- Update this div in your HTML - it should be right after body tag -->
+
+    <section id="home" class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="assets/images/hero1.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="flex justify-center mb-8" id="heroLogo">
+                <img src="assets/images/logo1.png" alt="OrbexTech Logo"
+                    class="max-w-[400px] lg:max-w-[550px] w-full h-auto drop-shadow-[0_0_30px_rgba(90,185,234,0.3)]">
+            </div>
+            <h1 class="text-4xl lg:text-6xl font-extrabold text-white tracking-tighter mb-4">Empowering Ideas Through
+                <span class="text-[#7DD3FC]">Technology</span>.</h1>
+            <p class="text-gray-300 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+                Orbex Technology is a fast-growing startup transforming your ideas into powerful digital solutions. We
+                modernize business operations through custom ERP, CRM, and AI-driven automation.
+            </p>
+            <button class="btn"><span>Let’s Work Together</span></button>
+        </div>
+    </section>
+    <section class="about-section py-15 bg-[#050505] relative overflow-hidden" id="Aboutus">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+            <div class="text-center mb-10">
+
+                <h1 class="text-5xl font-bold text-white tracking-tighter" id="about-title">About Us</h1>
+                <div class="h-1 w-12 bg-[#2E4A71] mx-auto mt-4" id="about-line"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <div
+                    class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#7DD3FC]/50 transition-all duration-300 group">
+                    <div class="text-[#7DD3FC] text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-xl mb-4">About Us</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Orbex Technology aims to empower organizations with
+                        reliable technology and strategic insights. We build scalable, cost-effective systems that drive
+                        productivity.</p>
+                </div>
+
+                <div
+                    class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#2E4A71]/50 transition-all duration-300 group">
+                    <div class="text-[#2E4A71] text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-xl mb-4">Our Vision</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">To become a trusted global technology partner,
+                        empowering businesses with intelligent solutions that drive sustainable growth and competitive
+                        advantage.</p>
+                </div>
+
+                <div
+                    class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#7DD3FC]/50 transition-all duration-300 group">
+                    <div class="text-[#7DD3FC] text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-xl mb-4">Our Mission</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Our mission is to bridge the gap between complex
+                        problems and elegant tech solutions, ensuring our clients stay ahead in the digital race.</p>
+                </div>
+
+                <div
+                    class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#2E4A71]/50 transition-all duration-300 group">
+                    <div class="text-[#2E4A71] text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-xl mb-4">CEO Message</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">"Our strength lies in our people, who bring a high
+                        level of accountability and a results-oriented mindset to every project we undertake." <br><br>—
+                        Muhammad Waris Karim</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="reveal-on-scroll">
+
+
+
+        <section id="Services" class="py-16 lg:py-24 bg-[#050505] relative overflow-hidden" x-data="servicesApp()"
+            x-init="init()">
+            <!-- Background Effects -->
+            <div class="absolute inset-0 pointer-events-none">
+                <div class="absolute top-0 left-0 w-96 h-96 bg-[#2E4A71]/20 rounded-full filter blur-3xl"></div>
+                <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#7DD3FC]/20 rounded-full filter blur-3xl"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 mb-10 lg:mb-16">
+                <h2 class="text-[#7DD3FC] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3">Capabilities
+                </h2>
+                <h1 class="text-4xl sm:text-5xl lg:text-5xl font-bold text-white tracking-tighter">Our <span
+                        class="text-[#2E4A71]">Services</span></h1>
+                <div class="h-1 w-16 lg:w-20 bg-[#2E4A71] mt-4"></div>
+                <p class="text-gray-400 text-sm lg:text-base max-w-2xl mt-4">Comprehensive digital solutions tailored to
+                    elevate your business</p>
+            </div>
+
+            <!-- Services Grid - Shows only visible services -->
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 relative z-10">
+                <template x-for="(service, index) in visibleServices" :key="index">
+                    <div
+                        class="service-card group relative h-[350px] sm:h-[400px] lg:h-[450px] rounded-2xl lg:rounded-[2rem] overflow-hidden border border-white/10 hover:border-[#7DD3FC]/30 transition-all duration-500">
+                        <!-- Background Image -->
+                        <img :src="service.image"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            :alt="service.title">
+
+                        <!-- Gradient Overlay -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#0D0D0E] via-[#0D0D0E]/80 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500">
                         </div>
-                        
-                        <!-- Card Content - Smaller text on mobile -->
-                        <div class="absolute inset-x-0 bottom-0 p-3 sm:p-4 lg:p-6 z-20 transform transition-transform duration-500"
-                             :class="index === activeIndex ? 'translate-y-0' : 'translate-y-8 lg:translate-y-12 group-hover/card:translate-y-4 lg:group-hover/card:translate-y-6'">
-                            
-                            <!-- Category Badge -->
-                            <span class="inline-block px-2 lg:px-3 py-0.5 lg:py-1 text-[8px] lg:text-xs font-mono bg-[#FFC132] text-black rounded-full mb-1 lg:mb-2"
-                                  x-text="p.category"></span>
-                            
-                            <!-- Product Name -->
-                            <h3 class="text-white font-bold text-sm sm:text-base lg:text-xl mb-1 lg:mb-2 leading-tight" x-text="p.name"></h3>
-                            
-                            <!-- Short Description (visible on hover/active) -->
-                            <p class="text-gray-300 text-[10px] sm:text-xs lg:text-sm mb-2 lg:mb-3 opacity-0 max-h-0 transition-all duration-500"
-                               :class="index === activeIndex ? 'opacity-100 max-h-20' : 'group-hover/card:opacity-100 group-hover/card:max-h-20'"
-                               x-text="p.shortDesc"></p>
-                            
-                            <!-- Feature Icons (appear on hover) - Smaller on mobile -->
-                            <div class="flex gap-1 lg:gap-2 opacity-0 transition-all duration-500 delay-100"
-                                 :class="index === activeIndex ? 'opacity-100' : 'group-hover/card:opacity-100'">
-                                <template x-for="(icon, idx) in p.icons" :key="idx">
-                                    <div class="w-5 h-5 lg:w-8 lg:h-8 rounded-lg bg-white/10 flex items-center justify-center backdrop-blur-sm">
-                                        <i :class="icon" class="text-[8px] lg:text-sm text-[#FFC132]"></i>
+
+                        <!-- Icon - Responsive sizing -->
+                        <div class="absolute top-6 left-6 lg:top-8 lg:left-8 w-10 h-10 lg:w-14 lg:h-14 bg-[#050505]/80 backdrop-blur-md rounded-xl lg:rounded-2xl border border-white/20 flex items-center justify-center z-20"
+                            :style="'border-color: ' + service.color + '30'">
+                            <i :class="service.icon" class="text-lg lg:text-2xl" :style="'color: ' + service.color"></i>
+                        </div>
+
+                        <!-- Content - Responsive text sizes -->
+                        <div
+                            class="absolute inset-x-0 bottom-0 p-5 lg:p-10 z-20 transform transition-transform duration-500 translate-y-0 lg:translate-y-8 group-hover:translate-y-0">
+                            <h3 class="text-xl lg:text-2xl font-bold text-white mb-2 lg:mb-3" x-html="service.title">
+                            </h3>
+
+                            <!-- Features List (visible on hover) -->
+                            <div
+                                class="space-y-1 lg:space-y-2 mb-3 lg:mb-4 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 delay-100 overflow-hidden">
+                                <template x-for="(feature, idx) in service.features" :key="idx">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fas fa-check-circle text-xs" :style="'color: ' + service.color"></i>
+                                        <span class="text-gray-300 text-xs lg:text-sm" x-text="feature"></span>
                                     </div>
                                 </template>
                             </div>
+
+                            <!-- Description - appears on hover -->
+                            <p class="text-gray-300 text-xs lg:text-sm leading-relaxed mb-3 lg:mb-4 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-500 delay-200"
+                                x-text="service.description"></p>
+
+                            <!-- Explore Link -->
+                            <a :href="service.url"
+                                class="flex items-center gap-2 text-xs lg:text-sm font-bold uppercase tracking-widest cursor-pointer transition-all duration-300 hover:gap-3"
+                                :style="'color: ' + service.color" target="_blank">
+                                Explore More <i class="fas fa-chevron-right text-[8px] lg:text-[10px]"></i>
+                            </a>
                         </div>
-                        
-                        <!-- Active Indicator -->
-                        <div class="absolute top-2 lg:top-4 right-2 lg:right-4 w-1.5 lg:w-2 h-1.5 lg:h-2 rounded-full bg-[#FFC132] shadow-glow"
-                             :class="index === activeIndex ? 'opacity-100' : 'opacity-0'"></div>
+
+                        <!-- Corner Accent -->
+                        <div
+                            class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-transparent to-white/5 rounded-bl-3xl">
+                        </div>
                     </div>
                 </template>
             </div>
-        </div>
 
-        <!-- Progress Indicators - Visible on mobile for navigation -->
-        <div class="flex justify-center gap-1 lg:gap-2 mt-6 lg:mt-8">
-            <template x-for="(p, index) in products" :key="index">
-                <button @click="activeIndex = index" class="group">
-                    <div class="w-8 sm:w-10 lg:w-12 h-1 rounded-full transition-all duration-300"
-                         :class="index === activeIndex ? 'w-10 sm:w-14 lg:w-16 bg-[#FFC132]' : 'w-6 sm:w-8 lg:w-10 bg-white/20 group-hover:bg-white/40'"></div>
-                </button>
-            </template>
-        </div>
-    </div>
-</section>
+            <!-- Load More Button -->
+            <div class="text-center mt-10 lg:mt-16" x-show="!showAll">
+                <button @click="loadMore"
+                    class="group relative px-8 lg:px-12 py-3 lg:py-4 bg-transparent border-2 border-[var(--primary-blue)] rounded-full overflow-hidden transition-all duration-300 hover:scale-105">
+                    <!-- Button Background Animation -->
+                    <span
+                        class="absolute inset-0 bg-gradient-to-r from-[var(--primary-blue)] to-[var(--accent-sky)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
 
-
-<section id="Services" class="py-16 lg:py-24 bg-[#050505] relative overflow-hidden" x-data="servicesApp()" x-init="init()">
-    <!-- Background Effects -->
-    <div class="absolute inset-0 pointer-events-none">
-        <div class="absolute top-0 left-0 w-96 h-96 bg-[#635091]/20 rounded-full filter blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#FFC132]/20 rounded-full filter blur-3xl"></div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 mb-10 lg:mb-16">
-        <h2 class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3">Capabilities</h2>
-        <h1 class="text-4xl sm:text-5xl lg:text-5xl font-bold text-white tracking-tighter">Our <span class="text-[#635091]">Services</span></h1>
-        <div class="h-1 w-16 lg:w-20 bg-[#635091] mt-4"></div>
-        <p class="text-gray-400 text-sm lg:text-base max-w-2xl mt-4">Comprehensive digital solutions tailored to elevate your business</p>
-    </div>
-
-    <!-- Services Grid - Shows only visible services -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 relative z-10">
-        <template x-for="(service, index) in visibleServices" :key="index">
-            <div class="service-card group relative h-[350px] sm:h-[400px] lg:h-[450px] rounded-2xl lg:rounded-[2rem] overflow-hidden border border-white/10 hover:border-[#FFC132]/30 transition-all duration-500">
-                <!-- Background Image -->
-                <img :src="service.image" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" :alt="service.title">
-                
-                <!-- Gradient Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-[#0D0D0E] via-[#0D0D0E]/80 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
-                
-                <!-- Icon - Responsive sizing -->
-                <div class="absolute top-6 left-6 lg:top-8 lg:left-8 w-10 h-10 lg:w-14 lg:h-14 bg-[#050505]/80 backdrop-blur-md rounded-xl lg:rounded-2xl border border-white/20 flex items-center justify-center z-20"
-                     :style="'border-color: ' + service.color + '30'">
-                    <i :class="service.icon" class="text-lg lg:text-2xl" :style="'color: ' + service.color"></i>
-                </div>
-
-                <!-- Content - Responsive text sizes -->
-                <div class="absolute inset-x-0 bottom-0 p-5 lg:p-10 z-20 transform transition-transform duration-500 translate-y-0 lg:translate-y-8 group-hover:translate-y-0">
-                    <h3 class="text-xl lg:text-2xl font-bold text-white mb-2 lg:mb-3" x-html="service.title"></h3>
-                    
-                    <!-- Features List (visible on hover) -->
-                    <div class="space-y-1 lg:space-y-2 mb-3 lg:mb-4 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 delay-100 overflow-hidden">
-                        <template x-for="(feature, idx) in service.features" :key="idx">
-                            <div class="flex items-center gap-2">
-                                <i class="fas fa-check-circle text-xs" :style="'color: ' + service.color"></i>
-                                <span class="text-gray-300 text-xs lg:text-sm" x-text="feature"></span>
-                            </div>
-                        </template>
-                    </div>
-                    
-                    <!-- Description - appears on hover -->
-                    <p class="text-gray-300 text-xs lg:text-sm leading-relaxed mb-3 lg:mb-4 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-500 delay-200"
-                       x-text="service.description"></p>
-                    
-                    <!-- Explore Link -->
-                    <div class="flex items-center gap-2 text-xs lg:text-sm font-bold uppercase tracking-widest cursor-pointer transition-all duration-300 hover:gap-3"
-                         :style="'color: ' + service.color">
-                        Explore More <i class="fas fa-chevron-right text-[8px] lg:text-[10px]"></i>
-                    </div>
-                </div>
-                
-                <!-- Corner Accent -->
-                <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-transparent to-white/5 rounded-bl-3xl"></div>
-            </div>
-        </template>
-    </div>
-
-    <!-- Load More Button -->
-    <div class="text-center mt-10 lg:mt-16" x-show="!showAll">
-        <button @click="loadMore" 
-                class="group relative px-8 lg:px-12 py-3 lg:py-4 bg-transparent border-2 border-[#635091] rounded-full overflow-hidden transition-all duration-300 hover:border-[#FFC132] hover:scale-105">
-            <!-- Button Background Animation -->
-            <span class="absolute inset-0 bg-gradient-to-r from-[#635091] to-[#FFC132] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-            
-            <!-- Button Content -->
-            <span class="relative z-10 flex items-center gap-2 lg:gap-3 text-white font-bold text-sm lg:text-base">
-                <span>Load More Services</span>
-                <span class="flex items-center gap-1">
-                    <span class="w-1 h-1 bg-[#FFC132] rounded-full animate-pulse"></span>
-                    <span class="w-1 h-1 bg-[#FFC132] rounded-full animate-pulse animation-delay-200"></span>
-                    <span class="w-1 h-1 bg-[#635091] rounded-full animate-pulse animation-delay-400"></span>
-                </span>
-                <i class="fas fa-arrow-down group-hover:translate-y-1 transition-transform duration-300"></i>
-            </span>
-        </button>
-    </div>
-
-    <!-- Show Less Button (appears when all services are visible) -->
-    <div class="text-center mt-10 lg:mt-16" x-show="showAll">
-        <button @click="showLess" 
-                class="group relative px-8 lg:px-12 py-3 lg:py-4 bg-transparent border-2 border-[#FFC132] rounded-full overflow-hidden transition-all duration-300 hover:border-[#635091] hover:scale-105">
-            <span class="absolute inset-0 bg-gradient-to-r from-[#FFC132] to-[#635091] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-            <span class="relative z-10 flex items-center gap-2 lg:gap-3 text-white font-bold text-sm lg:text-base">
-                <span>Show Less</span>
-                <i class="fas fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"></i>
-            </span>
-        </button>
-    </div>
-
-    <!-- Service Counter -->
-    <div class="text-center mt-6 lg:mt-8">
-        <p class="text-gray-500 text-xs lg:text-sm">
-            Showing <span x-text="visibleServices.length"></span> of <span x-text="services.length"></span> services
-        </p>
-    </div>
-</section>
-
-<!-- MAGIC PRODUCT BOOK — Products -->
-<!-- <section id="Products" class="orbital-section">
-    <div class="orbital-bg-img"></div>
-    <div class="orbital-dynamic-bg" id="orbitalDynamicBg"></div>
-
-    <div class="orbital-header">
-        <span class="orbital-label">Our Products</span>
-        <h2 class="orbital-title">Digital Solutions</h2>
-        <p class="orbital-subtitle">Click any product to learn more</p>
-    </div>
-
-    <div class="orbital-viewport" id="orbitalViewport">
-        <svg class="orbital-connections" id="orbitalSvg" xmlns="http://www.w3.org/2000/svg"></svg>
-
-        <div class="orbital-center">
-            <div class="orbital-center-ring ring-1"></div>
-            <div class="orbital-center-ring ring-2"></div>
-            <div class="orbital-center-core"><i class="fas fa-cubes"></i></div>
-        </div>
-
-        <div class="orbital-path"></div>
-        <div class="orbital-nodes" id="orbitalNodes"></div>
-        <div class="orbital-detail-card" id="orbitalDetailCard"></div>
-    </div>
-
-    <p class="orbital-hint" id="orbitalHint">
-        <i class="fas fa-hand-pointer"></i> Tap a node to explore
-    </p>
-</section> -->
-
-<!-- Add global function for book controls -->
-<script>
-window.turnBookPage = function(direction) {
-    if (window.magicBook) {
-        window.magicBook.turnPage(direction);
-    }
-};
-</script>
-<script type="importmap">
-    {
-        "imports": {
-            "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
-        }
-    }
-</script>
-
-<script type="module">
-    import * as THREE from 'three';
-
-    class MagicApp {
-        constructor() {
-            this.container = document.getElementById('magicCanvasContainer');
-            this.index = 0;
-            this.products = [
-                { name: 'School Management', color: 0x635091, icon: '🎓', desc: 'Complete student records and analytics.' },
-                { name: 'Restaurant POS', color: 0xffc132, icon: '🍽️', desc: 'Cloud-based ordering and kitchen display.' },
-                { name: 'E-Commerce', color: 0x00d2ff, icon: '🛍️', desc: 'Scale your business globally with AI.' }
-            ];
-
-            this.initThree();
-            this.updateUI();
-            window.addEventListener('resize', () => this.onWindowResize());
-        }
-
-        initThree() {
-            // Scene & Camera
-            this.scene = new THREE.Scene();
-            this.camera = new THREE.PerspectiveCamera(75, this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
-            this.camera.position.z = 5;
-
-            // Renderer
-            this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
-            this.container.appendChild(this.renderer.domElement);
-
-            // Floating Light (This changes the background feel)
-            this.light = new THREE.PointLight(0xffffff, 50, 10);
-            this.light.position.set(0, 0, 2);
-            this.scene.add(this.light);
-
-            // Create a floating 3D object (Placeholder for the icons)
-            const geometry = new THREE.IcosahedronGeometry(1, 0);
-            const material = new THREE.MeshStandardMaterial({ color: 0xffffff, wireframe: true });
-            this.mesh = new THREE.Mesh(geometry, material);
-            this.scene.add(this.mesh);
-
-            this.animate();
-        }
-
-        updateUI() {
-            const p = this.products[this.index];
-            
-            // Update Text
-            document.getElementById('cardTitle').innerText = `${p.icon} ${p.name}`;
-            document.getElementById('cardDesc').innerText = p.desc;
-            
-            // Update Three.js Background Color & Mesh
-            this.mesh.material.color.setHex(p.color);
-            this.light.color.setHex(p.color);
-            
-            // Animation for the card
-            const card = document.getElementById('activeCard');
-            card.style.transform = 'scale(1.05)';
-            setTimeout(() => card.style.transform = 'scale(1)', 200);
-        }
-
-        next() {
-            this.index = (this.index + 1) % this.products.length;
-            this.updateUI();
-        }
-
-        prev() {
-            this.index = (this.index - 1 + this.products.length) % this.products.length;
-            this.updateUI();
-        }
-
-        onWindowResize() {
-            this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
-            this.camera.updateProjectionMatrix();
-            this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
-        }
-
-        animate() {
-            requestAnimationFrame(() => this.animate());
-            this.mesh.rotation.y += 0.01;
-            this.mesh.rotation.x += 0.005;
-            this.renderer.render(this.scene, this.camera);
-        }
-    }
-
-    // Initialize the app and make it globally accessible for the buttons
-    window.magicApp = new MagicApp();
-</script>
-<!-- Why Choose Us -->
-<section id="WhyChooseUs" class="why-choose-section">
-    <div class="why-choose-bg"></div>
-    <div class="why-choose-container">
-        <h2 class="why-choose-title">Why Choose Us</h2>
-        <p class="why-choose-subtitle">Numbers that speak for our commitment</p>
-        <div class="why-choose-grid">
-            <div class="why-choose-card">
-                <div class="why-choose-icon"><i class="fas fa-smile-beam"></i></div>
-                <span class="why-choose-number" data-target="7">0</span>
-                <span class="why-choose-label">Happy Clients</span>
-            </div>
-            <div class="why-choose-card">
-                <div class="why-choose-icon"><i class="fas fa-rocket"></i></div>
-                <span class="why-choose-number" data-target="5">0</span>
-                <span class="why-choose-label">Projects</span>
-            </div>
-            <div class="why-choose-card">
-                <div class="why-choose-icon"><i class="fas fa-mug-hot"></i></div>
-                <span class="why-choose-number" data-target="700">0</span>
-                <span class="why-choose-label">Cups Of Coffee</span>
-            </div>
-            <div class="why-choose-card">
-                <div class="why-choose-icon"><i class="fas fa-users"></i></div>
-                <span class="why-choose-number" data-target="7">0</span>
-                <span class="why-choose-label">Hard Workers</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Teams — Spotlight Carousel -->
-<section id="Teams" class="team-section">
-    <div class="team-mesh-bg"></div>
-    <div class="team-glow team-glow-1"></div>
-    <div class="team-glow team-glow-2"></div>
-    <div class="team-inner">
-        <header class="team-header">
-            <span class="team-badge">The People Behind the Code</span>
-            <h2 class="team-title">Our Expert Team</h2>
-            <p class="team-subtitle">Click a card to spotlight — the minds turning your ideas into reality.</p>
-        </header>
-        <div class="team-carousel-wrap">
-            <button class="team-arrow team-arrow-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-            <div class="team-carousel" id="teamCarousel">
-                <div class="team-card" data-index="0">
-                    <div class="team-card-inner">
-                        <div class="team-card-photo"><img src="assets/images/1.png" alt="Arsalan Ahmed"></div>
-                        <div class="team-card-info">
-                            <h3>Arsalan Ahmed</h3>
-                            <p>Senior Developer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card" data-index="1">
-                    <div class="team-card-inner">
-                        <div class="team-card-photo"><img src="assets/images/2.png" alt="Sara Khan"></div>
-                        <div class="team-card-info">
-                            <h3>Sara Khan</h3>
-                            <p>UI/UX Designer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card" data-index="2">
-                    <div class="team-card-inner">
-                        <div class="team-card-photo"><img src="assets/images/3.png" alt="Zain Malik"></div>
-                        <div class="team-card-info">
-                            <h3>Zain Malik</h3>
-                            <p>Lead Architect</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card" data-index="3">
-                    <div class="team-card-inner">
-                        <div class="team-card-photo"><img src="assets/images/3.png" alt="Ayesha Ali"></div>
-                        <div class="team-card-info">
-                            <h3>Ayesha Ali</h3>
-                            <p>Product Manager</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card" data-index="4">
-                    <div class="team-card-inner">
-                        <div class="team-card-photo"><img src="assets/images/1.png" alt="Bilal Raza"></div>
-                        <div class="team-card-info">
-                            <h3>Bilal Raza</h3>
-                            <p>DevOps Engineer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card" data-index="5">
-                    <div class="team-card-inner">
-                        <div class="team-card-photo"><img src="assets/images/2.png" alt="Omar Farooq"></div>
-                        <div class="team-card-info">
-                            <h3>Omar Farooq</h3>
-                            <p>Cloud Analyst</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card" data-index="6">
-                    <div class="team-card-inner">
-                        <div class="team-card-photo"><img src="assets/images/profile.png" alt="Hiba Noor"></div>
-                        <div class="team-card-info">
-                            <h3>Hiba Noor</h3>
-                            <p>Frontend Dev</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="team-arrow team-arrow-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        <div class="team-cta">
-            <a href="#" class="btn"><span>View All Members</span> <i class="fas fa-arrow-right"></i></a>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="contact-us-section">
-    <div class="contact-main-container">
-        <div class="contact-header-top">
-            <h2 class="upgrade-title" style="color: var(--white);">GET IN TOUCH</h2>
-            <div class="upgrade-underline"></div>
-        </div>
-
-        <div class="contact-split-wrapper">
-            <div class="contact-form-side">
-                <h3>Send us a message</h3>
-                <form>
-                    <div class="form-group">
-    <input type="text" id="name" required placeholder=" " />
-    <label for="name" class="form-label" data-text="NAME">Name</label>
-</div>
-
-<div class="form-group">
-    <input type="email" id="email" required placeholder=" " />
-    <label for="email" class="form-label" data-text="EMAIL">Email</label>
-</div>
-<div class="form-group">
-    <input type="Subject" id="Subject" required placeholder=" " />
-    <label for="Subject" class="form-label" data-text="Subject">Subject</label>
-</div>
-<div class="form-group">
-    <textarea id="message" required placeholder=" " rows="4"></textarea>
-    <label for="message" class="form-label" data-text="MESSAGE">MESSAGE</label>
-</div>
-                    
-                   
-                    <button type="submit" class="btn">
-                        <span>
-                            Send Message
+                    <!-- Button Content -->
+                    <span
+                        class="relative z-10 flex items-center gap-2 lg:gap-3 text-white font-bold text-sm lg:text-base">
+                        <span>Load More Services</span>
+                        <span class="flex items-center gap-1">
+                            <span class="w-1 h-1 bg-white rounded-full animate-pulse"></span>
+                            <span class="w-1 h-1 bg-white rounded-full animate-pulse animation-delay-200"></span>
+                            <span class="w-1 h-1 bg-white rounded-full animate-pulse animation-delay-400"></span>
                         </span>
-                    </button>
-                </form>
+                        <i class="fas fa-arrow-down group-hover:translate-y-1 transition-transform duration-300"></i>
+                    </span>
+                </button>
             </div>
 
-            <div class="contact-info-side">
-                <div class="info-content">
-                    <h2>Contact Us</h2>
-                    <div class="contact-accent-line "></div>
-                    <p>Reach out to us for support or to learn more about our services.</p>
-                    
-                    <div class="info-details">
-                        <div class="detail-box">
-                            <i class="fas fa-location-dot"></i>
-                            <p><strong>Address:</strong> 123 Tech Lane, Innovation City, CA 90210</p>
-                        </div>
-                        <div class="detail-box">
-                            <i class="fas fa-phone"></i>
-                            <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-                        </div>
-                        <div class="detail-box">
-                            <i class="fas fa-envelope"></i>
-                            <p><strong>Email:</strong> info@binaryaxon.com</p>
-                        </div>
-                        <div class="detail-box">
-                            <i class="fas fa-globe"></i>
-                            <p><strong>Website:</strong> www.binaryaxon.com</p>
-                        </div>
+            <!-- Show Less Button (appears when all services are visible) -->
+            <div class="text-center mt-10 lg:mt-16" x-show="showAll">
+                <button @click="showLess"
+                    class="group relative px-8 lg:px-12 py-3 lg:py-4 bg-transparent border-2 border-[#7DD3FC] rounded-full overflow-hidden transition-all duration-300 hover:border-[#2E4A71] hover:scale-105">
+                    <span
+                        class="absolute inset-0 bg-gradient-to-r from-[#7DD3FC] to-[#2E4A71] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                    <span
+                        class="relative z-10 flex items-center gap-2 lg:gap-3 text-white font-bold text-sm lg:text-base">
+                        <span>Show Less</span>
+                        <i class="fas fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"></i>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Service Counter -->
+            <div class="text-center mt-6 lg:mt-8">
+                <p class="text-gray-500 text-xs lg:text-sm">
+                    Showing <span x-text="visibleServices.length"></span> of <span x-text="services.length"></span>
+                    services
+                </p>
+        </section>
+    </div>
+
+
+    <!-- How We Work Section -->
+    <section id="Process" class="py-24 relative overflow-hidden">
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-40">
+            <source src="assets/images/bg_premium.mp4" type="video/mp4">
+        </video>        <div class="max-w-7xl mx-auto px-6 mb-16 text-center">
+            <h2 class="text-[var(--accent-sky)] font-mono tracking-[0.3em] uppercase text-xs mb-3">Workflow</h2>
+            <h1 class="text-4xl lg:text-5xl font-bold text-white tracking-tighter">How We <span
+                    class="text-[var(--primary-blue)]">Work</span></h1>
+            <div
+                class="h-1.5 w-24 bg-gradient-to-r from-[var(--primary-blue)] to-transparent mx-auto mt-4 rounded-full">
+            </div>
+            <p class="text-[var(--text-muted)] mt-6 max-w-2xl mx-auto">A streamlined process designed to deliver
+                excellence from initial discovery to final support.</p>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+
+            <div
+                class="relative bg-white/5 border border-white/10 p-10 rounded-[2.5rem] hover:border-[#2563EB] hover:bg-[#2563EB]/10 hover:-translate-y-3 transition-all duration-500 group overflow-hidden">
+                <div
+                    class="absolute -bottom-4 -right-4 text-9xl font-black text-white/5 group-hover:text-[#2563EB]/10 transition-colors">
+                    1</div>
+                <div
+                    class="w-16 h-16 rounded-2xl bg-[#2563EB] flex items-center justify-center text-white font-bold text-2xl mb-8 shadow-[0_0_20px_rgba(0,82,255,0.4)] group-hover:scale-110 transition-all">
+                    1</div>
+                <h3 class="text-white font-bold text-2xl mb-4">Discovery</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">In-depth research to understand your business
+                    objectives and technical requirements.</p>
+                <div class="w-8 h-1 bg-[#2563EB] rounded-full group-hover:w-full transition-all duration-700"></div>
+            </div>
+
+            <div
+                class="relative bg-white/5 border border-white/10 p-10 rounded-[2.5rem] hover:border-[#7DD3FC] hover:bg-[#7DD3FC]/10 hover:-translate-y-3 transition-all duration-500 group overflow-hidden">
+                <div
+                    class="absolute -bottom-4 -right-4 text-9xl font-black text-white/5 group-hover:text-[#7DD3FC]/10 transition-colors">
+                    2</div>
+                <div
+                    class="w-16 h-16 rounded-2xl bg-[#7DD3FC] flex items-center justify-center text-white font-bold text-2xl mb-8 shadow-[0_0_20px_rgba(0,209,255,0.4)] group-hover:scale-110 transition-all">
+                    2</div>
+                <h3 class="text-white font-bold text-2xl mb-4">Strategy</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Crafting a tailored roadmap and architecting
+                    scalable digital solutions for growth.</p>
+                <div class="w-8 h-1 bg-[#7DD3FC] rounded-full group-hover:w-full transition-all duration-700"></div>
+            </div>
+
+            <div
+                class="relative bg-white/5 border border-white/10 p-10 rounded-[2.5rem] hover:border-[#2563EB] hover:bg-[#2563EB]/10 hover:-translate-y-3 transition-all duration-500 group overflow-hidden">
+                <div
+                    class="absolute -bottom-4 -right-4 text-9xl font-black text-white/5 group-hover:text-[#2563EB]/10 transition-colors">
+                    3</div>
+                <div
+                    class="w-16 h-16 rounded-2xl bg-[#2563EB] flex items-center justify-center text-white font-bold text-2xl mb-8 shadow-[0_0_20px_rgba(0,82,255,0.4)] group-hover:scale-110 transition-all">
+                    3</div>
+                <h3 class="text-white font-bold text-2xl mb-4">Development</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Building robust systems using modern tech stacks
+                    and industry-best coding practices.</p>
+                <div class="w-8 h-1 bg-[#2563EB] rounded-full group-hover:w-full transition-all duration-700"></div>
+            </div>
+
+            <div
+                class="relative bg-white/5 border border-white/10 p-10 rounded-[2.5rem] hover:border-[#7DD3FC] hover:bg-[#7DD3FC]/10 hover:-translate-y-3 transition-all duration-500 group overflow-hidden">
+                <div
+                    class="absolute -bottom-4 -right-4 text-9xl font-black text-white/5 group-hover:text-[#7DD3FC]/10 transition-colors">
+                    4</div>
+                <div
+                    class="w-16 h-16 rounded-2xl bg-[#7DD3FC] flex items-center justify-center text-white font-bold text-2xl mb-8 shadow-[0_0_20px_rgba(0,209,255,0.4)] group-hover:scale-110 transition-all">
+                    4</div>
+                <h3 class="text-white font-bold text-2xl mb-4">Testing</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Rigorous quality assurance and testing to ensure a
+                    flawless, bug-free experience.</p>
+                <div class="w-8 h-1 bg-[#7DD3FC] rounded-full group-hover:w-full transition-all duration-700"></div>
+            </div>
+
+            <div
+                class="relative bg-white/5 border border-white/10 p-10 rounded-[2.5rem] hover:border-[#2563EB] hover:bg-[#2563EB]/10 hover:-translate-y-3 transition-all duration-500 group overflow-hidden">
+                <div
+                    class="absolute -bottom-4 -right-4 text-9xl font-black text-white/5 group-hover:text-[#2563EB]/10 transition-colors">
+                    5</div>
+                <div
+                    class="w-16 h-16 rounded-2xl bg-[#2563EB] flex items-center justify-center text-white font-bold text-2xl mb-8 shadow-[0_0_20px_rgba(0,82,255,0.4)] group-hover:scale-110 transition-all">
+                    5</div>
+                <h3 class="text-white font-bold text-2xl mb-4">Support</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">Providing continuous maintenance and strategic
+                    updates for sustained innovation.</p>
+                <div class="w-8 h-1 bg-[#2563EB] rounded-full group-hover:w-full transition-all duration-700"></div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+
+    <!-- Our Team Section -->
+    <section id="Team" class="team-section bg-[var(--bg-base)] reveal-on-scroll">
+        <div class="max-w-7xl mx-auto px-6 mb-16 text-center">
+            <h2 class="text-[var(--accent-sky)] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3">THE
+                PEOPLE BEHIND THE CODE</h2>
+            <h1 class="text-4xl lg:text-6xl font-black text-white tracking-tighter mb-4">Our <span
+                    class="text-gradient">Expert Team</span></h1>
+            <p class="text-[var(--text-muted)] max-w-xl mx-auto text-sm lg:text-base">Click a card to spotlight — the
+                minds turning your ideas into reality.</p>
+        </div>
+
+        <div class="team-carousel-container">
+            <!-- Left Arrow -->
+            <button class="team-nav-btn" id="teamPrev"><i class="fas fa-chevron-left"></i></button>
+
+            <!-- Card 1 -->
+            <div class="team-card hidden lg:block">
+                <div class="team-avatar-wrap">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150" alt="Arsalan">
+                </div>
+                <h4>Arsalan A.</h4>
+                <p>Senior Developer</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="team-card hidden md:block">
+                <div class="team-avatar-wrap">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" alt="Sara">
+                </div>
+                <h4>Sara Khan</h4>
+                <p>UI/UX Designer</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="team-card">
+                <div class="team-avatar-wrap">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150" alt="Zain">
+                </div>
+                <h4>Zain Malik</h4>
+                <p>Lead Architect</p>
+            </div>
+
+            <!-- Card 4 (Spotlight Center) -->
+            <div class="team-card spotlight">
+                <div class="team-avatar-wrap">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300" alt="CEO">
+                </div>
+                <h4>Muhammad Waris Karim</h4>
+                <p>CEO & Founder</p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="team-card">
+                <div class="team-avatar-wrap">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150" alt="Bilal">
+                </div>
+                <h4>Bilal Raza</h4>
+                <p>DevOps Engineer</p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="team-card hidden md:block">
+                <div class="team-avatar-wrap">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150" alt="Omar">
+                </div>
+                <h4>Omar Farooq</h4>
+                <p>Cloud Analyst</p>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="team-card hidden lg:block">
+                <div class="team-avatar-wrap">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=150" alt="Hiba">
+                </div>
+                <h4>Hiba Noor</h4>
+                <p>Frontend Dev</p>
+            </div>
+
+            <!-- Right Arrow -->
+            <button class="team-nav-btn" id="teamNext"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <a href="team.html" class="btn mt-12">
+            <span>View All Members</span>
+        </a>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-[var(--bg-base)] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 text-center mb-16">
+            <h2 class="text-[var(--accent-sky)] font-mono tracking-[0.3em] uppercase text-xs mb-3">Feedback</h2>
+            <h1 class="text-4xl lg:text-5xl font-bold text-white tracking-tighter">What Our <span
+                    class="text-[var(--primary-blue)]">Clients Say</span></h1>
+            <div
+                class="h-1.5 w-24 bg-gradient-to-r from-[var(--primary-blue)] to-transparent mx-auto mt-4 rounded-full">
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            <!-- Testimonial 1 -->
+            <div
+                class="bg-white/5 border border-white/10 p-8 rounded-[2.5rem] hover:border-[#7DD3FC]/30 transition-all duration-500">
+                <div class="text-[#7DD3FC] text-3xl mb-6"><i class="fas fa-quote-left"></i></div>
+                <p class="text-gray-300 italic mb-8">"Orbex Technology transformed our outdated inventory system into a
+                    sleek, real-time powerhouse. Their expertise in ERP is unmatched."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-[#7DD3FC]">
+                        <img src="https://i.pravatar.cc/150?u=1" alt="Client">
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold">James Wilson</h4>
+                        <p class="text-gray-500 text-sm">CEO of TradeFlow Solutions</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
 
-<footer class="site-footer">
-    <!-- Our Clients — Colored Row -->
-    <section class="clients-colored-section">
-        <div class="max-w-7xl mx-auto px-6 mb-12">
-            <div class="flex items-center gap-4">
-                <span class="clients-colored-label">Our Clients</span>
-                <div class="clients-colored-line"></div>
+            <!-- Testimonial 2 -->
+            <div
+                class="bg-white/5 border border-white/10 p-8 rounded-[2.5rem] hover:border-[#2563EB]/30 transition-all duration-500">
+                <div class="text-[#2563EB] text-3xl mb-6"><i class="fas fa-quote-left"></i></div>
+                <p class="text-gray-300 italic mb-8">"The AI-driven marketing solutions provided by Orbex tripled our
+                    lead conversion in just three months. Highly recommended for any scaling business."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-[#2563EB]">
+                        <img src="https://i.pravatar.cc/150?u=2" alt="Client">
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold">Sarah Jenkins</h4>
+                        <p class="text-gray-500 text-sm">Marketing Lead at NeoScale</p>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="relative flex overflow-hidden group">
-            <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#1A1A1B] to-transparent z-10"></div>
-            <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#1A1A1B] to-transparent z-10"></div>
-
-            <div class="animate-marquee flex items-center gap-8 py-4">
-                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                    <img src="assets/images/clients/FM.png" alt="FM Sports" class="h-8 transition-all duration-500">
-                </div>
-                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-8 transition-all duration-500">
-                </div>
-                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Meta" class="h-8 transition-all duration-500">
-                </div>
-                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="h-8 transition-all duration-500">
-                </div>
-                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" class="h-8 transition-all duration-500">
-                </div>
-                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="h-8 transition-all duration-500">
-                </div>
-                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-8 transition-all duration-500">
-                </div>
-                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Meta" class="h-8 transition-all duration-500">
-                </div>
-                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                    <img src="assets/images/clients/FM.png" alt="FM Sports" class="h-8 transition-all duration-500">
-                </div>
-                <div class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                    <img src="assets/images/clients/mSunSportsLogo.png" alt="mSun Sports" class="h-8 transition-all duration-500">
+            <!-- Testimonial 3 -->
+            <div
+                class="bg-white/5 border border-white/10 p-8 rounded-[2.5rem] hover:border-[#7DD3FC]/30 transition-all duration-500">
+                <div class="text-[#7DD3FC] text-3xl mb-6"><i class="fas fa-quote-left"></i></div>
+                <p class="text-gray-300 italic mb-8">"Their branding expertise gave us a completely fresh identity that
+                    resonates with our global audience. Professional and creative team!"</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-[#7DD3FC]">
+                        <img src="https://i.pravatar.cc/150?u=3" alt="Client">
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold">Ahmed Raza</h4>
+                        <p class="text-gray-500 text-sm">Founder of Horizon Creative</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Original Our Clients — grayscale on idle, color on hover -->
-    <section class="bg-[#1A1A1B] py-20 overflow-hidden relative">
-    
-    <div class="max-w-7xl mx-auto px-6 mb-12">
-        <div class="flex items-center gap-4">
-            <span class="text-[#F4B400] font-bold tracking-widest text-xs uppercase">Our Clients</span>
-            <div class="h-px bg-gradient-to-r from-[#F4B400] to-transparent flex-grow"></div>
-        </div>
-    </div>
-
-    <div class="relative flex overflow-hidden group">
-        
-        <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#1A1A1B] to-transparent z-10"></div>
-        <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#1A1A1B] to-transparent z-10"></div>
-
-        <div class="animate-marquee flex items-center gap-8 py-4">
-            
-            <div class="logo-glass px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                <img src="assets/images/clients/FM.png" alt="Amazon" class="h-8 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+    <section id="contact" class="contact-us-section">
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-30">
+            <source src="assets/images/bg_premium.mp4" type="video/mp4">
+        </video>
+        <div class="contact-main-container">
+            <div class="contact-header-top">
+                <h2 class="upgrade-title" style="color: var(--white);">GET IN TOUCH</h2>
+                <div class="upgrade-underline"></div>
             </div>
 
-            <div class="logo-glass px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-8 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            </div>
+            <div class="contact-split-wrapper">
+                <div class="contact-form-side">
+                    <h3 class="text-2xl font-bold mb-8">Send us a <span class="text-gradient">Message</span></h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" required placeholder=" " />
+                            <label for="name" class="form-label">Full Name</label>
+                        </div>
 
-            <div class="logo-glass px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Meta" class="h-8 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            </div>
+                        <div class="form-group">
+                            <input type="email" id="email" required placeholder=" " />
+                            <label for="email" class="form-label">Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" required placeholder=" " />
+                            <label for="subject" class="form-label">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" required placeholder=" " rows="4"></textarea>
+                            <label for="message" class="form-label">Your Message</label>
+                        </div>
 
-            <div class="logo-glass px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="h-8 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            </div>
-
-            <div class="logo-glass px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" class="h-8 invert opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            </div>
-
-            <div class="logo-glass px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="h-8 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            </div>
-            <div class="logo-glass px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-8 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            </div>
-            <div class="logo-glass px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Meta" class="h-8 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            </div>
-            <div class="logo-glass px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                <img src="assets/images/clients/FM.png" alt="Microsoft" class="h-8 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            </div>
-            <div class="logo-glass px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                <img src="assets/images/clients/mSunSportsLogo.png" alt="Apple" class="h-8 invert opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            </div>
-        </div>
-    </div>
-</section>
-
-    <div class="footer-main">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <img src="assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon" class="footer-logo">
-                <p class="subsidiary">a subsidiary of Constellation Software Inc.</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-x-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fas fa-glass-martini-alt"></i></a>
+                        <button type="submit" class="btn w-full">
+                            <span>
+                                Broadcast Message <i class="fas fa-paper-plane ml-2"></i>
+                            </span>
+                        </button>
+                    </form>
                 </div>
-            </div>
 
-            <div class="footer-info">
-                <nav class="footer-nav">
-                    <a href="#">Services</a>
-                    <a href="#">About</a>
-                    <a href="#">Acquisitions</a>
-                    <a href="#">Careers</a>
-                    <a href="#">Life At Binary Axon</a>
-                    <a href="#">Insights</a>
-                    <a href="#">Contact Us</a>
-                </nav>
-                <p class="footer-description">
-                    Binary Axon is registered with SECP and PSEB since its beginnings in 2010. 
-                    While the groundwork for its inception started as early 2008, with pilot projects 
-                    performed over an 18 month period in order to prove the concept, Constellation's 
-                    acquisition of Gladstone PLC (now Gladstone MRM) culminated in the launch of Binary Axon.
-                </p>
-                <div class="footer-contacts">
-                    <a href="mailto:info@Binary Axon.com">info@BinaryAxon.com</a>
-                    <span class="divider">|</span>
+                <div class="contact-info-side">
+                    <div class="info-content">
+                        <h2>Contact Us</h2>
+                        <div class="contact-accent-line "></div>
+                        <p>Reach out to us for support or to learn more about our services.</p>
+
+                        <div class="info-details">
+                            <div class="detail-box">
+                                <i class="fas fa-location-dot"></i>
+                                <p><strong>Address:</strong> Tech Hub, Sector 12, Islamabad, Pakistan</p>
+                            </div>
+                            <div class="detail-box">
+                                <i class="fas fa-phone"></i>
+                                <p><strong>Phone:</strong> +92 300 1234567</p>
+                            </div>
+                            <div class="detail-box">
+                                <i class="fas fa-envelope"></i>
+                                <p><strong>Email:</strong> info@orbextech.com</p>
+                            </div>
+                            <div class="detail-box">
+                                <i class="fas fa-globe"></i>
+                                <p><strong>Website:</strong> orbextech.com</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="footer-bottom">
-        <p>Copyright © 2025 www.BinaryAxon.com All rights reserved.</p>
-    </div>
-</footer>
+    <footer class="site-footer">
+        <!-- Our Clients Ã¢â‚¬â€ Colored Row -->
+        <section class="clients-colored-section">
+            <div class="max-w-7xl mx-auto px-6 mb-12">
+                <div class="flex items-center gap-4">
+                    <span class="clients-colored-label">Our Clients</span>
+                    <div class="clients-colored-line"></div>
+                </div>
+            </div>
+
+            <div class="relative flex overflow-hidden group">
+                <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#1A1A1B] to-transparent z-10"></div>
+                <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#1A1A1B] to-transparent z-10"></div>
+
+                <div class="animate-marquee flex items-center gap-8 py-4">
+                    <div
+                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                        <img src="assets/images/clients/FM.png" alt="FM Sports" class="h-8 transition-all duration-500">
+                    </div>
+                    <div
+                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google"
+                            class="h-8 transition-all duration-500">
+                    </div>
+                    <div
+                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png"
+                            alt="Meta" class="h-8 transition-all duration-500">
+                    </div>
+                    <div
+                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+                            alt="Microsoft" class="h-8 transition-all duration-500">
+                    </div>
+                    <div
+                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple"
+                            class="h-8 transition-all duration-500">
+                    </div>
+                    <div
+                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon"
+                            class="h-8 transition-all duration-500">
+                    </div>
+                    <div
+                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google"
+                            class="h-8 transition-all duration-500">
+                    </div>
+                    <div
+                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png"
+                            alt="Meta" class="h-8 transition-all duration-500">
+                    </div>
+                    <div
+                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                        <img src="assets/images/clients/FM.png" alt="FM Sports" class="h-8 transition-all duration-500">
+                    </div>
+                    <div
+                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                        <img src="assets/images/clients/mSunSportsLogo.png" alt="mSun Sports"
+                            class="h-8 transition-all duration-500">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer-main">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <img src="assets/images/logo1.png" alt="OrbexTech" class="footer-logo">
+                    <p class="subsidiary">a subsidiary of Constellation Software Inc.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-glass-martini-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-info">
+                    <nav class="footer-nav">
+                        <a href="#">Services</a>
+                        <a href="#">About</a>
+                        <a href="#">Acquisitions</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Life At OrbexTech</a>
+                        <a href="#">Insights</a>
+                        <a href="#">Contact Us</a>
+                    </nav>
+                    <p class="footer-description">
+                        Orbex Technology is a pioneer software development firm dedicated to empowering businesses with
+                        reliable technology and strategic insights. We build scalable, cost-effective systems that
+                        enhance productivity and drive operational excellence.
+                    </p>
+                    <div class="footer-contacts">
+                        <a href="mailto:info@orbextech.com">info@orbextech.com</a>
+                        <span class="divider">|</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2025 orbextech.com All rights reserved.</p>
+        </div>
+    </footer>
     <script src="assets/js/main.js"></script>
     <!-- Add Three.js library -->
 
 
-<!-- Your Three.js script -->
-<script type="module">
-  import * as THREE from 'three';
-  
-  // Create a simple background scene
-  function initThreeBackground() {
-    const container = document.createElement('div');
-    container.style.position = 'fixed';
-    container.style.top = '0';
-    container.style.left = '0';
-    container.style.width = '100%';
-    container.style.height = '100%';
-    container.style.zIndex = '-1';
-    container.style.pointerEvents = 'none';
-    document.body.appendChild(container);
-    
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
-    
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 0); // Transparent background
-    container.appendChild(renderer.domElement);
-    
-    // Create floating particles
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 500;
-    const posArray = new Float32Array(particlesCount * 3);
-    
-    for(let i = 0; i < particlesCount * 3; i += 3) {
-      posArray[i] = (Math.random() - 0.5) * 10;
-      posArray[i+1] = (Math.random() - 0.5) * 10;
-      posArray[i+2] = (Math.random() - 0.5) * 10;
-    }
-    
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    
-    const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.02,
-      color: 0x635091, // Your primary purple color
-      transparent: true,
-      opacity: 0.6
-    });
-    
-    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particlesMesh);
-    
-    camera.position.z = 5;
-    
-    function animate() {
-      requestAnimationFrame(animate);
-      particlesMesh.rotation.y += 0.0005;
-      particlesMesh.rotation.x += 0.0002;
-      renderer.render(scene, camera);
-    }
-    
-    animate();
-    
-    // Handle resize
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-  }
-  
-  // Initialize when page loads
-  window.addEventListener('load', initThreeBackground);
-</script>
+    <!-- Your Three.js script -->
+    <script type="module">
+        import * as THREE from 'three';
 
-<!-- Add import map for Three.js -->
-<script type="importmap">
+        // Create a simple background scene
+        function initThreeBackground() {
+            const container = document.createElement('div');
+            container.style.position = 'fixed';
+            container.style.top = '0';
+            container.style.left = '0';
+            container.style.width = '100%';
+            container.style.height = '100%';
+            container.style.zIndex = '-1';
+            container.style.pointerEvents = 'none';
+            document.body.appendChild(container);
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true });
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0); // Transparent background
+            container.appendChild(renderer.domElement);
+
+            // Create floating particles
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 500;
+            const posArray = new Float32Array(particlesCount * 3);
+
+            for (let i = 0; i < particlesCount * 3; i += 3) {
+                posArray[i] = (Math.random() - 0.5) * 10;
+                posArray[i + 1] = (Math.random() - 0.5) * 10;
+                posArray[i + 2] = (Math.random() - 0.5) * 10;
+            }
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.02,
+                color: 0x3B82F6, // Electric Blue
+                transparent: true,
+                opacity: 0.6
+            });
+
+            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particlesMesh);
+
+            camera.position.z = 5;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                particlesMesh.rotation.y += 0.0005;
+                particlesMesh.rotation.x += 0.0002;
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            // Handle resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        // Initialize when page loads
+        window.addEventListener('load', initThreeBackground);
+    </script>
+
+    <!-- Add import map for Three.js -->
+    <script type="importmap">
   {
     "imports": {
       "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
@@ -1158,13 +755,8 @@ window.turnBookPage = function(direction) {
   }
 </script>
 
-<!-- Your orbital three.js script -->
-<script type="module" src="assets/js/orbital-three.js"></script>
+    <!-- Your orbital three.js script -->
+
 </body>
 
 </html>
-
-
-
-
-

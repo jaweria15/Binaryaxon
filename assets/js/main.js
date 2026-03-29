@@ -98,47 +98,7 @@ function scrollToContact() {
     });
 }
 
-/* ========== TEAM SPOTLIGHT CAROUSEL ========== */
-(function() {
-    var carousel = document.getElementById("teamCarousel");
-    var prevBtn = document.querySelector(".team-arrow-prev");
-    var nextBtn = document.querySelector(".team-arrow-next");
-    if (!carousel) return;
 
-    var cards = carousel.querySelectorAll(".team-card");
-    var total = cards.length;
-    var spotlightIndex = Math.floor(total / 2);
-
-    function updateSpotlight() {
-        cards.forEach(function(card, i) {
-            card.classList.toggle("spotlight", i === spotlightIndex);
-        });
-        var spotlightCard = cards[spotlightIndex];
-        if (spotlightCard && window.matchMedia("(max-width: 480px)").matches) {
-            spotlightCard.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-        }
-    }
-
-    cards.forEach(function(card, i) {
-        card.addEventListener("click", function() {
-            spotlightIndex = i;
-            updateSpotlight();
-        });
-    });
-    if (prevBtn) {
-        prevBtn.addEventListener("click", function() {
-            spotlightIndex = (spotlightIndex - 1 + total) % total;
-            updateSpotlight();
-        });
-    }
-    if (nextBtn) {
-        nextBtn.addEventListener("click", function() {
-            spotlightIndex = (spotlightIndex + 1) % total;
-            updateSpotlight();
-        });
-    }
-    updateSpotlight();
-})();
 
 /* ========== WHY CHOOSE US — Count-up animation ========== */
 (function() {
@@ -782,6 +742,7 @@ function enhancedProductApp() {
                     { icon: "fas fa-database", name: "MongoDB" },
                     { icon: "fab fa-aws", name: "AWS" }
                 ],
+                slug: "ecommerce",
                 stats: [
                     { value: "10k+", label: "Products" },
                     { value: "5k+", label: "Users" },
@@ -809,6 +770,7 @@ function enhancedProductApp() {
                     { icon: "fas fa-database", name: "PostgreSQL" },
                     { icon: "fab fa-docker", name: "Docker" }
                 ],
+                slug: "restaurant-pos",
                 stats: [
                     { value: "500+", label: "Restaurants" },
                     { value: "1M+", label: "Orders" },
@@ -836,6 +798,7 @@ function enhancedProductApp() {
                     { icon: "fab fa-css3-alt", name: "CSS3" },
                     { icon: "fab fa-js", name: "JavaScript" }
                 ],
+                slug: "web-design",
                 stats: [
                     { value: "200+", label: "Projects" },
                     { value: "50+", label: "Clients" },
@@ -863,6 +826,7 @@ function enhancedProductApp() {
                     { icon: "fab fa-react", name: "React Native" },
                     { icon: "fas fa-fire", name: "Firebase" }
                 ],
+                slug: "mobile-apps",
                 stats: [
                     { value: "100k+", label: "Downloads" },
                     { value: "4.8", label: "App Store" },
@@ -890,6 +854,7 @@ function enhancedProductApp() {
                     { icon: "fab fa-bootstrap", name: "Bootstrap" },
                     { icon: "fab fa-php", name: "PHP" }
                 ],
+                slug: "school-system",
                 stats: [
                     { value: "50+", label: "Schools" },
                     { value: "10k+", label: "Students" },
@@ -917,6 +882,7 @@ function enhancedProductApp() {
                     { icon: "fas fa-database", name: "Redis" },
                     { icon: "fab fa-aws", name: "AWS" }
                 ],
+                slug: "pos-retail",
                 stats: [
                     { value: "1000+", label: "Stores" },
                     { value: "50k+", label: "Transactions" },

@@ -25,9 +25,9 @@
             </div>
             <div class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
-                <a href="#Teams">Teams</a>
+                <a href="#HowWeWork">Workflow</a>
                 <a href="#Services">Services</a>
-                <a href="#Products">Products</a>
+                <a href="#ProductSection">Products</a>
                 <a href="#WhyChooseUs">Why Choose Us</a>
                 <a href="#Aboutus">About Us</a>
             </div>
@@ -52,7 +52,7 @@
         </div>
         <h1 class="tagline mt-5">Binary Axon provides wealth of technical and business expertise to its customers</h1>
         <p class="tagline">Transforming Ideas into Tech Reality</p> <!-- Fixed typo: Terforming → Transforming -->
-        <button class="btn"><span>Let's Get Started</span></button> <!-- Fixed typo: Let → Let's -->
+        <a href="#ProductSection" class="btn"><span>See our product catalog</span></a>
     </div>
 </section>
    <section class="about-section py-15 bg-[#050505] relative overflow-hidden" id="Aboutus">
@@ -425,10 +425,10 @@
 
                     <!-- Action Buttons - Full width on mobile -->
                     <div class="flex gap-2 lg:gap-3">
-                        <button class="flex-1 px-4 lg:px-6 py-2 lg:py-3 bg-gradient-to-r from-[#FFC132] to-[#635091] text-black font-bold rounded-full hover:scale-105 transition-transform text-xs lg:text-sm uppercase tracking-wider flex items-center justify-center gap-1 lg:gap-2 group/btn">
+                        <a :href="'products/' + products[activeIndex].slug + '.html'" class="flex-1 px-4 lg:px-6 py-2 lg:py-3 bg-gradient-to-r from-[#FFC132] to-[#635091] text-black font-bold rounded-full hover:scale-105 transition-transform text-xs lg:text-sm uppercase tracking-wider flex items-center justify-center gap-1 lg:gap-2 group/btn">
                             <span>Explore</span>
                             <i class="fas fa-arrow-right group-hover/btn:translate-x-1 transition-transform text-[10px] lg:text-xs"></i>
-                        </button>
+                        </a>
                         <button class="px-4 lg:px-6 py-2 lg:py-3 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-[#635091] hover:border-[#635091] transition-all text-xs lg:text-sm uppercase tracking-wider">
                             <i class="fas fa-play text-[10px] lg:text-xs"></i>
                         </button>
@@ -774,87 +774,65 @@ window.turnBookPage = function(direction) {
 </section>
 
 <!-- Teams — Spotlight Carousel -->
-<section id="Teams" class="team-section">
-    <div class="team-mesh-bg"></div>
-    <div class="team-glow team-glow-1"></div>
-    <div class="team-glow team-glow-2"></div>
-    <div class="team-inner">
-        <header class="team-header">
-            <span class="team-badge">The People Behind the Code</span>
-            <h2 class="team-title">Our Expert Team</h2>
-            <p class="team-subtitle">Click a card to spotlight — the minds turning your ideas into reality.</p>
+<!-- How We Work Section -->
+<section id="HowWeWork" class="work-section py-24 bg-[#050505] relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#635091]/10 rounded-full blur-[120px]"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <header class="text-center mb-16">
+            <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-xs mb-3 block">WORKFLOW</span>
+            <h2 class="text-4xl lg:text-5xl font-bold text-white tracking-tighter mb-4">How We <span class="text-[#635091]">Work</span></h2>
+            <div class="h-1 w-12 bg-[#635091] mx-auto mb-6"></div>
+            <p class="text-gray-400 max-w-2xl mx-auto">A streamlined process designed to deliver excellence from initial discovery to final support.</p>
         </header>
-        <div class="team-carousel-wrap">
-            <button class="team-arrow team-arrow-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-            <div class="team-carousel" id="teamCarousel">
-                <div class="team-card" data-index="0">
-                    <div class="team-card-inner">
-                        <div class="team-card-photo"><img src="assets/images/1.png" alt="Arsalan Ahmed"></div>
-                        <div class="team-card-info">
-                            <h3>Arsalan Ahmed</h3>
-                            <p>Senior Developer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card" data-index="1">
-                    <div class="team-card-inner">
-                        <div class="team-card-photo"><img src="assets/images/2.png" alt="Sara Khan"></div>
-                        <div class="team-card-info">
-                            <h3>Sara Khan</h3>
-                            <p>UI/UX Designer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card" data-index="2">
-                    <div class="team-card-inner">
-                        <div class="team-card-photo"><img src="assets/images/3.png" alt="Zain Malik"></div>
-                        <div class="team-card-info">
-                            <h3>Zain Malik</h3>
-                            <p>Lead Architect</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card" data-index="3">
-                    <div class="team-card-inner">
-                        <div class="team-card-photo"><img src="assets/images/3.png" alt="Ayesha Ali"></div>
-                        <div class="team-card-info">
-                            <h3>Ayesha Ali</h3>
-                            <p>Product Manager</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card" data-index="4">
-                    <div class="team-card-inner">
-                        <div class="team-card-photo"><img src="assets/images/1.png" alt="Bilal Raza"></div>
-                        <div class="team-card-info">
-                            <h3>Bilal Raza</h3>
-                            <p>DevOps Engineer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card" data-index="5">
-                    <div class="team-card-inner">
-                        <div class="team-card-photo"><img src="assets/images/2.png" alt="Omar Farooq"></div>
-                        <div class="team-card-info">
-                            <h3>Omar Farooq</h3>
-                            <p>Cloud Analyst</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card" data-index="6">
-                    <div class="team-card-inner">
-                        <div class="team-card-photo"><img src="assets/images/profile.png" alt="Hiba Noor"></div>
-                        <div class="team-card-info">
-                            <h3>Hiba Noor</h3>
-                            <p>Frontend Dev</p>
-                        </div>
-                    </div>
-                </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <!-- Discovery -->
+            <div class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#635091]/50 transition-all duration-500 overflow-hidden">
+                <div class="absolute -right-4 -bottom-4 text-8xl font-black text-white/5 group-hover:text-[#635091]/10 transition-colors">1</div>
+                <div class="w-12 h-12 bg-[#635091] rounded-xl flex items-center justify-center text-white font-bold mb-6 shadow-lg shadow-[#635091]/20">1</div>
+                <h3 class="text-white font-bold text-xl mb-4">Discovery</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">In-depth research to understand your business objectives and technical requirements.</p>
+                <div class="mt-6 h-px w-8 bg-[#635091]/30"></div>
             </div>
-            <button class="team-arrow team-arrow-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        <div class="team-cta">
-            <a href="#" class="btn"><span>View All Members</span> <i class="fas fa-arrow-right"></i></a>
+
+            <!-- Strategy -->
+            <div class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#FFC132]/50 transition-all duration-500 overflow-hidden">
+                <div class="absolute -right-4 -bottom-4 text-8xl font-black text-white/5 group-hover:text-[#FFC132]/10 transition-colors">2</div>
+                <div class="w-12 h-12 bg-[#FFC132] rounded-xl flex items-center justify-center text-black font-bold mb-6 shadow-lg shadow-[#FFC132]/20">2</div>
+                <h3 class="text-white font-bold text-xl mb-4">Strategy</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Crafting a tailored roadmap and architecting scalable digital solutions for growth.</p>
+                <div class="mt-6 h-px w-8 bg-[#FFC132]/30"></div>
+            </div>
+
+            <!-- Development -->
+            <div class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#635091]/50 transition-all duration-500 overflow-hidden">
+                <div class="absolute -right-4 -bottom-4 text-8xl font-black text-white/5 group-hover:text-[#635091]/10 transition-colors">3</div>
+                <div class="w-12 h-12 bg-[#635091] rounded-xl flex items-center justify-center text-white font-bold mb-6 shadow-lg shadow-[#635091]/20">3</div>
+                <h3 class="text-white font-bold text-xl mb-4">Development</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Building robust systems using modern tech stacks and industry-best coding practices.</p>
+                <div class="mt-6 h-px w-8 bg-[#635091]/30"></div>
+            </div>
+
+            <!-- Testing -->
+            <div class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#FFC132]/50 transition-all duration-500 overflow-hidden">
+                <div class="absolute -right-4 -bottom-4 text-8xl font-black text-white/5 group-hover:text-[#FFC132]/10 transition-colors">4</div>
+                <div class="w-12 h-12 bg-[#FFC132] rounded-xl flex items-center justify-center text-black font-bold mb-6 shadow-lg shadow-[#FFC132]/20">4</div>
+                <h3 class="text-white font-bold text-xl mb-4">Testing</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Rigorous quality assurance and testing to ensure a flawless, bug-free experience.</p>
+                <div class="mt-6 h-px w-8 bg-[#FFC132]/30"></div>
+            </div>
+
+            <!-- Support -->
+            <div class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#635091]/50 transition-all duration-500 overflow-hidden">
+                <div class="absolute -right-4 -bottom-4 text-8xl font-black text-white/5 group-hover:text-[#635091]/10 transition-colors">5</div>
+                <div class="w-12 h-12 bg-[#635091] rounded-xl flex items-center justify-center text-white font-bold mb-6 shadow-lg shadow-[#635091]/20">5</div>
+                <h3 class="text-white font-bold text-xl mb-4">Support</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Providing continuous maintenance and strategic updates for sustained innovation.</p>
+                <div class="mt-6 h-px w-8 bg-[#635091]/30"></div>
+            </div>
         </div>
     </div>
 </section>

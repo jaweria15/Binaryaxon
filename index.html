@@ -562,7 +562,7 @@
                 </div>
                 <div class="why-choose-card">
                     <div class="why-choose-icon"><i class="fas fa-users"></i></div>
-                    <span class="why-choose-number" data-target="07">0</span>
+                    <span class="why-choose-number" data-target="11">0</span>
                     <span class="why-choose-label">Crew Members</span>
                 </div>
             </div>
@@ -583,22 +583,22 @@
                 <div class="contact-form-side">
                     <h3>Send us a message</h3>
                     <div x-data="{ submitted: false }">
-                        <form x-show="!submitted" @submit.prevent="submitted = true">
+                        <form id="contact-form" x-show="!submitted" @submit.prevent="window.sendEmail($el, $data)">
                             <div class="form-group">
-                                <input type="text" id="name" required placeholder=" " />
+                                <input type="text" id="name" name="from_name" required placeholder=" " />
                                 <label for="name" class="form-label" data-text="NAME">Name</label>
                             </div>
 
                             <div class="form-group">
-                                <input type="email" id="email" required placeholder=" " />
+                                <input type="email" id="email" name="from_email" required placeholder=" " />
                                 <label for="email" class="form-label" data-text="EMAIL">Email</label>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="Subject" required placeholder=" " />
+                                <input type="text" id="Subject" name="subject" required placeholder=" " />
                                 <label for="Subject" class="form-label" data-text="Subject">Subject</label>
                             </div>
                             <div class="form-group">
-                                <textarea id="message" required placeholder=" " rows="4"></textarea>
+                                <textarea id="message" name="message" required placeholder=" " rows="4"></textarea>
                                 <label for="message" class="form-label" data-text="MESSAGE">MESSAGE</label>
                             </div>
 
@@ -627,9 +627,12 @@
 
                         <div class="info-details">
                             <div class="detail-box">
-                                <i class="fas fa-location-dot"></i>
-                                <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Plot%20A-80%20Kathiawar%20Society%20Karachi" target="_blank">Plot # A-80, 1, Kathiawar Co-Operative Housing Society
-                                    Kathiawar Society Scheme 33 Sector 19 A Gulzar E Hijri Scheme 33, Karachi, Pakistan</a>
+                                <i class="me-2 fas fa-location-dot"></i>
+                                <p><strong>Address:</strong> <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Plot%20A-80%20Kathiawar%20Society%20Karachi"
+                                        target="_blank">Plot # A-80, 1, Kathiawar Co-Operative Housing Society
+                                        Kathiawar Society Scheme 33 Sector 19 A Gulzar E Hijri Scheme 33, Karachi,
+                                        Pakistan</a>
                                 </p>
                             </div>
                             <div class="detail-box">
@@ -638,11 +641,13 @@
                             </div>
                             <div class="detail-box">
                                 <i class="fas fa-envelope"></i>
-                                <p><strong>Email:</strong> <a href="mailto:info@binaryaxon.com">info@binaryaxon.com</a></p>
+                                <p><strong>Email:</strong> <a href="mailto:info@binaryaxon.com">info@binaryaxon.com</a>
+                                </p>
                             </div>
                             <div class="detail-box">
                                 <i class="fas fa-globe"></i>
-                                <p><strong>Website:</strong> <a href="https://www.binaryaxon.com" target="_blank">www.binaryaxon.com</a></p>
+                                <p><strong>Website:</strong> <a href="https://www.binaryaxon.com"
+                                        target="_blank">www.binaryaxon.com</a></p>
                             </div>
                         </div>
                     </div>
@@ -673,32 +678,27 @@
                     </div>
                     <div
                         class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Client"
-                            class="h-8">
+                        <img src="assets/images/clients/CBS_logo1.png" alt="Client" class="h-8">
                     </div>
                     <div
                         class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png"
-                            alt="Client" class="h-8">
+                        <img src="assets/images/clients/FCA_logo.png" alt="Client" class="h-8">
                     </div>
                     <div
                         class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Client"
-                            class="h-8">
+                        <img src="assets/images/clients/PrimeHR.png" alt="Client" class="h-8">
                     </div>
                     <div
                         class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Client"
-                            class="h-8 invert">
-                    </div>
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Client"
-                            class="h-8">
+                        <img src="assets/images/clients/MobiLogo3.png" alt="Client" class="h-8 invert">
                     </div>
                     <div
                         class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
                         <img src="assets/images/clients/mSunSportsLogo.png" alt="Client" class="h-8">
+                    </div>
+                    <div
+                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                        <img src="assets/images/clients/quill.png" alt="Client" class="h-8">
                     </div>
 
                     <!-- Set 2 (Repeat for Infinite Loop) -->
@@ -708,33 +708,29 @@
                     </div>
                     <div
                         class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Client"
-                            class="h-8">
+                        <img src="assets/images/clients/CBS_logo1.png" alt="Client" class="h-8">
                     </div>
                     <div
                         class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png"
-                            alt="Client" class="h-8">
+                        <img src="assets/images/clients/FCA_logo.png" alt="Client" class="h-8">
                     </div>
                     <div
                         class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Client"
-                            class="h-8">
+                        <img src="assets/images/clients/PrimeHR.png" alt="Client" class="h-8">
                     </div>
                     <div
                         class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Client"
-                            class="h-8 invert">
-                    </div>
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Client"
-                            class="h-8">
+                        <img src="assets/images/clients/MobiLogo3.png" alt="Client" class="h-8 invert">
                     </div>
                     <div
                         class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
                         <img src="assets/images/clients/mSunSportsLogo.png" alt="Client" class="h-8">
                     </div>
+                    <div
+                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
+                        <img src="assets/images/clients/quill.png" alt="Client" class="h-8">
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -752,36 +748,32 @@
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fas fa-glass-martini-alt"></i></a>
                     </div>
                 </div>
 
                 <div class="footer-info">
                     <nav class="footer-nav">
-                        <a href="#">Services</a>
-                        <a href="#">About</a>
-                        <a href="#">Acquisitions</a>
-                        <a href="#">Careers</a>
-                        <a href="#">Life At Binary Axon</a>
-                        <a href="#">Insights</a>
-                        <a href="#">Contact Us</a>
+                        <a href="#home">Home</a>
+                        <a href="#HowWeWork">Workflow</a>
+                        <a href="#Aboutus">About Us</a>
+                        <a href="#Services">Services</a>
+                        <a href="#ProductSection">Products</a>
+                        <a href="#WhyChooseUs">Why Choose Us</a>
                     </nav>
                     <p class="footer-description">
-                        Binary Axon is registered with SECP and PSEB since its beginnings in 2010.
-                        While the groundwork for its inception started as early 2008, with pilot projects
-                        performed over an 18 month period in order to prove the concept, Constellation's
-                        acquisition of Gladstone PLC (now Gladstone MRM) culminated in the launch of Binary Axon.
+                        Binary Axon provides a wealth of technical and business expertise to its customers, 
+                        transforming ideas into tech reality with scalable software solutions since 2010.
                     </p>
                     <div class="footer-contacts">
-                        <a href="mailto:info@Binary Axon.com">info@binaryaxon.com</a>
-                        <span class="divider">|</span>
+                        <a href="mailto:info@binaryaxon.com">info@binaryaxon.com</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>Copyright © 2025 <a href="https://www.binaryaxon.com" target="_blank" style="color: inherit; text-decoration: none;">www.BinaryAxon.com</a> All rights reserved.</p>
+            <p>Copyright © 2025 <a href="https://www.binaryaxon.com" target="_blank"
+                    style="color: inherit; text-decoration: none;">www.BinaryAxon.com</a> All rights reserved.</p>
         </div>
     </footer>
 
@@ -891,6 +883,7 @@
     </script>
 
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="assets/js/main.js"></script>
     <!-- Add Three.js library -->
 

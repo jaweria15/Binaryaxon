@@ -1,4 +1,4 @@
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const header = document.getElementById('header');
     const heroLogo = document.getElementById('heroLogo');
     const scrollPosition = window.scrollY;
@@ -12,18 +12,18 @@ window.addEventListener('scroll', function() {
     }
 });
 
-(function() {
+(function () {
     var hamburger = document.getElementById('navHamburger');
-    var navLinks  = document.getElementById('navLinks');
+    var navLinks = document.getElementById('navLinks');
     if (!hamburger || !navLinks) return;
 
-    hamburger.addEventListener('click', function() {
+    hamburger.addEventListener('click', function () {
         navLinks.classList.toggle('open');
         hamburger.classList.toggle('active');
     });
 
-    navLinks.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
+    navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
             navLinks.classList.remove('open');
             hamburger.classList.remove('active');
         });
@@ -32,50 +32,50 @@ window.addEventListener('scroll', function() {
 const section = document.getElementById('stackSection');
 const cards = document.querySelectorAll('.stack-card');
 
-const bgColors = [
-    "linear-gradient(135deg,#33395D,#1c1f33)",
-    "linear-gradient(135deg,#7052A5,#3c2c75)",
-    "linear-gradient(135deg,#006400,#013220)",
-    "linear-gradient(135deg,#8B4513,#3e1f0b)"
-];
+if (section && cards.length > 0) {
+    const bgColors = [
+        "linear-gradient(135deg,#33395D,#1c1f33)",
+        "linear-gradient(135deg,#7052A5,#3c2c75)",
+        "linear-gradient(135deg,#006400,#013220)",
+        "linear-gradient(135deg,#8B4513,#3e1f0b)"
+    ];
 
-let current = 0;
+    let current = 0;
 
-function rotateCards() {
+    function rotateCards() {
+        cards.forEach(card => {
+            card.classList.remove('active', 'next', 'prev', 'hidden');
+        });
 
-    cards.forEach(card => {
-        card.classList.remove('active','next','prev','hidden');
-    });
+        const total = cards.length;
 
-    const total = cards.length;
+        cards[current].classList.add('active');
+        cards[(current + 1) % total].classList.add('next');
+        cards[(current - 1 + total) % total].classList.add('prev');
 
-    cards[current].classList.add('active');
-    cards[(current + 1) % total].classList.add('next');
-    cards[(current - 1 + total) % total].classList.add('prev');
-
-    for (let i = 0; i < total; i++) {
-        if (
-            i !== current &&
-            i !== (current + 1) % total &&
-            i !== (current - 1 + total) % total
-        ) {
-            cards[i].classList.add('hidden');
+        for (let i = 0; i < total; i++) {
+            if (
+                i !== current &&
+                i !== (current + 1) % total &&
+                i !== (current - 1 + total) % total
+            ) {
+                cards[i].classList.add('hidden');
+            }
         }
+
+        section.style.background = bgColors[current];
+        current = (current + 1) % total;
     }
 
-    section.style.background = bgColors[current];
-
-    current = (current + 1) % total;
+    setInterval(rotateCards, 3000);
 }
-
-setInterval(rotateCards, 3000);
 
 function showDetail(serviceId, element) {
     // 1. Remove active class from all cards
     document.querySelectorAll('.service-selector-card').forEach(card => {
         card.classList.remove('active');
     });
-    
+
     // 2. Add active class to clicked card
     element.classList.add('active');
 
@@ -86,7 +86,7 @@ function showDetail(serviceId, element) {
 
     // 4. Show the specific content
     const activeContent = document.getElementById('content-' + serviceId);
-    if(activeContent) {
+    if (activeContent) {
         activeContent.classList.add('active');
     }
 
@@ -101,7 +101,7 @@ function scrollToContact() {
 
 
 /* ========== WHY CHOOSE US — Count-up animation ========== */
-(function() {
+(function () {
     var section = document.getElementById("WhyChooseUs");
     if (!section) return;
 
@@ -128,15 +128,15 @@ function scrollToContact() {
     function runCounters() {
         if (done) return;
         done = true;
-        numbers.forEach(function(el) {
+        numbers.forEach(function (el) {
             var target = el.getAttribute("data-target");
             if (!target) return;
             animateValue(el, target, 1800);
         });
     }
 
-    var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
             if (entry.isIntersecting) runCounters();
         });
     }, { threshold: 0.25, rootMargin: "0px" });
@@ -150,37 +150,37 @@ function scrollToContact() {
             id: 1, title: "School Management", date: "2024",
             content: "Complete student records, attendance tracking, fee collection, timetable scheduling & academic performance platform.",
             icon: "fa-graduation-cap", relatedIds: [5, 6], status: "completed", energy: 95,
-            bgIcons: ["fa-school","fa-chalkboard","fa-book-open","fa-user-graduate","fa-clipboard","fa-pencil","fa-calculator","fa-bell","fa-award","fa-bus-simple","fa-apple-whole","fa-ruler"]
+            bgIcons: ["fa-school", "fa-chalkboard", "fa-book-open", "fa-user-graduate", "fa-clipboard", "fa-pencil", "fa-calculator", "fa-bell", "fa-award", "fa-bus-simple", "fa-apple-whole", "fa-ruler"]
         },
         {
             id: 2, title: "Restaurant Management", date: "2024",
             content: "Order processing, table booking, kitchen display, menu management & complete dining workflow automation.",
             icon: "fa-utensils", relatedIds: [6, 4], status: "completed", energy: 90,
-            bgIcons: ["fa-pizza-slice","fa-wine-glass","fa-concierge-bell","fa-mug-hot","fa-ice-cream","fa-bowl-food","fa-burger","fa-cookie","fa-champagne-glasses","fa-lemon","fa-pepper-hot","fa-drumstick-bite"]
+            bgIcons: ["fa-pizza-slice", "fa-wine-glass", "fa-concierge-bell", "fa-mug-hot", "fa-ice-cream", "fa-bowl-food", "fa-burger", "fa-cookie", "fa-champagne-glasses", "fa-lemon", "fa-pepper-hot", "fa-drumstick-bite"]
         },
         {
             id: 3, title: "Ecommerce Management", date: "2024",
             content: "Complete online store with AI-powered recommendations, payment integration, multi-vendor support & order tracking.",
             icon: "fa-store", relatedIds: [4, 5], status: "in-progress", energy: 75,
-            bgIcons: ["fa-cart-shopping","fa-credit-card","fa-tag","fa-box","fa-truck","fa-barcode","fa-receipt","fa-bag-shopping","fa-gift","fa-percent","fa-globe","fa-heart"]
+            bgIcons: ["fa-cart-shopping", "fa-credit-card", "fa-tag", "fa-box", "fa-truck", "fa-barcode", "fa-receipt", "fa-bag-shopping", "fa-gift", "fa-percent", "fa-globe", "fa-heart"]
         },
         {
             id: 4, title: "Inventory Management", date: "2024",
             content: "Smart stock tracking with predictive analytics, supplier management, warehouse control & automated reporting.",
             icon: "fa-boxes-stacked", relatedIds: [2, 3, 6], status: "in-progress", energy: 65,
-            bgIcons: ["fa-warehouse","fa-dolly","fa-clipboard-list","fa-truck-ramp-box","fa-database","fa-chart-bar","fa-cubes","fa-layer-group","fa-box-archive","fa-pallet","fa-gears","fa-list-check"]
+            bgIcons: ["fa-warehouse", "fa-dolly", "fa-clipboard-list", "fa-truck-ramp-box", "fa-database", "fa-chart-bar", "fa-cubes", "fa-layer-group", "fa-box-archive", "fa-pallet", "fa-gears", "fa-list-check"]
         },
         {
             id: 5, title: "Account Management", date: "2024",
             content: "Real-time financial management with expense tracking, invoicing, ledger management & automated reconciliation.",
             icon: "fa-chart-pie", relatedIds: [1, 3], status: "completed", energy: 85,
-            bgIcons: ["fa-calculator","fa-file-invoice-dollar","fa-coins","fa-money-bill-wave","fa-landmark","fa-chart-line","fa-scale-balanced","fa-wallet","fa-hand-holding-dollar","fa-piggy-bank","fa-sack-dollar","fa-money-check"]
+            bgIcons: ["fa-calculator", "fa-file-invoice-dollar", "fa-coins", "fa-money-bill-wave", "fa-landmark", "fa-chart-line", "fa-scale-balanced", "fa-wallet", "fa-hand-holding-dollar", "fa-piggy-bank", "fa-sack-dollar", "fa-money-check"]
         },
         {
             id: 6, title: "Point of Sale", date: "2024",
             content: "Lightning-fast billing with barcode scanning, multi-branch support, real-time sales analytics & receipt printing.",
             icon: "fa-cash-register", relatedIds: [1, 2, 4], status: "in-progress", energy: 70,
-            bgIcons: ["fa-barcode","fa-receipt","fa-credit-card","fa-money-bill","fa-qrcode","fa-print","fa-basket-shopping","fa-coins","fa-mobile-screen","fa-comment-dollar","fa-handshake","fa-shop"]
+            bgIcons: ["fa-barcode", "fa-receipt", "fa-credit-card", "fa-money-bill", "fa-qrcode", "fa-print", "fa-basket-shopping", "fa-coins", "fa-mobile-screen", "fa-comment-dollar", "fa-handshake", "fa-shop"]
         }
     ];
 
@@ -188,13 +188,13 @@ function scrollToContact() {
     var autoRotate = true;
     var activeNodeId = null;
 
-    var sectionEl  = document.querySelector(".orbital-section");
-    var viewport   = document.getElementById("orbitalViewport");
-    var nodesEl    = document.getElementById("orbitalNodes");
-    var svgEl      = document.getElementById("orbitalSvg");
+    var sectionEl = document.querySelector(".orbital-section");
+    var viewport = document.getElementById("orbitalViewport");
+    var nodesEl = document.getElementById("orbitalNodes");
+    var svgEl = document.getElementById("orbitalSvg");
     var detailCard = document.getElementById("orbitalDetailCard");
-    var hintEl     = document.getElementById("orbitalHint");
-    var dynamicBg  = document.getElementById("orbitalDynamicBg");
+    var hintEl = document.getElementById("orbitalHint");
+    var dynamicBg = document.getElementById("orbitalDynamicBg");
 
     var clearBgTimeout = null;
 
@@ -226,17 +226,17 @@ function scrollToContact() {
             var el = document.createElement("i");
             el.className = "fas " + iconClass + " orbital-float-icon";
             el.style.left = Math.random() * 94 + 3 + "%";
-            el.style.top  = Math.random() * 90 + 5 + "%";
+            el.style.top = Math.random() * 90 + 5 + "%";
             el.style.fontSize = (22 + Math.random() * 36) + "px";
             el.style.animationDuration = (6 + Math.random() * 8) + "s";
             el.style.animationDelay = (Math.random() * 4) + "s";
             el.style.transform = "rotate(" + (Math.random() * 40 - 20) + "deg)";
             dynamicBg.appendChild(el);
         }
-        requestAnimationFrame(function() {
-            requestAnimationFrame(function() {
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
                 var icons = dynamicBg.querySelectorAll(".orbital-float-icon");
-                icons.forEach(function(ic) { ic.classList.add("visible"); });
+                icons.forEach(function (ic) { ic.classList.add("visible"); });
             });
         });
     }
@@ -245,10 +245,10 @@ function scrollToContact() {
         if (!dynamicBg) return;
         if (clearBgTimeout) clearTimeout(clearBgTimeout);
         var icons = dynamicBg.querySelectorAll(".orbital-float-icon");
-        icons.forEach(function(ic) { ic.classList.remove("visible"); });
+        icons.forEach(function (ic) { ic.classList.remove("visible"); });
         dynamicBg.classList.remove("active");
         if (sectionEl) sectionEl.removeAttribute("data-bg-gradient");
-        clearBgTimeout = setTimeout(function() {
+        clearBgTimeout = setTimeout(function () {
             dynamicBg.innerHTML = "";
             clearBgTimeout = null;
         }, 500);
@@ -297,17 +297,17 @@ function scrollToContact() {
 
         nodes.forEach(function (node, i) {
             var angle = ((i / total) * 360 + rotationAngle) % 360;
-            var rad   = (angle * Math.PI) / 180;
-            var x     = radius * Math.cos(rad);
-            var y     = radius * Math.sin(rad);
-            var zIdx  = Math.round(100 + 50 * Math.cos(rad));
-            var op    = node.classList.contains("active")
+            var rad = (angle * Math.PI) / 180;
+            var x = radius * Math.cos(rad);
+            var y = radius * Math.sin(rad);
+            var zIdx = Math.round(100 + 50 * Math.cos(rad));
+            var op = node.classList.contains("active")
                 ? 1
                 : Math.max(0.4, 0.4 + 0.6 * ((1 + Math.sin(rad)) / 2));
 
             node.style.transform = "translate(" + x + "px," + y + "px)";
-            node.style.zIndex    = node.classList.contains("active") ? 200 : zIdx;
-            node.style.opacity   = op;
+            node.style.zIndex = node.classList.contains("active") ? 200 : zIdx;
+            node.style.opacity = op;
         });
 
         drawConnections();
@@ -320,24 +320,24 @@ function scrollToContact() {
         var prod = products.find(function (p) { return p.id === activeNodeId; });
         if (!prod) return;
 
-        var cx     = viewport.offsetWidth / 2;
-        var cy     = viewport.offsetHeight / 2;
+        var cx = viewport.offsetWidth / 2;
+        var cy = viewport.offsetHeight / 2;
         var radius = getRadius();
-        var total  = products.length;
+        var total = products.length;
 
-        var ai   = products.findIndex(function (p) { return p.id === activeNodeId; });
+        var ai = products.findIndex(function (p) { return p.id === activeNodeId; });
         var aAng = ((ai / total) * 360 + rotationAngle) % 360;
         var aRad = (aAng * Math.PI) / 180;
-        var ax   = cx + radius * Math.cos(aRad);
-        var ay   = cy + radius * Math.sin(aRad);
+        var ax = cx + radius * Math.cos(aRad);
+        var ay = cy + radius * Math.sin(aRad);
 
         prod.relatedIds.forEach(function (rid) {
             var ri = products.findIndex(function (p) { return p.id === rid; });
             if (ri === -1) return;
             var rAng = ((ri / total) * 360 + rotationAngle) % 360;
             var rRad = (rAng * Math.PI) / 180;
-            var rx   = cx + radius * Math.cos(rRad);
-            var ry   = cy + radius * Math.sin(rRad);
+            var rx = cx + radius * Math.cos(rRad);
+            var ry = cy + radius * Math.sin(rRad);
 
             var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
             line.setAttribute("x1", ax);
@@ -368,7 +368,7 @@ function scrollToContact() {
         activeNodeId = id;
         autoRotate = false;
 
-        var idx   = products.findIndex(function (p) { return p.id === id; });
+        var idx = products.findIndex(function (p) { return p.id === id; });
         var total = products.length;
         rotationAngle = 270 - (idx / total) * 360;
 
@@ -466,12 +466,12 @@ function productApp() {
             { name: "POS Systems", color: "#784212", image: "https://images.unsplash.com/photo-1556742031-c6961e8560b0?w=500", desc: "High-speed retail processing and inventory automation." }
         ],
         init() { this.animateText(); },
-        
+
         getCardStyle(index) {
             const total = this.products.length;
             // Calculate relative distance from active index
             let diff = index - this.activeIndex;
-            
+
             // Wrap around logic
             if (diff > total / 2) diff -= total;
             if (diff < -total / 2) diff += total;
@@ -485,7 +485,7 @@ function productApp() {
                 const zPos = Math.abs(diff) * -150; // Push further back the further they are from center
                 const blurVal = Math.abs(diff) * 4; // Increase blur with distance
                 const scaleVal = 1 - (Math.abs(diff) * 0.15); // Shrink with distance
-                
+
                 return `
                     z-index: ${50 - Math.abs(diff)}; 
                     transform: translateX(${xPos}px) translateZ(${zPos}px) scale(${scaleVal}); 
@@ -500,11 +500,11 @@ function productApp() {
             const text = this.products[this.activeIndex].desc;
             el.innerHTML = text.split(' ').map(w => `<span class="inline-block opacity-0 translate-y-2 blur-sm">${w}&nbsp;</span>`).join('');
             gsap.to('#product-desc span', {
-                opacity: 1, 
-                y: 0, 
-                filter: 'blur(0px)', 
-                stagger: 0.03, 
-                duration: 0.5, 
+                opacity: 1,
+                y: 0,
+                filter: 'blur(0px)',
+                stagger: 0.03,
+                duration: 0.5,
                 ease: "power2.out"
             });
         }
@@ -526,7 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 1,
         ease: "power2.out"
     });
-    
+
     gsap.to(["#about-sub", "#about-title", "#about-line"], {
         scrollTrigger: {
             trigger: "#Aboutus",
@@ -550,26 +550,26 @@ document.addEventListener('DOMContentLoaded', () => {
 //     const scene = new THREE.Scene();
 //     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 //     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    
+
 //     renderer.setSize(window.innerWidth, window.innerHeight);
 //     renderer.setClearColor(0x050505, 1); // Solid dark background
 //     container.appendChild(renderer.domElement);
 
 //     // --- SOFTWARE COMPANY VISUALS ---
-    
+
 //     // 1. Floating Code Particles (Binary/Matrix Style)
 //     const particleCount = 2000;
 //     const particlesGeo = new THREE.BufferGeometry();
 //     const particlesPos = new Float32Array(particleCount * 3);
-    
+
 //     for (let i = 0; i < particleCount; i++) {
 //         particlesPos[i*3] = (Math.random() - 0.5) * 30;
 //         particlesPos[i*3+1] = (Math.random() - 0.5) * 20;
 //         particlesPos[i*3+2] = (Math.random() - 0.5) * 30 - 10;
 //     }
-    
+
 //     particlesGeo.setAttribute('position', new THREE.BufferAttribute(particlesPos, 3));
-    
+
 //     // Create two types of particles
 //     const binaryParticles = new THREE.Points(
 //         particlesGeo,
@@ -585,7 +585,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //     // 2. Floating Code Snippets (using small cubes to represent code blocks)
 //     const codeBlocksGeo = new THREE.BoxGeometry(0.3, 0.1, 0.2);
 //     const codeMaterial = new THREE.MeshStandardMaterial({ color: 0xFFC132, emissive: 0x221100 });
-    
+
 //     for (let i = 0; i < 50; i++) {
 //         const block = new THREE.Mesh(codeBlocksGeo, codeMaterial);
 //         block.position.set(
@@ -600,7 +600,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //     // 3. Central "Axon" Structure - Neural Network Style
 //     const axonGroup = new THREE.Group();
-    
+
 //     // Central sphere (the "brain")
 //     const coreGeo = new THREE.IcosahedronGeometry(1.2, 2);
 //     const coreMat = new THREE.MeshPhongMaterial({
@@ -623,7 +623,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //             (Math.random() - 0.5) * 5,
 //             (Math.random() - 0.5) * 5
 //         ));
-        
+
 //         const lineGeo = new THREE.BufferGeometry().setFromPoints(points);
 //         const lineMat = new THREE.LineBasicMaterial({ color: 0x635091, transparent: true, opacity: 0.3 });
 //         const line = new THREE.Line(lineGeo, lineMat);
@@ -640,17 +640,17 @@ document.addEventListener('DOMContentLoaded', () => {
 //     ctx.font = 'Bold 40px "Fira Code"';
 //     ctx.textAlign = 'center';
 //     ctx.textBaseline = 'middle';
-    
+
 //     const textures = ['0', '1', '</>', '{ }', '()', '[]'];
 //     for (let i = 0; i < 30; i++) {
 //         ctx.clearRect(0, 0, 64, 64);
 //         ctx.fillStyle = i % 2 === 0 ? '#635091' : '#FFC132';
 //         ctx.fillText(textures[i % textures.length], 32, 32);
-        
+
 //         const texture = new THREE.CanvasTexture(canvas);
 //         const material = new THREE.SpriteMaterial({ map: texture, transparent: true });
 //         const sprite = new THREE.Sprite(material);
-        
+
 //         sprite.position.set(
 //             (Math.random() - 0.5) * 15,
 //             (Math.random() - 0.5) * 10,
@@ -672,11 +672,11 @@ document.addEventListener('DOMContentLoaded', () => {
 //     const light1 = new THREE.PointLight(0x635091, 1, 30);
 //     light1.position.set(2, 3, 4);
 //     scene.add(light1);
-    
+
 //     const light2 = new THREE.PointLight(0xFFC132, 0.5, 30);
 //     light2.position.set(-2, -1, 3);
 //     scene.add(light2);
-    
+
 //     const ambientLight = new THREE.AmbientLight(0x404040);
 //     scene.add(ambientLight);
 
@@ -686,18 +686,18 @@ document.addEventListener('DOMContentLoaded', () => {
 //     // Animation
 //     const animate = () => {
 //         requestAnimationFrame(animate);
-        
+
 //         // Rotate central group slowly
 //         axonGroup.rotation.y += 0.002;
 //         axonGroup.rotation.x += 0.001;
-        
+
 //         // Float particles
 //         binaryParticles.rotation.y += 0.0005;
-        
+
 //         // Pulse core
 //         const scale = 1 + Math.sin(Date.now() * 0.003) * 0.1;
 //         core.scale.set(scale, scale, scale);
-        
+
 //         renderer.render(scene, camera);
 //     };
 
@@ -722,10 +722,10 @@ function enhancedProductApp() {
         autoSwitchTimer: null,
         isAnimating: false,
         products: [
-            { 
-                name: "E-Commerce Platform", 
+            {
+                name: "E-Commerce Platform",
                 category: "RETAIL",
-                color: "#635091", 
+                color: "#635091",
                 image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=500",
                 shortDesc: "AI-powered online store with smart recommendations",
                 desc: "Global retail platforms built for speed and conversion with AI-powered recommendations, multi-payment integration, and real-time analytics.",
@@ -750,10 +750,10 @@ function enhancedProductApp() {
                 ],
                 icons: ["fas fa-search", "fas fa-shopping-cart", "fas fa-heart"]
             },
-            { 
-                name: "Restaurant POS", 
+            {
+                name: "Restaurant POS",
                 category: "HOSPITALITY",
-                color: "#FFC132", 
+                color: "#FFC132",
                 image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500",
                 shortDesc: "Complete dining workflow automation system",
                 desc: "Synchronized kitchen and floor management for modern dining with table booking, kitchen display, and real-time billing.",
@@ -778,10 +778,10 @@ function enhancedProductApp() {
                 ],
                 icons: ["fas fa-utensils", "fas fa-wine-glass", "fas fa-mug-hot"]
             },
-            { 
-                name: "Web Design Studio", 
+            {
+                name: "Web Design Studio",
                 category: "CREATIVE",
-                color: "#2E4053", 
+                color: "#2E4053",
                 image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=500",
                 shortDesc: "Immersive digital experiences & branding",
                 desc: "UI/UX focused digital identities that captivate users with responsive design, intuitive interfaces, and conversion-optimized layouts.",
@@ -806,10 +806,10 @@ function enhancedProductApp() {
                 ],
                 icons: ["fas fa-paint-brush", "fas fa-code", "fas fa-mobile-alt"]
             },
-            { 
-                name: "Mobile Apps", 
+            {
+                name: "Mobile Apps",
                 category: "DEVELOPMENT",
-                color: "#1B4F72", 
+                color: "#1B4F72",
                 image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500",
                 shortDesc: "Native iOS and Android solutions",
                 desc: "Native iOS and Android solutions with seamless cloud integration, push notifications, and offline capabilities.",
@@ -834,10 +834,10 @@ function enhancedProductApp() {
                 ],
                 icons: ["fab fa-apple", "fab fa-android", "fas fa-cloud"]
             },
-            { 
-                name: "School System", 
+            {
+                name: "School System",
                 category: "EDUCATION",
-                color: "#512E5F", 
+                color: "#512E5F",
                 image: "https://images.unsplash.com/photo-1523050337458-5bd812eb534c?w=500",
                 shortDesc: "Complete educational management platform",
                 desc: "Unified ERP for modern educational institutions with student portals, attendance tracking, fee management, and academic reporting.",
@@ -862,10 +862,10 @@ function enhancedProductApp() {
                 ],
                 icons: ["fas fa-user-graduate", "fas fa-book", "fas fa-calculator"]
             },
-            { 
-                name: "POS Systems", 
+            {
+                name: "POS Systems",
                 category: "RETAIL",
-                color: "#784212", 
+                color: "#784212",
                 image: "https://images.unsplash.com/photo-1556742031-c6961e8560b0?w=500",
                 shortDesc: "Lightning-fast retail processing system",
                 desc: "High-speed retail processing and inventory automation with barcode scanning, real-time stock updates, and sales analytics.",
@@ -891,17 +891,17 @@ function enhancedProductApp() {
                 icons: ["fas fa-barcode", "fas fa-credit-card", "fas fa-receipt"]
             }
         ],
-        
+
         init() {
             this.animateText();
             this.startAutoSwitch();
-            
+
             // Track mouse movement for dynamic background
             document.addEventListener('mousemove', (e) => {
                 this.mouseX = (e.clientX / window.innerWidth) * 100;
                 this.mouseY = (e.clientY / window.innerHeight) * 100;
             });
-            
+
             // Stop auto-switch when user hovers over cards
             const cards = document.querySelectorAll('.service-card, .product-card');
             cards.forEach(card => {
@@ -909,10 +909,10 @@ function enhancedProductApp() {
                 card.addEventListener('mouseleave', () => this.startAutoSwitch());
             });
         },
-        
+
         startAutoSwitch() {
             if (this.autoSwitchTimer) clearInterval(this.autoSwitchTimer);
-            
+
             // Switch to next product every 8 seconds (text animation takes ~5 seconds)
             this.autoSwitchTimer = setInterval(() => {
                 if (!this.isAnimating) {
@@ -920,18 +920,18 @@ function enhancedProductApp() {
                 }
             }, 8000);
         },
-        
+
         stopAutoSwitch() {
             if (this.autoSwitchTimer) {
                 clearInterval(this.autoSwitchTimer);
                 this.autoSwitchTimer = null;
             }
         },
-        
+
         getCardStyle(index) {
             const total = this.products.length;
             let diff = index - this.activeIndex;
-            
+
             // Wrap around logic
             if (diff > total / 2) diff -= total;
             if (diff < -total / 2) diff += total;
@@ -953,7 +953,7 @@ function enhancedProductApp() {
                 const rotateY = direction * -15;
                 const blurVal = Math.abs(diff) * 3;
                 const scaleVal = 0.8 - (Math.abs(diff) * 0.1);
-                
+
                 return `
                     z-index: ${50 - Math.abs(diff)}; 
                     transform: translateX(${xPos}px) translateZ(${zPos}px) rotateY(${rotateY}deg) scale(${scaleVal}); 
@@ -966,13 +966,13 @@ function enhancedProductApp() {
         animateText() {
             const el = document.getElementById('product-desc');
             if (!el) return;
-            
+
             this.isAnimating = true;
             const text = this.products[this.activeIndex].desc;
-            
+
             // Clear previous content
             el.innerHTML = '';
-            
+
             // Create typing effect
             let i = 0;
             const typeInterval = setInterval(() => {
@@ -982,7 +982,7 @@ function enhancedProductApp() {
                 } else {
                     clearInterval(typeInterval);
                     this.isAnimating = false;
-                    
+
                     // Automatically switch to next product after a short delay
                     setTimeout(() => {
                         if (!this.isAnimating && this.autoSwitchTimer) {
@@ -1013,7 +1013,7 @@ function servicesApp() {
     return {
         showAll: false,
         services: [
-            { 
+            {
                 title: 'Web <span class="text-[#FFC132]">Development</span>',
                 icon: 'fas fa-code',
                 color: '#FFC132',
@@ -1021,7 +1021,7 @@ function servicesApp() {
                 features: ['Frontend & Backend', 'API Integration', 'Database Design', 'Cloud Deployment'],
                 description: 'Custom web applications built with modern frameworks like React, Vue, and Node.js.'
             },
-            { 
+            {
                 title: 'Mobile <span class="text-[#635091]">Development</span>',
                 icon: 'fas fa-mobile-alt',
                 color: '#635091',
@@ -1029,7 +1029,7 @@ function servicesApp() {
                 features: ['iOS & Android', 'React Native', 'Flutter', 'App Store Deployment'],
                 description: 'Native and cross-platform mobile apps with stunning UI and seamless performance.'
             },
-            { 
+            {
                 title: 'Account <span class="text-[#FFC132]">Management</span>',
                 icon: 'fas fa-calculator',
                 color: '#FFC132',
@@ -1037,7 +1037,7 @@ function servicesApp() {
                 features: ['Ledger Tracking', 'Financial Reports', 'Invoice Generation', 'Tax Compliance'],
                 description: 'Comprehensive financial management solutions for businesses of all sizes.'
             },
-            { 
+            {
                 title: 'Web <span class="text-[#635091]">Designing</span>',
                 icon: 'fas fa-paint-brush',
                 color: '#635091',
@@ -1045,7 +1045,7 @@ function servicesApp() {
                 features: ['UI/UX Design', 'Wireframing', 'Prototyping', 'Responsive Design'],
                 description: 'Beautiful, user-centered designs that engage visitors and drive conversions.'
             },
-            { 
+            {
                 title: 'Enterprise <span class="text-[#FFC132]">Applications</span>',
                 icon: 'fas fa-network-wired',
                 color: '#FFC132',
@@ -1053,7 +1053,7 @@ function servicesApp() {
                 features: ['ERP Systems', 'CRM Solutions', 'Workflow Automation', 'Business Intelligence'],
                 description: 'Scalable enterprise software to streamline operations and boost productivity.'
             },
-            { 
+            {
                 title: 'Data <span class="text-[#635091]">Warehousing</span>',
                 icon: 'fas fa-database',
                 color: '#635091',
@@ -1061,7 +1061,7 @@ function servicesApp() {
                 features: ['Big Data Analytics', 'ETL Processes', 'Data Visualization', 'Real-time Reporting'],
                 description: 'Transform raw data into actionable insights with our data warehousing solutions.'
             },
-            { 
+            {
                 title: 'Content <span class="text-[#FFC132]">Writing</span>',
                 icon: 'fas fa-pen-fancy',
                 color: '#FFC132',
@@ -1069,7 +1069,7 @@ function servicesApp() {
                 features: ['SEO Content', 'Blog Posts', 'Technical Writing', 'Copywriting'],
                 description: 'Engaging, high-quality content that tells your story and connects with your audience.'
             },
-            { 
+            {
                 title: 'Hardware <span class="text-[#635091]">Services</span>',
                 icon: 'fas fa-microchip',
                 color: '#635091',
@@ -1078,11 +1078,11 @@ function servicesApp() {
                 description: 'Reliable hardware solutions and infrastructure support for your business.'
             }
         ],
-        
+
         get visibleServices() {
             return this.showAll ? this.services : this.services.slice(0, 3);
         },
-        
+
         loadMore() {
             this.showAll = true;
             // Smooth scroll to newly visible services
@@ -1093,13 +1093,13 @@ function servicesApp() {
                 }
             }, 100);
         },
-        
+
         showLess() {
             this.showAll = false;
             // Scroll back to services section
             document.getElementById('Services').scrollIntoView({ behavior: 'smooth' });
         },
-        
+
         init() {
             // Add animation delay classes
             this.services.forEach((_, index) => {
@@ -1122,3 +1122,31 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// EmailJS Implementation
+(function () {
+    // Initialize EmailJS with your Public Key
+    // Replace 'YOUR_PUBLIC_KEY' with your actual public key from EmailJS dashboard
+    emailjs.init("_fjCctgUPuAjqaayo");
+
+    window.sendEmail = function (form, alpineData) {
+        // Change button text to indicate sending
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<span>Sending...</span>';
+        btn.disabled = true;
+
+        // Use EmailJS to send the form
+        // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual IDs
+        emailjs.sendForm('service_y87zy77', 'template_0lm4qks', form)
+            .then(function () {
+                alpineData.submitted = true;
+                console.log('SUCCESS!');
+            }, function (error) {
+                console.log('FAILED...', error);
+                alert('Failed to send message. Please try again or contact us directly.');
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
+    };
+})();

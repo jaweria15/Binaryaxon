@@ -100,48 +100,7 @@ function scrollToContact() {
 
 
 
-/* ========== WHY CHOOSE US — Count-up animation ========== */
-(function () {
-    var section = document.getElementById("WhyChooseUs");
-    if (!section) return;
 
-    var numbers = section.querySelectorAll(".why-choose-number");
-    var done = false;
-
-    function animateValue(el, end, duration) {
-        var start = 0;
-        var startTime = null;
-        end = parseInt(end, 10);
-        if (end > 100) duration = Math.min(duration, 2200);
-
-        function step(timestamp) {
-            if (!startTime) startTime = timestamp;
-            var progress = Math.min((timestamp - startTime) / duration, 1);
-            var easeOut = 1 - Math.pow(1 - progress, 3);
-            var current = Math.round(start + (end - start) * easeOut);
-            el.textContent = current;
-            if (progress < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-    }
-
-    function runCounters() {
-        if (done) return;
-        done = true;
-        numbers.forEach(function (el) {
-            var target = el.getAttribute("data-target");
-            if (!target) return;
-            animateValue(el, target, 1800);
-        });
-    }
-
-    var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) runCounters();
-        });
-    }, { threshold: 0.25, rootMargin: "0px" });
-    observer.observe(section);
-})();
 
 /* ========== RADIAL ORBITAL TIMELINE ========== */
 (function () {
@@ -153,16 +112,16 @@ function scrollToContact() {
             bgIcons: ["fa-school", "fa-chalkboard", "fa-book-open", "fa-user-graduate", "fa-clipboard", "fa-pencil", "fa-calculator", "fa-bell", "fa-award", "fa-bus-simple", "fa-apple-whole", "fa-ruler"]
         },
         {
-            id: 2, title: "Restaurant Management", date: "2024",
-            content: "Order processing, table booking, kitchen display, menu management & complete dining workflow automation.",
-            icon: "fa-utensils", relatedIds: [6, 4], status: "completed", energy: 90,
-            bgIcons: ["fa-pizza-slice", "fa-wine-glass", "fa-concierge-bell", "fa-mug-hot", "fa-ice-cream", "fa-bowl-food", "fa-burger", "fa-cookie", "fa-champagne-glasses", "fa-lemon", "fa-pepper-hot", "fa-drumstick-bite"]
+            id: 2, title: "Recruitment Portal", date: "2024",
+            content: "AI-driven talent acquisition, automated screening, interview scheduling, and end-to-end recruitment lifecycle management.",
+            icon: "fa-user-plus", relatedIds: [6, 4], status: "completed", energy: 90,
+            bgIcons: ["fa-users", "fa-briefcase", "fa-search", "fa-handshake", "fa-file-signature", "fa-id-card", "fa-user-tie", "fa-calendar-check", "fa-robot", "fa-brain"]
         },
         {
-            id: 3, title: "Ecommerce Management", date: "2024",
-            content: "Complete online store with AI-powered recommendations, payment integration, multi-vendor support & order tracking.",
-            icon: "fa-store", relatedIds: [4, 5], status: "in-progress", energy: 75,
-            bgIcons: ["fa-cart-shopping", "fa-credit-card", "fa-tag", "fa-box", "fa-truck", "fa-barcode", "fa-receipt", "fa-bag-shopping", "fa-gift", "fa-percent", "fa-globe", "fa-heart"]
+            id: 3, title: "ERP System", date: "2024",
+            content: "Unified enterprise planning suite integrating HR, Finance, Supply Chain, and Operations into one powerful ecosystem.",
+            icon: "fa-network-wired", relatedIds: [4, 5], status: "completed", energy: 98,
+            bgIcons: ["fa-gears", "fa-chart-pie", "fa-warehouse", "fa-truck-fast", "fa-file-invoice-dollar", "fa-shield-halved", "fa-microchip", "fa-database", "fa-users-gear", "fa-diagram-project"]
         },
         {
             id: 4, title: "Inventory Management", date: "2024",
@@ -454,62 +413,8 @@ function scrollToContact() {
 
     window.addEventListener("resize", positionNodes);
 })();
-function productApp() {
-    return {
-        activeIndex: 0,
-        products: [
-            { name: "E-Commerce", color: "#635091", image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=500", desc: "Global retail platforms built for speed and conversion." },
-            { name: "Restaurant POS", color: "#FFC132", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500", desc: "Synchronized kitchen and floor management for modern dining." },
-            { name: "Web Design", color: "#2E4053", image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=500", desc: "UI/UX focused digital identities that captivate users." },
-            { name: "App Development", color: "#1B4F72", image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500", desc: "Native iOS and Android solutions with seamless integration." },
-            { name: "School System", color: "#512E5F", image: "https://images.unsplash.com/photo-1523050337458-5bd812eb534c?w=500", desc: "Unified ERP for modern educational institutions." },
-            { name: "POS Systems", color: "#784212", image: "https://images.unsplash.com/photo-1556742031-c6961e8560b0?w=500", desc: "High-speed retail processing and inventory automation." }
-        ],
-        init() { this.animateText(); },
+// Legacy productApp removed
 
-        getCardStyle(index) {
-            const total = this.products.length;
-            // Calculate relative distance from active index
-            let diff = index - this.activeIndex;
-
-            // Wrap around logic
-            if (diff > total / 2) diff -= total;
-            if (diff < -total / 2) diff += total;
-
-            if (diff === 0) {
-                // ACTIVE CENTER CARD
-                return `z-index: 100; transform: translateX(0) translateZ(200px) scale(1.2); filter: blur(0px); opacity: 1;`;
-            } else {
-                // BACKGROUND CARDS
-                const xPos = diff * 180; // Spread cards horizontally
-                const zPos = Math.abs(diff) * -150; // Push further back the further they are from center
-                const blurVal = Math.abs(diff) * 4; // Increase blur with distance
-                const scaleVal = 1 - (Math.abs(diff) * 0.15); // Shrink with distance
-
-                return `
-                    z-index: ${50 - Math.abs(diff)}; 
-                    transform: translateX(${xPos}px) translateZ(${zPos}px) scale(${scaleVal}); 
-                    filter: blur(${blurVal}px); 
-                    opacity: 0.4;
-                `;
-            }
-        },
-
-        animateText() {
-            const el = document.getElementById('product-desc');
-            const text = this.products[this.activeIndex].desc;
-            el.innerHTML = text.split(' ').map(w => `<span class="inline-block opacity-0 translate-y-2 blur-sm">${w}&nbsp;</span>`).join('');
-            gsap.to('#product-desc span', {
-                opacity: 1,
-                y: 0,
-                filter: 'blur(0px)',
-                stagger: 0.03,
-                duration: 0.5,
-                ease: "power2.out"
-            });
-        }
-    }
-}
 
 // Add this to main.js to make the 'About Us' section animate
 document.addEventListener('DOMContentLoaded', () => {
@@ -720,181 +625,272 @@ function enhancedProductApp() {
         mouseX: 50,
         mouseY: 50,
         autoSwitchTimer: null,
+        typingInterval: null,
         isAnimating: false,
+        showDemoModal: false,
+        demoProductName: '',
+        demoSubmitted: new URLSearchParams(window.location.search).has('demoSuccess'),
         products: [
             {
-                name: "E-Commerce Platform",
-                category: "RETAIL",
-                color: "#635091",
-                image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=500",
-                shortDesc: "AI-powered online store with smart recommendations",
-                desc: "Global retail platforms built for speed and conversion with AI-powered recommendations, multi-payment integration, and real-time analytics.",
-                icon: '<i class="fas fa-store"></i>',
+                name: "Prime Recruitment",
+                category: "PORTAL",
+                color: "#148F77",
+                image: "assets/images/products/recruitment-1.png",
+                shortDesc: "AI-Driven Talent Acquisition",
+                desc: "A powerful recruitment portal that bridges the gap between top talent and leading organizations through smart matching and automated workflows.",
+                icon: '<i class="fas fa-user-plus"></i>',
                 features: [
-                    { icon: "fas fa-robot", text: "AI Recommendations" },
-                    { icon: "fas fa-credit-card", text: "Multi-payment" },
-                    { icon: "fas fa-truck", text: "Order Tracking" },
-                    { icon: "fas fa-chart-line", text: "Analytics" }
+                    { icon: "fas fa-robot", text: "AI Matching" },
+                    { icon: "fas fa-search-location", text: "Geo-Sourcing" },
+                    { icon: "fas fa-calendar-check", text: "Auto Interviews" },
+                    { icon: "fas fa-file-signature", text: "E-Onboarding" }
                 ],
                 technologies: [
                     { icon: "fab fa-react", name: "React" },
                     { icon: "fab fa-node-js", name: "Node.js" },
-                    { icon: "fas fa-database", name: "MongoDB" },
-                    { icon: "fab fa-aws", name: "AWS" }
+                    { icon: "fas fa-brain", name: "AI Engine" }
                 ],
-                slug: "ecommerce",
+                slug: "recruitment",
                 stats: [
-                    { value: "10k+", label: "Products" },
-                    { value: "5k+", label: "Users" },
-                    { value: "99.9%", label: "Uptime" }
+                    { value: "50k+", label: "Resumes" },
+                    { value: "12d", label: "Hire Time" },
+                    { value: "95%", label: "Match" }
                 ],
-                icons: ["fas fa-search", "fas fa-shopping-cart", "fas fa-heart"]
+                icons: ["fas fa-briefcase", "fas fa-search-dollar", "fas fa-user-tie"]
             },
             {
-                name: "Restaurant POS",
-                category: "HOSPITALITY",
-                color: "#FFC132",
-                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500",
-                shortDesc: "Complete dining workflow automation system",
-                desc: "Synchronized kitchen and floor management for modern dining with table booking, kitchen display, and real-time billing.",
-                icon: '<i class="fas fa-utensils"></i>',
-                features: [
-                    { icon: "fas fa-table", text: "Table Management" },
-                    { icon: "fas fa-print", text: "Kitchen Display" },
-                    { icon: "fas fa-receipt", text: "Billing" },
-                    { icon: "fas fa-chart-pie", text: "Reports" }
-                ],
-                technologies: [
-                    { icon: "fab fa-vuejs", name: "Vue.js" },
-                    { icon: "fab fa-python", name: "Python" },
-                    { icon: "fas fa-database", name: "PostgreSQL" },
-                    { icon: "fab fa-docker", name: "Docker" }
-                ],
-                slug: "restaurant-pos",
-                stats: [
-                    { value: "500+", label: "Restaurants" },
-                    { value: "1M+", label: "Orders" },
-                    { value: "24/7", label: "Support" }
-                ],
-                icons: ["fas fa-utensils", "fas fa-wine-glass", "fas fa-mug-hot"]
-            },
-            {
-                name: "Web Design Studio",
-                category: "CREATIVE",
-                color: "#2E4053",
-                image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=500",
-                shortDesc: "Immersive digital experiences & branding",
-                desc: "UI/UX focused digital identities that captivate users with responsive design, intuitive interfaces, and conversion-optimized layouts.",
-                icon: '<i class="fas fa-paint-brush"></i>',
-                features: [
-                    { icon: "fas fa-palette", text: "UI/UX Design" },
-                    { icon: "fas fa-code", text: "Development" },
-                    { icon: "fas fa-mobile-alt", text: "Responsive" },
-                    { icon: "fas fa-chart-simple", text: "SEO" }
-                ],
-                technologies: [
-                    { icon: "fab fa-figma", name: "Figma" },
-                    { icon: "fab fa-html5", name: "HTML5" },
-                    { icon: "fab fa-css3-alt", name: "CSS3" },
-                    { icon: "fab fa-js", name: "JavaScript" }
-                ],
-                slug: "web-design",
-                stats: [
-                    { value: "200+", label: "Projects" },
-                    { value: "50+", label: "Clients" },
-                    { value: "15", label: "Awards" }
-                ],
-                icons: ["fas fa-paint-brush", "fas fa-code", "fas fa-mobile-alt"]
-            },
-            {
-                name: "Mobile Apps",
-                category: "DEVELOPMENT",
-                color: "#1B4F72",
-                image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500",
-                shortDesc: "Native iOS and Android solutions",
-                desc: "Native iOS and Android solutions with seamless cloud integration, push notifications, and offline capabilities.",
-                icon: '<i class="fas fa-mobile-alt"></i>',
-                features: [
-                    { icon: "fab fa-apple", text: "iOS Native" },
-                    { icon: "fab fa-android", text: "Android" },
-                    { icon: "fas fa-cloud", text: "Cloud Sync" },
-                    { icon: "fas fa-lock", text: "Security" }
-                ],
-                technologies: [
-                    { icon: "fab fa-swift", name: "Swift" },
-                    { icon: "fab fa-java", name: "Kotlin" },
-                    { icon: "fab fa-react", name: "React Native" },
-                    { icon: "fas fa-fire", name: "Firebase" }
-                ],
-                slug: "mobile-apps",
-                stats: [
-                    { value: "100k+", label: "Downloads" },
-                    { value: "4.8", label: "App Store" },
-                    { value: "4.9", label: "Play Store" }
-                ],
-                icons: ["fab fa-apple", "fab fa-android", "fas fa-cloud"]
-            },
-            {
-                name: "School System",
+                name: "Smart School",
                 category: "EDUCATION",
                 color: "#512E5F",
-                image: "https://images.unsplash.com/photo-1523050337458-5bd812eb534c?w=500",
-                shortDesc: "Complete educational management platform",
-                desc: "Unified ERP for modern educational institutions with student portals, attendance tracking, fee management, and academic reporting.",
+                image: "assets/images/products/school-1.png",
+                shortDesc: "Next-Gen School Management",
+                desc: "A complete educational ERP system that unifies students, parents, and teachers on a single platform with automated reporting and fee management.",
                 icon: '<i class="fas fa-school"></i>',
                 features: [
-                    { icon: "fas fa-user-graduate", text: "Student Portal" },
-                    { icon: "fas fa-chalkboard", text: "Attendance" },
-                    { icon: "fas fa-file-alt", text: "Reports" },
-                    { icon: "fas fa-calendar", text: "Timetable" }
+                    { icon: "fas fa-user-graduate", text: "LMS Integration" },
+                    { icon: "fas fa-wallet", text: "Fee Portal" },
+                    { icon: "fas fa-bell", text: "Smart Alerts" },
+                    { icon: "fas fa-chart-bar", text: "Result Center" }
                 ],
                 technologies: [
                     { icon: "fab fa-laravel", name: "Laravel" },
-                    { icon: "fas fa-database", name: "MySQL" },
-                    { icon: "fab fa-bootstrap", name: "Bootstrap" },
-                    { icon: "fab fa-php", name: "PHP" }
+                    { icon: "fas fa-mobile", name: "Mobile App" },
+                    { icon: "fas fa-database", name: "MySQL" }
                 ],
                 slug: "school-system",
                 stats: [
-                    { value: "50+", label: "Schools" },
-                    { value: "10k+", label: "Students" },
-                    { value: "1000+", label: "Teachers" }
+                    { value: "100+", label: "Schools" },
+                    { value: "50k+", label: "Users" },
+                    { value: "98%", label: "Retention" }
                 ],
-                icons: ["fas fa-user-graduate", "fas fa-book", "fas fa-calculator"]
+                icons: ["fas fa-graduation-cap", "fas fa-chalkboard-teacher", "fas fa-bus"]
             },
             {
-                name: "POS Systems",
+                name: "Accounts Master",
+                category: "FINANCE",
+                color: "#7B241C",
+                image: "assets/images/products/accounts-1.png",
+                shortDesc: "Professional Accounting ERP",
+                desc: "A secure and robust financial management system providing multi-currency ledgers, instant tax compliance, and deep audit capabilities.",
+                icon: '<i class="fas fa-calculator"></i>',
+                features: [
+                    { icon: "fas fa-file-invoice-dollar", text: "Invoicing" },
+                    { icon: "fas fa-balance-scale", text: "Tax Engine" },
+                    { icon: "fas fa-history", text: "Audit Trails" },
+                    { icon: "fas fa-chart-line", text: "Reports" }
+                ],
+                technologies: [
+                    { icon: "fab fa-microsoft", name: "C#" },
+                    { icon: "fas fa-database", name: "SQL Server" },
+                    { icon: "fas fa-shield-alt", name: "OAuth 2.0" }
+                ],
+                slug: "accounts-app",
+                stats: [
+                    { value: "$50M+", label: "Turnover" },
+                    { value: "Zero", label: "Errors" },
+                    { value: "Realtime", label: "Update" }
+                ],
+                icons: ["fas fa-receipt", "fas fa-piggy-bank", "fas fa-coins"]
+            },
+            {
+                name: "Apex POS",
                 category: "RETAIL",
-                color: "#784212",
-                image: "https://images.unsplash.com/photo-1556742031-c6961e8560b0?w=500",
-                shortDesc: "Lightning-fast retail processing system",
-                desc: "High-speed retail processing and inventory automation with barcode scanning, real-time stock updates, and sales analytics.",
+                color: "#1B2631",
+                image: "assets/images/products/pos-1.png",
+                shortDesc: "Hyper-Fast Point of Sale",
+                desc: "Designed for high-traffic retail, Apex POS offers lightning-fast transactions, integrated hardware support, and powerful inventory sync.",
                 icon: '<i class="fas fa-cash-register"></i>',
                 features: [
-                    { icon: "fas fa-barcode", text: "Barcode Scan" },
-                    { icon: "fas fa-boxes", text: "Inventory" },
-                    { icon: "fas fa-chart-simple", text: "Sales" },
-                    { icon: "fas fa-users", text: "Staff" }
+                    { icon: "fas fa-bolt", text: "Instant Sale" },
+                    { icon: "fas fa-boxes", text: "Stock Sync" },
+                    { icon: "fas fa-user-check", text: "Staff Login" },
+                    { icon: "fas fa-cloud-upload-alt", text: "Cloud Backup" }
                 ],
                 technologies: [
                     { icon: "fab fa-angular", name: "Angular" },
-                    { icon: "fab fa-node-js", name: "Node.js" },
-                    { icon: "fas fa-database", name: "Redis" },
-                    { icon: "fab fa-aws", name: "AWS" }
+                    { icon: "fab fa-node-js", name: "Express" },
+                    { icon: "fas fa-hdd", name: "Hardware API" }
                 ],
                 slug: "pos-retail",
                 stats: [
-                    { value: "1000+", label: "Stores" },
-                    { value: "50k+", label: "Transactions" },
-                    { value: "0.5s", label: "Processing" }
+                    { value: "2000+", label: "Stores" },
+                    { value: "0.2s", label: "Processing" },
+                    { value: "24/7", label: "Support" }
                 ],
-                icons: ["fas fa-barcode", "fas fa-credit-card", "fas fa-receipt"]
+                icons: ["fas fa-print", "fas fa-credit-card", "fas fa-percentage"]
+            },
+            {
+                name: "ERP System",
+                category: "ENTERPRISE",
+                color: "#1B4F72",
+                image: "assets/images/products/erp-1.png",
+                shortDesc: "End-to-End Business Unified",
+                desc: "A comprehensive ERP suite that bridges Manufacturing, Supply Chain, and Finance for large-scale enterprise operations with advanced HR & Payroll modules.",
+                icon: '<i class="fas fa-network-wired"></i>',
+                features: [
+                    { icon: "fas fa-industry", text: "Production" },
+                    { icon: "fas fa-warehouse", text: "Inventory" },
+                    { icon: "fas fa-truck-loading", text: "Logistics" },
+                    { icon: "fas fa-project-diagram", text: "SOP Mgmt" }
+                ],
+                technologies: [
+                    { icon: "fab fa-python", name: "Python" },
+                    { icon: "fas fa-database", name: "PostgreSQL" },
+                    { icon: "fab fa-docker", name: "Microservices" }
+                ],
+                slug: "erp-system",
+                stats: [
+                    { value: "300%", label: "Efficiency" },
+                    { value: "50+", label: "Modules" },
+                    { value: "Enterprise", label: "Security" }
+                ],
+                icons: ["fas fa-cogs", "fas fa-cubes", "fas fa-chart-network"]
+            },
+            {
+                name: "Shopify Elite",
+                category: "PLATFORM",
+                color: "#1D8348",
+                image: "assets/images/products/shopify-1.png",
+                shortDesc: "Custom Shopify Storefronts",
+                desc: "High-conversion Shopify stores built with custom Liquid themes and headless integrations for the ultimate brand experience.",
+                icon: '<i class="fab fa-shopify"></i>',
+                features: [
+                    { icon: "fas fa-rocket", text: "Speed Boost" },
+                    { icon: "fas fa-plug", text: "Custom Apps" },
+                    { icon: "fas fa-paint-brush", text: "Bespoke Design" },
+                    { icon: "fas fa-mobile-alt", text: "Mobile First" }
+                ],
+                technologies: [
+                    { icon: "fab fa-shopify", name: "Liquid" },
+                    { icon: "fab fa-js", name: "Node.js" },
+                    { icon: "fas fa-shopping-bag", name: "Shopify Plus" }
+                ],
+                slug: "shopify-dev",
+                stats: [
+                    { value: "250+", label: "Stores" },
+                    { value: "98/100", label: "Speed" },
+                    { value: "Top", label: "Rated" }
+                ],
+                icons: ["fab fa-shopify", "fas fa-cart-arrow-down", "fas fa-laptop-code"]
+            },
+            {
+                name: "E-Commerce",
+                category: "RETAIL",
+                color: "#635091",
+                image: "assets/images/products/ecommerce-1.png",
+                shortDesc: "Scalable Online Stores",
+                desc: "High-conversion digital storefronts built with cutting-edge tech. We create seamless shopping experiences that drive sales and customer loyalty.",
+                icon: '<i class="fas fa-shopping-cart"></i>',
+                features: [
+                    { icon: "fas fa-mobile-alt", text: "Responsive" },
+                    { icon: "fas fa-credit-card", text: "Secure Pay" },
+                    { icon: "fas fa-box-open", text: "Inventory" },
+                    { icon: "fas fa-search-dollar", text: "SEO Ready" }
+                ],
+                technologies: [
+                    { icon: "fab fa-node-js", name: "Node.js" },
+                    { icon: "fab fa-react", name: "React" },
+                    { icon: "fas fa-database", name: "MongoDB" }
+                ],
+                slug: "ecommerce",
+                stats: [
+                    { value: "100+", label: "Stores" },
+                    { value: "40%", label: "Conversion" },
+                    { value: "Fast", label: "Delivery" }
+                ],
+                icons: ["fas fa-shopping-bag", "fas fa-tags", "fas fa-truck"]
+            },
+            {
+                name: "WP Advanced",
+                category: "PLATFORM",
+                color: "#21618C",
+                image: "assets/images/products/wordpress-1.png",
+                shortDesc: "Scalable WordPress CMS",
+                desc: "Enterprise WordPress solutions designed for security, high-traffic, and seamless content management for corporate websites like Quill Product.",
+                icon: '<i class="fab fa-wordpress"></i>',
+                features: [
+                    { icon: "fas fa-code", text: "Custom Core" },
+                    { icon: "fas fa-puzzle-piece", text: "Custom Plugins" },
+                    { icon: "fas fa-lock", text: "Secured" },
+                    { icon: "fas fa-server", text: "Hosting Opt" }
+                ],
+                technologies: [
+                    { icon: "fab fa-wordpress", name: "WordPress" },
+                    { icon: "fab fa-php", name: "PHP 8" },
+                    { icon: "fab fa-react", name: "Gutenberg" }
+                ],
+                slug: "wordpress-dev",
+                stats: [
+                    { value: "500+", label: "Websites" },
+                    { value: "Secure", label: "Audit" },
+                    { value: "99.9%", label: "Stability" }
+                ],
+                icons: ["fab fa-wordpress", "fab fa-elementor", "fas fa-pencil-ruler"]
+            },
+            {
+                name: "Content Engine",
+                category: "CONTENT",
+                color: "#6E2C00",
+                image: "assets/images/products/content-1.png",
+                shortDesc: "Professional Copywriting",
+                desc: "Strategic content creation that drives organic traffic and converts visitors into loyal customers through impactful storytelling.",
+                icon: '<i class="fas fa-pen-nib"></i>',
+                features: [
+                    { icon: "fas fa-search", text: "SEO Focus" },
+                    { icon: "fas fa-bullseye", text: "Conversion" },
+                    { icon: "fas fa-language", text: "Multi-Lang" },
+                    { icon: "fas fa-check-double", text: "QA Passed" }
+                ],
+                technologies: [
+                    { icon: "fas fa-spell-check", name: "Grammarly" },
+                    { icon: "fas fa-chart-bar", name: "Ahrefs" },
+                    { icon: "fas fa-brain", name: "Creative" }
+                ],
+                slug: "content-writing",
+                stats: [
+                    { value: "10M+", label: "Words" },
+                    { value: "1st", label: "Google" },
+                    { value: "Elite", label: "Writers" }
+                ],
+                icons: ["fas fa-keyboard", "fas fa-newspaper", "fas fa-quote-left"]
             }
         ],
 
         init() {
             this.animateText();
             this.startAutoSwitch();
+
+            // Handle URL parameters for Demo Modal
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('openDemo')) {
+                const productSlug = urlParams.get('openDemo');
+                const product = this.products.find(p => p.slug === productSlug);
+                if (product) {
+                    this.showDemoModal = true;
+                    this.demoProductName = product.name;
+                    this.activeIndex = this.products.indexOf(product);
+                }
+            }
 
             // Track mouse movement for dynamic background
             document.addEventListener('mousemove', (e) => {
@@ -967,6 +963,11 @@ function enhancedProductApp() {
             const el = document.getElementById('product-desc');
             if (!el) return;
 
+            // Stop any current typing animation
+            if (this.typingInterval) {
+                clearInterval(this.typingInterval);
+            }
+
             this.isAnimating = true;
             const text = this.products[this.activeIndex].desc;
 
@@ -975,22 +976,16 @@ function enhancedProductApp() {
 
             // Create typing effect
             let i = 0;
-            const typeInterval = setInterval(() => {
+            this.typingInterval = setInterval(() => {
                 if (i < text.length) {
                     el.innerHTML += text.charAt(i);
                     i++;
                 } else {
-                    clearInterval(typeInterval);
+                    clearInterval(this.typingInterval);
+                    this.typingInterval = null;
                     this.isAnimating = false;
-
-                    // Automatically switch to next product after a short delay
-                    setTimeout(() => {
-                        if (!this.isAnimating && this.autoSwitchTimer) {
-                            this.nextProduct();
-                        }
-                    }, 1500);
                 }
-            }, 30);
+            }, 25);
         },
 
         prevProduct() {
@@ -1019,7 +1014,7 @@ function servicesApp() {
                 color: '#FFC132',
                 image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800',
                 features: ['Frontend & Backend', 'API Integration', 'Database Design', 'Cloud Deployment'],
-                description: 'Custom web applications built with modern frameworks like React, Vue, and Node.js.'
+                description: 'We engineer high-performance, scalable web applications using cutting-edge frameworks like React, Vue, and Node.js. Our development process focuses on creating robust backend architectures combined with seamless frontend experiences that drive business growth.'
             },
             {
                 title: 'Mobile <span class="text-[#635091]">Development</span>',
@@ -1027,7 +1022,7 @@ function servicesApp() {
                 color: '#635091',
                 image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800',
                 features: ['iOS & Android', 'React Native', 'Flutter', 'App Store Deployment'],
-                description: 'Native and cross-platform mobile apps with stunning UI and seamless performance.'
+                description: 'Our mobile experts deliver native and cross-platform solutions for iOS and Android that prioritize user engagement and performance. We handle everything from intuitive UI/UX design to complex cloud integrations and long-term app store maintenance.'
             },
             {
                 title: 'Account <span class="text-[#FFC132]">Management</span>',
@@ -1035,7 +1030,7 @@ function servicesApp() {
                 color: '#FFC132',
                 image: 'https://images.unsplash.com/photo-1554224155-1696413565d3?w=800',
                 features: ['Ledger Tracking', 'Financial Reports', 'Invoice Generation', 'Tax Compliance'],
-                description: 'Comprehensive financial management solutions for businesses of all sizes.'
+                description: 'Simplify your business finances with our comprehensive accounting solutions. From automated ledger tracking and real-time financial reporting to tax compliance and professional invoice generation, we provide the tools you need to maintain financial health.'
             },
             {
                 title: 'Web <span class="text-[#635091]">Designing</span>',
@@ -1043,7 +1038,7 @@ function servicesApp() {
                 color: '#635091',
                 image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=800',
                 features: ['UI/UX Design', 'Wireframing', 'Prototyping', 'Responsive Design'],
-                description: 'Beautiful, user-centered designs that engage visitors and drive conversions.'
+                description: 'We create stunning, user-centric designs that tell your brand story and engage visitors from the first click. Our design philosophy combines artistic creativity with data-driven UX principles to ensure high conversion rates and a memorable digital presence.'
             },
             {
                 title: 'Enterprise <span class="text-[#FFC132]">Applications</span>',
@@ -1051,7 +1046,7 @@ function servicesApp() {
                 color: '#FFC132',
                 image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
                 features: ['ERP Systems', 'CRM Solutions', 'Workflow Automation', 'Business Intelligence'],
-                description: 'Scalable enterprise software to streamline operations and boost productivity.'
+                description: 'Streamline your corporate operations with custom enterprise software built for scale. We develop sophisticated ERP and CRM systems that automate complex workflows, improve team collaboration, and provide deep business intelligence for informed decision-making.'
             },
             {
                 title: 'Data <span class="text-[#635091]">Warehousing</span>',
@@ -1059,7 +1054,7 @@ function servicesApp() {
                 color: '#635091',
                 image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
                 features: ['Big Data Analytics', 'ETL Processes', 'Data Visualization', 'Real-time Reporting'],
-                description: 'Transform raw data into actionable insights with our data warehousing solutions.'
+                description: 'Unlock the power of your data with our advanced warehousing and analytics solutions. We implement robust ETL processes and real-time reporting tools that transform raw data into actionable insights, helping you predict market trends and optimize operations.'
             },
             {
                 title: 'Content <span class="text-[#FFC132]">Writing</span>',
@@ -1067,7 +1062,7 @@ function servicesApp() {
                 color: '#FFC132',
                 image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800',
                 features: ['SEO Content', 'Blog Posts', 'Technical Writing', 'Copywriting'],
-                description: 'Engaging, high-quality content that tells your story and connects with your audience.'
+                description: 'Our professional writers craft high-quality, SEO-optimized content that resonates with your target audience and boosts your search rankings. Whether you need technical whitepapers, engaging blog posts, or high-conversion sales copy, we tell your story effectively.'
             },
             {
                 title: 'Hardware <span class="text-[#635091]">Services</span>',
@@ -1075,7 +1070,7 @@ function servicesApp() {
                 color: '#635091',
                 image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=800',
                 features: ['Server Setup', 'Network Configuration', 'Hardware Maintenance', 'IT Infrastructure'],
-                description: 'Reliable hardware solutions and infrastructure support for your business.'
+                description: 'Build a rock-solid foundation for your digital operations with our expert hardware and infrastructure services. We provide professional server setup, secure network configuration, and ongoing maintenance to ensure your business remains online and secure 24/7.'
             }
         ],
 

@@ -17,6 +17,8 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/images/logo-favicon.png">
+    <link rel="shortcut icon" href="assets/images/logo-favicon.png" type="image/png">
 </head>
 
 <body>
@@ -33,7 +35,7 @@
                     <a href="#Aboutus">About Us</a>
                     <a href="#Services">Services</a>
                     <a href="#ProductSection">Products</a>
-                    <a href="#WhyChooseUs">Why Choose Us</a>
+                    <a href="#Clients">Clients</a>
                 </div>
                 <button class="btn nav-contact-btn " onclick="scrollToContact()"><span>Contact Us</span></button>
                 <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
@@ -70,142 +72,290 @@
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <header class="text-center mb-16">
-                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-xs mb-3 block">WORKFLOW</span>
-                <h2 class="text-4xl lg:text-5xl font-bold text-white tracking-tighter mb-4">How We <span
-                        class="text-[#635091]">Work</span></h2>
+                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-xs mb-3 block">AGILE
+                    WORKFLOW</span>
+                <h2 class="text-4xl lg:text-5xl font-bold text-white tracking-tighter mb-4">Our <span
+                        class="text-[#635091]">Methodology</span></h2>
                 <div class="h-1 w-12 bg-[#635091] mx-auto mb-6"></div>
-                <p class="text-gray-400 max-w-2xl mx-auto">A streamlined process designed to deliver excellence from
-                    initial discovery to final support.</p>
+                <p class="text-gray-400 max-w-2xl mx-auto">An adaptive, seven-phase agile continuum engineered to
+                    accelerate innovation and ensure sustained excellence.</p>
             </header>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+                <!-- Step 1 -->
                 <div
-                    class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#635091]/50 transition-all duration-500 overflow-hidden">
+                    class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#635091]/50 transition-all duration-500 overflow-hidden md:col-span-1 lg:col-span-3">
                     <div
                         class="absolute -right-4 -bottom-4 text-8xl font-black text-white/5 group-hover:text-[#635091]/10 transition-colors">
                         1</div>
                     <div
                         class="w-12 h-12 bg-[#635091] rounded-xl flex items-center justify-center text-white font-bold mb-6 shadow-lg shadow-[#635091]/20">
                         1</div>
-                    <h3 class="text-white font-bold text-xl mb-4">Discovery</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">In-depth research to understand your business
-                        objectives and technical requirements.</p>
+                    <h3 class="text-white font-bold text-xl mb-4">Discovery & Strategy</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">We start by deeply understanding your business
+                        goals, target audience, and market landscape to craft a comprehensive roadmap for success.</p>
                     <div class="mt-6 h-px w-8 bg-[#635091]/30"></div>
                 </div>
 
+                <!-- Step 2 -->
                 <div
-                    class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#FFC132]/50 transition-all duration-500 overflow-hidden">
+                    class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#FFC132]/50 transition-all duration-500 overflow-hidden md:col-span-1 lg:col-span-3">
                     <div
                         class="absolute -right-4 -bottom-4 text-8xl font-black text-white/5 group-hover:text-[#FFC132]/10 transition-colors">
                         2</div>
                     <div
                         class="w-12 h-12 bg-[#FFC132] rounded-xl flex items-center justify-center text-black font-bold mb-6 shadow-lg shadow-[#FFC132]/20">
                         2</div>
-                    <h3 class="text-white font-bold text-xl mb-4">Strategy</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Crafting a tailored roadmap and architecting
-                        scalable digital solutions for growth.</p>
+                    <h3 class="text-white font-bold text-xl mb-4">Architecture & Design</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Our experts design scalable, secure blueprints and
+                        intuitive user interfaces that ensure a seamless and engaging user experience.</p>
                     <div class="mt-6 h-px w-8 bg-[#FFC132]/30"></div>
                 </div>
 
+                <!-- Step 3 -->
                 <div
-                    class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#635091]/50 transition-all duration-500 overflow-hidden">
+                    class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#635091]/50 transition-all duration-500 overflow-hidden md:col-span-1 lg:col-span-2">
                     <div
                         class="absolute -right-4 -bottom-4 text-8xl font-black text-white/5 group-hover:text-[#635091]/10 transition-colors">
                         3</div>
                     <div
                         class="w-12 h-12 bg-[#635091] rounded-xl flex items-center justify-center text-white font-bold mb-6 shadow-lg shadow-[#635091]/20">
                         3</div>
-                    <h3 class="text-white font-bold text-xl mb-4">Development</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Building robust systems using modern tech stacks
-                        and industry-best coding practices.</p>
+                    <h3 class="text-white font-bold text-xl mb-4">Sprint Planning</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">We break down complex requirements into manageable,
+                        actionable sprints for transparent development.</p>
                     <div class="mt-6 h-px w-8 bg-[#635091]/30"></div>
                 </div>
 
+                <!-- Step 4 -->
                 <div
-                    class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#FFC132]/50 transition-all duration-500 overflow-hidden">
+                    class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#FFC132]/50 transition-all duration-500 overflow-hidden md:col-span-1 lg:col-span-2">
                     <div
                         class="absolute -right-4 -bottom-4 text-8xl font-black text-white/5 group-hover:text-[#FFC132]/10 transition-colors">
                         4</div>
                     <div
                         class="w-12 h-12 bg-[#FFC132] rounded-xl flex items-center justify-center text-black font-bold mb-6 shadow-lg shadow-[#FFC132]/20">
                         4</div>
-                    <h3 class="text-white font-bold text-xl mb-4">Testing</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Rigorous quality assurance and testing to ensure a
-                        flawless, bug-free experience.</p>
+                    <h3 class="text-white font-bold text-xl mb-4">Iterative Coding</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Using modern tech stacks, our engineers build your
+                        product through high-velocity, agile coding cycles.</p>
                     <div class="mt-6 h-px w-8 bg-[#FFC132]/30"></div>
                 </div>
 
+                <!-- Step 5 -->
                 <div
-                    class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#635091]/50 transition-all duration-500 overflow-hidden">
+                    class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#635091]/50 transition-all duration-500 overflow-hidden md:col-span-1 lg:col-span-2">
                     <div
                         class="absolute -right-4 -bottom-4 text-8xl font-black text-white/5 group-hover:text-[#635091]/10 transition-colors">
                         5</div>
                     <div
                         class="w-12 h-12 bg-[#635091] rounded-xl flex items-center justify-center text-white font-bold mb-6 shadow-lg shadow-[#635091]/20">
                         5</div>
-                    <h3 class="text-white font-bold text-xl mb-4">Support</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Providing continuous maintenance and strategic
-                        updates for sustained innovation.</p>
+                    <h3 class="text-white font-bold text-xl mb-4">Rigorous Testing</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Every feature undergoes uncompromising quality
+                        assurance to guarantee flawless performance.</p>
+                    <div class="mt-6 h-px w-8 bg-[#635091]/30"></div>
+                </div>
+
+                <!-- Step 6 -->
+                <div
+                    class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#FFC132]/50 transition-all duration-500 overflow-hidden md:col-span-1 lg:col-span-3">
+                    <div
+                        class="absolute -right-4 -bottom-4 text-8xl font-black text-white/5 group-hover:text-[#FFC132]/10 transition-colors">
+                        6</div>
+                    <div
+                        class="w-12 h-12 bg-[#FFC132] rounded-xl flex items-center justify-center text-black font-bold mb-6 shadow-lg shadow-[#FFC132]/20">
+                        6</div>
+                    <h3 class="text-white font-bold text-xl mb-4">Seamless Deployment</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">We orchestrate smooth, zero-downtime releases,
+                        integrating your new solution seamlessly into the live environment.</p>
+                    <div class="mt-6 h-px w-8 bg-[#FFC132]/30"></div>
+                </div>
+
+                <!-- Step 7 -->
+                <div
+                    class="work-card group relative bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-[#635091]/50 transition-all duration-500 overflow-hidden md:col-span-2 lg:col-span-3">
+                    <div
+                        class="absolute -right-4 -bottom-4 text-8xl font-black text-white/5 group-hover:text-[#635091]/10 transition-colors">
+                        7</div>
+                    <div
+                        class="w-12 h-12 bg-[#635091] rounded-xl flex items-center justify-center text-white font-bold mb-6 shadow-lg shadow-[#635091]/20">
+                        7</div>
+                    <h3 class="text-white font-bold text-xl mb-4">Ongoing Support</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Our commitment doesn't end at launch; we provide
+                        continuous monitoring, updates, and strategic improvements for sustained growth.</p>
                     <div class="mt-6 h-px w-8 bg-[#635091]/30"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="about-section py-15 bg-[#050505] relative overflow-hidden" id="Aboutus">
+    <section class="about-section py-24 bg-[#050505] relative overflow-hidden" id="Aboutus">
+        <!-- Background decorative elements -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div
+                class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#FFC132]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#635091]/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/3">
+            </div>
+        </div>
+
         <div class="max-w-7xl mx-auto px-6 relative z-10">
 
-            <div class="text-center mb-10">
+            <div class="text-center mb-20">
+                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-xs mb-3 block">DISCOVER OUR
+                    JOURNEY</span>
+                <h2 class="text-4xl lg:text-6xl font-bold text-white tracking-tighter mb-4">Pioneering <span
+                        class="text-[#635091]">Digital Excellence</span></h2>
+                <div class="h-1 w-20 bg-[#635091] mx-auto mb-6"></div>
+            </div>
 
-                <h1 class="text-5xl font-bold text-white tracking-tighter" id="about-title">About Us</h1>
-                <div class="h-1 w-12 bg-[#635091] mx-auto mt-4" id="about-line"></div>
+            <!-- Our Story Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+                <div class="relative group">
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-tr from-[#635091]/20 to-[#FFC132]/20 blur-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-700">
+                    </div>
+                    <div class="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
+                        <img src="assets/images/about_us_tech_office.png" alt="Binary Axon Office"
+                            class="w-full h-[500px] object-cover scale-105 group-hover:scale-100 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-60">
+                        </div>
+                        <!-- Floating Glass Badge -->
+                        <div
+                            class="absolute bottom-8 right-8 backdrop-blur-xl bg-white/10 border border-white/20 p-6 rounded-2xl shadow-xl animate-float">
+                            <div class="text-[#FFC132] text-4xl font-bold mb-1">6+</div>
+                            <div class="text-white text-xs uppercase tracking-widest font-mono">Years of Innovation
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-white text-3xl font-bold mb-6 flex items-center gap-3">
+                            <span class="w-8 h-px bg-[#FFC132]"></span>
+                            Our Story
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed text-lg mb-6">
+                            Founded in 2020, Binary Axon began with a singular vision: to bridge the gap between complex
+                            technological challenges and elegant business solutions. What started as a small team of
+                            passionate coders has evolved into a global powerhouse of digital innovation.
+                        </p>
+                        <p class="text-gray-400 leading-relaxed text-lg">
+                            We don't just build software; we engineer competitive advantages. Our approach combines deep
+                            technical expertise with a profound understanding of business dynamics, ensuring every
+                            product we deliver drives tangible growth and transformative results.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div
+                            class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#635091]/30 transition-colors">
+                            <div class="text-[#635091] text-2xl mb-2"><i class="fas fa-check-double"></i></div>
+                            <h4 class="text-white font-bold mb-1">Precision</h4>
+                            <p class="text-gray-500 text-xs uppercase tracking-tighter">Engineering</p>
+                        </div>
+                        <div
+                            class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#FFC132]/30 transition-colors">
+                            <div class="text-[#FFC132] text-2xl mb-2"><i class="fas fa-microchip"></i></div>
+                            <h4 class="text-white font-bold mb-1">Future-Proof</h4>
+                            <p class="text-gray-500 text-xs uppercase tracking-tighter">Technology</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Pillars Section -->
+            <div class="text-center mb-16">
+                <h3 class="text-white text-2xl font-bold uppercase tracking-[0.2em] mb-4">Our Core Pillars</h3>
+                <div class="h-0.5 w-12 bg-white/20 mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
+                <!-- Card 1: Who We Are -->
                 <div
-                    class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#FFC132]/50 transition-all duration-300 group">
-                    <div class="text-[#FFC132] text-3xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-city"></i>
+                    class="relative group bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] overflow-hidden transition-all duration-500 hover:border-[#FFC132]/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#FFC132]/10">
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-br from-[#FFC132]/10 to-transparent opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500">
                     </div>
-                    <h3 class="text-white font-bold text-xl mb-4">Our Company</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Software craftsmen building scalable products which
-                        help businesses to implement technical initiatives.</p>
+                    <div class="relative z-10">
+                        <div
+                            class="w-16 h-16 bg-[#FFC132]/10 rounded-2xl flex items-center justify-center text-[#FFC132] text-3xl mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 border border-[#FFC132]/20">
+                            <i class="fas fa-fingerprint"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-2xl mb-4 group-hover:text-[#FFC132] transition-colors">Who
+                            We Are</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">We are a collective of passionate software
+                            craftsmen and tech innovators, dedicated to engineering scalable digital products that
+                            empower businesses to thrive.</p>
+                    </div>
                 </div>
 
+                <!-- Card 2: Our Mission -->
                 <div
-                    class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#635091]/50 transition-all duration-300 group">
-                    <div class="text-[#635091] text-3xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-users-gear"></i>
+                    class="relative group bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] overflow-hidden transition-all duration-500 hover:border-[#635091]/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#635091]/10 mt-0 lg:mt-8">
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-br from-[#635091]/10 to-transparent opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500">
                     </div>
-                    <h3 class="text-white font-bold text-xl mb-4">Our Team</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Binary Axon is a team of experts who implement
-                        ideas of our business partners same as they aspire.</p>
+                    <div class="relative z-10">
+                        <div
+                            class="w-16 h-16 bg-[#635091]/10 rounded-2xl flex items-center justify-center text-[#635091] text-3xl mb-6 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300 border border-[#635091]/20">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-2xl mb-4 group-hover:text-[#635091] transition-colors">Our
+                            Mission</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">To bridge the gap between complex technical
+                            challenges and elegant, user-centric solutions, driving measurable growth and success for
+                            our partners.</p>
+                    </div>
                 </div>
 
+                <!-- Card 3: Our Vision -->
                 <div
-                    class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#FFC132]/50 transition-all duration-300 group">
-                    <div class="text-[#FFC132] text-3xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-lightbulb"></i>
+                    class="relative group bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] overflow-hidden transition-all duration-500 hover:border-[#FFC132]/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#FFC132]/10">
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-br from-[#FFC132]/10 to-transparent opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500">
                     </div>
-                    <h3 class="text-white font-bold text-xl mb-4">Our Passion</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">We mix your ideas and needs with our expertise to
-                        form software solutions for your business.</p>
+                    <div class="relative z-10">
+                        <div
+                            class="w-16 h-16 bg-[#FFC132]/10 rounded-2xl flex items-center justify-center text-[#FFC132] text-3xl mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 border border-[#FFC132]/20">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-2xl mb-4 group-hover:text-[#FFC132] transition-colors">Our
+                            Vision</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">To become the global standard for digital
+                            excellence, where every ambitious idea is seamlessly transformed into a cutting-edge
+                            technological reality.</p>
+                    </div>
                 </div>
 
+                <!-- Card 4: Core Values -->
                 <div
-                    class="reveal-card about-card opacity-0 bg-[#0f0f12] border border-white/10 p-10 rounded-2xl hover:border-[#635091]/50 transition-all duration-300 group">
-                    <div class="text-[#635091] text-3xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-bullseye"></i>
+                    class="relative group bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] overflow-hidden transition-all duration-500 hover:border-[#635091]/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#635091]/10 mt-0 lg:mt-8">
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-br from-[#635091]/10 to-transparent opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500">
                     </div>
-                    <h3 class="text-white font-bold text-xl mb-4">Our Mission</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Binary Axon aims to help businesses achieve
-                        organizational growth and we engineer new systems.</p>
+                    <div class="relative z-10">
+                        <div
+                            class="w-16 h-16 bg-[#635091]/10 rounded-2xl flex items-center justify-center text-[#635091] text-3xl mb-6 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300 border border-[#635091]/20">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-2xl mb-4 group-hover:text-[#635091] transition-colors">Core
+                            Values</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Innovation, integrity, and collaboration are
+                            the cornerstones of our process. We don't just write code; we build enduring, impactful
+                            partnerships.</p>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
+
     <section id="Services" class="py-16 lg:py-24 bg-[#050505] relative overflow-hidden" x-data="servicesApp()"
         x-init="init()">
         <!-- Background Effects -->
@@ -263,14 +413,10 @@
                         </div>
 
                         <!-- Description - appears on hover -->
-                        <p class="text-gray-300 text-xs lg:text-sm leading-relaxed mb-3 lg:mb-4 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-500 delay-200"
+                        <p class="text-gray-300 text-xs lg:text-sm leading-relaxed mb-3 lg:mb-4 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 delay-200"
                             x-text="service.description"></p>
 
-                        <!-- Explore Link -->
-                        <div class="flex items-center gap-2 text-xs lg:text-sm font-bold uppercase tracking-widest cursor-pointer transition-all duration-300 hover:gap-3"
-                            :style="'color: ' + service.color">
-                            Explore More <i class="fas fa-chevron-right text-[8px] lg:text-[10px]"></i>
-                        </div>
+
                     </div>
 
                     <!-- Corner Accent -->
@@ -449,9 +595,10 @@
                                 <i
                                     class="fas fa-arrow-right group-hover/btn:translate-x-1 transition-transform text-[10px] lg:text-xs"></i>
                             </a>
-                            <button
-                                class="px-4 lg:px-6 py-2 lg:py-3 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-[#635091] hover:border-[#635091] transition-all text-xs lg:text-sm uppercase tracking-wider">
+                            <button @click="showDemoModal = true; demoProductName = products[activeIndex].name"
+                                class="px-4 lg:px-6 py-2 lg:py-3 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-[#635091] hover:border-[#635091] transition-all text-xs lg:text-sm uppercase tracking-wider flex items-center gap-2 group">
                                 <i class="fas fa-play text-[10px] lg:text-xs"></i>
+                                <span>Demo</span>
                             </button>
                         </div>
                     </div>
@@ -538,35 +685,141 @@
 
 
 
-    <!-- Why Choose Us -->
-    <section id="WhyChooseUs" class="why-choose-section">
-        <div class="why-choose-bg"></div>
-        <div class="why-choose-container">
-            <h2 class="why-choose-title">Why Choose Us</h2>
-            <p class="why-choose-subtitle">Numbers that speak for our commitment</p>
-            <div class="why-choose-grid">
-                <div class="why-choose-card">
-                    <div class="why-choose-icon"><i class="fas fa-smile-beam"></i></div>
-                    <span class="why-choose-number" data-target="7">0</span>
-                    <span class="why-choose-label">Happy Clients</span>
+
+
+
+    <!-- Our Clients — Enhanced Infinite Marquee -->
+    <section id="Clients" class="py-24 bg-[#050505] relative overflow-hidden">
+        <!-- Background decorative elements to match About Us -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#FFC132]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"></div>
+            <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#635091]/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/3"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 mb-16 text-center">
+            <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-xs mb-3 block">Trusted Partnerships</span>
+            <h2 class="text-4xl lg:text-5xl font-bold text-white tracking-tighter mb-4">Our <span class="text-[#635091]">Clients</span></h2>
+            <div class="h-1 w-12 bg-[#635091] mx-auto mb-6"></div>
+        </div>
+
+        <div class="relative flex overflow-hidden group py-10">
+            <!-- Glassy Fades -->
+            <div class="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#050505] to-transparent z-10"></div>
+            <div class="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-[#050505] to-transparent z-10"></div>
+
+            <div class="animate-marquee flex items-center gap-12 whitespace-nowrap">
+                <!-- Original Logo Set -->
+                <div class="flex items-center gap-12 px-6">
+                    <div class="logo-glass group/logo">
+                        <img src="assets/images/clients/FM.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="assets/images/clients/CBS_logo1.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="assets/images/clients/FCA_logo.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="assets/images/clients/PrimeHR.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="assets/images/clients/MobiLogo3.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="assets/images/clients/mSunSportsLogo.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="assets/images/clients/quill.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Client Logo" class="h-10 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Client Logo" class="h-10 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="Client Logo" class="h-8 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
                 </div>
-                <div class="why-choose-card">
-                    <div class="why-choose-icon"><i class="fas fa-rocket"></i></div>
-                    <span class="why-choose-number" data-target="5">0</span>
-                    <span class="why-choose-label">Products</span>
-                </div>
-                <div class="why-choose-card">
-                    <div class="why-choose-icon"><i class="fas fa-mug-hot"></i></div>
-                    <span class="why-choose-number" data-target="700">0</span>
-                    <span class="why-choose-label">Cups Of Coffee</span>
-                </div>
-                <div class="why-choose-card">
-                    <div class="why-choose-icon"><i class="fas fa-users"></i></div>
-                    <span class="why-choose-number" data-target="11">0</span>
-                    <span class="why-choose-label">Crew Members</span>
+
+                <!-- Duplicate Logo Set for seamless loop -->
+                <div class="flex items-center gap-12 px-6">
+                    <div class="logo-glass group/logo">
+                        <img src="assets/images/clients/FM.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="assets/images/clients/CBS_logo1.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="assets/images/clients/FCA_logo.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="assets/images/clients/PrimeHR.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="assets/images/clients/MobiLogo3.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="assets/images/clients/mSunSportsLogo.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="assets/images/clients/quill.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Client Logo" class="h-10 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Client Logo" class="h-10 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
+                    <div class="logo-glass group/logo">
+                        <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="Client Logo" class="h-8 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    </div>
                 </div>
             </div>
         </div>
+
+        <style>
+            .logo-glass {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 1.5rem 2.5rem;
+                border-radius: 1.2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 200px;
+                transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+                flex-shrink: 0;
+                box-shadow: 0 10px 40px -15px rgba(0,0,0,0.7);
+            }
+            .logo-glass img {
+                filter: none !important;
+                opacity: 0.9;
+                transition: all 0.5s ease;
+            }
+            .logo-glass:hover img {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            .logo-glass:hover {
+                border-color: rgba(255, 193, 50, 0.4);
+                background: rgba(255, 255, 255, 0.07);
+                transform: translateY(-10px) scale(1.05);
+                box-shadow: 0 20px 40px -15px rgba(255, 193, 50, 0.2);
+            }
+            @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            .animate-marquee {
+                display: flex;
+                animation: marquee 50s linear infinite;
+            }
+            .animate-marquee:hover {
+                animation-play-state: paused;
+            }
+        </style>
     </section>
 
     <!-- Teams — Spotlight Carousel -->
@@ -582,24 +835,44 @@
             <div class="contact-split-wrapper">
                 <div class="contact-form-side">
                     <h3>Send us a message</h3>
-                    <div x-data="{ submitted: false }">
-                        <form id="contact-form" x-show="!submitted" @submit.prevent="window.sendEmail($el, $data)">
-                            <div class="form-group">
-                                <input type="text" id="name" name="from_name" required placeholder=" " />
-                                <label for="name" class="form-label" data-text="NAME">Name</label>
+                    <div x-data="{ submitted: window.location.search.includes('success') }">
+                        <form id="contact-form" x-show="!submitted" @submit.prevent="sendEmail($el, $data)" method="POST">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="form-group">
+                                    <input type="text" id="name" name="name" required placeholder=" " />
+                                    <label for="name" class="form-label" data-text="NAME">Name</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="email" name="email" required placeholder=" " />
+                                    <label for="email" class="form-label" data-text="EMAIL">Email</label>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="form-group">
+                                    <input type="text" id="phone" name="phone" required placeholder=" " />
+                                    <label for="phone" class="form-label" data-text="PHONE">Phone Number</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="company" name="company" required placeholder=" " />
+                                    <label for="company" class="form-label" data-text="COMPANY">Company Name</label>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="form-group">
+                                    <input type="number" id="employees" name="employees" required placeholder=" " />
+                                    <label for="employees" class="form-label" data-text="EMPLOYEES">No. of Employees</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="businessType" name="businessType" required placeholder=" " />
+                                    <label for="businessType" class="form-label" data-text="TYPE">Business Type</label>
+                                </div>
                             </div>
 
                             <div class="form-group">
-                                <input type="email" id="email" name="from_email" required placeholder=" " />
-                                <label for="email" class="form-label" data-text="EMAIL">Email</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="Subject" name="subject" required placeholder=" " />
-                                <label for="Subject" class="form-label" data-text="Subject">Subject</label>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="message" name="message" required placeholder=" " rows="4"></textarea>
-                                <label for="message" class="form-label" data-text="MESSAGE">MESSAGE</label>
+                                <textarea id="description" name="description" required placeholder=" " rows="4"></textarea>
+                                <label for="description" class="form-label" data-text="DESCRIPTION">Description / Message</label>
                             </div>
 
                             <button type="submit" class="btn">
@@ -657,83 +930,7 @@
     </section>
 
     <footer class="site-footer">
-        <!-- Our Clients — Refined Marquee Row (Fixed Gap) -->
-        <section class="clients-colored-section py-20 bg-[#050505] relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6 mb-12">
-                <div class="flex items-center gap-4">
-                    <span class="clients-colored-label">Our Clients</span>
-                    <div class="clients-colored-line"></div>
-                </div>
-            </div>
 
-            <div class="relative flex overflow-hidden group">
-                <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-10"></div>
-                <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#050505] to-transparent z-10"></div>
-
-                <div class="animate-marquee items-center py-4">
-                    <!-- Set 1 -->
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="assets/images/clients/FM.png" alt="Client" class="h-8">
-                    </div>
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="assets/images/clients/CBS_logo1.png" alt="Client" class="h-8">
-                    </div>
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="assets/images/clients/FCA_logo.png" alt="Client" class="h-8">
-                    </div>
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="assets/images/clients/PrimeHR.png" alt="Client" class="h-8">
-                    </div>
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="assets/images/clients/MobiLogo3.png" alt="Client" class="h-8 invert">
-                    </div>
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="assets/images/clients/mSunSportsLogo.png" alt="Client" class="h-8">
-                    </div>
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="assets/images/clients/quill.png" alt="Client" class="h-8">
-                    </div>
-
-                    <!-- Set 2 (Repeat for Infinite Loop) -->
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="assets/images/clients/FM.png" alt="Client" class="h-8">
-                    </div>
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="assets/images/clients/CBS_logo1.png" alt="Client" class="h-8">
-                    </div>
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="assets/images/clients/FCA_logo.png" alt="Client" class="h-8">
-                    </div>
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="assets/images/clients/PrimeHR.png" alt="Client" class="h-8">
-                    </div>
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="assets/images/clients/MobiLogo3.png" alt="Client" class="h-8 invert">
-                    </div>
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="assets/images/clients/mSunSportsLogo.png" alt="Client" class="h-8">
-                    </div>
-                    <div
-                        class="logo-glass logo-glass-colored px-10 py-6 rounded-2xl flex items-center justify-center min-w-[200px]">
-                        <img src="assets/images/clients/quill.png" alt="Client" class="h-8">
-                    </div>
-
-                </div>
-            </div>
-        </section>
 
 
 
@@ -758,11 +955,11 @@
                         <a href="#Aboutus">About Us</a>
                         <a href="#Services">Services</a>
                         <a href="#ProductSection">Products</a>
-                        <a href="#WhyChooseUs">Why Choose Us</a>
+                        <a href="#Clients">Our Clients</a>
                     </nav>
                     <p class="footer-description">
-                        Binary Axon provides a wealth of technical and business expertise to its customers, 
-                        transforming ideas into tech reality with scalable software solutions since 2010.
+                        Binary Axon provides a wealth of technical and business expertise to its customers,
+                        transforming ideas into tech reality with scalable software solutions since 2020.
                     </p>
                     <div class="footer-contacts">
                         <a href="mailto:info@binaryaxon.com">info@binaryaxon.com</a>
@@ -772,7 +969,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>Copyright © 2025 <a href="https://www.binaryaxon.com" target="_blank"
+            <p>Copyright © 2020 to 2026 <a href="https://www.binaryaxon.com" target="_blank"
                     style="color: inherit; text-decoration: none;">www.BinaryAxon.com</a> All rights reserved.</p>
         </div>
     </footer>
@@ -786,189 +983,82 @@
             }
         };
     </script>
-    <script type="importmap">
-    {
-        "imports": {
-            "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
-        }
-    }
-</script>
-
-    <script type="module">
-        import * as THREE from 'three';
-
-        class MagicApp {
-            constructor() {
-                this.container = document.getElementById('magicCanvasContainer');
-                this.index = 0;
-                this.products = [
-                    { name: 'School Management', color: 0x635091, icon: '🎓', desc: 'Complete student records and analytics.' },
-                    { name: 'Restaurant POS', color: 0xffc132, icon: '🍽️', desc: 'Cloud-based ordering and kitchen display.' },
-                    { name: 'E-Commerce', color: 0x00d2ff, icon: '🛍️', desc: 'Scale your business globally with AI.' }
-                ];
-
-                this.initThree();
-                this.updateUI();
-                window.addEventListener('resize', () => this.onWindowResize());
-            }
-
-            initThree() {
-                // Scene & Camera
-                this.scene = new THREE.Scene();
-                this.camera = new THREE.PerspectiveCamera(75, this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
-                this.camera.position.z = 5;
-
-                // Renderer
-                this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-                this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
-                this.container.appendChild(this.renderer.domElement);
-
-                // Floating Light (This changes the background feel)
-                this.light = new THREE.PointLight(0xffffff, 50, 10);
-                this.light.position.set(0, 0, 2);
-                this.scene.add(this.light);
-
-                // Create a floating 3D object (Placeholder for the icons)
-                const geometry = new THREE.IcosahedronGeometry(1, 0);
-                const material = new THREE.MeshStandardMaterial({ color: 0xffffff, wireframe: true });
-                this.mesh = new THREE.Mesh(geometry, material);
-                this.scene.add(this.mesh);
-
-                this.animate();
-            }
-
-            updateUI() {
-                const p = this.products[this.index];
-
-                // Update Text
-                document.getElementById('cardTitle').innerText = `${p.icon} ${p.name}`;
-                document.getElementById('cardDesc').innerText = p.desc;
-
-                // Update Three.js Background Color & Mesh
-                this.mesh.material.color.setHex(p.color);
-                this.light.color.setHex(p.color);
-
-                // Animation for the card
-                const card = document.getElementById('activeCard');
-                card.style.transform = 'scale(1.05)';
-                setTimeout(() => card.style.transform = 'scale(1)', 200);
-            }
-
-            next() {
-                this.index = (this.index + 1) % this.products.length;
-                this.updateUI();
-            }
-
-            prev() {
-                this.index = (this.index - 1 + this.products.length) % this.products.length;
-                this.updateUI();
-            }
-
-            onWindowResize() {
-                this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
-                this.camera.updateProjectionMatrix();
-                this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
-            }
-
-            animate() {
-                requestAnimationFrame(() => this.animate());
-                this.mesh.rotation.y += 0.01;
-                this.mesh.rotation.x += 0.005;
-                this.renderer.render(this.scene, this.camera);
-            }
-        }
-
-        // Initialize the app and make it globally accessible for the buttons
-        window.magicApp = new MagicApp();
-    </script>
 
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Demo Request Modal -->
+    <div x-show="showDemoModal" 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 scale-90"
+         x-transition:enter-end="opacity-100 scale-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100 scale-100"
+         x-transition:leave-end="opacity-0 scale-90"
+         class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+         @keydown.escape.window="showDemoModal = false"
+         style="display: none;">
+        
+        <div class="relative w-full max-w-lg bg-[#0a0a0c] border border-white/10 rounded-3xl overflow-hidden shadow-2xl shadow-[#635091]/20"
+             @click.away="showDemoModal = false">
+            
+            <!-- Modal Header -->
+            <div class="p-6 border-b border-white/5 flex justify-between items-center bg-gradient-to-r from-[#635091]/20 to-transparent">
+                <div>
+                    <h2 class="text-white font-bold text-2xl">Request Demo</h2>
+                    <p class="text-[#FFC132] text-xs font-mono uppercase mt-1" x-text="'Product: ' + demoProductName"></p>
+                </div>
+                <button @click="showDemoModal = false" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-8">
+                <template x-if="!demoSubmitted">
+                    <form @submit.prevent="sendEmail($el, $data)" method="POST" class="space-y-6">
+                        <input type="hidden" name="productName" :value="demoProductName">
+                        
+                        <div class="form-group relative">
+                            <input type="text" name="name" required placeholder=" " 
+                                   class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#FFC132] outline-none transition-all peer" />
+                            <label class="absolute left-4 top-3 text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#FFC132] bg-[#0a0a0c] px-1 -top-2 text-xs">Full Name</label>
+                        </div>
+
+                        <div class="form-group relative">
+                            <input type="email" name="email" required placeholder=" " 
+                                   class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#FFC132] outline-none transition-all peer" />
+                            <label class="absolute left-4 top-3 text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#FFC132] bg-[#0a0a0c] px-1 -top-2 text-xs">Email Address</label>
+                        </div>
+
+                        <div class="form-group relative">
+                            <textarea name="description" required placeholder=" " rows="4"
+                                      class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#FFC132] outline-none transition-all peer"></textarea>
+                            <label class="absolute left-4 top-3 text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#FFC132] bg-[#0a0a0c] px-1 -top-2 text-xs">Specific Requirements</label>
+                        </div>
+
+                        <button type="submit" 
+                                class="w-full py-4 bg-gradient-to-r from-[#FFC132] to-[#635091] text-black font-bold rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all uppercase tracking-widest">
+                            Send Request
+                        </button>
+                    </form>
+                </template>
+
+                <template x-if="demoSubmitted">
+                    <div class="text-center py-8 animate-fade-in">
+                        <div class="w-20 h-20 bg-[#FFC132]/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-[#FFC132]/50">
+                            <i class="fas fa-check text-4xl text-[#FFC132]"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-2xl mb-3">Request Received!</h3>
+                        <p class="text-gray-400 mb-8">Thank you for your interest in <span class="text-white font-bold" x-text="demoProductName"></span>. Our team will contact you shortly to schedule your personalized demo.</p>
+                        <button @click="showDemoModal = false; demoSubmitted = false" 
+                                class="text-[#FFC132] font-bold hover:underline">Close Window</button>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
     <script src="assets/js/main.js"></script>
-    <!-- Add Three.js library -->
-
-
-    <!-- Your Three.js script -->
-    <script type="module">
-        import * as THREE from 'three';
-
-        // Create a simple background scene
-        function initThreeBackground() {
-            const container = document.createElement('div');
-            container.style.position = 'fixed';
-            container.style.top = '0';
-            container.style.left = '0';
-            container.style.width = '100%';
-            container.style.height = '100%';
-            container.style.zIndex = '-1';
-            container.style.pointerEvents = 'none';
-            document.body.appendChild(container);
-
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ alpha: true });
-
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setClearColor(0x000000, 0); // Transparent background
-            container.appendChild(renderer.domElement);
-
-            // Create floating particles
-            const particlesGeometry = new THREE.BufferGeometry();
-            const particlesCount = 500;
-            const posArray = new Float32Array(particlesCount * 3);
-
-            for (let i = 0; i < particlesCount * 3; i += 3) {
-                posArray[i] = (Math.random() - 0.5) * 10;
-                posArray[i + 1] = (Math.random() - 0.5) * 10;
-                posArray[i + 2] = (Math.random() - 0.5) * 10;
-            }
-
-            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-            const particlesMaterial = new THREE.PointsMaterial({
-                size: 0.02,
-                color: 0x635091, // Your primary purple color
-                transparent: true,
-                opacity: 0.6
-            });
-
-            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-            scene.add(particlesMesh);
-
-            camera.position.z = 5;
-
-            function animate() {
-                requestAnimationFrame(animate);
-                particlesMesh.rotation.y += 0.0005;
-                particlesMesh.rotation.x += 0.0002;
-                renderer.render(scene, camera);
-            }
-
-            animate();
-
-            // Handle resize
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        }
-
-        // Initialize when page loads
-        window.addEventListener('load', initThreeBackground);
-    </script>
-
-    <!-- Add import map for Three.js -->
-    <script type="importmap">
-  {
-    "imports": {
-      "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
-    }
-  }
-</script>
-
-    <!-- Your orbital three.js script -->
-    <script type="module" src="assets/js/orbital-three.js"></script>
 </body>
 
 </html>

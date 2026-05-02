@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Solutions | Binary Axon</title>
+    <title>Accounts Master | Binary Axon</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&swap" rel="stylesheet">
@@ -12,13 +12,13 @@
     <style>
         body { background-color: #050505; color: white; overflow-x: hidden; }
         .glass-panel { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 2rem; }
-        .accent-gradient { background: linear-gradient(135deg, #635091, #FFC132); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .accent-gradient { background: linear-gradient(135deg, #7B241C, #635091); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
         .screenshot-grid img { cursor: pointer; transition: transform 0.3s ease; }
         .screenshot-grid img:hover { transform: scale(1.05); }
         .nav-logo-img { height: 2rem !important; width: auto !important; }
     </style>
 </head>
-<body x-data="{ activeImg: '../assets/images/products/ecommerce-1.png' }">
+<body x-data="{ activeImg: '../assets/images/products/accounts-1.png' }">
 
     <header class="fixed top-0 w-full z-50 transition-all duration-300" x-data="{ scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 20)">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center transition-all duration-300" 
@@ -40,30 +40,30 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <span class="text-[#635091] font-mono tracking-[0.3em] uppercase text-xs mb-4 block">RETAIL SOLUTIONS</span>
+                    <span class="text-[#7B241C] font-mono tracking-[0.3em] uppercase text-xs mb-4 block">FINANCIAL SOLUTIONS</span>
                     <h1 class="text-6xl font-bold tracking-tighter mb-6 leading-tight">
-                        Creative <br><span class="accent-gradient">Kids Hub</span>
+                        Accounts <br><span class="accent-gradient">Master Pro</span>
                     </h1>
                     <p class="text-xl text-gray-400 mb-10 leading-relaxed max-w-xl">
-                        High-conversion E-Commerce platforms designed for the next generation of retail. Featuring advanced search, AI recommendations, and seamless checkout flows.
+                        Robust financial management for modern enterprises. From multi-currency ledgers to automated tax reporting, Accounts Master provides the precision your business needs.
                     </p>
                     <div class="grid grid-cols-2 gap-8 mb-12">
-                        <div class="p-6 glass-panel border-l-4 border-l-[#635091]">
-                            <h3 class="text-3xl font-bold mb-1">10k+</h3>
-                            <p class="text-xs text-gray-500 uppercase tracking-widest">Active SKU Management</p>
+                        <div class="p-6 glass-panel border-l-4 border-l-[#7B241C]">
+                            <h3 class="text-3xl font-bold mb-1">$50M+</h3>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest">Annual Turnover Managed</p>
                         </div>
-                        <div class="p-6 glass-panel border-l-4 border-l-[#FFC132]">
-                            <h3 class="text-3xl font-bold mb-1">99.9%</h3>
-                            <p class="text-xs text-gray-500 uppercase tracking-widest">Uptime Performance</p>
+                        <div class="p-6 glass-panel border-l-4 border-l-[#635091]">
+                            <h3 class="text-3xl font-bold mb-1">Zero</h3>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest">Accounting Errors</p>
                         </div>
                     </div>
                     <div class="flex gap-4">
-                        <button onclick="window.location.href='../index.html?openDemo=ecommerce#ProductSection'" class="px-10 py-4 bg-[#635091] text-white font-bold rounded-full hover:scale-105 transition-transform uppercase">Request Demo</button>
-                        <button onclick="window.open('https://www.binaryaxon.com/ckh', '_blank')" class="px-10 py-4 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all font-bold uppercase">Live Preview</button>
+                        <button onclick="window.location.href='../index.html?openDemo=accounts-app#ProductSection'" class="px-10 py-4 bg-[#7B241C] text-white font-bold rounded-full hover:scale-105 transition-transform uppercase">Request Demo</button>
+                        <button class="px-10 py-4 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all font-bold uppercase">Features</button>
                     </div>
                 </div>
                 <div class="glass-panel p-4 overflow-hidden relative group">
-                    <img :src="activeImg" class="rounded-[1.5rem] w-full shadow-2xl transition-all duration-500" alt="Ecommerce Preview">
+                    <img :src="activeImg" class="rounded-[1.5rem] w-full shadow-2xl transition-all duration-500" alt="Accounts Preview">
                 </div>
             </div>
 
@@ -74,37 +74,30 @@
                     System Screenshots
                 </h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 screenshot-grid">
-                    <div @click="activeImg = '../assets/images/products/ecommerce-1.png'" 
+                    <div @click="activeImg = '../assets/images/products/accounts-1.png'" 
                          class="glass-panel p-2 cursor-pointer transition-all"
-                         :class="activeImg.includes('ecommerce-1') ? 'border-[#FFC132] bg-white/10' : 'border-transparent'">
-                        <img src="../assets/images/products/ecommerce-1.png" class="rounded-xl w-full h-32 object-cover" alt="Storefront Homepage">
+                         :class="activeImg.includes('accounts-1') ? 'border-[#FFC132] bg-white/10' : 'border-transparent'">
+                        <img src="../assets/images/products/accounts-1.png" class="rounded-xl w-full h-32 object-cover" alt="Financial Dashboard">
                     </div>
-                    <div @click="activeImg = '../assets/images/products/ecommerce-2.png'" 
+                    <div @click="activeImg = '../assets/images/products/accounts-2.png'" 
                          class="glass-panel p-2 cursor-pointer transition-all"
-                         :class="activeImg.includes('ecommerce-2') ? 'border-[#FFC132] bg-white/10' : 'border-transparent'">
-                        <img src="../assets/images/products/ecommerce-2.png" class="rounded-xl w-full h-32 object-cover" alt="Product Category">
+                         :class="activeImg.includes('accounts-2') ? 'border-[#FFC132] bg-white/10' : 'border-transparent'">
+                        <img src="../assets/images/products/accounts-2.png" class="rounded-xl w-full h-32 object-cover" alt="General Ledger">
                     </div>
-                    <div @click="activeImg = '../assets/images/products/ecommerce-3.png'" 
+                    <div @click="activeImg = '../assets/images/products/accounts-3.png'" 
                          class="glass-panel p-2 cursor-pointer transition-all"
-                         :class="activeImg.includes('ecommerce-3') ? 'border-[#FFC132] bg-white/10' : 'border-transparent'">
-                        <img src="../assets/images/products/ecommerce-3.png" class="rounded-xl w-full h-32 object-cover" alt="Shopping Cart">
+                         :class="activeImg.includes('accounts-3') ? 'border-[#FFC132] bg-white/10' : 'border-transparent'">
+                        <img src="../assets/images/products/accounts-3.png" class="rounded-xl w-full h-32 object-cover" alt="Tax Compliance">
                     </div>
-                    <div @click="activeImg = '../assets/images/products/ecommerce-4.png'" 
+                    <div @click="activeImg = '../assets/images/products/accounts-4.png'" 
                          class="glass-panel p-2 cursor-pointer transition-all"
-                         :class="activeImg.includes('ecommerce-4') ? 'border-[#FFC132] bg-white/10' : 'border-transparent'">
-                        <img src="../assets/images/products/ecommerce-4.png" class="rounded-xl w-full h-32 object-cover" alt="Secure Checkout">
+                         :class="activeImg.includes('accounts-4') ? 'border-[#FFC132] bg-white/10' : 'border-transparent'">
+                        <img src="../assets/images/products/accounts-4.png" class="rounded-xl w-full h-32 object-cover" alt="Audit Trails">
                     </div>
                 </div>
             </div>
         </div>
     </main>
-
-    <footer class="py-12 border-t border-white/5 bg-[#050505]">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <img src="../assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon" class="nav-logo-img mx-auto mb-6 opacity-50">
-            <p class="text-gray-500 text-sm">&copy; 2020 - 2026 Binary Axon. All Rights Reserved.</p>
-        </div>
-    </footer>
 
 </body>
 </html>

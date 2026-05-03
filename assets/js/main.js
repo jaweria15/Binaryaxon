@@ -1118,30 +1118,47 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// EmailJS Implementation
+// Form Submission Implementation (SMTP via .aspx)
 (function () {
-    // Initialize EmailJS with your Public Key
-    // Replace 'YOUR_PUBLIC_KEY' with your actual public key from EmailJS dashboard
-    emailjs.init("_fjCctgUPuAjqaayo");
-
     window.sendEmail = function (form, alpineData) {
         // Change button text to indicate sending
         const btn = form.querySelector('button[type="submit"]');
+        if (!btn) return;
+
         const originalText = btn.innerHTML;
         btn.innerHTML = '<span>Sending...</span>';
         btn.disabled = true;
 
-        // Use EmailJS to send the form
-        // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual IDs
-        emailjs.sendForm('service_y87zy77', 'template_0lm4qks', form)
-            .then(function () {
-                alpineData.submitted = true;
+        // Determine which endpoint to use based on form ID or hidden fields
+        // productName field is present in demo form
+        const isDemo = form.querySelector('input[name="productName"]') !== null;
+        const action = isDemo ? 'send-demo.aspx' : 'send-lead.aspx';
+        
+        const formData = new FormData(form);
+
+        fetch(action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            // The .aspx files redirect, so fetch follows it. 
+            // If response is ok, it means the process finished without error.
+            if (response.ok) {
+                if (isDemo) {
+                    alpineData.demoSubmitted = true;
+                } else {
+                    alpineData.submitted = true;
+                }
                 console.log('SUCCESS!');
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert('Failed to send message. Please try again or contact us directly.');
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            });
+            } else {
+                throw new Error('Server responded with an error');
+            }
+        })
+        .catch(error => {
+            console.error('FAILED...', error);
+            alert('Failed to send message. Please try again or contact us directly.');
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        });
     };
 })();

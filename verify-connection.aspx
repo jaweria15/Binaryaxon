@@ -18,7 +18,7 @@
             SmtpClient smtp = new SmtpClient("m06.internetmailserver.net");
             smtp.Credentials = new NetworkCredential("info@binaryaxon.com", "Info@123@!");
             smtp.EnableSsl = true;
-            smtp.Port = 25;
+            smtp.Port = 587;
             
             smtp.Send(testMail);
             lblStatus.Text = "SUCCESS: SMTP connection is working! Check your info@binaryaxon.com inbox.";

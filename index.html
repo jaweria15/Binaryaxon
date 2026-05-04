@@ -595,11 +595,6 @@
                                 <i
                                     class="fas fa-arrow-right group-hover/btn:translate-x-1 transition-transform text-[10px] lg:text-xs"></i>
                             </a>
-                            <button @click="showDemoModal = true; demoProductName = products[activeIndex].name"
-                                class="px-4 lg:px-6 py-2 lg:py-3 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-[#635091] hover:border-[#635091] transition-all text-xs lg:text-sm uppercase tracking-wider flex items-center gap-2 group">
-                                <i class="fas fa-play text-[10px] lg:text-xs"></i>
-                                <span>Demo</span>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -689,138 +684,65 @@
 
 
     <!-- Our Clients — Enhanced Infinite Marquee -->
-    <section id="Clients" class="py-24 bg-[#050505] relative overflow-hidden">
-        <!-- Background decorative elements to match About Us -->
-        <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#FFC132]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"></div>
-            <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#635091]/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/3"></div>
-        </div>
+    <section id="Clients" class="clients-section">
+        <div class="clients-container">
+            <div class="text-center mb-20">
+                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-xs mb-3 block">Trusted Partnerships</span>
+                <h2 class="text-4xl lg:text-5xl font-bold text-white tracking-tighter mb-4">Our <span class="text-[#635091]">Clients</span></h2>
+                <div class="h-1 w-12 bg-[#635091] mx-auto mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">File storage made easy – including powerful features</p>
+            </div>
 
-        <div class="max-w-7xl mx-auto px-6 mb-16 text-center">
-            <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-xs mb-3 block">Trusted Partnerships</span>
-            <h2 class="text-4xl lg:text-5xl font-bold text-white tracking-tighter mb-4">Our <span class="text-[#635091]">Clients</span></h2>
-            <div class="h-1 w-12 bg-[#635091] mx-auto mb-6"></div>
-        </div>
-
-        <div class="relative flex overflow-hidden group py-10">
-            <!-- Glassy Fades -->
-            <div class="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#050505] to-transparent z-10"></div>
-            <div class="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-[#050505] to-transparent z-10"></div>
-
-            <div class="animate-marquee flex items-center gap-12 whitespace-nowrap">
-                <!-- Original Logo Set -->
-                <div class="flex items-center gap-12 px-6">
-                    <div class="logo-glass group/logo">
-                        <img src="assets/images/clients/FM.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
-                    </div>
-                    <div class="logo-glass group/logo">
-                        <img src="assets/images/clients/CBS_logo1.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
-                    </div>
-                    <div class="logo-glass group/logo">
-                        <img src="assets/images/clients/FCA_logo.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
-                    </div>
-                    <div class="logo-glass group/logo">
-                        <img src="assets/images/clients/PrimeHR.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
-                    </div>
-                    <div class="logo-glass group/logo">
-                        <img src="assets/images/clients/MobiLogo3.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
-                    </div>
-                    <div class="logo-glass group/logo">
-                        <img src="assets/images/clients/mSunSportsLogo.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
-                    </div>
-                    <div class="logo-glass group/logo">
-                        <img src="assets/images/clients/quill.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
-                    </div>
-                    <div class="logo-glass group/logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Client Logo" class="h-10 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
-                    </div>
-                    <div class="logo-glass group/logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Client Logo" class="h-10 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
-                    </div>
-                    <div class="logo-glass group/logo">
-                        <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="Client Logo" class="h-8 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+            <div class="clients-cloud">
+                <!-- Row 1: 1 Logo -->
+                <div class="cloud-row">
+                    <div class="client-card">
+                        <img src="assets/images/clients/CBS_logo1.png" alt="CBS Logo">
                     </div>
                 </div>
 
-                <!-- Duplicate Logo Set for seamless loop -->
-                <div class="flex items-center gap-12 px-6">
-                    <div class="logo-glass group/logo">
-                        <img src="assets/images/clients/FM.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                <!-- Row 2: 3 Logos -->
+                <div class="cloud-row">
+                    <div class="client-card">
+                        <img src="assets/images/clients/FM.png" alt="FM Logo">
                     </div>
-                    <div class="logo-glass group/logo">
-                        <img src="assets/images/clients/CBS_logo1.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    <div class="client-card">
+                        <img src="assets/images/clients/FCA_logo.png" alt="FCA Logo">
                     </div>
-                    <div class="logo-glass group/logo">
-                        <img src="assets/images/clients/FCA_logo.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    <div class="client-card">
+                        <img src="assets/images/clients/PrimeHR.png" alt="PrimeHR Logo">
                     </div>
-                    <div class="logo-glass group/logo">
-                        <img src="assets/images/clients/PrimeHR.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                </div>
+
+                <!-- Row 3: 4 Logos -->
+                <div class="cloud-row">
+                    <div class="client-card">
+                        <img src="assets/images/clients/MobiLogo3.png" alt="MobiLogo Logo">
                     </div>
-                    <div class="logo-glass group/logo">
-                        <img src="assets/images/clients/MobiLogo3.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    <div class="client-card">
+                        <img src="assets/images/clients/mSunSportsLogo.png" alt="mSunSports Logo">
                     </div>
-                    <div class="logo-glass group/logo">
-                        <img src="assets/images/clients/mSunSportsLogo.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    <div class="client-card">
+                        <img src="assets/images/clients/quill.png" alt="Quill Logo">
                     </div>
-                    <div class="logo-glass group/logo">
-                        <img src="assets/images/clients/quill.png" alt="Client Logo" class="h-14 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    <div class="client-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo">
                     </div>
-                    <div class="logo-glass group/logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Client Logo" class="h-10 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                </div>
+
+                <!-- Row 4: 2 Logos -->
+                <div class="cloud-row">
+                    <div class="client-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Stripe Logo">
                     </div>
-                    <div class="logo-glass group/logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Client Logo" class="h-10 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
-                    </div>
-                    <div class="logo-glass group/logo">
-                        <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="Client Logo" class="h-8 w-auto object-contain transition-all duration-500 group-hover/logo:scale-110">
+                    <div class="client-card">
+                        <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="Google Logo">
                     </div>
                 </div>
             </div>
         </div>
-
-        <style>
-            .logo-glass {
-                background: rgba(255, 255, 255, 0.05);
-                backdrop-filter: blur(20px);
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                padding: 1.5rem 2.5rem;
-                border-radius: 1.2rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                min-width: 200px;
-                transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-                flex-shrink: 0;
-                box-shadow: 0 10px 40px -15px rgba(0,0,0,0.7);
-            }
-            .logo-glass img {
-                filter: none !important;
-                opacity: 0.9;
-                transition: all 0.5s ease;
-            }
-            .logo-glass:hover img {
-                opacity: 1;
-                transform: scale(1.1);
-            }
-            .logo-glass:hover {
-                border-color: rgba(255, 193, 50, 0.4);
-                background: rgba(255, 255, 255, 0.07);
-                transform: translateY(-10px) scale(1.05);
-                box-shadow: 0 20px 40px -15px rgba(255, 193, 50, 0.2);
-            }
-            @keyframes marquee {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-            }
-            .animate-marquee {
-                display: flex;
-                animation: marquee 50s linear infinite;
-            }
-            .animate-marquee:hover {
-                animation-play-state: paused;
-            }
-        </style>
     </section>
+
 
     <!-- Teams — Spotlight Carousel -->
     <!-- How We Work Section -->

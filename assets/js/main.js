@@ -1138,12 +1138,14 @@ document.head.appendChild(style);
 
         fetch(action, {
             method: 'POST',
+            headers: {
+                'Accept': 'application/json'
+            },
             body: formData
         })
-        .then(response => {
-            // The .aspx files redirect, so fetch follows it. 
-            // If response is ok, it means the process finished without error.
-            if (response.ok) {
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
                 if (isDemo) {
                     alpineData.demoSubmitted = true;
                 } else {
@@ -1151,12 +1153,12 @@ document.head.appendChild(style);
                 }
                 console.log('SUCCESS!');
             } else {
-                throw new Error('Server responded with an error');
+                throw new Error(data.message || 'Server responded with an error');
             }
         })
         .catch(error => {
             console.error('FAILED...', error);
-            alert('Failed to send message. Please try again or contact us directly.');
+            alert('Error: ' + error.message);
             btn.innerHTML = originalText;
             btn.disabled = false;
         });

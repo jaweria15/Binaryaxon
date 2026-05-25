@@ -49,13 +49,11 @@ window.logoCloudApp = function() {
                     result.push(logoList.splice(0, 2));
                 }
             } else {
-                // Desktop: Simple Staggered pattern [1, 3, 4, 2] for 10
-                // We'll use a fixed-ish pattern for 10 logos as a baseline
+                // Desktop: Balanced Staggered pattern [3, 4, 3] for 10 logos
                 if (logoList.length === 10) {
-                    result.push(logoList.splice(0, 1));
                     result.push(logoList.splice(0, 3));
                     result.push(logoList.splice(0, 4));
-                    result.push(logoList.splice(0, 2));
+                    result.push(logoList.splice(0, 3));
                 } else {
                     // Fallback for other counts: simple balanced rows
                     let perRow = Math.ceil(Math.sqrt(logoList.length));

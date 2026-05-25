@@ -3932,20 +3932,23 @@ nav {
 .clients-container {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .clients-cloud {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
     margin-top: 50px;
-    /* Colorful gradient background for the section */
-    background: linear-gradient(135deg, rgba(99, 80, 145, 0.2) 0%, rgba(255, 193, 50, 0.15) 100%);
+    /* Soft glowing mesh background for the container */
+    background: linear-gradient(135deg, rgba(99, 80, 145, 0.12) 0%, rgba(255, 193, 50, 0.08) 100%);
     padding: 60px 40px;
     border-radius: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4),
+                inset 0 0 30px rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(8px);
 }
 
 .cloud-row {
@@ -3955,11 +3958,6 @@ nav {
     gap: 20px;
     flex-wrap: wrap;
     width: 100%;
-    border: none;
-}
-
-.cloud-row:last-child {
-    border: none;
 }
 
 .client-card {
@@ -3968,58 +3966,76 @@ nav {
     align-items: center;
     justify-content: center;
     width: 220px;
-    height: 120px;
-    padding: 1.5rem;
-    /* Light gradient background to make all logos pop */
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
-    border: 1px solid #ffffff;
+    height: 100px;
+    padding: 1.25rem;
+    /* Glassmorphism styling */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-}
-
-.cloud-row .client-card:last-child {
-    border: 1px solid #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 .client-card img {
-    max-height: 50px;
+    max-height: 55px;
     max-width: 80%;
     object-fit: contain;
-    transition: all 0.4s ease;
+    /* Mute brand colors slightly to blend with the glassmorphic theme */
+    opacity: 0.7;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-card:hover {
-    transform: translateY(-8px);
-    background: #ffffff;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
-    border-color: #ffc132;
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 193, 50, 0.35); /* Gold hover glow */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45), 
+                0 0 25px rgba(99, 80, 145, 0.3), /* Purple hover aura */
+                inset 0 0 15px rgba(255, 193, 50, 0.05);
 }
 
 .client-card:hover img {
-    transform: scale(1.1);
+    /* Full brand color visibility on hover */
+    opacity: 1;
+    transform: scale(1.06);
 }
 
 /* Mobile adjustments */
 @media (max-width: 1024px) {
-    .client-card { width: 180px; height: 100px; }
+    .client-card { 
+        width: 180px; 
+        height: 90px; 
+    }
+    .client-card img {
+        max-height: 48px;
+    }
 }
 
 @media (max-width: 768px) {
     .clients-cloud {
         padding: 40px 20px;
-        border-radius: 20px;
+        border-radius: 24px;
+        gap: 20px;
     }
     .cloud-row {
-        gap: 15px;
+        gap: 12px;
     }
     .client-card {
-        width: calc(50% - 15px);
-        height: 90px;
-        min-width: 130px;
-        border: 1px solid #ffffff;
+        width: calc(50% - 6px); /* 2 columns layout */
+        height: 85px;
+        min-width: 120px;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .client-card img { max-height: 40px; }
+    .client-card img { 
+        max-height: 42px; 
+    }
+    .client-card:hover {
+        transform: translateY(-3px);
+    }
 }
 

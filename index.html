@@ -14,6 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="assets/js/logo-cloud.js"></script>
+    <script src="assets/js/hero.js"></script>
     <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -47,20 +48,44 @@
 
     <!-- Update this div in your HTML - it should be right after body tag -->
 
-    <section id="home" class="hero">
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="assets/images/landingvideo.mp4" type="video/mp4">
-        </video>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="logo-text" id="heroLogo">
+    <section id="home" class="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-[#050505]" x-data="floatingIconsHero">
+        <!-- Container for background floating icons -->
+        <div class="absolute inset-0 w-full h-full pointer-events-none">
+            <template x-for="icon in icons" :key="icon.id">
+                <div 
+                    :id="'hero-icon-' + icon.id"
+                    class="absolute select-none opacity-0"
+                    :class="icon.className"
+                    style="z-index: 5; transition: opacity 0.5s;"
+                >
+                    <!-- Inner floating wrapper -->
+                    <div 
+                        class="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 p-2 rounded-xl shadow-lg bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300"
+                        :style="`animation: float-icon-anim ${icon.floatDuration}s ease-in-out -${icon.floatDelay}s infinite alternate;`"
+                    >
+                        <div class="w-5 h-5 md:w-6 md:h-6 text-white flex items-center justify-center" x-html="icon.svg"></div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <!-- Foreground Content -->
+        <div class="relative z-10 text-center px-4 max-w-4xl">
+            <div class="logo-text mb-4 transform hover:scale-105 transition-transform duration-500" id="heroLogo">
                 <img src="assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon"
-                    style="max-width: 600px; width: 100%; height: auto; margin: 0 auto;">
+                    class="max-w-[180px] md:max-w-[240px] w-full h-auto mx-auto drop-shadow-[0_0_20px_rgba(99,80,145,0.35)]">
             </div>
-            <h1 class="tagline mt-5">Binary Axon provides wealth of technical and business expertise to its customers
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight bg-gradient-to-b from-white to-gray-400 text-transparent bg-clip-text">
+                Transforming Ideas into Tech Reality
             </h1>
-            <p class="tagline">Transforming Ideas into Tech Reality</p>
-            <a href="#ProductSection" class="btn"><span>See our product catalog</span></a>
+            <p class="mt-4 max-w-lg mx-auto text-sm md:text-base text-gray-400">
+                Binary Axon provides a wealth of technical and business expertise to its customers, shaping the future of digital solutions.
+            </p>
+            <div class="mt-8">
+                <a href="#ProductSection" class="btn text-base font-semibold px-8 py-4 inline-block">
+                    <span>See our product catalog</span>
+                </a>
+            </div>
         </div>
     </section>
     <section id="HowWeWork" class="work-section py-24 bg-[#050505] relative overflow-hidden">

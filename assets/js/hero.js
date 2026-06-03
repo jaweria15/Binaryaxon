@@ -1,210 +1,133 @@
-document.addEventListener('alpine:init', () => {
-    const html5Svg = `<svg role="img" viewBox="0 0 24 24" fill="currentColor" class="w-full h-full text-[#E34F26]" xmlns="http://www.w3.org/2000/svg"><title>HTML5</title><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>`;
-    const css3Svg = `<svg role="img" viewBox="0 0 24 24" fill="currentColor" class="w-full h-full text-[#1572B6]" xmlns="http://www.w3.org/2000/svg"><title>CSS3</title><path d="M0 0v20.16A3.84 3.84 0 0 0 3.84 24h16.32A3.84 3.84 0 0 0 24 20.16V3.84A3.84 3.84 0 0 0 20.16 0Zm14.256 13.08c1.56 0 2.28 1.08 2.304 2.64h-1.608c.024-.288-.048-.6-.144-.84-.096-.192-.288-.264-.552-.264-.456 0-.696.264-.696.84-.024.576.288.888.768 1.08.72.288 1.608.744 1.92 1.296q.432.648.432 1.656c0 1.608-.912 2.592-2.496 2.592-1.656 0-2.4-1.032-2.424-2.688h1.68c0 .792.264 1.176.792 1.176.264 0 .456-.072.552-.24.192-.312.24-1.176-.048-1.512-.312-.408-.912-.6-1.32-.816q-.828-.396-1.224-.936c-.24-.36-.36-.888-.36-1.536 0-1.44.936-2.472 2.424-2.448m5.4 0c1.584 0 2.304 1.08 2.328 2.64h-1.608c0-.288-.048-.6-.168-.84-.096-.192-.264-.264-.528-.264-.48 0-.72.264-.72.84s.288.888.792 1.08c.696.288 1.608.744 1.92 1.296.264.432.408.984.408 1.656.024 1.608-.888 2.592-2.472 2.592-1.68 0-2.424-1.056-2.448-2.688h1.68c0 .744.264 1.176.792 1.176.264 0 .456-.072.552-.24.216-.312.264-1.176-.048-1.512-.288-.408-.888-.6-1.32-.816-.552-.264-.96-.576-1.2-.936s-.36-.888-.36-1.536c-.024-1.44.912-2.472 2.4-2.448m-11.031.018c.711-.006 1.419.198 1.839.63.432.432.672 1.128.648 1.992H9.336c.024-.456-.096-.792-.432-.96-.312-.144-.768-.048-.888.24-.12.264-.192.576-.168.864v3.504c0 .744.264 1.128.768 1.128a.65.65 0 0 0 .552-.264c.168-.24.192-.552.168-.84h1.776c.096 1.632-.984 2.712-2.568 2.688-1.536 0-2.496-.864-2.472-2.472v-4.032c0-.816.24-1.44.696-1.848.432-.408 1.146-.624 1.857-.63"/></svg>`;
-    const jsSvg = `<svg role="img" viewBox="0 0 24 24" fill="currentColor" class="w-full h-full text-[#F7DF1E]" xmlns="http://www.w3.org/2000/svg"><title>JavaScript</title><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>`;
-    const tsSvg = `<svg role="img" viewBox="0 0 24 24" fill="currentColor" class="w-full h-full text-[#3178C6]" xmlns="http://www.w3.org/2000/svg"><title>TypeScript</title><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg>`;
-    const pythonSvg = `<svg role="img" viewBox="0 0 24 24" fill="currentColor" class="w-full h-full text-[#3776AB]" xmlns="http://www.w3.org/2000/svg"><title>Python</title><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg>`;
-    const reactSvg = `<svg role="img" viewBox="0 0 24 24" fill="currentColor" class="w-full h-full text-[#61DAFB]" xmlns="http://www.w3.org/2000/svg"><title>React</title><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></svg>`;
-    const dotnetSvg = `<svg role="img" viewBox="0 0 24 24" fill="currentColor" class="w-full h-full text-[#512BD4]" xmlns="http://www.w3.org/2000/svg"><title>.NET</title><path d="M24 8.77h-2.468v7.565h-1.425V8.77h-2.462V7.53H24zm-6.852 7.565h-4.821V7.53h4.63v1.24h-3.205v2.494h2.953v1.234h-2.953v2.604h3.396zm-6.708 0H8.882L4.78 9.863a2.896 2.896 0 0 1-.258-.51h-.036c.032.189.048.592.048 1.21v5.772H3.157V7.53h1.659l3.965 6.32c.167.261.275.442.323.54h.024c-.04-.233-.06-.629-.06-1.185V7.529h1.372zm-8.703-.693a.868.829 0 0 1-.869.829.868.829 0 0 1-.868-.83.868.829 0 0 1 .868-.828.868.829 0 0 1 .869.829Z"/></svg>`;
-    const csharpSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="w-full h-full"><path fill="#9B4F96" d="M115.4 30.7L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.4 1 3.5l106.8-62c-.6-1.2-1.5-2.1-2.4-2.7z"/><path fill="#68217A" d="M10.7 95.3c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c0-.9-.1-1.9-.6-2.8l-106.6 62z"/><path fill="#fff" d="M85.3 76.1C81.1 83.5 73.1 88.5 64 88.5c-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5c9.1 0 17.1 5 21.3 12.5l13-7.5c-6.8-11.9-19.6-20-34.3-20-21.8 0-39.5 17.7-39.5 39.5s17.7 39.5 39.5 39.5c14.6 0 27.4-8 34.2-19.8l-12.9-7.6zM97 66.2l.9-4.3h-4.2v-4.7h5.1L100 51h4.9l-1.2 6.1h3.8l1.2-6.1h4.8l-1.2 6.1h2.4v4.7h-3.3l-.9 4.3h4.2v4.7h-5.1l-1.2 6h-4.9l1.2-6h-3.8l-1.2 6h-4.8l1.2-6h-2.4v-4.7H97zm4.8 0h3.8l.9-4.3h-3.8l-.9 4.3z"/></svg>`;
+document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('aether-canvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    let animationFrameId;
+    let particles = [];
+    const mouse = { x: null, y: null, radius: 200 };
 
-    Alpine.data('floatingIconsHero', () => ({
-        mouseX: -1000,
-        mouseY: -1000,
-        icons: [
-            {
-                id: 1,
-                className: 'top-[22%] left-[10%]',
-                svg: html5Svg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            },
-            {
-                id: 2,
-                className: 'top-[26%] right-[8%]',
-                svg: css3Svg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            },
-            {
-                id: 3,
-                className: 'top-[80%] left-[10%]',
-                svg: jsSvg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            },
-            {
-                id: 4,
-                className: 'bottom-[10%] right-[10%]',
-                svg: tsSvg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            },
-            {
-                id: 5,
-                className: 'top-[20%] left-[30%]',
-                svg: pythonSvg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            },
-            {
-                id: 6,
-                className: 'top-[20%] right-[30%]',
-                svg: reactSvg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            },
-            {
-                id: 7,
-                className: 'bottom-[8%] left-[25%]',
-                svg: dotnetSvg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            },
-            {
-                id: 8,
-                className: 'top-[40%] left-[15%]',
-                svg: csharpSvg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            },
-            {
-                id: 9,
-                className: 'top-[75%] right-[25%]',
-                svg: html5Svg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            },
-            {
-                id: 10,
-                className: 'top-[90%] left-[70%]',
-                svg: css3Svg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            },
-            {
-                id: 11,
-                className: 'top-[50%] right-[5%]',
-                svg: jsSvg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            },
-            {
-                id: 12,
-                className: 'top-[55%] left-[5%]',
-                svg: tsSvg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            },
-            {
-                id: 13,
-                className: 'top-[24%] left-[55%]',
-                svg: pythonSvg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            },
-            {
-                id: 14,
-                className: 'bottom-[5%] right-[45%]',
-                svg: reactSvg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            },
-            {
-                id: 15,
-                className: 'top-[32%] right-[20%]',
-                svg: dotnetSvg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            },
-            {
-                id: 16,
-                className: 'top-[60%] left-[30%]',
-                svg: csharpSvg,
-                floatDelay: Math.random() * 5,
-                floatDuration: 5 + Math.random() * 5,
-                targetX: 0, targetY: 0, currentX: 0, currentY: 0, vx: 0, vy: 0, opacity: 0
-            }
-        ],
-        init() {
-            // Set up mousemove listener on window
-            window.addEventListener('mousemove', (e) => {
-                this.mouseX = e.clientX;
-                this.mouseY = e.clientY;
-            });
-
-            // Start spring physics update loop after elements are registered
-            setTimeout(() => {
-                this.icons.forEach((icon, i) => {
-                    setTimeout(() => {
-                        icon.opacity = 1;
-                        const el = document.getElementById(`hero-icon-${icon.id}`);
-                        if (el) el.style.opacity = '1';
-                    }, i * 60);
-                });
-                this.tick();
-            }, 100);
-        },
-        tick() {
-            this.icons.forEach(icon => {
-                const el = document.getElementById(`hero-icon-${icon.id}`);
-                if (!el) return;
-
-                const rect = el.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2 - (icon.currentX || 0);
-                const centerY = rect.top + rect.height / 2 - (icon.currentY || 0);
-
-                const dx = this.mouseX - centerX;
-                const dy = this.mouseY - centerY;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < 160) {
-                    const angle = Math.atan2(dy, dx);
-                    const force = (1 - distance / 160) * 60;
-                    icon.targetX = -Math.cos(angle) * force;
-                    icon.targetY = -Math.sin(angle) * force;
-                } else {
-                    icon.targetX = 0;
-                    icon.targetY = 0;
-                }
-
-                // Spring physics integration
-                const stiffness = 0.08;
-                const damping = 0.85;
-
-                if (icon.vx === undefined) icon.vx = 0;
-                if (icon.vy === undefined) icon.vy = 0;
-                if (icon.currentX === undefined) icon.currentX = 0;
-                if (icon.currentY === undefined) icon.currentY = 0;
-
-                const ax = (icon.targetX - icon.currentX) * stiffness;
-                const ay = (icon.targetY - icon.currentY) * stiffness;
-
-                icon.vx = (icon.vx + ax) * damping;
-                icon.vy = (icon.vy + ay) * damping;
-
-                icon.currentX += icon.vx;
-                icon.currentY += icon.vy;
-
-                el.style.transform = `translate3d(${icon.currentX}px, ${icon.currentY}px, 0)`;
-            });
-
-            requestAnimationFrame(() => this.tick());
+    class Particle {
+        constructor(x, y, directionX, directionY, size, color) {
+            this.x = x;
+            this.y = y;
+            this.directionX = directionX;
+            this.directionY = directionY;
+            this.size = size;
+            this.color = color;
         }
-    }));
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+
+        update() {
+            if (this.x > canvas.width || this.x < 0) {
+                this.directionX = -this.directionX;
+            }
+            if (this.y > canvas.height || this.y < 0) {
+                this.directionY = -this.directionY;
+            }
+
+            // Mouse collision detection
+            if (mouse.x !== null && mouse.y !== null) {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < mouse.radius + this.size) {
+                    const forceDirectionX = dx / distance;
+                    const forceDirectionY = dy / distance;
+                    const force = (mouse.radius - distance) / mouse.radius;
+                    this.x -= forceDirectionX * force * 5;
+                    this.y -= forceDirectionY * force * 5;
+                }
+            }
+
+            this.x += this.directionX;
+            this.y += this.directionY;
+            this.draw();
+        }
+    }
+
+    function init() {
+        particles = [];
+        let numberOfParticles = (canvas.height * canvas.width) / 9000;
+        for (let i = 0; i < numberOfParticles; i++) {
+            let size = (Math.random() * 2) + 1;
+            let x = (Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2);
+            let y = (Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2);
+            let directionX = (Math.random() * 0.4) - 0.2;
+            let directionY = (Math.random() * 0.4) - 0.2;
+            let color = 'rgba(191, 128, 255, 0.8)'; // Brighter purple
+            particles.push(new Particle(x, y, directionX, directionY, size, color));
+        }
+    }
+
+    const resizeCanvas = () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        init(); 
+    };
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const connect = () => {
+        let opacityValue = 1;
+        for (let a = 0; a < particles.length; a++) {
+            for (let b = a; b < particles.length; b++) {
+                let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x))
+                    + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
+                
+                if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                    opacityValue = 1 - (distance / 20000);
+                    
+                    let dx_mouse_a = particles[a].x - mouse.x;
+                    let dy_mouse_a = particles[a].y - mouse.y;
+                    let distance_mouse_a = Math.sqrt(dx_mouse_a*dx_mouse_a + dy_mouse_a*dy_mouse_a);
+
+                    if (mouse.x && distance_mouse_a < mouse.radius) {
+                         ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
+                    } else {
+                         ctx.strokeStyle = `rgba(200, 150, 255, ${opacityValue})`;
+                    }
+                    
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[a].x, particles[a].y);
+                    ctx.lineTo(particles[b].x, particles[b].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    };
+
+    const animate = () => {
+        animationFrameId = requestAnimationFrame(animate);
+        ctx.fillStyle = 'black';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+        }
+        connect();
+    };
+    
+    const handleMouseMove = (event) => {
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
+    };
+    
+    const handleMouseOut = () => {
+        mouse.x = null;
+        mouse.y = null;
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseout', handleMouseOut);
+
+    init();
+    animate();
 });

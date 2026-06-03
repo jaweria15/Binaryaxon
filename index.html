@@ -48,43 +48,87 @@
 
     <!-- Update this div in your HTML - it should be right after body tag -->
 
-    <section id="home" class="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-[#050505]" x-data="floatingIconsHero">
-        <!-- Container for background floating icons -->
-        <div class="absolute inset-0 w-full h-full pointer-events-none">
-            <template x-for="icon in icons" :key="icon.id">
-                <div 
-                    :id="'hero-icon-' + icon.id"
-                    class="absolute select-none opacity-0"
-                    :class="icon.className"
-                    style="z-index: 5; transition: opacity 0.5s;"
-                >
-                    <!-- Inner floating wrapper -->
-                    <div 
-                        class="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 p-2 rounded-xl shadow-lg bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300"
-                        :style="`animation: float-icon-anim ${icon.floatDuration}s ease-in-out -${icon.floatDelay}s infinite alternate;`"
-                    >
-                        <div class="w-5 h-5 md:w-6 md:h-6 text-white flex items-center justify-center" x-html="icon.svg"></div>
+    <section id="home" class="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black pt-32 pb-20 lg:pt-36 lg:pb-24">
+        <!-- The canvas is now the primary background -->
+        <canvas id="aether-canvas" class="absolute top-0 left-0 w-full h-full"></canvas>
+        
+        <div class="relative z-10 max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Side: Left-Aligned Branding Text Block -->
+            <div class="lg:col-span-6 text-center lg:text-left flex flex-col items-center lg:items-start order-1">
+                <!-- Branding Logo -->
+                <div class="logo-text mb-6 transform hover:scale-105 transition-transform duration-500" id="heroLogo">
+                    <img src="assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon"
+                        class="max-w-[200px] md:max-w-[260px] w-full h-auto drop-shadow-[0_0_25px_rgba(99,80,145,0.4)]">
+                </div>
+
+                <!-- Heading -->
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-b from-white to-gray-400 text-transparent bg-clip-text mb-6 leading-tight">
+                    Transforming Ideas into Tech Reality
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="max-w-xl text-base md:text-lg text-gray-400 mb-8 leading-relaxed">
+                    Binary Axon provides a wealth of technical and business expertise to its customers, shaping the future of digital solutions.
+                </p>
+
+                <!-- Button -->
+                <div>
+                    <a href="#ProductSection" class="px-8 py-4 bg-white text-black font-semibold rounded-lg shadow-lg hover:bg-gray-200 transition-colors duration-300 inline-flex items-center gap-2 no-underline">
+                        <span>See our product catalog</span>
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Side: 4 Overlapping CSS Mockups (Silver/Light Metallic Frames) -->
+            <div class="lg:col-span-6 relative w-full h-[350px] sm:h-[450px] md:h-[500px] flex items-center justify-center order-2">
+                
+                <!-- PC / Monitor Mockup (Center/Back) -->
+                <div class="absolute top-[5%] left-[20%] w-[60%] z-10 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]">
+                    <div class="border-[6px] border-[#cbd5e1] rounded-t-xl overflow-hidden aspect-video bg-[#0d0d11]">
+                        <img src="assets/images/products/erp-1.png" alt="ERP System" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Metallic Stand and Base -->
+                    <div class="w-16 h-12 bg-[#94a3b8] mx-auto"></div>
+                    <div class="w-28 h-2 bg-[#cbd5e1] mx-auto rounded-full shadow-md"></div>
+                </div>
+
+                <!-- Tablet Mockup (Left, Overlapping Monitor) -->
+                <div class="absolute bottom-[12%] left-[4%] w-[22%] aspect-[3/4] z-20 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]">
+                    <div class="w-full h-full border-[5px] border-[#cbd5e1] rounded-xl overflow-hidden bg-[#0d0d11]">
+                        <img src="assets/images/products/pos-1.png" alt="POS Retail System" class="w-full h-full object-cover">
                     </div>
                 </div>
-            </template>
-        </div>
 
-        <!-- Foreground Content -->
-        <div class="relative z-10 text-center px-4 max-w-4xl">
-            <div class="logo-text mb-4 transform hover:scale-105 transition-transform duration-500" id="heroLogo">
-                <img src="assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon"
-                    class="max-w-[180px] md:max-w-[240px] w-full h-auto mx-auto drop-shadow-[0_0_20px_rgba(99,80,145,0.35)]">
-            </div>
-            <h1 class="text-3xl md:text-5xl font-bold tracking-tight bg-gradient-to-b from-white to-gray-400 text-transparent bg-clip-text">
-                Transforming Ideas into Tech Reality
-            </h1>
-            <p class="mt-4 max-w-lg mx-auto text-sm md:text-base text-gray-400">
-                Binary Axon provides a wealth of technical and business expertise to its customers, shaping the future of digital solutions.
-            </p>
-            <div class="mt-8">
-                <a href="#ProductSection" class="btn text-base font-semibold px-8 py-4 inline-block">
-                    <span>See our product catalog</span>
-                </a>
+                <!-- Laptop Mockup (Front-Right, Overlapping Monitor) -->
+                <div class="absolute bottom-[10%] right-[2%] w-[52%] z-25 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]">
+                    <div class="border-[5px] border-[#94a3b8] rounded-t-lg overflow-hidden aspect-[16/10] bg-[#0d0d11]">
+                        <img src="assets/images/products/school-1.png" alt="School System" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Metallic Silver Keyboard Base -->
+                    <div class="h-2.5 bg-[#cbd5e1] w-[112%] -ml-[6%] rounded-b-lg relative border-t border-[#e2e8f0]">
+                        <!-- Touchpad notch -->
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-[#94a3b8] rounded-b"></div>
+                    </div>
+                </div>
+
+                <!-- Mobile Phone Mockup (Front-Left, Overlapping Tablet) -->
+                <div class="absolute bottom-[5%] left-[16%] w-[13%] max-w-[85px] aspect-[9/19] z-30 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.8)]">
+                    <div class="w-full h-full border-[4px] border-[#cbd5e1] rounded-[18px] overflow-hidden relative bg-[#0d0d11] flex flex-col">
+                        <!-- Speaker notch -->
+                        <div class="absolute top-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-[#cbd5e1] rounded-full z-10 flex items-center justify-center">
+                            <div class="w-4 h-0.5 bg-[#475569] rounded-full"></div>
+                        </div>
+                        <img src="assets/images/products/recruitment-1.png" alt="Recruitment Portal" class="w-full h-full object-cover">
+                        <!-- Home bar -->
+                        <div class="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-white/40 rounded-full"></div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>

@@ -476,21 +476,6 @@ nav {
 
 }
 
-/* Floating Icon Keyframe Animation */
-@keyframes float-icon-anim {
-    0% {
-        transform: translateY(0px) translateX(0px) rotate(0deg);
-    }
-    33% {
-        transform: translateY(-8px) translateX(3px) rotate(2deg);
-    }
-    66% {
-        transform: translateY(4px) translateX(-5px) rotate(-2deg);
-    }
-    100% {
-        transform: translateY(0px) translateX(0px) rotate(0deg);
-    }
-}
 
 .hero-content {
     position: relative;

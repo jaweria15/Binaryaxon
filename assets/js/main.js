@@ -632,7 +632,7 @@ function enhancedProductApp() {
         demoSubmitted: new URLSearchParams(window.location.search).has('demoSuccess'),
         products: [
             {
-                name: "Prime Recruitment",
+                name: "Axon Recruitment",
                 category: "PORTAL",
                 color: "#148F77",
                 image: "assets/images/products/recruitment-1.png",

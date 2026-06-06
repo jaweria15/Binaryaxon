@@ -15,7 +15,7 @@ window.logoCloudApp = function() {
             { name: 'CBS', src: 'assets/images/clients/CBS_logo1.png' },
             { name: 'FM', src: 'assets/images/clients/FM.png' },
             { name: 'FCA', src: 'assets/images/clients/FCA_logo.png' },
-            { name: 'PrimeHR', src: 'assets/images/clients/PrimeHR.png' },
+            { name: 'AxonHR', src: 'assets/images/clients/AxonHR.png' },
             { name: 'Mobi', src: 'assets/images/clients/MobiLogo3.png' },
             { name: 'SuperSports', src: 'assets/images/clients/mSunSportsLogo.png' },
             { name: 'Quill', src: 'assets/images/clients/quill.png' },

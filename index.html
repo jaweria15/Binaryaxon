@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Binary Axon | Tech Reality</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=1.2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&display=swap"
@@ -48,12 +48,13 @@
 
     <!-- Update this div in your HTML - it should be right after body tag -->
 
-    <section id="home" class="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black pt-32 pb-20 lg:pt-36 lg:pb-24">
+    <section id="home"
+        class="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black pt-32 pb-20 lg:pt-36 lg:pb-24">
         <!-- The canvas is now the primary background -->
         <canvas id="aether-canvas" class="absolute top-0 left-0 w-full h-full"></canvas>
-        
+
         <div class="relative z-10 max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             <!-- Left Side: Left-Aligned Branding Text Block -->
             <div class="lg:col-span-6 text-center lg:text-left flex flex-col items-center lg:items-start order-1">
                 <!-- Branding Logo -->
@@ -63,32 +64,32 @@
                 </div>
 
                 <!-- Heading -->
-                <h1 class="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-b from-white to-gray-400 text-transparent bg-clip-text mb-6 leading-tight">
+                <h1
+                    class="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-b from-white to-gray-400 text-transparent bg-clip-text mb-6 leading-tight">
                     Transforming Ideas into Tech Reality
                 </h1>
 
                 <!-- Subtitle -->
                 <p class="max-w-xl text-base md:text-lg text-gray-400 mb-8 leading-relaxed">
-                    Binary Axon provides a wealth of technical and business expertise to its customers, shaping the future of digital solutions.
+                    Binary Axon provides a wealth of technical and business expertise to its customers, shaping the
+                    future of digital solutions.
                 </p>
 
                 <!-- Button -->
                 <div>
-                    <a href="#ProductSection" class="px-8 py-4 bg-white text-black font-semibold rounded-lg shadow-lg hover:bg-gray-200 transition-colors duration-300 inline-flex items-center gap-2 no-underline">
-                        <span>See our product catalog</span>
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <polyline points="12 5 19 12 12 19" />
-                        </svg>
+                    <a href="#ProductSection" class="btn no-underline">
+                        <span>See our product catalog <i class="fas fa-arrow-right ml-2"></i></span>
                     </a>
                 </div>
             </div>
 
             <!-- Right Side: 4 Overlapping CSS Mockups (Silver/Light Metallic Frames) -->
-            <div class="lg:col-span-6 relative w-full h-[350px] sm:h-[450px] md:h-[500px] flex items-center justify-center order-2">
-                
+            <div
+                class="lg:col-span-6 relative w-full h-[350px] sm:h-[450px] md:h-[500px] flex items-center justify-center order-2">
+
                 <!-- PC / Monitor Mockup (Center/Back) -->
-                <div class="absolute top-[5%] left-[20%] w-[60%] z-10 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]">
+                <div
+                    class="absolute bottom-[10%] left-[20%] w-[60%] z-10 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]">
                     <div class="border-[6px] border-[#cbd5e1] rounded-t-xl overflow-hidden aspect-video bg-[#0d0d11]">
                         <img src="assets/images/products/erp-1.png" alt="ERP System" class="w-full h-full object-cover">
                     </div>
@@ -98,16 +99,20 @@
                 </div>
 
                 <!-- Tablet Mockup (Left, Overlapping Monitor) -->
-                <div class="absolute bottom-[12%] left-[4%] w-[22%] aspect-[3/4] z-20 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]">
+                <div
+                    class="absolute bottom-[12%] left-[1%] w-[20%] aspect-[3/4] z-20 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]">
                     <div class="w-full h-full border-[5px] border-[#cbd5e1] rounded-xl overflow-hidden bg-[#0d0d11]">
-                        <img src="assets/images/products/pos-1.png" alt="POS Retail System" class="w-full h-full object-cover">
+                        <img src="assets/images/products/accounts-2.png" alt="Accounts Master"
+                            class="w-full h-full object-cover">
                     </div>
                 </div>
 
                 <!-- Laptop Mockup (Front-Right, Overlapping Monitor) -->
-                <div class="absolute bottom-[10%] right-[2%] w-[52%] z-25 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]">
+                <div
+                    class="absolute bottom-[10%] right-[2%] w-[46%] z-30 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]">
                     <div class="border-[5px] border-[#94a3b8] rounded-t-lg overflow-hidden aspect-[16/10] bg-[#0d0d11]">
-                        <img src="assets/images/products/school-1.png" alt="School System" class="w-full h-full object-cover">
+                        <img src="assets/images/products/ecommerce-1.png" alt="E-Commerce Solutions"
+                            class="w-full h-full object-cover">
                     </div>
                     <!-- Metallic Silver Keyboard Base -->
                     <div class="h-2.5 bg-[#cbd5e1] w-[112%] -ml-[6%] rounded-b-lg relative border-t border-[#e2e8f0]">
@@ -117,15 +122,20 @@
                 </div>
 
                 <!-- Mobile Phone Mockup (Front-Left, Overlapping Tablet) -->
-                <div class="absolute bottom-[5%] left-[16%] w-[13%] max-w-[85px] aspect-[9/19] z-30 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.8)]">
-                    <div class="w-full h-full border-[4px] border-[#cbd5e1] rounded-[18px] overflow-hidden relative bg-[#0d0d11] flex flex-col">
+                <div
+                    class="absolute bottom-[5%] left-[15%] w-[12%] max-w-[85px] aspect-[9/19] z-40 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.8)]">
+                    <div
+                        class="w-full h-full border-[4px] border-[#cbd5e1] rounded-[18px] overflow-hidden relative bg-[#0d0d11] flex flex-col">
                         <!-- Speaker notch -->
-                        <div class="absolute top-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-[#cbd5e1] rounded-full z-10 flex items-center justify-center">
+                        <div
+                            class="absolute top-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-[#cbd5e1] rounded-full z-10 flex items-center justify-center">
                             <div class="w-4 h-0.5 bg-[#475569] rounded-full"></div>
                         </div>
-                        <img src="assets/images/products/recruitment-1.png" alt="Recruitment Portal" class="w-full h-full object-cover">
+                        <img src="assets/images/products/ecommerce-mobile.png" alt="E-Commerce Mobile Store"
+                            class="w-full h-full object-cover">
                         <!-- Home bar -->
-                        <div class="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-white/40 rounded-full"></div>
+                        <div class="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-white/40 rounded-full">
+                        </div>
                     </div>
                 </div>
 
@@ -756,10 +766,13 @@
     <section id="Clients" class="clients-section">
         <div class="clients-container">
             <div class="text-center mb-20">
-                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-xs mb-3 block">Trusted Partnerships</span>
-                <h2 class="text-4xl lg:text-5xl font-bold text-white tracking-tighter mb-4">Our <span class="text-[#635091]">Clients</span></h2>
+                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-xs mb-3 block">Trusted
+                    Partnerships</span>
+                <h2 class="text-4xl lg:text-5xl font-bold text-white tracking-tighter mb-4">Our <span
+                        class="text-[#635091]">Clients</span></h2>
                 <div class="h-1 w-12 bg-[#635091] mx-auto mb-6"></div>
-                <p class="text-gray-400 max-w-2xl mx-auto">Trusted by industry leaders to deliver cutting-edge digital solutions.</p>
+                <p class="text-gray-400 max-w-2xl mx-auto">Trusted by industry leaders to deliver cutting-edge digital
+                    solutions.</p>
             </div>
 
             <div class="clients-cloud" x-data="logoCloudApp()" x-init="init()">
@@ -791,7 +804,8 @@
                 <div class="contact-form-side">
                     <h3>Send us a message</h3>
                     <div x-data="{ submitted: window.location.search.includes('success') }">
-                        <form id="contact-form" x-show="!submitted" @submit.prevent="sendEmail($el, $data)" method="POST">
+                        <form id="contact-form" x-show="!submitted" @submit.prevent="sendEmail($el, $data)"
+                            method="POST">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div class="form-group">
                                     <input type="text" id="name" name="name" required placeholder=" " />
@@ -817,17 +831,31 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div class="form-group">
                                     <input type="number" id="employees" name="employees" required placeholder=" " />
-                                    <label for="employees" class="form-label" data-text="EMPLOYEES">No. of Employees</label>
+                                    <label for="employees" class="form-label" data-text="EMPLOYEES">No. of
+                                        Employees</label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" id="businessType" name="businessType" required placeholder=" " />
+                                    <select id="businessType" name="businessType" required>
+                                        <option value="" disabled selected hidden></option>
+                                        <option value="Retail / E-commerce">Retail / E-commerce</option>
+                                        <option value="Wholesale / Distribution">Wholesale / Distribution</option>
+                                        <option value="Education / School">Education / School</option>
+                                        <option value="Healthcare / Medical">Healthcare / Medical</option>
+                                        <option value="Tech / Software / IT">Tech / Software / IT</option>
+                                        <option value="Hospitality / Restaurant">Hospitality / Restaurant</option>
+                                        <option value="Services / Consulting">Services / Consulting</option>
+                                        <option value="Manufacturing">Manufacturing</option>
+                                        <option value="Other">Other</option>
+                                    </select>
                                     <label for="businessType" class="form-label" data-text="TYPE">Business Type</label>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <textarea id="description" name="description" required placeholder=" " rows="4"></textarea>
-                                <label for="description" class="form-label" data-text="DESCRIPTION">Description / Message</label>
+                                <textarea id="description" name="description" required placeholder=" "
+                                    rows="4"></textarea>
+                                <label for="description" class="form-label" data-text="DESCRIPTION">Description /
+                                    Message</label>
                             </div>
 
                             <button type="submit" class="btn">
@@ -942,25 +970,23 @@
 
 
     <!-- Demo Request Modal -->
-    <div x-show="showDemoModal" 
-         x-transition:enter="transition ease-out duration-300"
-         x-transition:enter-start="opacity-0 scale-90"
-         x-transition:enter-end="opacity-100 scale-100"
-         x-transition:leave="transition ease-in duration-200"
-         x-transition:leave-start="opacity-100 scale-100"
-         x-transition:leave-end="opacity-0 scale-90"
-         class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-         @keydown.escape.window="showDemoModal = false"
-         style="display: none;">
-        
+    <div x-show="showDemoModal" x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-90"
+        class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+        @keydown.escape.window="showDemoModal = false" style="display: none;">
+
         <div class="relative w-full max-w-lg bg-[#0a0a0c] border border-white/10 rounded-3xl overflow-hidden shadow-2xl shadow-[#635091]/20"
-             @click.away="showDemoModal = false">
-            
+            @click.away="showDemoModal = false">
+
             <!-- Modal Header -->
-            <div class="p-6 border-b border-white/5 flex justify-between items-center bg-gradient-to-r from-[#635091]/20 to-transparent">
+            <div
+                class="p-6 border-b border-white/5 flex justify-between items-center bg-gradient-to-r from-[#635091]/20 to-transparent">
                 <div>
                     <h2 class="text-white font-bold text-2xl">Request Demo</h2>
-                    <p class="text-[#FFC132] text-xs font-mono uppercase mt-1" x-text="'Product: ' + demoProductName"></p>
+                    <p class="text-[#FFC132] text-xs font-mono uppercase mt-1" x-text="'Product: ' + demoProductName">
+                    </p>
                 </div>
                 <button @click="showDemoModal = false" class="text-gray-400 hover:text-white transition-colors">
                     <i class="fas fa-times text-xl"></i>
@@ -972,27 +998,33 @@
                 <template x-if="!demoSubmitted">
                     <form @submit.prevent="sendEmail($el, $data)" method="POST" class="space-y-6">
                         <input type="hidden" name="productName" :value="demoProductName">
-                        
+
                         <div class="form-group relative">
-                            <input type="text" name="name" required placeholder=" " 
-                                   class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#FFC132] outline-none transition-all peer" />
-                            <label class="absolute left-4 top-3 text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#FFC132] bg-[#0a0a0c] px-1 -top-2 text-xs">Full Name</label>
+                            <input type="text" name="name" required placeholder=" "
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#FFC132] outline-none transition-all peer" />
+                            <label
+                                class="absolute left-4 top-3 text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#FFC132] bg-[#0a0a0c] px-1 -top-2 text-xs">Full
+                                Name</label>
                         </div>
 
                         <div class="form-group relative">
-                            <input type="email" name="email" required placeholder=" " 
-                                   class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#FFC132] outline-none transition-all peer" />
-                            <label class="absolute left-4 top-3 text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#FFC132] bg-[#0a0a0c] px-1 -top-2 text-xs">Email Address</label>
+                            <input type="email" name="email" required placeholder=" "
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#FFC132] outline-none transition-all peer" />
+                            <label
+                                class="absolute left-4 top-3 text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#FFC132] bg-[#0a0a0c] px-1 -top-2 text-xs">Email
+                                Address</label>
                         </div>
 
                         <div class="form-group relative">
                             <textarea name="description" required placeholder=" " rows="4"
-                                      class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#FFC132] outline-none transition-all peer"></textarea>
-                            <label class="absolute left-4 top-3 text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#FFC132] bg-[#0a0a0c] px-1 -top-2 text-xs">Specific Requirements</label>
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-[#FFC132] outline-none transition-all peer"></textarea>
+                            <label
+                                class="absolute left-4 top-3 text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#FFC132] bg-[#0a0a0c] px-1 -top-2 text-xs">Specific
+                                Requirements</label>
                         </div>
 
-                        <button type="submit" 
-                                class="w-full py-4 bg-gradient-to-r from-[#FFC132] to-[#635091] text-black font-bold rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all uppercase tracking-widest">
+                        <button type="submit"
+                            class="w-full py-4 bg-gradient-to-r from-[#FFC132] to-[#635091] text-black font-bold rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all uppercase tracking-widest">
                             Send Request
                         </button>
                     </form>
@@ -1000,13 +1032,16 @@
 
                 <template x-if="demoSubmitted">
                     <div class="text-center py-8 animate-fade-in">
-                        <div class="w-20 h-20 bg-[#FFC132]/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-[#FFC132]/50">
+                        <div
+                            class="w-20 h-20 bg-[#FFC132]/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-[#FFC132]/50">
                             <i class="fas fa-check text-4xl text-[#FFC132]"></i>
                         </div>
                         <h3 class="text-white font-bold text-2xl mb-3">Request Received!</h3>
-                        <p class="text-gray-400 mb-8">Thank you for your interest in <span class="text-white font-bold" x-text="demoProductName"></span>. Our team will contact you shortly to schedule your personalized demo.</p>
-                        <button @click="showDemoModal = false; demoSubmitted = false" 
-                                class="text-[#FFC132] font-bold hover:underline">Close Window</button>
+                        <p class="text-gray-400 mb-8">Thank you for your interest in <span class="text-white font-bold"
+                                x-text="demoProductName"></span>. Our team will contact you shortly to schedule your
+                            personalized demo.</p>
+                        <button @click="showDemoModal = false; demoSubmitted = false"
+                            class="text-[#FFC132] font-bold hover:underline">Close Window</button>
                     </div>
                 </template>
             </div>

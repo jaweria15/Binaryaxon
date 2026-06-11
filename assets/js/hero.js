@@ -128,6 +128,126 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseout', handleMouseOut);
 
+    // Dynamic Slogan Rotator Logic
+    function initSloganRotator() {
+        const dynamicSlogan = document.getElementById('dynamic-slogan');
+        const heroSubtitle = document.getElementById('hero-subtitle');
+        if (!dynamicSlogan || !heroSubtitle) return;
+
+        // Ensure cursor styling is injected
+        if (!document.getElementById('typing-cursor-style')) {
+            const style = document.createElement('style');
+            style.id = 'typing-cursor-style';
+            style.innerHTML = `
+                @keyframes blink {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0; }
+                }
+                .typing-cursor {
+                    animation: blink 0.8s infinite;
+                    font-weight: bold;
+                    display: inline-block;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        const items = [
+            {
+                slogan: "Tech Reality",
+                subtitle: "Binary Axon provides a wealth of technical and business expertise to its customers, shaping the future of digital solutions."
+            },
+            {
+                slogan: "AI Innovation",
+                subtitle: "Harnessing machine learning and artificial intelligence to build smart, predictive, and automated systems."
+            },
+            {
+                slogan: "Development Expertise",
+                subtitle: "Delivering industry-grade software architecture, agile development processes, and robust enterprise solutions."
+            }
+        ];
+
+        let currentIndex = 0;
+        const typingSpeed = 25; // ms per character
+        const readingDelay = 4000; // ms to pause after typing finishes before next cycle
+
+        function typewriteText(element, text, speed, onComplete) {
+            element.innerHTML = "";
+            let i = 0;
+            
+            const cursor = document.createElement('span');
+            cursor.className = 'typing-cursor text-[#FFC132] ml-1';
+            cursor.textContent = '|';
+            element.appendChild(cursor);
+
+            function type() {
+                if (i < text.length) {
+                    const textNode = document.createTextNode(text.charAt(i));
+                    element.insertBefore(textNode, cursor);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    if (onComplete) onComplete();
+                }
+            }
+            type();
+        }
+
+        function startNextCycle() {
+            currentIndex = (currentIndex + 1) % items.length;
+            const nextItem = items[currentIndex];
+
+            const tl = gsap.timeline();
+
+            // 1. Flip out current slogan and fade out current subtitle
+            tl.to(dynamicSlogan, {
+                duration: 0.4,
+                rotationX: -90,
+                opacity: 0,
+                transformPerspective: 1000,
+                transformOrigin: "50% 50% -20px",
+                ease: "power2.in"
+            });
+            tl.to(heroSubtitle, {
+                duration: 0.3,
+                opacity: 0,
+                y: -10,
+                ease: "power2.in"
+            }, "-=0.3");
+
+            // 2. Change dynamic slogan and setup subtitle entry
+            tl.call(() => {
+                dynamicSlogan.textContent = nextItem.slogan;
+                heroSubtitle.innerHTML = "";
+                gsap.set(dynamicSlogan, { rotationX: 90, transformPerspective: 1000 });
+                gsap.set(heroSubtitle, { opacity: 1, y: 0 });
+            });
+
+            // 3. Flip in new slogan, then start typewriting the new subtitle
+            tl.to(dynamicSlogan, {
+                duration: 0.6,
+                rotationX: 0,
+                opacity: 1,
+                transformPerspective: 1000,
+                transformOrigin: "50% 50% -20px",
+                ease: "back.out(1.2)"
+            });
+
+            tl.call(() => {
+                typewriteText(heroSubtitle, nextItem.subtitle, typingSpeed, () => {
+                    // Wait for reading duration, then start next cycle
+                    setTimeout(startNextCycle, readingDelay);
+                });
+            });
+        }
+
+        // Kickoff initial typewriter on page load
+        typewriteText(heroSubtitle, items[0].subtitle, typingSpeed, () => {
+            setTimeout(startNextCycle, readingDelay);
+        });
+    }
+
     init();
     animate();
+    initSloganRotator();
 });

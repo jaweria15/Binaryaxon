@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let currentIndex = 0;
         const typingSpeed = 25; // ms per character
-        const readingDelay = 4000; // ms to pause after typing finishes before next cycle
+        const readingDelay = 2000; // ms to pause after typing finishes before next cycle
 
         function typewriteText(element, text, speed, onComplete) {
             element.innerHTML = "";

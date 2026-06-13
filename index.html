@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Binary Axon | Tech Reality</title>
-    <link rel="stylesheet" href="assets/css/style.css?v=1.2">
+    <link class="cache-bypass" rel="stylesheet" href="assets/css/style.css?v=1.5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&display=swap"
@@ -64,12 +64,9 @@
                 </div>
 
                 <!-- Heading -->
-                <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight text-white">
-                    <span class="bg-gradient-to-b from-white to-gray-400 text-transparent bg-clip-text">Transforming
-                        Ideas into</span><br>
-                    <span id="dynamic-slogan"
-                        class="inline-block bg-gradient-to-r from-[#FFC132] to-[#635091] text-transparent bg-clip-text">Tech
-                        Reality</span>
+                <h1 class="text-4xl md:text-[50px] font-bold tracking-tight mb-6 leading-tight text-white">
+                    <span class="bg-gradient-to-b from-white to-gray-400 text-transparent bg-clip-text">Transforming Ideas into</span><br>
+                    <span id="dynamic-slogan" class="inline-block text-[#FFC132]">Tech Reality</span>
                 </h1>
 
                 <!-- Subtitle -->
@@ -95,7 +92,7 @@
                 <div
                     class="absolute bottom-[10%] left-[20%] w-[60%] z-10 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]">
                     <div class="border-[6px] border-[#cbd5e1] rounded-t-xl overflow-hidden aspect-video bg-[#0d0d11]">
-                        <img src="assets/images/products/erp-1.png" alt="ERP System" class="w-full h-full object-cover">
+                        <img src="assets/images/products/erp-1.webp" alt="ERP System" class="w-full h-full object-cover">
                     </div>
                     <!-- Metallic Stand and Base -->
                     <div class="w-16 h-12 bg-[#94a3b8] mx-auto"></div>
@@ -106,7 +103,7 @@
                 <div
                     class="absolute bottom-[12%] left-[1%] w-[20%] aspect-[3/4] z-20 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]">
                     <div class="w-full h-full border-[5px] border-[#cbd5e1] rounded-xl overflow-hidden bg-[#0d0d11]">
-                        <img src="assets/images/products/accounts-2.png" alt="Accounts Master"
+                        <img src="assets/images/products/accounts-2.webp" alt="Accounts Master"
                             class="w-full h-full object-cover">
                     </div>
                 </div>
@@ -115,7 +112,7 @@
                 <div
                     class="absolute bottom-[10%] right-[2%] w-[46%] z-30 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)]">
                     <div class="border-[5px] border-[#94a3b8] rounded-t-lg overflow-hidden aspect-[16/10] bg-[#0d0d11]">
-                        <img src="assets/images/products/ecommerce-1.png" alt="E-Commerce Solutions"
+                        <img src="assets/images/products/ecommerce-1.webp" alt="E-Commerce Solutions"
                             class="w-full h-full object-cover">
                     </div>
                     <!-- Metallic Silver Keyboard Base -->
@@ -135,7 +132,7 @@
                             class="absolute top-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-[#cbd5e1] rounded-full z-10 flex items-center justify-center">
                             <div class="w-4 h-0.5 bg-[#475569] rounded-full"></div>
                         </div>
-                        <img src="assets/images/products/ecommerce-mobile.png" alt="E-Commerce Mobile Store"
+                        <img src="assets/images/products/ecommerce-mobile.webp" alt="E-Commerce Mobile Store"
                             class="w-full h-full object-cover">
                         <!-- Home bar -->
                         <div class="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-white/40 rounded-full">
@@ -272,6 +269,9 @@
             </div>
         </div>
     </section>
+
+    <!-- Section Separator -->
+    <div class="w-full h-[1px] bg-gradient-to-r from-transparent via-[#635091]/20 via-[#FFC132]/25 via-[#635091]/20 to-transparent"></div>
 
     <section class="about-section py-24 bg-[#050505] relative overflow-hidden" id="Aboutus">
         <!-- Background decorative elements -->
@@ -440,9 +440,8 @@
         </div>
     </section>
 
-
-
-
+    <!-- Section Separator -->
+    <div class="w-full h-[1px] bg-gradient-to-r from-transparent via-[#635091]/20 via-[#FFC132]/25 via-[#635091]/20 to-transparent"></div>
 
     <section id="ProductSection" x-data="enhancedProductApp()" x-init="init()"
         class="relative min-h-screen py-16 lg:py-24 overflow-hidden bg-gradient-to-b from-[#050505] via-[#0a0a0f] to-[#050505] transition-all duration-1000">
@@ -505,7 +504,7 @@
                             <div>
                                 <span class="text-[#FFC132] text-[10px] lg:text-sm font-mono"
                                     x-text="products[activeIndex].category"></span>
-                                <h3 x-text="products[activeIndex].name"
+                                <h3 x-html="products[activeIndex].name.replace('Axon', '<span class=\'text-[#FFC132]\'>Axon</span>')"
                                     class="text-xl lg:text-3xl font-bold text-white"></h3>
                             </div>
                         </div>
@@ -608,7 +607,7 @@
 
                                 <!-- Product Name -->
                                 <h3 class="text-white font-bold text-sm sm:text-base lg:text-xl mb-1 lg:mb-2 leading-tight"
-                                    x-text="p.name"></h3>
+                                    x-html="p.name.replace('Axon', '<span class=\'text-[#FFC132]\'>Axon</span>')"></h3>
 
                                 <!-- Short Description (visible on hover/active) -->
                                 <p class="text-gray-300 text-[10px] sm:text-xs lg:text-sm mb-2 lg:mb-3 opacity-0 max-h-0 transition-all duration-500"
@@ -648,6 +647,8 @@
         </div>
     </section>
 
+    <!-- Section Separator -->
+    <div class="w-full h-[1px] bg-gradient-to-r from-transparent via-[#635091]/20 via-[#FFC132]/25 via-[#635091]/20 to-transparent"></div>
 
     <section id="Services" class="py-16 lg:py-24 bg-[#050505] relative overflow-hidden" x-data="servicesApp()"
         x-init="init()">
@@ -762,10 +763,8 @@
         </div>
     </section>
 
-
-
-
-
+    <!-- Section Separator -->
+    <div class="w-full h-[1px] bg-gradient-to-r from-transparent via-[#635091]/20 via-[#FFC132]/25 via-[#635091]/20 to-transparent"></div>
 
     <!-- Our Clients — Enhanced Infinite Marquee -->
     <section id="Clients" class="clients-section">
@@ -794,9 +793,8 @@
         </div>
     </section>
 
-
-    <!-- Teams — Spotlight Carousel -->
-    <!-- How We Work Section -->
+    <!-- Section Separator -->
+    <div class="w-full h-[1px] bg-gradient-to-r from-transparent via-[#635091]/20 via-[#FFC132]/25 via-[#635091]/20 to-transparent"></div>
 
     <section id="contact" class="contact-us-section">
         <div class="contact-main-container">

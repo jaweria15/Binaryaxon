@@ -635,7 +635,7 @@ function enhancedProductApp() {
                 name: "Axon Recruitment",
                 category: "PORTAL",
                 color: "#148F77",
-                image: "assets/images/products/recruitment-1.png",
+                image: "assets/images/products/recruitment-1.webp",
                 shortDesc: "AI-Driven Talent Acquisition",
                 desc: "A powerful recruitment portal that bridges the gap between top talent and leading organizations through smart matching and automated workflows.",
                 icon: '<i class="fas fa-user-plus"></i>',
@@ -659,10 +659,10 @@ function enhancedProductApp() {
                 icons: ["fas fa-briefcase", "fas fa-search-dollar", "fas fa-user-tie"]
             },
             {
-                name: "Smart School",
+                name: "Axon School",
                 category: "EDUCATION",
                 color: "#512E5F",
-                image: "assets/images/products/school-1.png",
+                image: "assets/images/products/school-1.webp",
                 shortDesc: "Next-Gen School Management",
                 desc: "A complete educational ERP system that unifies students, parents, and teachers on a single platform with automated reporting and fee management.",
                 icon: '<i class="fas fa-school"></i>',
@@ -686,10 +686,10 @@ function enhancedProductApp() {
                 icons: ["fas fa-graduation-cap", "fas fa-chalkboard-teacher", "fas fa-bus"]
             },
             {
-                name: "Accounts Master",
+                name: "Axon Accounts",
                 category: "FINANCE",
                 color: "#7B241C",
-                image: "assets/images/products/accounts-1.png",
+                image: "assets/images/products/accounts-1.webp",
                 shortDesc: "Professional Accounting ERP",
                 desc: "A secure and robust financial management system providing multi-currency ledgers, instant tax compliance, and deep audit capabilities.",
                 icon: '<i class="fas fa-calculator"></i>',
@@ -713,10 +713,10 @@ function enhancedProductApp() {
                 icons: ["fas fa-receipt", "fas fa-piggy-bank", "fas fa-coins"]
             },
             {
-                name: "Apex POS",
+                name: "Axon POS",
                 category: "RETAIL",
                 color: "#1B2631",
-                image: "assets/images/products/pos-1.png",
+                image: "assets/images/products/pos-1.webp",
                 shortDesc: "Hyper-Fast Point of Sale",
                 desc: "Designed for high-traffic retail, Apex POS offers lightning-fast transactions, integrated hardware support, and powerful inventory sync.",
                 icon: '<i class="fas fa-cash-register"></i>',
@@ -740,10 +740,10 @@ function enhancedProductApp() {
                 icons: ["fas fa-print", "fas fa-credit-card", "fas fa-percentage"]
             },
             {
-                name: "ERP System",
+                name: "Axon ERP",
                 category: "ENTERPRISE",
                 color: "#1B4F72",
-                image: "assets/images/products/erp-1.png",
+                image: "assets/images/products/erp-1.webp",
                 shortDesc: "End-to-End Business Unified",
                 desc: "A comprehensive ERP suite that bridges Manufacturing, Supply Chain, and Finance for large-scale enterprise operations with advanced HR & Payroll modules.",
                 icon: '<i class="fas fa-network-wired"></i>',
@@ -767,10 +767,10 @@ function enhancedProductApp() {
                 icons: ["fas fa-cogs", "fas fa-cubes", "fas fa-chart-network"]
             },
             {
-                name: "Shopify Elite",
+                name: "Axon Shopify",
                 category: "PLATFORM",
                 color: "#1D8348",
-                image: "assets/images/products/shopify-1.png",
+                image: "assets/images/products/shopify-1.webp",
                 shortDesc: "Custom Shopify Storefronts",
                 desc: "High-conversion Shopify stores built with custom Liquid themes and headless integrations for the ultimate brand experience.",
                 icon: '<i class="fab fa-shopify"></i>',
@@ -794,10 +794,10 @@ function enhancedProductApp() {
                 icons: ["fab fa-shopify", "fas fa-cart-arrow-down", "fas fa-laptop-code"]
             },
             {
-                name: "E-Commerce",
+                name: "Axon E-Commerce",
                 category: "RETAIL",
                 color: "#635091",
-                image: "assets/images/products/ecommerce-1.png",
+                image: "assets/images/products/ecommerce-1.webp",
                 shortDesc: "Scalable Online Stores",
                 desc: "High-conversion digital storefronts built with cutting-edge tech. We create seamless shopping experiences that drive sales and customer loyalty.",
                 icon: '<i class="fas fa-shopping-cart"></i>',
@@ -821,10 +821,10 @@ function enhancedProductApp() {
                 icons: ["fas fa-shopping-bag", "fas fa-tags", "fas fa-truck"]
             },
             {
-                name: "WP Advanced",
+                name: "Axon WordPress",
                 category: "PLATFORM",
                 color: "#21618C",
-                image: "assets/images/products/wordpress-1.png",
+                image: "assets/images/products/wordpress-1.webp",
                 shortDesc: "Scalable WordPress CMS",
                 desc: "Enterprise WordPress solutions designed for security, high-traffic, and seamless content management for corporate websites like Quill Product.",
                 icon: '<i class="fab fa-wordpress"></i>',
@@ -848,10 +848,10 @@ function enhancedProductApp() {
                 icons: ["fab fa-wordpress", "fab fa-elementor", "fas fa-pencil-ruler"]
             },
             {
-                name: "Content Engine",
+                name: "Axon Content",
                 category: "CONTENT",
                 color: "#6E2C00",
-                image: "assets/images/products/content-1.png",
+                image: "assets/images/products/content-1.webp",
                 shortDesc: "Professional Copywriting",
                 desc: "Strategic content creation that drives organic traffic and converts visitors into loyal customers through impactful storytelling.",
                 icon: '<i class="fas fa-pen-nib"></i>',

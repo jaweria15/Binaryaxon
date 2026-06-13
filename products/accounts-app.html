@@ -18,7 +18,7 @@
         .nav-logo-img { height: 2rem !important; width: auto !important; }
     </style>
 </head>
-<body x-data="{ activeImg: '../assets/images/products/accounts-1.png', showDemoModal: false, demoProductName: 'Accounts Master', submitting: false, success: false, showLightbox: false, lightboxImg: '' }">
+<body x-data="{ activeImg: '../assets/images/products/accounts-1.webp', showDemoModal: false, demoProductName: 'Accounts Master', submitting: false, success: false, showLightbox: false, lightboxImg: '' }">
 
     <header class="fixed top-0 w-full z-50 transition-all duration-300" x-data="{ scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 20)">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center transition-all duration-300" 
@@ -79,25 +79,25 @@
                     System Screenshots
                 </h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 screenshot-grid">
-                    <div @click="activeImg = '../assets/images/products/accounts-1.png'" 
+                    <div @click="activeImg = '../assets/images/products/accounts-1.webp'" 
                          class="glass-panel p-2 cursor-pointer transition-all"
                          :class="activeImg.includes('accounts-1') ? 'border-[#FFC132] bg-white/10' : 'border-transparent'">
-                        <img src="../assets/images/products/accounts-1.png" class="rounded-xl w-full h-32 object-cover" alt="Financial Dashboard">
+                        <img src="../assets/images/products/accounts-1.webp" class="rounded-xl w-full h-32 object-cover" alt="Financial Dashboard">
                     </div>
-                    <div @click="activeImg = '../assets/images/products/accounts-2.png'" 
+                    <div @click="activeImg = '../assets/images/products/accounts-2.webp'" 
                          class="glass-panel p-2 cursor-pointer transition-all"
                          :class="activeImg.includes('accounts-2') ? 'border-[#FFC132] bg-white/10' : 'border-transparent'">
-                        <img src="../assets/images/products/accounts-2.png" class="rounded-xl w-full h-32 object-cover" alt="General Ledger">
+                        <img src="../assets/images/products/accounts-2.webp" class="rounded-xl w-full h-32 object-cover" alt="General Ledger">
                     </div>
-                    <div @click="activeImg = '../assets/images/products/accounts-3.png'" 
+                    <div @click="activeImg = '../assets/images/products/accounts-3.webp'" 
                          class="glass-panel p-2 cursor-pointer transition-all"
                          :class="activeImg.includes('accounts-3') ? 'border-[#FFC132] bg-white/10' : 'border-transparent'">
-                        <img src="../assets/images/products/accounts-3.png" class="rounded-xl w-full h-32 object-cover" alt="Tax Compliance">
+                        <img src="../assets/images/products/accounts-3.webp" class="rounded-xl w-full h-32 object-cover" alt="Tax Compliance">
                     </div>
-                    <div @click="activeImg = '../assets/images/products/accounts-4.png'" 
+                    <div @click="activeImg = '../assets/images/products/accounts-4.webp'" 
                          class="glass-panel p-2 cursor-pointer transition-all"
                          :class="activeImg.includes('accounts-4') ? 'border-[#FFC132] bg-white/10' : 'border-transparent'">
-                        <img src="../assets/images/products/accounts-4.png" class="rounded-xl w-full h-32 object-cover" alt="Audit Trails">
+                        <img src="../assets/images/products/accounts-4.webp" class="rounded-xl w-full h-32 object-cover" alt="Audit Trails">
                     </div>
                 </div>
             </div>

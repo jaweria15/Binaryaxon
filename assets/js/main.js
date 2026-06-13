@@ -420,36 +420,27 @@ function scrollToContact() {
 document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const revealCards = document.querySelectorAll(".reveal-card");
-    if (revealCards.length > 0) {
-        gsap.to(revealCards, {
-            scrollTrigger: {
-                trigger: "#Aboutus",
-                start: "top 80%",
-            },
-            opacity: 1,
-            y: 0,
-            stagger: 0.2,
-            duration: 1,
-            ease: "power2.out"
-        });
-    }
+    gsap.to(".reveal-card", {
+        scrollTrigger: {
+            trigger: "#Aboutus",
+            start: "top 80%",
+        },
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        duration: 1,
+        ease: "power2.out"
+    });
 
-    const aboutElements = ["#about-sub", "#about-title", "#about-line"]
-        .map(selector => document.querySelector(selector))
-        .filter(el => el !== null);
-
-    if (aboutElements.length > 0) {
-        gsap.to(aboutElements, {
-            scrollTrigger: {
-                trigger: "#Aboutus",
-                start: "top 80%",
-            },
-            opacity: 1,
-            duration: 1,
-            stagger: 0.1
-        });
-    }
+    gsap.to(["#about-sub", "#about-title", "#about-line"], {
+        scrollTrigger: {
+            trigger: "#Aboutus",
+            start: "top 80%",
+        },
+        opacity: 1,
+        duration: 1,
+        stagger: 0.1
+    });
 });
 
 

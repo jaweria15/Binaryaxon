@@ -1499,7 +1499,7 @@ nav {
     padding: 12px 0;
     background: transparent;
     border: none;
-    border-bottom: 1px solid var(--white-transparent-medium);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.45);
     color: var(--white);
     font-size: 16px;
     transition: 0.3s;
@@ -1516,7 +1516,7 @@ nav {
     padding: 12px 0;
     background: transparent !important;
     border: none !important;
-    border-bottom: 1px solid var(--white-transparent-medium) !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.45) !important;
     color: var(--white) !important;
     font-size: 16px;
     transition: 0.3s;
@@ -1566,9 +1566,10 @@ nav {
     align-items: center;
 }
 
-.contact-info-side h2 {
+.contact-info-side h3 {
     color: var(--white);
-    font-size: 32px;
+    font-size: 24px;
+    font-weight: 700;
     margin-bottom: 10px;
 }
 
@@ -2572,7 +2573,7 @@ nav {
     width: 100%;
     background: transparent;
     border: none;
-    border-bottom: 2px solid var(--muted-purple);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.45);
     padding: 10px 0;
     font-size: 1rem;
     color: var(--white);
@@ -2585,7 +2586,7 @@ nav {
     width: 100%;
     background: transparent !important;
     border: none !important;
-    border-bottom: 2px solid var(--muted-purple) !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.45) !important;
     padding: 10px 0;
     font-size: 1rem;
     color: var(--white) !important;

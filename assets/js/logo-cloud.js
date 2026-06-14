@@ -12,16 +12,16 @@ if (typeof gsap !== 'undefined') {
 window.logoCloudApp = function() {
     return {
         logos: [
-            { name: 'CBS', src: 'assets/images/clients/CBS_logo1.png' },
-            { name: 'FM', src: 'assets/images/clients/FM.png' },
-            { name: 'FCA', src: 'assets/images/clients/FCA_logo.png' },
-            { name: 'AxonHR', src: 'assets/images/clients/AxonHR.png' },
-            { name: 'Mobi', src: 'assets/images/clients/MobiLogo3.png' },
-            { name: 'SuperSports', src: 'assets/images/clients/mSunSportsLogo.png' },
-            { name: 'Quill', src: 'assets/images/clients/quill.png' },
+            { name: 'CBS', src: 'assets/images/clients/CBS_logo1.webp' },
+            { name: 'FM', src: 'assets/images/clients/FM.webp' },
+            { name: 'FCA', src: 'assets/images/clients/FCA_logo.webp' },
+            { name: 'AxonHR', src: 'assets/images/clients/AxonHR.webp' },
+            { name: 'Mobi', src: 'assets/images/clients/MobiLogo3.webp' },
+            { name: 'SuperSports', src: 'assets/images/clients/mSunSportsLogo.webp' },
+            { name: 'Quill', src: 'assets/images/clients/quill.webp' },
             { name: 'Microsoft', src: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
             { name: 'Stripe', src: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg' },
-            { name: 'Google', src: 'https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg' }
+            { name: 'CKH', src: 'assets/images/clients/CKH.webp' }
         ],
         rows: [],
         

@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="flex gap-4">
-                        <button @click="showDemoModal = true" class="px-10 py-4 bg-[#FFC132] text-black font-bold rounded-full hover:scale-105 transition-transform uppercase">Request Demo</button>
+                        <button @click="showDemoModal = true" class="btn uppercase"><span>Request Demo</span></button>
                     </div>
                 </div>
 
@@ -188,13 +188,9 @@
                                   class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#635091] transition-colors"></textarea>
                     </div>
 
-                    <button type="submit" 
-                            class="w-full py-4 bg-gradient-to-r from-[#FFC132] to-[#635091] text-black font-bold rounded-full hover:scale-105 transition-transform uppercase tracking-wider flex items-center justify-center gap-2"
-                            :disabled="submitting">
-                        <span x-text="submitting ? 'Sending...' : 'Submit Request'"></span>
+                    <button type="submit" class="btn w-full uppercase tracking-wider flex items-center justify-center gap-2 font-bold" :disabled="submitting"><span class="flex items-center justify-center gap-2"><span x-text="submitting ? 'Sending...' : 'Submit Request'"></span>
                         <i class="fas fa-paper-plane text-xs" x-show="!submitting"></i>
-                        <i class="fas fa-circle-notch fa-spin text-xs" x-show="submitting"></i>
-                    </button>
+                        <i class="fas fa-circle-notch fa-spin text-xs" x-show="submitting"></i></span></button>
                 </form>
 
                 <!-- Success Message -->

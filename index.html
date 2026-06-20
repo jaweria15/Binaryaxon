@@ -165,13 +165,15 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <header class="text-center mb-16">
-                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-xs mb-3 block">AGILE
-                    WORKFLOW</span>
-                <h2 class="text-4xl lg:text-5xl font-bold text-white tracking-tighter mb-4">Our <span
-                        class="text-[#635091]">Methodology</span></h2>
-                <div class="h-1 w-12 bg-[#635091] mx-auto mb-6"></div>
-                <p class="text-gray-400 max-w-2xl mx-auto">An adaptive, seven-phase agile continuum engineered to
+            <header class="text-center mb-10 lg:mb-16">
+                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
+                    AGILE WORKFLOW
+                    <span class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
+                </span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tighter mb-2 lg:mb-4">
+                    Our <span class="text-[#635091]">Methodology</span>
+                </h2>
+                <p class="text-sm lg:text-base text-gray-400 max-w-2xl mx-auto px-4">An adaptive, seven-phase agile continuum engineered to
                     accelerate innovation and ensure sustained excellence.</p>
             </header>
 
@@ -302,12 +304,17 @@
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
 
-            <div class="text-center mb-20">
-                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-xs mb-3 block">DISCOVER OUR
-                    JOURNEY</span>
-                <h2 class="text-4xl lg:text-6xl font-bold text-white tracking-tighter mb-4">Pioneering <span
-                        class="text-[#635091]">Digital Excellence</span></h2>
-                <div class="h-1 w-20 bg-[#635091] mx-auto mb-6"></div>
+            <div class="text-center mb-10 lg:mb-16">
+                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
+                    DISCOVER OUR JOURNEY
+                    <span class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
+                </span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tighter mb-2 lg:mb-4">
+                    Pioneering <span class="text-[#635091]">Digital</span> Excellence
+                </h2>
+                <p class="text-sm lg:text-base text-gray-400 max-w-2xl mx-auto px-4">
+                    Bridging the gap between complex technological challenges and elegant business solutions.
+                </p>
             </div>
 
             <!-- Our Story Section -->
@@ -493,7 +500,7 @@
                         class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
                 </span>
                 <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tighter mb-2 lg:mb-4">
-                    Our Products
+                    Our <span class="text-[#635091]">Products</span>
                 </h2>
                 <p class="text-sm lg:text-base text-gray-400 max-w-2xl mx-auto px-4">Discover our comprehensive suite of
                     digital solutions designed to transform your business</p>
@@ -517,7 +524,7 @@
                         <div class="flex items-center gap-3 lg:gap-4 mb-4 lg:mb-6">
                             <div
                                 class="w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl bg-gradient-to-br from-[#635091] to-[#FFC132] p-[2px]">
-                                <div class="w-full h-full rounded-xl lg:rounded-2xl bg-[#050505] flex items-center justify-center text-xl lg:text-3xl"
+                                <div class="w-full h-full rounded-xl lg:rounded-2xl bg-[#050505] flex items-center justify-center text-xl lg:text-3xl text-[#FFC132]"
                                     x-html="products[activeIndex].icon"></div>
                             </div>
                             <div>
@@ -579,10 +586,9 @@
                         <!-- Action Buttons - Full width on mobile -->
                         <div class="flex gap-2 lg:gap-3">
                             <a :href="'products/' + products[activeIndex].slug + '.html'"
-                                class="flex-1 px-4 lg:px-6 py-2 lg:py-3 bg-gradient-to-r from-[#FFC132] to-[#635091] text-black font-bold rounded-full hover:scale-105 transition-transform text-xs lg:text-sm uppercase tracking-wider flex items-center justify-center gap-1 lg:gap-2 group/btn">
-                                <span>Explore</span>
-                                <i
-                                    class="fas fa-arrow-right group-hover/btn:translate-x-1 transition-transform text-[10px] lg:text-xs"></i>
+                                class="btn flex-1 text-center text-xs lg:text-sm uppercase tracking-wider flex items-center justify-center gap-1 lg:gap-2 group/btn font-bold no-underline">
+                                <span>Explore <i
+                                    class="fas fa-arrow-right group-hover/btn:translate-x-1 transition-transform text-[10px] lg:text-xs ml-2"></i></span>
                             </a>
                         </div>
                     </div>
@@ -679,14 +685,17 @@
             <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#FFC132]/20 rounded-full filter blur-3xl"></div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 mb-10 lg:mb-16">
-            <span
-                class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 block">Capabilities</span>
-            <h2 class="text-4xl sm:text-5xl lg:text-5xl font-bold text-white tracking-tighter">Our <span
-                    class="text-[#635091]">Services</span></h2>
-            <div class="h-1 w-16 lg:w-20 bg-[#635091] mt-4"></div>
-            <p class="text-gray-400 text-sm lg:text-base max-w-2xl mt-4">Comprehensive digital solutions tailored to
-                elevate your business</p>
+        <div class="text-center mb-10 lg:mb-16">
+            <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
+                CAPABILITIES
+                <span class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
+            </span>
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tighter mb-2 lg:mb-4">
+                Our <span class="text-[#635091]">Services</span>
+            </h2>
+            <p class="text-sm lg:text-base text-gray-400 max-w-2xl mx-auto px-4">
+                Comprehensive digital solutions tailored to elevate your business
+            </p>
         </div>
 
         <!-- Services Grid - Shows only visible services -->
@@ -706,14 +715,14 @@
                     </div>
 
                     <!-- Icon - Responsive sizing -->
-                    <div class="absolute top-6 left-6 lg:top-8 lg:left-8 w-10 h-10 lg:w-14 lg:h-14 bg-[#050505]/80 backdrop-blur-md rounded-xl lg:rounded-2xl border border-white/20 flex items-center justify-center z-20"
+                    <div class="absolute top-6 left-6 lg:top-8 lg:left-8 w-10 h-10 lg:w-14 lg:h-14 bg-[#050505]/80 backdrop-blur-md rounded-xl lg:rounded-2xl border border-white/20 flex items-center justify-center z-20 transition-all duration-500 group-hover:scale-75 group-hover:opacity-30 group-hover:-translate-y-2"
                         :style="'border-color: ' + service.color + '30'">
                         <i :class="service.icon" class="text-lg lg:text-2xl" :style="'color: ' + service.color"></i>
                     </div>
 
                     <!-- Content - Responsive text sizes -->
                     <div
-                        class="absolute inset-x-0 bottom-0 p-5 lg:p-10 z-20 transform transition-transform duration-500 translate-y-0 lg:translate-y-8 group-hover:translate-y-0">
+                        class="absolute inset-x-0 bottom-0 p-5 lg:p-8 lg:pt-6 z-20 transform transition-transform duration-500 translate-y-0 lg:translate-y-6 group-hover:translate-y-0">
                         <h3 class="text-xl lg:text-2xl font-bold text-white mb-2 lg:mb-3" x-html="service.title"></h3>
 
                         <!-- Features List (visible on hover) -->
@@ -728,7 +737,7 @@
                         </div>
 
                         <!-- Description - appears on hover -->
-                        <p class="text-gray-300 text-xs lg:text-sm leading-relaxed mb-3 lg:mb-4 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 delay-200"
+                        <p class="text-gray-300 text-xs lg:text-sm leading-relaxed mb-3 lg:mb-4 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 delay-200 text-justify"
                             x-text="service.description"></p>
 
 
@@ -745,18 +754,12 @@
         <!-- Load More Button -->
         <div class="text-center mt-10 lg:mt-16" x-show="!showAll">
             <button @click="loadMore"
-                class="group relative px-8 lg:px-12 py-3 lg:py-4 bg-transparent border-2 border-[#635091] rounded-full overflow-hidden transition-all duration-300 hover:border-[#FFC132] hover:scale-105">
-                <!-- Button Background Animation -->
-                <span
-                    class="absolute inset-0 bg-gradient-to-r from-[#635091] to-[#FFC132] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-
-                <!-- Button Content -->
-                <span class="relative z-10 flex items-center gap-2 lg:gap-3 text-white font-bold text-sm lg:text-base">
-                    <span>Load More Services</span>
-                    <span class="flex items-center gap-1">
-                        <span class="w-1 h-1 bg-[#FFC132] rounded-full animate-pulse"></span>
-                        <span class="w-1 h-1 bg-[#FFC132] rounded-full animate-pulse animation-delay-200"></span>
-                        <span class="w-1 h-1 bg-[#635091] rounded-full animate-pulse animation-delay-400"></span>
+                class="btn inline-flex items-center justify-center font-bold text-sm lg:text-base">
+                <span>Load More Services
+                    <span class="inline-flex items-center gap-1 mx-2">
+                        <span class="w-1.5 h-1.5 bg-[#FFC132] rounded-full animate-pulse"></span>
+                        <span class="w-1.5 h-1.5 bg-[#FFC132] rounded-full animate-pulse animation-delay-200"></span>
+                        <span class="w-1.5 h-1.5 bg-[#635091] rounded-full animate-pulse animation-delay-400"></span>
                     </span>
                     <i class="fas fa-arrow-down group-hover:translate-y-1 transition-transform duration-300"></i>
                 </span>
@@ -766,13 +769,8 @@
         <!-- Show Less Button (appears when all services are visible) -->
         <div class="text-center mt-10 lg:mt-16" x-show="showAll">
             <button @click="showLess"
-                class="group relative px-8 lg:px-12 py-3 lg:py-4 bg-transparent border-2 border-[#FFC132] rounded-full overflow-hidden transition-all duration-300 hover:border-[#635091] hover:scale-105">
-                <span
-                    class="absolute inset-0 bg-gradient-to-r from-[#FFC132] to-[#635091] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-                <span class="relative z-10 flex items-center gap-2 lg:gap-3 text-white font-bold text-sm lg:text-base">
-                    <span>Show Less</span>
-                    <i class="fas fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"></i>
-                </span>
+                class="btn inline-flex items-center justify-center font-bold text-sm lg:text-base">
+                <span>Show Less <i class="fas fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300 ml-2"></i></span>
             </button>
         </div>
 
@@ -792,14 +790,17 @@
     <!-- Our Clients — Enhanced Infinite Marquee -->
     <section id="Clients" class="clients-section">
         <div class="clients-container">
-            <div class="text-center mb-20">
-                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-xs mb-3 block">Trusted
-                    Partnerships</span>
-                <h2 class="text-4xl lg:text-5xl font-bold text-white tracking-tighter mb-4">Our <span
-                        class="text-[#635091]">Clients</span></h2>
-                <div class="h-1 w-12 bg-[#635091] mx-auto mb-6"></div>
-                <p class="text-gray-400 max-w-2xl mx-auto">Trusted by industry leaders to deliver cutting-edge digital
-                    solutions.</p>
+            <div class="text-center mb-10 lg:mb-16">
+                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
+                    TRUSTED PARTNERSHIPS
+                    <span class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
+                </span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tighter mb-2 lg:mb-4">
+                    Our <span class="text-[#635091]">Clients</span>
+                </h2>
+                <p class="text-sm lg:text-base text-gray-400 max-w-2xl mx-auto px-4">
+                    Trusted by industry leaders to deliver cutting-edge digital solutions.
+                </p>
             </div>
 
             <div class="clients-cloud" x-data="logoCloudApp()" x-init="init()">
@@ -823,9 +824,17 @@
 
     <section id="contact" class="contact-us-section">
         <div class="contact-main-container">
-            <div class="contact-header-top">
-                <h2 class="upgrade-title" style="color: var(--white);">CONTACT US</h2>
-                <div class="upgrade-underline"></div>
+            <div class="text-center mb-10 lg:mb-16">
+                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
+                    GET IN TOUCH
+                    <span class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
+                </span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tighter mb-2 lg:mb-4">
+                    Contact <span class="text-[#635091]">Us</span>
+                </h2>
+                <p class="text-sm lg:text-base text-gray-400 max-w-2xl mx-auto px-4">
+                    Reach out to us for support or to learn more about our services.
+                </p>
             </div>
 
             <div class="contact-split-wrapper">

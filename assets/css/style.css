@@ -529,33 +529,6 @@ nav {
 
 }
 
-.contour-buttons {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-
-}
-
-.btn-white {
-    background: var(--white);
-    color: var(--secondary-purple);
-    padding: 12px 30px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-
-}
-
-.btn-outline {
-    border: 2px solid var(--white);
-    color: var(--white);
-    padding: 12px 30px;
-    border-radius: 25px;
-    text-decoration: none;
-
-}
-
 /* Avatar Styling */
 
 .avatar {
@@ -617,18 +590,6 @@ nav {
     margin-top: -10px;
     margin-bottom: 30px;
     color: var(--white);
-
-}
-
-.btn-main {
-    background: var(--primary-purple);
-    color: var(--white);
-    border: none;
-    padding: 15px 40px;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
 
 }
 
@@ -1539,23 +1500,6 @@ nav {
 .contact-form-side input::placeholder,
 .contact-form-side textarea::placeholder {
     color: var(--white-transparent-dark);
-}
-
-.btn-send-message {
-    margin-top: 30px;
-    background: var(--dark-purple);
-    color: var(--white);
-    padding: 12px 30px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-send-message:hover {
-    background: var(--accent-gold);
-    color: var(--bg-dark);
 }
 
 .contact-info-side {

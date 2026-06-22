@@ -30,8 +30,8 @@
     <noscript>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     </noscript>
-    <link rel="icon" type="image/png" href="assets/images/logo-favicon.png">
-    <link rel="shortcut icon" href="assets/images/logo-favicon.png" type="image/png">
+    <link rel="icon" type="image/webp" href="assets/images/logo-favicon.webp">
+    <link rel="shortcut icon" href="assets/images/logo-favicon.webp" type="image/webp">
 </head>
 
 <body>
@@ -40,7 +40,8 @@
         <div class="header-container">
             <nav>
                 <div class="nav-logo" id="navLogo">
-                    <img src="assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon Logo" width="180" height="40">
+                    <img src="assets/images/Binary_Axon_logo_2307.webp" alt="Binary Axon Logo" width="180" height="40">
+
                 </div>
                 <div class="nav-links" id="navLinks">
                     <a href="#home">Home</a>
@@ -62,8 +63,32 @@
 
     <section id="home"
         class="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black pt-32 pb-20 lg:pt-36 lg:pb-24">
-        <!-- The canvas is now the primary background -->
-        <canvas id="aether-canvas" class="absolute top-0 left-0 w-full h-full"></canvas>
+        <!-- Background Image Slideshow -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+            <!-- Background ambient glow that changes in sync -->
+            <div class="absolute w-[450px] h-[450px] rounded-full blur-[120px] opacity-40 transition-all duration-1000 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" id="hero-bg-glow" style="background: radial-gradient(circle, rgba(99,80,145,0.8) 0%, transparent 70%);"></div>
+
+            <!-- Slide 1: Tech Reality -->
+            <div class="hero-slogan-bg-card absolute inset-0 w-full h-full transition-all duration-700" data-slogan-bg-image="0" style="opacity: 0.45; z-index: 1;">
+                <img src="assets/images/hero-tech-reality.webp" alt="Tech Reality" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-black/80"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-transparent to-black/90"></div>
+            </div>
+
+            <!-- Slide 2: AI Innovation -->
+            <div class="hero-slogan-bg-card absolute inset-0 w-full h-full transition-all duration-700" data-slogan-bg-image="1" style="opacity: 0; z-index: 1;">
+                <img src="assets/images/hero-ai-innovation.webp" alt="AI Innovation" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-black/80"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-transparent to-black/90"></div>
+            </div>
+
+            <!-- Slide 3: Development Expertise -->
+            <div class="hero-slogan-bg-card absolute inset-0 w-full h-full transition-all duration-700" data-slogan-bg-image="2" style="opacity: 0; z-index: 1;">
+                <img src="assets/images/hero-dev-expertise.webp" alt="Development Expertise" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-black/80"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-transparent to-black/90"></div>
+            </div>
+        </div>
 
         <div class="relative z-10 max-w-7xl mx-auto w-full px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
@@ -71,7 +96,7 @@
             <div class="lg:col-span-6 text-center lg:text-left flex flex-col items-center lg:items-start order-1">
                 <!-- Branding Logo -->
                 <div class="logo-text mb-6 transform hover:scale-105 transition-transform duration-500" id="heroLogo">
-                    <img src="assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon Logo" width="260" height="58"
+                    <img src="assets/images/Binary_Axon_logo_2307.webp" alt="Binary Axon Logo" width="260" height="58"
                         class="max-w-[200px] md:max-w-[260px] w-full h-auto drop-shadow-[0_0_25px_rgba(99,80,145,0.4)]">
                 </div>
 
@@ -166,14 +191,17 @@
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <header class="text-center mb-10 lg:mb-16">
-                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
+                <span
+                    class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
                     AGILE WORKFLOW
-                    <span class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
+                    <span
+                        class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
                 </span>
                 <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tighter mb-2 lg:mb-4">
                     Our <span class="text-[#635091]">Methodology</span>
                 </h2>
-                <p class="text-sm lg:text-base text-gray-400 max-w-2xl mx-auto px-4">An adaptive, seven-phase agile continuum engineered to
+                <p class="text-sm lg:text-base text-gray-400 max-w-2xl mx-auto px-4">An adaptive, seven-phase agile
+                    continuum engineered to
                     accelerate innovation and ensure sustained excellence.</p>
             </header>
 
@@ -305,9 +333,11 @@
         <div class="max-w-7xl mx-auto px-6 relative z-10">
 
             <div class="text-center mb-10 lg:mb-16">
-                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
+                <span
+                    class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
                     DISCOVER OUR JOURNEY
-                    <span class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
+                    <span
+                        class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
                 </span>
                 <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tighter mb-2 lg:mb-4">
                     Pioneering <span class="text-[#635091]">Digital</span> Excellence
@@ -588,7 +618,7 @@
                             <a :href="'products/' + products[activeIndex].slug + '.html'"
                                 class="btn flex-1 text-center text-xs lg:text-sm uppercase tracking-wider flex items-center justify-center gap-1 lg:gap-2 group/btn font-bold no-underline">
                                 <span>Explore <i
-                                    class="fas fa-arrow-right group-hover/btn:translate-x-1 transition-transform text-[10px] lg:text-xs ml-2"></i></span>
+                                        class="fas fa-arrow-right group-hover/btn:translate-x-1 transition-transform text-[10px] lg:text-xs ml-2"></i></span>
                             </a>
                         </div>
                     </div>
@@ -686,9 +716,11 @@
         </div>
 
         <div class="text-center mb-10 lg:mb-16">
-            <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
+            <span
+                class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
                 CAPABILITIES
-                <span class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
+                <span
+                    class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
             </span>
             <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tighter mb-2 lg:mb-4">
                 Our <span class="text-[#635091]">Services</span>
@@ -770,7 +802,8 @@
         <div class="text-center mt-10 lg:mt-16" x-show="showAll">
             <button @click="showLess"
                 class="btn inline-flex items-center justify-center font-bold text-sm lg:text-base">
-                <span>Show Less <i class="fas fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300 ml-2"></i></span>
+                <span>Show Less <i
+                        class="fas fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300 ml-2"></i></span>
             </button>
         </div>
 
@@ -791,9 +824,11 @@
     <section id="Clients" class="clients-section">
         <div class="clients-container">
             <div class="text-center mb-10 lg:mb-16">
-                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
+                <span
+                    class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
                     TRUSTED PARTNERSHIPS
-                    <span class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
+                    <span
+                        class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
                 </span>
                 <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tighter mb-2 lg:mb-4">
                     Our <span class="text-[#635091]">Clients</span>
@@ -825,9 +860,11 @@
     <section id="contact" class="contact-us-section">
         <div class="contact-main-container">
             <div class="text-center mb-10 lg:mb-16">
-                <span class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
+                <span
+                    class="text-[#FFC132] font-mono tracking-[0.3em] uppercase text-[10px] lg:text-xs mb-3 relative inline-block">
                     GET IN TOUCH
-                    <span class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
+                    <span
+                        class="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFC132] to-transparent"></span>
                 </span>
                 <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tighter mb-2 lg:mb-4">
                     Contact <span class="text-[#635091]">Us</span>
@@ -957,7 +994,7 @@
         <div class="footer-main">
             <div class="footer-container">
                 <div class="footer-brand">
-                    <img src="assets/images/Binary_Axon_logo_2307.png" alt="Binary Axon Logo" class="footer-logo"
+                    <img src="assets/images/Binary_Axon_logo_2307.webp" alt="Binary Axon Logo" class="footer-logo"
                         width="160" height="35">
                     <p class="subsidiary">a subsidiary of Constellation Software Inc.</p>
                     <div class="social-icons">

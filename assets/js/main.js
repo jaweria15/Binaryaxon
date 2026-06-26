@@ -631,7 +631,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Global brand icons helper to render inline SVGs for tech stack brand logos or Lucide markup
-window.getIconHTML = function(iconKey) {
+window.getIconHTML = function (iconKey) {
     if (!iconKey) return '';
     let name = iconKey.replace(/fa[sb]\s+fa-/, '').replace(/fa-/, '').trim().toLowerCase();
 
@@ -1123,7 +1123,7 @@ function servicesApp() {
                 title: 'Web <span class="text-[#FFC132]">Development</span>',
                 icon: 'code',
                 color: '#FFC132',
-                image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800',
+                image: 'assets/images/unsplash/1.webp',
                 features: ['Frontend & Backend', 'API Integration', 'Database Design', 'Cloud Deployment'],
                 description: 'We engineer high-performance, scalable web applications using cutting-edge frameworks like React, Vue, and Node.js. Our development process focuses on creating robust backend architectures combined with seamless frontend experiences that drive business growth.'
             },
@@ -1131,7 +1131,7 @@ function servicesApp() {
                 title: 'Mobile <span class="text-[#635091]">Development</span>',
                 icon: 'smartphone',
                 color: '#635091',
-                image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800',
+                image: 'assets/images/unsplash/2.webp',
                 features: ['iOS & Android', 'React Native', 'Flutter', 'App Store Deployment'],
                 description: 'Our mobile experts deliver native and cross-platform solutions for iOS and Android that prioritize user engagement and performance. We handle everything from intuitive UI/UX design to complex cloud integrations and long-term app store maintenance.'
             },
@@ -1139,7 +1139,7 @@ function servicesApp() {
                 title: 'Account <span class="text-[#FFC132]">Management</span>',
                 icon: 'calculator',
                 color: '#FFC132',
-                image: 'https://images.unsplash.com/photo-1554224155-1696413565d3?w=800',
+                image: 'assets/images/unsplash/3.webp',
                 features: ['Ledger Tracking', 'Financial Reports', 'Invoice Generation', 'Tax Compliance'],
                 description: 'Simplify your business finances with our comprehensive accounting solutions. From automated ledger tracking and real-time financial reporting to tax compliance and professional invoice generation, we provide the tools you need to maintain financial health.'
             },
@@ -1147,7 +1147,7 @@ function servicesApp() {
                 title: 'Web <span class="text-[#635091]">Designing</span>',
                 icon: 'palette',
                 color: '#635091',
-                image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=800',
+                image: 'assets/images/unsplash/4.webp',
                 features: ['UI/UX Design', 'Wireframing', 'Prototyping', 'Responsive Design'],
                 description: 'We create stunning, user-centric designs that tell your brand story and engage visitors from the first click. Our design philosophy combines artistic creativity with data-driven UX principles to ensure high conversion rates and a memorable digital presence.'
             },
@@ -1155,7 +1155,7 @@ function servicesApp() {
                 title: 'Enterprise <span class="text-[#FFC132]">Applications</span>',
                 icon: 'network',
                 color: '#FFC132',
-                image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
+                image: 'assets/images/unsplash/5.webp',
                 features: ['ERP Systems', 'CRM Solutions', 'Workflow Automation', 'Business Intelligence'],
                 description: 'Streamline your corporate operations with custom enterprise software built for scale. We develop sophisticated ERP and CRM systems that automate complex workflows, improve team collaboration, and provide deep business intelligence for informed decision-making.'
             },
@@ -1163,7 +1163,7 @@ function servicesApp() {
                 title: 'Data <span class="text-[#635091]">Warehousing</span>',
                 icon: 'database',
                 color: '#635091',
-                image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
+                image: 'assets/images/unsplash/6.webp',
                 features: ['Big Data Analytics', 'ETL Processes', 'Data Visualization', 'Real-time Reporting'],
                 description: 'Unlock the power of your data with our advanced warehousing and analytics solutions. We implement robust ETL processes and real-time reporting tools that transform raw data into actionable insights, helping you predict market trends and optimize operations.'
             },
@@ -1171,7 +1171,7 @@ function servicesApp() {
                 title: 'Content <span class="text-[#FFC132]">Writing</span>',
                 icon: 'pen-tool',
                 color: '#FFC132',
-                image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800',
+                image: 'assets/images/unsplash/7.webp',
                 features: ['SEO Content', 'Blog Posts', 'Technical Writing', 'Copywriting'],
                 description: 'Our professional writers craft high-quality, SEO-optimized content that resonates with your target audience and boosts your search rankings. Whether you need technical whitepapers, engaging blog posts, or high-conversion sales copy, we tell your story effectively.'
             },
@@ -1246,7 +1246,7 @@ document.head.appendChild(style);
         // productName field is present in demo form
         const isDemo = form.querySelector('input[name="productName"]') !== null;
         const action = isDemo ? 'send-demo.aspx' : 'send-lead.aspx';
-        
+
         const formData = new FormData(form);
 
         fetch(action, {
@@ -1256,24 +1256,24 @@ document.head.appendChild(style);
             },
             body: formData
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                if (isDemo) {
-                    alpineData.demoSubmitted = true;
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    if (isDemo) {
+                        alpineData.demoSubmitted = true;
+                    } else {
+                        alpineData.submitted = true;
+                    }
+                    console.log('SUCCESS!');
                 } else {
-                    alpineData.submitted = true;
+                    throw new Error(data.message || 'Server responded with an error');
                 }
-                console.log('SUCCESS!');
-            } else {
-                throw new Error(data.message || 'Server responded with an error');
-            }
-        })
-        .catch(error => {
-            console.error('FAILED...', error);
-            alert('Error: ' + error.message);
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-        });
+            })
+            .catch(error => {
+                console.error('FAILED...', error);
+                alert('Error: ' + error.message);
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
     };
 })();

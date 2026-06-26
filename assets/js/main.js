@@ -108,38 +108,38 @@ function scrollToContact() {
         {
             id: 1, title: "School Management", date: "2024",
             content: "Complete student records, attendance tracking, fee collection, timetable scheduling & academic performance platform.",
-            icon: "fa-graduation-cap", relatedIds: [5, 6], status: "completed", energy: 95,
-            bgIcons: ["fa-school", "fa-chalkboard", "fa-book-open", "fa-user-graduate", "fa-clipboard", "fa-pencil", "fa-calculator", "fa-bell", "fa-award", "fa-bus-simple", "fa-apple-whole", "fa-ruler"]
+            icon: "graduation-cap", relatedIds: [5, 6], status: "completed", energy: 95,
+            bgIcons: ["school", "presentation", "book-open", "graduation-cap", "clipboard", "pencil", "calculator", "bell", "award", "bus", "apple", "ruler"]
         },
         {
             id: 2, title: "Recruitment Portal", date: "2024",
             content: "AI-driven talent acquisition, automated screening, interview scheduling, and end-to-end recruitment lifecycle management.",
-            icon: "fa-user-plus", relatedIds: [6, 4], status: "completed", energy: 90,
-            bgIcons: ["fa-users", "fa-briefcase", "fa-search", "fa-handshake", "fa-file-signature", "fa-id-card", "fa-user-tie", "fa-calendar-check", "fa-robot", "fa-brain"]
+            icon: "user-plus", relatedIds: [6, 4], status: "completed", energy: 90,
+            bgIcons: ["users", "briefcase", "search", "handshake", "signature", "contact", "user", "calendar-check", "bot", "brain"]
         },
         {
             id: 3, title: "ERP System", date: "2024",
             content: "Unified enterprise planning suite integrating HR, Finance, Supply Chain, and Operations into one powerful ecosystem.",
-            icon: "fa-network-wired", relatedIds: [4, 5], status: "completed", energy: 98,
-            bgIcons: ["fa-gears", "fa-chart-pie", "fa-warehouse", "fa-truck-fast", "fa-file-invoice-dollar", "fa-shield-halved", "fa-microchip", "fa-database", "fa-users-gear", "fa-diagram-project"]
+            icon: "network", relatedIds: [4, 5], status: "completed", energy: 98,
+            bgIcons: ["cog", "pie-chart", "warehouse", "truck", "receipt", "shield", "cpu", "database", "users", "network"]
         },
         {
             id: 4, title: "Inventory Management", date: "2024",
             content: "Smart stock tracking with predictive analytics, supplier management, warehouse control & automated reporting.",
-            icon: "fa-boxes-stacked", relatedIds: [2, 3, 6], status: "in-progress", energy: 65,
-            bgIcons: ["fa-warehouse", "fa-dolly", "fa-clipboard-list", "fa-truck-ramp-box", "fa-database", "fa-chart-bar", "fa-cubes", "fa-layer-group", "fa-box-archive", "fa-pallet", "fa-gears", "fa-list-check"]
+            icon: "boxes", relatedIds: [2, 3, 6], status: "in-progress", energy: 65,
+            bgIcons: ["warehouse", "package", "clipboard-list", "truck", "database", "bar-chart", "box", "layers", "archive", "box", "cog", "list-checks"]
         },
         {
             id: 5, title: "Account Management", date: "2024",
             content: "Real-time financial management with expense tracking, invoicing, ledger management & automated reconciliation.",
-            icon: "fa-chart-pie", relatedIds: [1, 3], status: "completed", energy: 85,
-            bgIcons: ["fa-calculator", "fa-file-invoice-dollar", "fa-coins", "fa-money-bill-wave", "fa-landmark", "fa-chart-line", "fa-scale-balanced", "fa-wallet", "fa-hand-holding-dollar", "fa-piggy-bank", "fa-sack-dollar", "fa-money-check"]
+            icon: "pie-chart", relatedIds: [1, 3], status: "completed", energy: 85,
+            bgIcons: ["calculator", "receipt", "coins", "banknote", "landmark", "line-chart", "scale", "wallet", "hand-coins", "piggy-bank", "coins", "receipt"]
         },
         {
             id: 6, title: "Point of Sale", date: "2024",
             content: "Lightning-fast billing with barcode scanning, multi-branch support, real-time sales analytics & receipt printing.",
-            icon: "fa-cash-register", relatedIds: [1, 2, 4], status: "in-progress", energy: 70,
-            bgIcons: ["fa-barcode", "fa-receipt", "fa-credit-card", "fa-money-bill", "fa-qrcode", "fa-print", "fa-basket-shopping", "fa-coins", "fa-mobile-screen", "fa-comment-dollar", "fa-handshake", "fa-shop"]
+            icon: "banknote", relatedIds: [1, 2, 4], status: "in-progress", energy: 70,
+            bgIcons: ["barcode", "receipt", "credit-card", "banknote", "qr-code", "printer", "shopping-basket", "coins", "smartphone", "message-square-plus", "handshake", "store"]
         }
     ];
 
@@ -181,9 +181,10 @@ function scrollToContact() {
 
         var count = 18;
         for (var i = 0; i < count; i++) {
-            var iconClass = product.bgIcons[i % product.bgIcons.length];
+            var iconName = product.bgIcons[i % product.bgIcons.length];
             var el = document.createElement("i");
-            el.className = "fas " + iconClass + " orbital-float-icon";
+            el.className = "orbital-float-icon";
+            el.setAttribute("data-lucide", iconName);
             el.style.left = Math.random() * 94 + 3 + "%";
             el.style.top = Math.random() * 90 + 5 + "%";
             el.style.fontSize = (22 + Math.random() * 36) + "px";
@@ -191,6 +192,9 @@ function scrollToContact() {
             el.style.animationDelay = (Math.random() * 4) + "s";
             el.style.transform = "rotate(" + (Math.random() * 40 - 20) + "deg)";
             dynamicBg.appendChild(el);
+        }
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
         }
         requestAnimationFrame(function () {
             requestAnimationFrame(function () {
@@ -230,7 +234,7 @@ function scrollToContact() {
 
             var dot = document.createElement("div");
             dot.className = "orbital-node-dot";
-            dot.innerHTML = '<i class="fas ' + p.icon + '"></i>';
+            dot.innerHTML = '<i data-lucide="' + p.icon + '"></i>';
 
             var label = document.createElement("div");
             label.className = "orbital-node-label";
@@ -320,7 +324,8 @@ function scrollToContact() {
             while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
             sectionEl.classList.remove("orbit-expanded");
             clearDynamicBackground();
-            hintEl.innerHTML = '<i class="fas fa-hand-pointer"></i> Click a node to explore';
+            hintEl.innerHTML = '<i data-lucide="mouse-pointer-click" class="inline-block w-4 h-4 me-1 align-middle"></i> Click a node to explore';
+            if (typeof lucide !== 'undefined') lucide.createIcons();
             return;
         }
 
@@ -342,7 +347,8 @@ function scrollToContact() {
         sectionEl.classList.add("orbit-expanded");
         setDynamicBackground(prod);
         showDetail(prod);
-        hintEl.innerHTML = '<i class="fas fa-times-circle"></i> Click empty space to close';
+        hintEl.innerHTML = '<i data-lucide="x-circle" class="inline-block w-4 h-4 me-1 align-middle"></i> Click empty space to close';
+        if (typeof lucide !== 'undefined') lucide.createIcons();
         positionNodes();
     }
 
@@ -356,10 +362,10 @@ function scrollToContact() {
                 var r = products.find(function (x) { return x.id === rid; });
                 return '<button class="orbital-connected-btn" data-goto="' + rid + '">'
                     + (r ? r.title : "Node " + rid)
-                    + ' <i class="fas fa-arrow-right" style="font-size:8px"></i></button>';
+                    + ' <i data-lucide="arrow-right" class="w-2.5 h-2.5 inline-block align-middle ml-1"></i></button>';
             }).join("");
             connHtml = '<div class="orbital-connected-section">'
-                + '<div class="orbital-connected-label"><i class="fas fa-link" style="font-size:10px"></i> Connected Nodes</div>'
+                + '<div class="orbital-connected-label"><i data-lucide="link" class="w-3 h-3 inline-block align-middle me-1"></i> Connected Nodes</div>'
                 + '<div class="orbital-connected-nodes">' + btns + '</div></div>';
         }
 
@@ -372,11 +378,13 @@ function scrollToContact() {
             + '<div class="orbital-card-title">' + p.title + '</div>'
             + '<div class="orbital-card-desc">' + p.content + '</div>'
             + '<div class="orbital-energy-section">'
-            + '<div class="orbital-energy-header"><span><i class="fas fa-bolt"></i> Energy Level</span><span>' + p.energy + '%</span></div>'
+            + '<div class="orbital-energy-header"><span><i data-lucide="zap" class="w-3.5 h-3.5 inline-block align-middle me-1"></i> Energy Level</span><span>' + p.energy + '%</span></div>'
             + '<div class="orbital-energy-bar"><div class="orbital-energy-fill" style="width:' + p.energy + '%"></div></div>'
             + '</div>'
             + connHtml
             + '</div>';
+
+        if (typeof lucide !== 'undefined') lucide.createIcons();
 
         detailCard.querySelectorAll(".orbital-connected-btn").forEach(function (btn) {
             btn.addEventListener("click", function (e) {
@@ -410,6 +418,9 @@ function scrollToContact() {
 
     buildNodes();
     animate();
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
 
     window.addEventListener("resize", positionNodes);
 })();
@@ -619,6 +630,86 @@ document.addEventListener('DOMContentLoaded', () => {
 // initSoftwareBackground();
 
 
+// Global brand icons helper to render inline SVGs for tech stack brand logos or Lucide markup
+window.getIconHTML = function(iconKey) {
+    if (!iconKey) return '';
+    let name = iconKey.replace(/fa[sb]\s+fa-/, '').replace(/fa-/, '').trim().toLowerCase();
+
+    // Map generic FontAwesome names to Lucide equivalents
+    const genericMap = {
+        'robot': 'bot',
+        'search-location': 'map-pin',
+        'file-signature': 'signature',
+        'chalkboard-teacher': 'presentation',
+        'balance-scale': 'scale',
+        'history': 'history',
+        'shield-alt': 'shield',
+        'cloud-upload-alt': 'cloud-upload',
+        'hdd': 'hard-drive',
+        'industry': 'factory',
+        'truck-loading': 'package-open',
+        'project-diagram': 'network',
+        'cogs': 'cog',
+        'chart-network': 'network',
+        'cart-arrow-down': 'shopping-cart',
+        'laptop-code': 'laptop',
+        'shopping-bag': 'shopping-bag',
+        'tags': 'tags',
+        'truck': 'truck',
+        'elementor': 'layout',
+        'pencil-ruler': 'pencil-ruler',
+        'keyboard': 'keyboard',
+        'newspaper': 'newspaper',
+        'quote-left': 'quote',
+        'mobile': 'smartphone',
+        'spell-check': 'spellcheck',
+        'chart-bar': 'bar-chart',
+        'brain': 'brain',
+        'briefcase': 'briefcase',
+        'search-dollar': 'search',
+        'user-tie': 'user',
+        'graduation-cap': 'graduation-cap',
+        'bus': 'bus',
+        'receipt': 'receipt',
+        'piggy-bank': 'piggy-bank',
+        'coins': 'coins',
+        'print': 'printer',
+        'credit-card': 'credit-card',
+        'percentage': 'percent',
+        'user-plus': 'user-plus',
+        'school': 'school',
+        'calculator': 'calculator',
+        'cash-register': 'banknote',
+        'network-wired': 'network'
+    };
+
+    if (genericMap[name]) {
+        name = genericMap[name];
+    }
+
+    // Technology and brand logos custom SVGs
+    const brandSVGs = {
+        react: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full"><ellipse cx="12" cy="12" rx="11" ry="4.2" transform="rotate(30 12 12)" /><ellipse cx="12" cy="12" rx="11" ry="4.2" transform="rotate(90 12 12)" /><ellipse cx="12" cy="12" rx="11" ry="4.2" transform="rotate(150 12 12)" /><circle cx="12" cy="12" r="2" fill="currentColor" /></svg>`,
+        nodejs: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full"><path d="M12 2L4 6.6v9.2L12 22l8-4.6v-9.2L12 2zM6 8.3l5-2.9v5.7L6 14v-5.7zm7 10.8V13.4l5-2.9v5.7l-5 2.9z"/></svg>`,
+        laravel: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-full h-full"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`,
+        python: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full"><path d="M12 2c-5.5 0-5 2.5-5 2.5h5v1h-7s-3 .5-3 5.5c0 5 2.5 5 2.5 5h1.5v-2c0-2.5 2-4.5 4.5-4.5h4v-1h-5v-1.5s0-2.5 2.5-2.5 5 0 5 0V3s-1-1-5-1zm0 20c5.5 0 5-2.5 5-2.5h-5v-1h7s3-.5 3-5.5c0-5-2.5-5-2.5-5H18v2c0 2.5-2 4.5-4.5 4.5h-4v1h5v1.5s0 2.5-2.5 2.5-5 0-5 0v1.5s1 1 5 1z"/></svg>`,
+        php: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-4.5 14h-1V8h2.5c1.1 0 2 .9 2 2s-.9 2-2 2H7.5v4zm7 0h-1V8h2.5c1.1 0 2 .9 2 2s-.9 2-2 2h-2.5v4zm-1.5-6h1.5c.3 0 .5-.2.5-.5s-.2-.5-.5-.5h-1.5v1zm7 0h1.5c.3 0 .5-.2.5-.5s-.2-.5-.5-.5h-1.5v1z"/></svg>`,
+        wordpress: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.12 18.23c-1.39.38-2.84.44-4.22.18l3.19-9.25 1.03 9.07zm-7.66-2.59c-.83-1.12-1.34-2.51-1.34-4.01 0-2.31 1.21-4.32 3.03-5.5l-3.32 9.51zm9.64.08l2.25-6.84c.64 1.15.97 2.37.97 3.59 0 1.22-.33 2.37-.93 3.39l-2.29-.14zm-5.74-12.87c.73 0 1.28.32 1.28.73 0 .37-.23.71-.57 1.05l-1.02.93c-.48.43-.88.94-.88 1.63h-.04c-.05-.98.37-1.74.88-2.24l1.09-1.02c.16-.15.22-.26.22-.38 0-.17-.18-.32-.51-.32-.61 0-1.27.28-1.92.65l-.33-.51c1.07-.72 2.13-1.12 3.12-1.12z"/></svg>`,
+        mysql: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5c0 .83-.67 1.5-1.5 1.5S10 17.33 10 16.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm1.5-5.3l-1.2 3.6h-2.6l-1.2-3.6c-.3-.9.3-1.7 1.2-1.7h2.6c.9 0 1.5.8 1.2 1.7z"/></svg>`,
+        shopify: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full"><path d="M19 6.5h-3v-1c0-1.4-1.1-2.5-2.5-2.5h-3C9.1 3 8 4.1 8 5.5v1H5c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-10c0-1.1-.9-2-2-2zm-9-1c0-.3.2-.5.5-.5h3c.3 0 .5.2.5.5v1h-4v-1zm9 13H5v-9h14v9z"/></svg>`,
+        docker: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full"><path d="M2 10.5V12h2.5v-1.5H2zm3.5-3V9H8V7.5H5.5zM9 4.5V6h2.5V4.5H9zm3.5 0V6H15V4.5h-2.5zM16 7.5V9h2.5V7.5H16zm-3.5 3V12H15v-1.5h-2.5zm-3.5 0V12h2.5v-1.5H9zm-3.5 0V12H8v-1.5H5.5zM22 12c0-3.5-3-6.5-6.5-6.5S9 8.5 9 12s3 6.5 6.5 6.5S22 15.5 22 12z"/></svg>`,
+        microsoft: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full"><path d="M2 2h9.5v9.5H2V2zm10.5 0H22v9.5h-9.5V2zM2 12.5h9.5V22H2v-9.5zm10.5 0H22V22h-9.5v-9.5z"/></svg>`,
+        angular: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full"><path d="M12 2L2 5.5l1.5 12L12 22l8.5-4.5 1.5-12L12 2zm0 3.5l6.5 11.5h-2.5l-1.5-3.5h-5l-1.5 3.5H5.5L12 5.5zm-2.5 6.5h5L12 9.5l-2.5 2.5z"/></svg>`,
+        mongodb: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full"><path d="M12 2c0 0-4 4.5-4 8.5S10.5 17 12 22c1.5-5 4-7.5 4-11.5S12 2 12 2zm1 9.5c0 .6-.4 1-1 1s-1-.4-1-1 .4-1 1-1 1 .4 1 1z"/></svg>`
+    };
+
+    if (brandSVGs[name]) {
+        return brandSVGs[name];
+    }
+
+    return `<i data-lucide="${name}" class="w-full h-full inline-block"></i>`;
+};
+
 function enhancedProductApp() {
     return {
         activeIndex: 0,
@@ -638,17 +729,17 @@ function enhancedProductApp() {
                 image: "assets/images/products/recruitment-1.webp",
                 shortDesc: "AI-Driven Talent Acquisition",
                 desc: "A powerful recruitment portal that bridges the gap between top talent and leading organizations through smart matching and automated workflows.",
-                icon: '<i class="fas fa-user-plus"></i>',
+                icon: '<i data-lucide="user-plus" class="w-6 h-6 lg:w-8 lg:h-8"></i>',
                 features: [
-                    { icon: "fas fa-robot", text: "AI Matching" },
-                    { icon: "fas fa-search-location", text: "Geo-Sourcing" },
-                    { icon: "fas fa-calendar-check", text: "Auto Interviews" },
-                    { icon: "fas fa-file-signature", text: "E-Onboarding" }
+                    { icon: "bot", text: "AI Matching" },
+                    { icon: "map-pin", text: "Geo-Sourcing" },
+                    { icon: "calendar-check", text: "Auto Interviews" },
+                    { icon: "signature", text: "E-Onboarding" }
                 ],
                 technologies: [
-                    { icon: "fab fa-react", name: "React" },
-                    { icon: "fab fa-node-js", name: "Node.js" },
-                    { icon: "fas fa-brain", name: "AI Engine" }
+                    { icon: "react", name: "React" },
+                    { icon: "nodejs", name: "Node.js" },
+                    { icon: "brain", name: "AI Engine" }
                 ],
                 slug: "recruitment",
                 stats: [
@@ -656,7 +747,7 @@ function enhancedProductApp() {
                     { value: "12d", label: "Hire Time" },
                     { value: "95%", label: "Match" }
                 ],
-                icons: ["fas fa-briefcase", "fas fa-search-dollar", "fas fa-user-tie"]
+                icons: ["briefcase", "search", "user"]
             },
             {
                 name: "Axon School",
@@ -665,17 +756,17 @@ function enhancedProductApp() {
                 image: "assets/images/products/school-1.webp",
                 shortDesc: "Next-Gen School Management",
                 desc: "A complete educational ERP system that unifies students, parents, and teachers on a single platform with automated reporting and fee management.",
-                icon: '<i class="fas fa-school"></i>',
+                icon: '<i data-lucide="school" class="w-6 h-6 lg:w-8 lg:h-8"></i>',
                 features: [
-                    { icon: "fas fa-user-graduate", text: "LMS Integration" },
-                    { icon: "fas fa-wallet", text: "Fee Portal" },
-                    { icon: "fas fa-bell", text: "Smart Alerts" },
-                    { icon: "fas fa-chart-bar", text: "Result Center" }
+                    { icon: "graduation-cap", text: "LMS Integration" },
+                    { icon: "wallet", text: "Fee Portal" },
+                    { icon: "bell", text: "Smart Alerts" },
+                    { icon: "bar-chart", text: "Result Center" }
                 ],
                 technologies: [
-                    { icon: "fab fa-laravel", name: "Laravel" },
-                    { icon: "fas fa-mobile", name: "Mobile App" },
-                    { icon: "fas fa-database", name: "MySQL" }
+                    { icon: "laravel", name: "Laravel" },
+                    { icon: "smartphone", name: "Mobile App" },
+                    { icon: "mysql", name: "MySQL" }
                 ],
                 slug: "school-system",
                 stats: [
@@ -683,7 +774,7 @@ function enhancedProductApp() {
                     { value: "50k+", label: "Users" },
                     { value: "98%", label: "Retention" }
                 ],
-                icons: ["fas fa-graduation-cap", "fas fa-chalkboard-teacher", "fas fa-bus"]
+                icons: ["graduation-cap", "presentation", "bus"]
             },
             {
                 name: "Axon Accounts",
@@ -692,17 +783,17 @@ function enhancedProductApp() {
                 image: "assets/images/products/accounts-1.webp",
                 shortDesc: "Professional Accounting ERP",
                 desc: "A secure and robust financial management system providing multi-currency ledgers, instant tax compliance, and deep audit capabilities.",
-                icon: '<i class="fas fa-calculator"></i>',
+                icon: '<i data-lucide="calculator" class="w-6 h-6 lg:w-8 lg:h-8"></i>',
                 features: [
-                    { icon: "fas fa-file-invoice-dollar", text: "Invoicing" },
-                    { icon: "fas fa-balance-scale", text: "Tax Engine" },
-                    { icon: "fas fa-history", text: "Audit Trails" },
-                    { icon: "fas fa-chart-line", text: "Reports" }
+                    { icon: "receipt", text: "Invoicing" },
+                    { icon: "scale", text: "Tax Engine" },
+                    { icon: "history", text: "Audit Trails" },
+                    { icon: "line-chart", text: "Reports" }
                 ],
                 technologies: [
-                    { icon: "fab fa-microsoft", name: "C#" },
-                    { icon: "fas fa-database", name: "SQL Server" },
-                    { icon: "fas fa-shield-alt", name: "OAuth 2.0" }
+                    { icon: "microsoft", name: "C#" },
+                    { icon: "database", name: "SQL Server" },
+                    { icon: "shield", name: "OAuth 2.0" }
                 ],
                 slug: "accounts-app",
                 stats: [
@@ -710,7 +801,7 @@ function enhancedProductApp() {
                     { value: "Zero", label: "Errors" },
                     { value: "Realtime", label: "Update" }
                 ],
-                icons: ["fas fa-receipt", "fas fa-piggy-bank", "fas fa-coins"]
+                icons: ["receipt", "piggy-bank", "coins"]
             },
             {
                 name: "Axon POS",
@@ -719,17 +810,17 @@ function enhancedProductApp() {
                 image: "assets/images/products/pos-1.webp",
                 shortDesc: "Hyper-Fast Point of Sale",
                 desc: "Designed for high-traffic retail, Apex POS offers lightning-fast transactions, integrated hardware support, and powerful inventory sync.",
-                icon: '<i class="fas fa-cash-register"></i>',
+                icon: '<i data-lucide="banknote" class="w-6 h-6 lg:w-8 lg:h-8"></i>',
                 features: [
-                    { icon: "fas fa-bolt", text: "Instant Sale" },
-                    { icon: "fas fa-boxes", text: "Stock Sync" },
-                    { icon: "fas fa-user-check", text: "Staff Login" },
-                    { icon: "fas fa-cloud-upload-alt", text: "Cloud Backup" }
+                    { icon: "zap", text: "Instant Sale" },
+                    { icon: "boxes", text: "Stock Sync" },
+                    { icon: "user-check", text: "Staff Login" },
+                    { icon: "cloud-upload", text: "Cloud Backup" }
                 ],
                 technologies: [
-                    { icon: "fab fa-angular", name: "Angular" },
-                    { icon: "fab fa-node-js", name: "Express" },
-                    { icon: "fas fa-hdd", name: "Hardware API" }
+                    { icon: "angular", name: "Angular" },
+                    { icon: "nodejs", name: "Express" },
+                    { icon: "hard-drive", name: "Hardware API" }
                 ],
                 slug: "pos-retail",
                 stats: [
@@ -737,7 +828,7 @@ function enhancedProductApp() {
                     { value: "0.2s", label: "Processing" },
                     { value: "24/7", label: "Support" }
                 ],
-                icons: ["fas fa-print", "fas fa-credit-card", "fas fa-percentage"]
+                icons: ["printer", "credit-card", "percent"]
             },
             {
                 name: "Axon ERP",
@@ -746,17 +837,17 @@ function enhancedProductApp() {
                 image: "assets/images/products/erp-1.webp",
                 shortDesc: "End-to-End Business Unified",
                 desc: "A comprehensive ERP suite that bridges Manufacturing, Supply Chain, and Finance for large-scale enterprise operations with advanced HR & Payroll modules.",
-                icon: '<i class="fas fa-network-wired"></i>',
+                icon: '<i data-lucide="network" class="w-6 h-6 lg:w-8 lg:h-8"></i>',
                 features: [
-                    { icon: "fas fa-industry", text: "Production" },
-                    { icon: "fas fa-warehouse", text: "Inventory" },
-                    { icon: "fas fa-truck-loading", text: "Logistics" },
-                    { icon: "fas fa-project-diagram", text: "SOP Mgmt" }
+                    { icon: "factory", text: "Production" },
+                    { icon: "warehouse", text: "Inventory" },
+                    { icon: "package-open", text: "Logistics" },
+                    { icon: "network", text: "SOP Mgmt" }
                 ],
                 technologies: [
-                    { icon: "fab fa-python", name: "Python" },
-                    { icon: "fas fa-database", name: "PostgreSQL" },
-                    { icon: "fab fa-docker", name: "Microservices" }
+                    { icon: "python", name: "Python" },
+                    { icon: "database", name: "PostgreSQL" },
+                    { icon: "docker", name: "Microservices" }
                 ],
                 slug: "erp-system",
                 stats: [
@@ -764,7 +855,7 @@ function enhancedProductApp() {
                     { value: "50+", label: "Modules" },
                     { value: "Enterprise", label: "Security" }
                 ],
-                icons: ["fas fa-cogs", "fas fa-cubes", "fas fa-chart-network"]
+                icons: ["cog", "box", "network"]
             },
             {
                 name: "Axon Shopify",
@@ -773,17 +864,17 @@ function enhancedProductApp() {
                 image: "assets/images/products/shopify-1.webp",
                 shortDesc: "Custom Shopify Storefronts",
                 desc: "High-conversion Shopify stores built with custom Liquid themes and headless integrations for the ultimate brand experience.",
-                icon: '<i class="fab fa-shopify"></i>',
+                icon: '<i data-lucide="shopping-bag" class="w-6 h-6 lg:w-8 lg:h-8"></i>',
                 features: [
-                    { icon: "fas fa-rocket", text: "Speed Boost" },
-                    { icon: "fas fa-plug", text: "Custom Apps" },
-                    { icon: "fas fa-paint-brush", text: "Bespoke Design" },
-                    { icon: "fas fa-mobile-alt", text: "Mobile First" }
+                    { icon: "rocket", text: "Speed Boost" },
+                    { icon: "plug", text: "Custom Apps" },
+                    { icon: "pencil", text: "Bespoke Design" },
+                    { icon: "smartphone", text: "Mobile First" }
                 ],
                 technologies: [
-                    { icon: "fab fa-shopify", name: "Liquid" },
-                    { icon: "fab fa-js", name: "Node.js" },
-                    { icon: "fas fa-shopping-bag", name: "Shopify Plus" }
+                    { icon: "shopify", name: "Liquid" },
+                    { icon: "nodejs", name: "Node.js" },
+                    { icon: "shopping-bag", name: "Shopify Plus" }
                 ],
                 slug: "shopify-dev",
                 stats: [
@@ -791,7 +882,7 @@ function enhancedProductApp() {
                     { value: "98/100", label: "Speed" },
                     { value: "Top", label: "Rated" }
                 ],
-                icons: ["fab fa-shopify", "fas fa-cart-arrow-down", "fas fa-laptop-code"]
+                icons: ["shopify", "shopping-cart", "laptop"]
             },
             {
                 name: "Axon E-Commerce",
@@ -800,17 +891,17 @@ function enhancedProductApp() {
                 image: "assets/images/products/ecommerce-1.webp",
                 shortDesc: "Scalable Online Stores",
                 desc: "High-conversion digital storefronts built with cutting-edge tech. We create seamless shopping experiences that drive sales and customer loyalty.",
-                icon: '<i class="fas fa-shopping-cart"></i>',
+                icon: '<i data-lucide="shopping-cart" class="w-6 h-6 lg:w-8 lg:h-8"></i>',
                 features: [
-                    { icon: "fas fa-mobile-alt", text: "Responsive" },
-                    { icon: "fas fa-credit-card", text: "Secure Pay" },
-                    { icon: "fas fa-box-open", text: "Inventory" },
-                    { icon: "fas fa-search-dollar", text: "SEO Ready" }
+                    { icon: "smartphone", text: "Responsive" },
+                    { icon: "credit-card", text: "Secure Pay" },
+                    { icon: "package", text: "Inventory" },
+                    { icon: "search", text: "SEO Ready" }
                 ],
                 technologies: [
-                    { icon: "fab fa-node-js", name: "Node.js" },
-                    { icon: "fab fa-react", name: "React" },
-                    { icon: "fas fa-database", name: "MongoDB" }
+                    { icon: "nodejs", name: "Node.js" },
+                    { icon: "react", name: "React" },
+                    { icon: "database", name: "MongoDB" }
                 ],
                 slug: "ecommerce",
                 stats: [
@@ -818,7 +909,7 @@ function enhancedProductApp() {
                     { value: "40%", label: "Conversion" },
                     { value: "Fast", label: "Delivery" }
                 ],
-                icons: ["fas fa-shopping-bag", "fas fa-tags", "fas fa-truck"]
+                icons: ["shopping-bag", "tags", "truck"]
             },
             {
                 name: "Axon WordPress",
@@ -827,17 +918,17 @@ function enhancedProductApp() {
                 image: "assets/images/products/wordpress-1.webp",
                 shortDesc: "Scalable WordPress CMS",
                 desc: "Enterprise WordPress solutions designed for security, high-traffic, and seamless content management for corporate websites like Quill Product.",
-                icon: '<i class="fab fa-wordpress"></i>',
+                icon: '<i data-lucide="globe" class="w-6 h-6 lg:w-8 lg:h-8"></i>',
                 features: [
-                    { icon: "fas fa-code", text: "Custom Core" },
-                    { icon: "fas fa-puzzle-piece", text: "Custom Plugins" },
-                    { icon: "fas fa-lock", text: "Secured" },
-                    { icon: "fas fa-server", text: "Hosting Opt" }
+                    { icon: "code", text: "Custom Core" },
+                    { icon: "toy-brick", text: "Custom Plugins" },
+                    { icon: "lock", text: "Secured" },
+                    { icon: "server", text: "Hosting Opt" }
                 ],
                 technologies: [
-                    { icon: "fab fa-wordpress", name: "WordPress" },
-                    { icon: "fab fa-php", name: "PHP 8" },
-                    { icon: "fab fa-react", name: "Gutenberg" }
+                    { icon: "wordpress", name: "WordPress" },
+                    { icon: "php", name: "PHP 8" },
+                    { icon: "react", name: "Gutenberg" }
                 ],
                 slug: "wordpress-dev",
                 stats: [
@@ -845,7 +936,7 @@ function enhancedProductApp() {
                     { value: "Secure", label: "Audit" },
                     { value: "99.9%", label: "Stability" }
                 ],
-                icons: ["fab fa-wordpress", "fab fa-elementor", "fas fa-pencil-ruler"]
+                icons: ["wordpress", "layout", "pencil-ruler"]
             },
             {
                 name: "Axon Content",
@@ -854,17 +945,17 @@ function enhancedProductApp() {
                 image: "assets/images/products/content-1.webp",
                 shortDesc: "Professional Copywriting",
                 desc: "Strategic content creation that drives organic traffic and converts visitors into loyal customers through impactful storytelling.",
-                icon: '<i class="fas fa-pen-nib"></i>',
+                icon: '<i data-lucide="pen-tool" class="w-6 h-6 lg:w-8 lg:h-8"></i>',
                 features: [
-                    { icon: "fas fa-search", text: "SEO Focus" },
-                    { icon: "fas fa-bullseye", text: "Conversion" },
-                    { icon: "fas fa-language", text: "Multi-Lang" },
-                    { icon: "fas fa-check-double", text: "QA Passed" }
+                    { icon: "search", text: "SEO Focus" },
+                    { icon: "target", text: "Conversion" },
+                    { icon: "languages", text: "Multi-Lang" },
+                    { icon: "check-check", text: "QA Passed" }
                 ],
                 technologies: [
-                    { icon: "fas fa-spell-check", name: "Grammarly" },
-                    { icon: "fas fa-chart-bar", name: "Ahrefs" },
-                    { icon: "fas fa-brain", name: "Creative" }
+                    { icon: "spellcheck", name: "Grammarly" },
+                    { icon: "bar-chart", name: "Ahrefs" },
+                    { icon: "brain", name: "Creative" }
                 ],
                 slug: "content-writing",
                 stats: [
@@ -872,13 +963,33 @@ function enhancedProductApp() {
                     { value: "1st", label: "Google" },
                     { value: "Elite", label: "Writers" }
                 ],
-                icons: ["fas fa-keyboard", "fas fa-newspaper", "fas fa-quote-left"]
+                icons: ["keyboard", "newspaper", "quote"]
             }
         ],
 
         init() {
             this.animateText();
             this.startAutoSwitch();
+
+            // Run Lucide conversion on boot and on state changes
+            this.$nextTick(() => {
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            });
+            this.$watch('activeIndex', () => {
+                this.$nextTick(() => {
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                });
+            });
+            this.$watch('showDemoModal', () => {
+                this.$nextTick(() => {
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                });
+            });
+            this.$watch('demoSubmitted', () => {
+                this.$nextTick(() => {
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                });
+            });
 
             // Handle URL parameters for Demo Modal
             const urlParams = new URLSearchParams(window.location.search);
@@ -1001,7 +1112,7 @@ function enhancedProductApp() {
             this.animateText();
             this.startAutoSwitch();
         }
-    }
+    };
 }
 
 function servicesApp() {
@@ -1010,7 +1121,7 @@ function servicesApp() {
         services: [
             {
                 title: 'Web <span class="text-[#FFC132]">Development</span>',
-                icon: 'fas fa-code',
+                icon: 'code',
                 color: '#FFC132',
                 image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800',
                 features: ['Frontend & Backend', 'API Integration', 'Database Design', 'Cloud Deployment'],
@@ -1018,7 +1129,7 @@ function servicesApp() {
             },
             {
                 title: 'Mobile <span class="text-[#635091]">Development</span>',
-                icon: 'fas fa-mobile-alt',
+                icon: 'smartphone',
                 color: '#635091',
                 image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800',
                 features: ['iOS & Android', 'React Native', 'Flutter', 'App Store Deployment'],
@@ -1026,7 +1137,7 @@ function servicesApp() {
             },
             {
                 title: 'Account <span class="text-[#FFC132]">Management</span>',
-                icon: 'fas fa-calculator',
+                icon: 'calculator',
                 color: '#FFC132',
                 image: 'https://images.unsplash.com/photo-1554224155-1696413565d3?w=800',
                 features: ['Ledger Tracking', 'Financial Reports', 'Invoice Generation', 'Tax Compliance'],
@@ -1034,7 +1145,7 @@ function servicesApp() {
             },
             {
                 title: 'Web <span class="text-[#635091]">Designing</span>',
-                icon: 'fas fa-paint-brush',
+                icon: 'palette',
                 color: '#635091',
                 image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=800',
                 features: ['UI/UX Design', 'Wireframing', 'Prototyping', 'Responsive Design'],
@@ -1042,7 +1153,7 @@ function servicesApp() {
             },
             {
                 title: 'Enterprise <span class="text-[#FFC132]">Applications</span>',
-                icon: 'fas fa-network-wired',
+                icon: 'network',
                 color: '#FFC132',
                 image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
                 features: ['ERP Systems', 'CRM Solutions', 'Workflow Automation', 'Business Intelligence'],
@@ -1050,7 +1161,7 @@ function servicesApp() {
             },
             {
                 title: 'Data <span class="text-[#635091]">Warehousing</span>',
-                icon: 'fas fa-database',
+                icon: 'database',
                 color: '#635091',
                 image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
                 features: ['Big Data Analytics', 'ETL Processes', 'Data Visualization', 'Real-time Reporting'],
@@ -1058,7 +1169,7 @@ function servicesApp() {
             },
             {
                 title: 'Content <span class="text-[#FFC132]">Writing</span>',
-                icon: 'fas fa-pen-fancy',
+                icon: 'pen-tool',
                 color: '#FFC132',
                 image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800',
                 features: ['SEO Content', 'Blog Posts', 'Technical Writing', 'Copywriting'],
@@ -1066,7 +1177,7 @@ function servicesApp() {
             },
             {
                 title: 'Hardware <span class="text-[#635091]">Services</span>',
-                icon: 'fas fa-microchip',
+                icon: 'cpu',
                 color: '#635091',
                 image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=800',
                 features: ['Server Setup', 'Network Configuration', 'Hardware Maintenance', 'IT Infrastructure'],
@@ -1096,14 +1207,16 @@ function servicesApp() {
         },
 
         init() {
-            // Add animation delay classes
-            this.services.forEach((_, index) => {
-                if (index >= 3) {
-                    // These will appear when load more is clicked
-                }
+            this.$nextTick(() => {
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            });
+            this.$watch('showAll', () => {
+                this.$nextTick(() => {
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                });
             });
         }
-    }
+    };
 }
 
 // Add this CSS for animation delays (add to your style.css)

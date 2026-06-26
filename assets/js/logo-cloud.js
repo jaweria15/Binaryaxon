@@ -9,7 +9,7 @@ if (typeof gsap !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
 }
 
-window.logoCloudApp = function() {
+window.logoCloudApp = function () {
     return {
         logos: [
             { name: 'CBS', src: 'assets/images/clients/CBS_logo1.webp' },
@@ -24,25 +24,31 @@ window.logoCloudApp = function() {
             { name: 'CKH', src: 'assets/images/clients/CKH.webp' }
         ],
         rows: [],
-        
+
         init() {
             this.distributeLogos();
             this.$nextTick(() => {
                 this.animateLogos();
             });
-            
+
             // Re-distribute on window resize for responsiveness
-            window.addEventListener('resize', () => {
-                this.distributeLogos();
+            let resizeTimer;
+
+            window.addEventListener("resize", () => {
+                clearTimeout(resizeTimer);
+
+                resizeTimer = setTimeout(() => {
+                    this.distributeLogos();
+                }, 150);
             });
         },
-        
+
         distributeLogos() {
             console.log("Distributing logos...");
             const isMobile = window.innerWidth < 768;
             const logoList = [...this.logos];
             const result = [];
-            
+
             if (isMobile) {
                 // On mobile, just use rows of 2
                 while (logoList.length > 0) {
@@ -65,16 +71,16 @@ window.logoCloudApp = function() {
             this.rows = result;
             console.log("Rows calculated:", this.rows);
         },
-        
+
         animateLogos() {
             if (typeof gsap !== 'undefined') {
                 // Clear any existing animations
                 gsap.killTweensOf('.client-card');
-                
+
                 // Animate from hidden to visible and stay there
-                gsap.fromTo('.client-card', 
-                    { 
-                        opacity: 0, 
+                gsap.fromTo('.client-card',
+                    {
+                        opacity: 0,
                         y: 30,
                         scale: 0.9
                     },

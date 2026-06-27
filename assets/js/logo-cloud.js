@@ -12,17 +12,17 @@ if (typeof gsap !== 'undefined') {
 window.logoCloudApp = function() {
     return {
         logos: [
-            { name: 'CBS', src: 'assets/images/clients/CBS_logo1.webp' },
-            { name: 'FM', src: 'assets/images/clients/FM.webp' },
-            { name: 'FCA', src: 'assets/images/clients/FCA_logo.webp' },
-            { name: 'AxonHR', src: 'assets/images/clients/AxonHR.webp' },
-            { name: 'Mobi', src: 'assets/images/clients/MobiLogo3.webp' },
-            { name: 'SuperSports', src: 'assets/images/clients/mSunSportsLogo.webp' },
-            { name: 'Quill', src: 'assets/images/clients/quill.webp' },
-            { name: 'Microsoft', src: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
-            { name: 'Stripe', src: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg' },
-            { name: 'CKH', src: 'assets/images/clients/CKH.webp' }
-        ],
+    { name: 'CBS', src: 'assets/images/clients/CBS_logo1.webp', width: 220, height: 100 },
+    { name: 'FM', src: 'assets/images/clients/FM.webp', width: 220, height: 100 },
+    { name: 'FCA', src: 'assets/images/clients/FCA_logo.webp', width: 220, height: 100 },
+    { name: 'AxonHR', src: 'assets/images/clients/AxonHR.webp', width: 220, height: 100 },
+    { name: 'Mobi', src: 'assets/images/clients/MobiLogo3.webp', width: 220, height: 100 },
+    { name: 'SuperSports', src: 'assets/images/clients/mSunSportsLogo.webp', width: 220, height: 100 },
+    { name: 'Quill', src: 'assets/images/clients/quill.webp', width: 220, height: 100 },
+    { name: 'Microsoft', src: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg', width: 220, height: 100 },
+    { name: 'Stripe', src: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg', width: 220, height: 100 },
+    { name: 'CKH', src: 'assets/images/clients/CKH.webp', width: 220, height: 100 }
+],
         rows: [],
         
         init() {

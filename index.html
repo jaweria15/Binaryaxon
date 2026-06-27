@@ -32,6 +32,10 @@
     </noscript>
     <link rel="icon" type="image/webp" href="assets/images/logo-favicon.webp">
     <link rel="shortcut icon" href="assets/images/logo-favicon.webp" type="image/webp">
+    <!-- Add to <head> -->
+<link rel="preload" as="image" href="assets/images/hero-tech-reality.webp">
+<link rel="preload" as="image" href="assets/images/hero-ai-innovation.webp">
+<link rel="preload" as="image" href="assets/images/hero-dev-expertise.webp">
 </head>
 
 <body>
@@ -66,8 +70,10 @@
         <!-- Background Image Slideshow -->
         <div class="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
             <!-- Background ambient glow that changes in sync -->
-            <div class="absolute w-[450px] h-[450px] rounded-full blur-[120px] opacity-40 transition-all duration-1000 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" id="hero-bg-glow" style="background: radial-gradient(circle, rgba(99,80,145,0.8) 0%, transparent 70%);"></div>
-
+           <div class="absolute rounded-full blur-[120px] opacity-40 pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" 
+     id="hero-bg-glow" 
+     style="width: min(450px, 80vw); height: min(450px, 80vw); max-width: 450px; max-height: 450px; aspect-ratio: 1/1; background: radial-gradient(circle, rgba(99,80,145,0.8) 0%, transparent 70%); transition: background 1s ease;">
+</div>
             <!-- Slide 1: Tech Reality -->
             <div class="hero-slogan-bg-card absolute inset-0 w-full h-full transition-all duration-700" data-slogan-bg-image="0" style="opacity: 0.45; z-index: 1;">
                 <img src="assets/images/hero-tech-reality.webp" alt="Tech Reality" class="w-full h-full object-cover">
@@ -109,8 +115,9 @@
 
                 <!-- Subtitle -->
                 <p id="hero-subtitle"
-                    class="max-w-xl text-base md:text-lg text-gray-400 mb-8 leading-relaxed min-h-[60px]">
-                    Binary Axon provides a wealth of technical and business expertise to its customers, shaping the
+    class="max-w-xl text-base md:text-lg text-gray-400 mb-8 leading-relaxed min-h-[80px] md:min-h-[60px] text-pretty break-words"
+    style="word-break: break-word; display: block; contain: layout style;">
+   Binary Axon provides a wealth of technical and business expertise to its customers, shaping the
                     future of digital solutions.
                 </p>
 
@@ -500,7 +507,7 @@
     </div>
 
     <section id="ProductSection" x-data="enhancedProductApp()" x-init="init()"
-        class="relative min-h-screen py-16 lg:py-24 overflow-hidden bg-gradient-to-b from-[#050505] via-[#0a0a0f] to-[#050505] transition-all duration-1000">
+        class="relative min-h-screen py-16 lg:py-24 overflow-hidden bg-gradient-to-b from-[#050505] via-[#0a0a0f] to-[#050505] transition-[background]duration-1000">
 
         <!-- Animated Background Gradient -->
         <div class="absolute inset-0 pointer-events-none opacity-20 lg:opacity-30"
@@ -843,7 +850,11 @@
                     <div class="cloud-row">
                         <template x-for="(logo, lIdx) in row" :key="lIdx">
                             <div class="client-card" :title="logo.name">
-                                <img :src="logo.src" :alt="logo.name + ' Logo'" width="220" height="100">
+                                <img :src="logo.src" :alt="logo.name + ' Logo'" 
+     :width="logo.width || 220" 
+     :height="logo.height || 100"
+     loading="lazy"
+     decoding="async">
                             </div>
                         </template>
                     </div>

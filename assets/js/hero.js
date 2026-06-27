@@ -49,27 +49,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const typingSpeed = 25; // ms per character
         const readingDelay = 2000; // ms to pause after typing finishes before next cycle
 
-        function typewriteText(element, text, speed, onComplete) {
-            element.innerHTML = "";
-            let i = 0;
-            
-            const cursor = document.createElement('span');
-            cursor.className = 'typing-cursor text-[#FFC132] ml-1';
-            cursor.textContent = '|';
-            element.appendChild(cursor);
+       function typewriteText(element, text, speed, onComplete) {
+    // 1. Capture the current computed height BEFORE any changes
+    const currentHeight = getComputedStyle(element).height;
+    // 2. Lock the height to prevent any vertical shifts
+    element.style.height = currentHeight;
+    // (Optional: also lock min-height for safety)
+    element.style.minHeight = currentHeight;
 
-            function type() {
-                if (i < text.length) {
-                    const textNode = document.createTextNode(text.charAt(i));
-                    element.insertBefore(textNode, cursor);
-                    i++;
-                    setTimeout(type, speed);
-                } else {
-                    if (onComplete) onComplete();
-                }
-            }
-            type();
+    element.innerHTML = "";
+    let i = 0;
+    
+    const cursor = document.createElement('span');
+    cursor.className = 'typing-cursor text-[#FFC132] ml-1';
+    cursor.textContent = '|';
+    element.appendChild(cursor);
+
+    function type() {
+        if (i < text.length) {
+            const textNode = document.createTextNode(text.charAt(i));
+            element.insertBefore(textNode, cursor);
+            i++;
+            setTimeout(type, speed);
+        } else {
+            // 3. After typing is complete, release the fixed height
+            //    to allow natural expansion (if needed)
+            element.style.height = 'auto';
+            element.style.minHeight = ''; // revert to CSS value
+            if (onComplete) onComplete();
         }
+    }
+    type();
+}
 
         function switchSloganBgImage(nextIndex) {
             if (bgCards.length === 0) return;

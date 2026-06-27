@@ -4044,4 +4044,67 @@ select:-webkit-autofill {
     color: var(--white);
     padding: 10px;
 }
-
+
+/* ============================================
+   CLS FIXES — Mobile & Desktop
+   ============================================ */
+
+/* 1. Hero Glow - Prevent Layout Shift */
+#hero-bg-glow {
+    width: min(450px, 80vw) !important;
+    height: min(450px, 80vw) !important;
+    max-width: 450px;
+    max-height: 450px;
+    aspect-ratio: 1 / 1;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    contain: layout style;
+}
+
+/* 2. Hero Subtitle - Fixed Height */
+#hero-subtitle {
+    contain: layout style;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    min-height: 80px;
+}
+
+@media (min-width: 768px) {
+    #hero-subtitle {
+        min-height: 60px;
+    }
+}
+
+/* 3. Client Logos - Aspect Ratio Lock */
+.client-card img {
+    aspect-ratio: 220 / 100;
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+    max-height: 55px;
+}
+
+@media (max-width: 768px) {
+    .client-card img {
+        max-height: 42px;
+    }
+}
+
+/* 4. Hero Section - Stable Container */
+#home {
+    min-height: 100dvh;
+    contain: layout style;
+    /* Prevent the whole section from shifting */
+}
+
+/* 5. Background Cards - Prevent Shifts */
+.hero-slogan-bg-card {
+    will-change: opacity;
+    contain: layout style;
+}
+
+/* 6. Remove transition-all from glow - only animate background */
+#hero-bg-glow {
+    transition: background 1s ease !important;
+}

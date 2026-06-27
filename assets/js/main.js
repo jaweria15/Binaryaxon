@@ -1,3 +1,19 @@
+// --- Add these variables at the top of your orbital IIFE ---
+var cachedRadius = 210;
+var cx = 0, cy = 0;
+
+function updateCachedGeometry() {
+    cachedRadius = viewport.offsetWidth < 400 ? 140 : 210;
+    if (activeNodeId) cachedRadius += 25;
+    
+    cx = viewport.offsetWidth / 2;
+    cy = viewport.offsetHeight / 2;
+}
+
+// Call once on init, and on every resize
+window.addEventListener('resize', updateCachedGeometry);
+updateCachedGeometry(); // Initialize immediately
+
 window.addEventListener('scroll', function () {
     const header = document.getElementById('header');
     const heroLogo = document.getElementById('heroLogo');
@@ -12,9 +28,6 @@ window.addEventListener('scroll', function () {
     }
 });
 
-// ============================================================
-// 2. MOBILE HAMBURGER MENU
-// ============================================================
 (function () {
     var hamburger = document.getElementById('navHamburger');
     var navLinks = document.getElementById('navLinks');
@@ -32,10 +45,6 @@ window.addEventListener('scroll', function () {
         });
     });
 })();
-
-// ============================================================
-// 3. STACK CARDS ROTATION (section is used only here)
-// ============================================================
 const section = document.getElementById('stackSection');
 const cards = document.querySelectorAll('.stack-card');
 
@@ -77,23 +86,26 @@ if (section && cards.length > 0) {
     setInterval(rotateCards, 3000);
 }
 
-// ============================================================
-// 4. SHOW DETAIL (Services)
-// ============================================================
 function showDetail(serviceId, element) {
+    // 1. Remove active class from all cards
     document.querySelectorAll('.service-selector-card').forEach(card => {
         card.classList.remove('active');
     });
+
+    // 2. Add active class to clicked card
     element.classList.add('active');
 
+    // 3. Hide all content sections
     document.querySelectorAll('.detail-content').forEach(content => {
         content.classList.remove('active');
     });
 
+    // 4. Show the specific content
     const activeContent = document.getElementById('content-' + serviceId);
     if (activeContent) {
         activeContent.classList.add('active');
     }
+
 }
 
 function scrollToContact() {
@@ -102,9 +114,11 @@ function scrollToContact() {
     });
 }
 
-// ============================================================
-// 5. RADIAL ORBITAL TIMELINE (WITH CACHED GEOMETRY)
-// ============================================================
+
+
+
+
+/* ========== RADIAL ORBITAL TIMELINE ========== */
 (function () {
     var products = [
         {
@@ -158,41 +172,20 @@ function scrollToContact() {
     var dynamicBg = document.getElementById("orbitalDynamicBg");
 
     var clearBgTimeout = null;
+    
 
-    // ------------------------------------------------------------
-    //  ★ CACHED GEOMETRY (MOVED INSIDE THE IIFE)
-    // ------------------------------------------------------------
-    var cachedRadius = 210;
-    var cx = 0, cy = 0;
+    if (!viewport) return;
 
-    function updateCachedGeometry() {
-        if (!viewport) return;
-        cachedRadius = viewport.offsetWidth < 400 ? 140 : 210;
-        if (activeNodeId) cachedRadius += 25;
-        cx = viewport.offsetWidth / 2;
-        cy = viewport.offsetHeight / 2;
-    }
-
-    // Initialise geometry
-    updateCachedGeometry();
-
-    // Update on resize and reposition nodes
-    window.addEventListener('resize', function () {
-        updateCachedGeometry();
-        positionNodes();
-    });
-
-    // ------------------------------------------------------------
-    //  ORBITAL FUNCTIONS
-    // ------------------------------------------------------------
     function getRadius() {
-        return cachedRadius;   // no layout read!
-    }
+    return cachedRadius; // Now returns a cached number, no layout read!
+}
 
+    /* --- Dynamic Background: gradient + icons (stay until card change or close) --- */
     function setDynamicBackground(product) {
         if (clearBgTimeout) { clearTimeout(clearBgTimeout); clearBgTimeout = null; }
         if (!dynamicBg) return;
 
+        /* Remove old icons immediately so we don't get wiped by a previous timeout */
         dynamicBg.innerHTML = "";
         dynamicBg.className = "orbital-dynamic-bg";
         if (sectionEl) sectionEl.removeAttribute("data-bg-gradient");
@@ -273,70 +266,73 @@ function scrollToContact() {
     }
 
     function positionNodes() {
-        var total = products.length;
-        var nodes = nodesEl.querySelectorAll(".orbital-node");
+    var total = products.length;
+    var nodes = nodesEl.querySelectorAll(".orbital-node");
+    
+    // 1. READ PHASE: Calculate all transforms without writing to DOM
+    var transforms = [];
+    var zIndices = [];
+    var opacities = [];
+    var activeId = activeNodeId; // Cache the current active ID
 
-        var transforms = [];
-        var zIndices = [];
-        var opacities = [];
-        var activeId = activeNodeId;
+    nodes.forEach(function (node, i) {
+        var angle = ((i / total) * 360 + rotationAngle) % 360;
+        var rad = (angle * Math.PI) / 180;
+        var x = cachedRadius * Math.cos(rad);
+        var y = cachedRadius * Math.sin(rad);
+        var zIdx = Math.round(100 + 50 * Math.cos(rad));
+        var isActive = parseInt(node.dataset.id) === activeId;
+        var op = isActive ? 1 : Math.max(0.4, 0.4 + 0.6 * ((1 + Math.sin(rad)) / 2));
+        
+        transforms.push({ x: x, y: y });
+        zIndices.push(zIdx);
+        opacities.push(op);
+    });
 
-        nodes.forEach(function (node, i) {
-            var angle = ((i / total) * 360 + rotationAngle) % 360;
-            var rad = (angle * Math.PI) / 180;
-            var x = cachedRadius * Math.cos(rad);
-            var y = cachedRadius * Math.sin(rad);
-            var zIdx = Math.round(100 + 50 * Math.cos(rad));
-            var isActive = parseInt(node.dataset.id) === activeId;
-            var op = isActive ? 1 : Math.max(0.4, 0.4 + 0.6 * ((1 + Math.sin(rad)) / 2));
+    // 2. WRITE PHASE: Apply all styles at once
+    nodes.forEach(function (node, i) {
+        node.style.transform = "translate(" + transforms[i].x + "px," + transforms[i].y + "px)";
+        node.style.zIndex = node.classList.contains("active") ? 200 : zIndices[i];
+        node.style.opacity = opacities[i];
+    });
 
-            transforms.push({ x: x, y: y });
-            zIndices.push(zIdx);
-            opacities.push(op);
-        });
-
-        nodes.forEach(function (node, i) {
-            node.style.transform = "translate(" + transforms[i].x + "px," + transforms[i].y + "px)";
-            node.style.zIndex = node.classList.contains("active") ? 200 : zIndices[i];
-            node.style.opacity = opacities[i];
-        });
-
-        drawConnections();
-    }
+    drawConnections();
+}
 
     function drawConnections() {
-        while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
-        if (!activeNodeId) return;
+    while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
+    if (!activeNodeId) return;
 
-        var prod = products.find(function (p) { return p.id === activeNodeId; });
-        if (!prod) return;
+    var prod = products.find(function (p) { return p.id === activeNodeId; });
+    if (!prod) return;
 
-        var total = products.length;
-        var radius = cachedRadius;
+    var total = products.length;
+    var radius = cachedRadius;
 
-        var ai = products.findIndex(function (p) { return p.id === activeNodeId; });
-        var aAng = ((ai / total) * 360 + rotationAngle) % 360;
-        var aRad = (aAng * Math.PI) / 180;
-        var ax = cx + radius * Math.cos(aRad);
-        var ay = cy + radius * Math.sin(aRad);
+    // Use cached cx and cy instead of reading offsetWidth/offsetHeight
+    var ai = products.findIndex(function (p) { return p.id === activeNodeId; });
+    var aAng = ((ai / total) * 360 + rotationAngle) % 360;
+    var aRad = (aAng * Math.PI) / 180;
+    var ax = cx + radius * Math.cos(aRad);
+    var ay = cy + radius * Math.sin(aRad);
 
-        prod.relatedIds.forEach(function (rid) {
-            var ri = products.findIndex(function (p) { return p.id === rid; });
-            if (ri === -1) return;
-            var rAng = ((ri / total) * 360 + rotationAngle) % 360;
-            var rRad = (rAng * Math.PI) / 180;
-            var rx = cx + radius * Math.cos(rRad);
-            var ry = cy + radius * Math.sin(rRad);
+    prod.relatedIds.forEach(function (rid) {
+        var ri = products.findIndex(function (p) { return p.id === rid; });
+        if (ri === -1) return;
+        var rAng = ((ri / total) * 360 + rotationAngle) % 360;
+        var rRad = (rAng * Math.PI) / 180;
+        var rx = cx + radius * Math.cos(rRad);
+        var ry = cy + radius * Math.sin(rRad);
 
-            var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-            line.setAttribute("x1", ax);
-            line.setAttribute("y1", ay);
-            line.setAttribute("x2", rx);
-            line.setAttribute("y2", ry);
-            line.classList.add("orbital-conn-line");
-            svgEl.appendChild(line);
-        });
-    }
+        var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", ax);
+        line.setAttribute("y1", ay);
+        line.setAttribute("x2", rx);
+        line.setAttribute("y2", ry);
+        line.classList.add("orbital-conn-line");
+        svgEl.appendChild(line);
+    });
+}
 
     function toggleNode(id) {
         var nodes = nodesEl.querySelectorAll(".orbital-node");
@@ -351,14 +347,11 @@ function scrollToContact() {
             sectionEl.classList.remove("orbit-expanded");
             clearDynamicBackground();
             hintEl.innerHTML = '<i class="fas fa-hand-pointer"></i> Click a node to explore';
-            updateCachedGeometry(); // update radius (no active node)
-            positionNodes();
             return;
         }
 
         activeNodeId = id;
         autoRotate = false;
-        updateCachedGeometry(); // recalc radius with active node
 
         var idx = products.findIndex(function (p) { return p.id === id; });
         var total = products.length;
@@ -443,38 +436,213 @@ function scrollToContact() {
 
     buildNodes();
     animate();
+
+    window.addEventListener("resize", positionNodes);
 })();
+// Legacy productApp removed
 
-// ============================================================
-// 6. GSAP ANIMATION FOR ABOUT US (optional)
-// ============================================================
-document.addEventListener('DOMContentLoaded', function () {
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
 
-        gsap.to(".reveal-card", {
-            scrollTrigger: {
-                trigger: "#Aboutus",
-                start: "top 80%",
-            },
-            opacity: 1,
-            y: 0,
-            stagger: 0.2,
-            duration: 1,
-            ease: "power2.out"
-        });
+// Add this to main.js to make the 'About Us' section animate
+document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin(ScrollTrigger);
 
-        gsap.to(["#about-sub", "#about-title", "#about-line"], {
-            scrollTrigger: {
-                trigger: "#Aboutus",
-                start: "top 80%",
-            },
-            opacity: 1,
-            duration: 1,
-            stagger: 0.1
-        });
-    }
+    gsap.to(".reveal-card", {
+        scrollTrigger: {
+            trigger: "#Aboutus",
+            start: "top 80%",
+        },
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        duration: 1,
+        ease: "power2.out"
+    });
+
+    gsap.to(["#about-sub", "#about-title", "#about-line"], {
+        scrollTrigger: {
+            trigger: "#Aboutus",
+            start: "top 80%",
+        },
+        opacity: 1,
+        duration: 1,
+        stagger: 0.1
+    });
 });
+
+
+
+// Add this to your main.js or index.html
+
+
+
+// Replace your existing initTechScene function with this:
+// const initSoftwareBackground = () => {
+//     const container = document.getElementById('tech-canvas-container');
+//     const scene = new THREE.Scene();
+//     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+//     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+
+//     renderer.setSize(window.innerWidth, window.innerHeight);
+//     renderer.setClearColor(0x050505, 1); // Solid dark background
+//     container.appendChild(renderer.domElement);
+
+//     // --- SOFTWARE COMPANY VISUALS ---
+
+//     // 1. Floating Code Particles (Binary/Matrix Style)
+//     const particleCount = 2000;
+//     const particlesGeo = new THREE.BufferGeometry();
+//     const particlesPos = new Float32Array(particleCount * 3);
+
+//     for (let i = 0; i < particleCount; i++) {
+//         particlesPos[i*3] = (Math.random() - 0.5) * 30;
+//         particlesPos[i*3+1] = (Math.random() - 0.5) * 20;
+//         particlesPos[i*3+2] = (Math.random() - 0.5) * 30 - 10;
+//     }
+
+//     particlesGeo.setAttribute('position', new THREE.BufferAttribute(particlesPos, 3));
+
+//     // Create two types of particles
+//     const binaryParticles = new THREE.Points(
+//         particlesGeo,
+//         new THREE.PointsMaterial({ 
+//             color: 0x635091, 
+//             size: 0.1,
+//             transparent: true,
+//             opacity: 0.6
+//         })
+//     );
+//     scene.add(binaryParticles);
+
+//     // 2. Floating Code Snippets (using small cubes to represent code blocks)
+//     const codeBlocksGeo = new THREE.BoxGeometry(0.3, 0.1, 0.2);
+//     const codeMaterial = new THREE.MeshStandardMaterial({ color: 0xFFC132, emissive: 0x221100 });
+
+//     for (let i = 0; i < 50; i++) {
+//         const block = new THREE.Mesh(codeBlocksGeo, codeMaterial);
+//         block.position.set(
+//             (Math.random() - 0.5) * 25,
+//             (Math.random() - 0.5) * 15,
+//             (Math.random() - 0.5) * 25 - 5
+//         );
+//         block.rotation.x = Math.random() * Math.PI;
+//         block.rotation.y = Math.random() * Math.PI;
+//         scene.add(block);
+//     }
+
+//     // 3. Central "Axon" Structure - Neural Network Style
+//     const axonGroup = new THREE.Group();
+
+//     // Central sphere (the "brain")
+//     const coreGeo = new THREE.IcosahedronGeometry(1.2, 2);
+//     const coreMat = new THREE.MeshPhongMaterial({
+//         color: 0x635091,
+//         emissive: 0x221144,
+//         wireframe: true,
+//         transparent: true,
+//         opacity: 0.9
+//     });
+//     const core = new THREE.Mesh(coreGeo, coreMat);
+//     axonGroup.add(core);
+
+//     // Connection lines (neural network style)
+//     const connections = [];
+//     for (let i = 0; i < 8; i++) {
+//         const points = [];
+//         points.push(new THREE.Vector3(0, 0, 0));
+//         points.push(new THREE.Vector3(
+//             (Math.random() - 0.5) * 5,
+//             (Math.random() - 0.5) * 5,
+//             (Math.random() - 0.5) * 5
+//         ));
+
+//         const lineGeo = new THREE.BufferGeometry().setFromPoints(points);
+//         const lineMat = new THREE.LineBasicMaterial({ color: 0x635091, transparent: true, opacity: 0.3 });
+//         const line = new THREE.Line(lineGeo, lineMat);
+//         axonGroup.add(line);
+//         connections.push(line);
+//     }
+
+//     // Floating binary digits (0s and 1s as text sprites)
+//     const canvas = document.createElement('canvas');
+//     canvas.width = 64;
+//     canvas.height = 64;
+//     const ctx = canvas.getContext('2d');
+//     ctx.fillStyle = '#FFC132';
+//     ctx.font = 'Bold 40px "Fira Code"';
+//     ctx.textAlign = 'center';
+//     ctx.textBaseline = 'middle';
+
+//     const textures = ['0', '1', '</>', '{ }', '()', '[]'];
+//     for (let i = 0; i < 30; i++) {
+//         ctx.clearRect(0, 0, 64, 64);
+//         ctx.fillStyle = i % 2 === 0 ? '#635091' : '#FFC132';
+//         ctx.fillText(textures[i % textures.length], 32, 32);
+
+//         const texture = new THREE.CanvasTexture(canvas);
+//         const material = new THREE.SpriteMaterial({ map: texture, transparent: true });
+//         const sprite = new THREE.Sprite(material);
+
+//         sprite.position.set(
+//             (Math.random() - 0.5) * 15,
+//             (Math.random() - 0.5) * 10,
+//             (Math.random() - 0.5) * 15 - 5
+//         );
+//         sprite.scale.set(0.5, 0.5, 0.5);
+//         scene.add(sprite);
+//     }
+
+//     scene.add(axonGroup);
+
+//     // 4. Grid floor (tech foundation)
+//     const gridHelper = new THREE.GridHelper(40, 40, 0x635091, 0x333333);
+//     gridHelper.position.y = -3;
+//     gridHelper.position.z = -5;
+//     scene.add(gridHelper);
+
+//     // Lighting
+//     const light1 = new THREE.PointLight(0x635091, 1, 30);
+//     light1.position.set(2, 3, 4);
+//     scene.add(light1);
+
+//     const light2 = new THREE.PointLight(0xFFC132, 0.5, 30);
+//     light2.position.set(-2, -1, 3);
+//     scene.add(light2);
+
+//     const ambientLight = new THREE.AmbientLight(0x404040);
+//     scene.add(ambientLight);
+
+//     camera.position.set(0, 2, 12);
+//     camera.lookAt(0, 0, -2);
+
+//     // Animation
+//     const animate = () => {
+//         requestAnimationFrame(animate);
+
+//         // Rotate central group slowly
+//         axonGroup.rotation.y += 0.002;
+//         axonGroup.rotation.x += 0.001;
+
+//         // Float particles
+//         binaryParticles.rotation.y += 0.0005;
+
+//         // Pulse core
+//         const scale = 1 + Math.sin(Date.now() * 0.003) * 0.1;
+//         core.scale.set(scale, scale, scale);
+
+//         renderer.render(scene, camera);
+//     };
+
+//     window.addEventListener('resize', () => {
+//         camera.aspect = window.innerWidth / window.innerHeight;
+//         camera.updateProjectionMatrix();
+//         renderer.setSize(window.innerWidth, window.innerHeight);
+//     });
+
+//     animate();
+// };
+
+// Initialize the new background
+// initSoftwareBackground();
 
 
 function enhancedProductApp() {
@@ -963,12 +1131,19 @@ function servicesApp() {
         }
     }
 }
-const styleEl = document.createElement('style');
-styleEl.textContent = `
-    .animation-delay-200 { animation-delay: 200ms; }
-    .animation-delay-400 { animation-delay: 400ms; }
+
+// Add this CSS for animation delays (add to your style.css)
+const style = document.createElement('style');
+style.textContent = `
+    .animation-delay-200 {
+        animation-delay: 200ms;
+    }
+    .animation-delay-400 {
+        animation-delay: 400ms;
+    }
 `;
-document.head.appendChild(styleEl);
+document.head.appendChild(style);
+
 // Form Submission Implementation (SMTP via .aspx)
 (function () {
     window.sendEmail = function (form, alpineData) {

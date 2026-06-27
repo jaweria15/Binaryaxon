@@ -281,16 +281,30 @@ function getRadius() {
         drawConnections();
     }
 
-    function drawConnections() {
-        while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
-        if (!activeNodeId) return;
+    var cachedViewportWidth = viewport ? viewport.offsetWidth : window.innerWidth;
+var cachedViewportHeight = viewport ? viewport.offsetHeight : window.innerHeight; // Naya variable
 
-        var prod = products.find(function (p) { return p.id === activeNodeId; });
-        if (!prod) return;
+// Resize event listener ko bhi update kar dein:
+window.addEventListener("resize", function() {
+    if (viewport) {
+        cachedViewportWidth = viewport.offsetWidth;
+        cachedViewportHeight = viewport.offsetHeight; // Cache update on resize
+    }
+    positionNodes();
+});
 
-        var cx = viewport.offsetWidth / 2;
-        var cy = viewport.offsetHeight / 2;
-        var radius = getRadius();
+// Ab drawConnections ko update karein taake yeh cache use kare:
+function drawConnections() {
+    while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
+    if (!activeNodeId) return;
+
+    var prod = products.find(function (p) { return p.id === activeNodeId; });
+    if (!prod) return;
+
+    // DOM read khatam, ab cached values use hongi:
+    var cx = cachedViewportWidth / 2; 
+    var cy = cachedViewportHeight / 2;
+    var radius = getRadius();
         var total = products.length;
 
         var ai = products.findIndex(function (p) { return p.id === activeNodeId; });

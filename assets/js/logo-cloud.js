@@ -24,50 +24,38 @@ window.logoCloudApp = function() {
             { name: 'CKH', src: 'assets/images/clients/CKH.webp' }
         ],
         rows: [],
-        cachedWidth: window.innerWidth, // ✨ Global Cache Layout Read to prevent Reflow
         
         init() {
             this.distributeLogos();
-            
-            // Alpine.js ke fully render hone ke baad animate karein
             this.$nextTick(() => {
-                setTimeout(() => {
-                    this.animateLogos();
-                }, 50); // ✨ Chota sa delay GSAP aur Alpine ke conflict ko zero kar dega
+                this.animateLogos();
             });
             
-            // Re-distribute on window resize safely
-            let resizeTimeout;
+            // Re-distribute on window resize for responsiveness
             window.addEventListener('resize', () => {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(() => {
-                    this.cachedWidth = window.innerWidth; // Update cache safely
-                    this.distributeLogos();
-                    // Layout change hone par ScrollTrigger ko recalibrate karein
-                    if (typeof ScrollTrigger !== 'undefined') {
-                        ScrollTrigger.refresh();
-                    }
-                }, 150);
+                this.distributeLogos();
             });
         },
         
         distributeLogos() {
             console.log("Distributing logos...");
-            // ✨ SAFELY USE CACHED READ
-            const isMobile = this.cachedWidth < 768; 
+            const isMobile = window.innerWidth < 768;
             const logoList = [...this.logos];
             const result = [];
             
             if (isMobile) {
+                // On mobile, just use rows of 2
                 while (logoList.length > 0) {
                     result.push(logoList.splice(0, 2));
                 }
             } else {
+                // Desktop: Balanced Staggered pattern [3, 4, 3] for 10 logos
                 if (logoList.length === 10) {
                     result.push(logoList.splice(0, 3));
                     result.push(logoList.splice(0, 4));
                     result.push(logoList.splice(0, 3));
                 } else {
+                    // Fallback for other counts: simple balanced rows
                     let perRow = Math.ceil(Math.sqrt(logoList.length));
                     while (logoList.length > 0) {
                         result.push(logoList.splice(0, perRow));
@@ -80,8 +68,10 @@ window.logoCloudApp = function() {
         
         animateLogos() {
             if (typeof gsap !== 'undefined') {
+                // Clear any existing animations
                 gsap.killTweensOf('.client-card');
                 
+                // Animate from hidden to visible and stay there
                 gsap.fromTo('.client-card', 
                     { 
                         opacity: 0, 
@@ -95,11 +85,11 @@ window.logoCloudApp = function() {
                         scale: 1,
                         stagger: 0.08,
                         ease: "power3.out",
-                        clearProps: "transform",
+                        clearProps: "transform", // Keep opacity but clear transform for performance
                         scrollTrigger: {
                             trigger: '.clients-cloud',
                             start: 'top 85%',
-                            toggleActions: "play none none none"
+                            toggleActions: "play none none none" // Only play once
                         }
                     }
                 );

@@ -4108,3 +4108,32 @@ select:-webkit-autofill {
 #hero-bg-glow {
     transition: background 1s ease !important;
 }
+
+
+/* Isolate animated elements to prevent reflow outside their containers */
+#orbitalViewport {
+    contain: layout style;
+    will-change: transform;
+}
+
+.orbital-node {
+    will-change: transform, opacity;
+}
+
+.client-card {
+    will-change: transform, opacity;
+}
+
+#hero-bg-glow {
+    will-change: transform, opacity;
+    contain: layout style;
+}
+
+.hero-slogan-bg-card {
+    will-change: opacity;
+    contain: layout style;
+}
+
+#hero-subtitle {
+    contain: layout style; /* Prevents the text change from affecting parent layout */
+}

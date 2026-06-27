@@ -50,12 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const readingDelay = 2000; // ms to pause after typing finishes before next cycle
 
        function typewriteText(element, text, speed, onComplete) {
-    // 1. Capture the current computed height BEFORE any changes
-    const currentHeight = getComputedStyle(element).height;
-    // 2. Lock the height to prevent any vertical shifts
-    element.style.height = currentHeight;
-    // (Optional: also lock min-height for safety)
-    element.style.minHeight = currentHeight;
+    // Remove the problematic line entirely!
+    // element.style.minHeight = getComputedStyle(element).minHeight; // DELETE THIS
 
     element.innerHTML = "";
     let i = 0;
@@ -72,10 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
             i++;
             setTimeout(type, speed);
         } else {
-            // 3. After typing is complete, release the fixed height
-            //    to allow natural expansion (if needed)
-            element.style.height = 'auto';
-            element.style.minHeight = ''; // revert to CSS value
             if (onComplete) onComplete();
         }
     }

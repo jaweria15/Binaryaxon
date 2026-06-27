@@ -1,3 +1,19 @@
+// --- Add these variables at the top of your orbital IIFE ---
+var cachedRadius = 210;
+var cx = 0, cy = 0;
+
+function updateCachedGeometry() {
+    cachedRadius = viewport.offsetWidth < 400 ? 140 : 210;
+    if (activeNodeId) cachedRadius += 25;
+    
+    cx = viewport.offsetWidth / 2;
+    cy = viewport.offsetHeight / 2;
+}
+
+// Call once on init, and on every resize
+window.addEventListener('resize', updateCachedGeometry);
+updateCachedGeometry(); // Initialize immediately
+
 window.addEventListener('scroll', function () {
     const header = document.getElementById('header');
     const heroLogo = document.getElementById('heroLogo');
@@ -156,13 +172,13 @@ function scrollToContact() {
     var dynamicBg = document.getElementById("orbitalDynamicBg");
 
     var clearBgTimeout = null;
+    
 
     if (!viewport) return;
 
     function getRadius() {
-        var base = viewport.offsetWidth < 400 ? 140 : 210;
-        return activeNodeId ? base + 25 : base;
-    }
+    return cachedRadius; // Now returns a cached number, no layout read!
+}
 
     /* --- Dynamic Background: gradient + icons (stay until card change or close) --- */
     function setDynamicBackground(product) {
@@ -250,63 +266,73 @@ function scrollToContact() {
     }
 
     function positionNodes() {
-        var radius = getRadius();
-        var total = products.length;
-        var nodes = nodesEl.querySelectorAll(".orbital-node");
+    var total = products.length;
+    var nodes = nodesEl.querySelectorAll(".orbital-node");
+    
+    // 1. READ PHASE: Calculate all transforms without writing to DOM
+    var transforms = [];
+    var zIndices = [];
+    var opacities = [];
+    var activeId = activeNodeId; // Cache the current active ID
 
-        nodes.forEach(function (node, i) {
-            var angle = ((i / total) * 360 + rotationAngle) % 360;
-            var rad = (angle * Math.PI) / 180;
-            var x = radius * Math.cos(rad);
-            var y = radius * Math.sin(rad);
-            var zIdx = Math.round(100 + 50 * Math.cos(rad));
-            var op = node.classList.contains("active")
-                ? 1
-                : Math.max(0.4, 0.4 + 0.6 * ((1 + Math.sin(rad)) / 2));
+    nodes.forEach(function (node, i) {
+        var angle = ((i / total) * 360 + rotationAngle) % 360;
+        var rad = (angle * Math.PI) / 180;
+        var x = cachedRadius * Math.cos(rad);
+        var y = cachedRadius * Math.sin(rad);
+        var zIdx = Math.round(100 + 50 * Math.cos(rad));
+        var isActive = parseInt(node.dataset.id) === activeId;
+        var op = isActive ? 1 : Math.max(0.4, 0.4 + 0.6 * ((1 + Math.sin(rad)) / 2));
+        
+        transforms.push({ x: x, y: y });
+        zIndices.push(zIdx);
+        opacities.push(op);
+    });
 
-            node.style.transform = "translate(" + x + "px," + y + "px)";
-            node.style.zIndex = node.classList.contains("active") ? 200 : zIdx;
-            node.style.opacity = op;
-        });
+    // 2. WRITE PHASE: Apply all styles at once
+    nodes.forEach(function (node, i) {
+        node.style.transform = "translate(" + transforms[i].x + "px," + transforms[i].y + "px)";
+        node.style.zIndex = node.classList.contains("active") ? 200 : zIndices[i];
+        node.style.opacity = opacities[i];
+    });
 
-        drawConnections();
-    }
+    drawConnections();
+}
 
     function drawConnections() {
-        while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
-        if (!activeNodeId) return;
+    while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
+    if (!activeNodeId) return;
 
-        var prod = products.find(function (p) { return p.id === activeNodeId; });
-        if (!prod) return;
+    var prod = products.find(function (p) { return p.id === activeNodeId; });
+    if (!prod) return;
 
-        var cx = viewport.offsetWidth / 2;
-        var cy = viewport.offsetHeight / 2;
-        var radius = getRadius();
-        var total = products.length;
+    var total = products.length;
+    var radius = cachedRadius;
 
-        var ai = products.findIndex(function (p) { return p.id === activeNodeId; });
-        var aAng = ((ai / total) * 360 + rotationAngle) % 360;
-        var aRad = (aAng * Math.PI) / 180;
-        var ax = cx + radius * Math.cos(aRad);
-        var ay = cy + radius * Math.sin(aRad);
+    // Use cached cx and cy instead of reading offsetWidth/offsetHeight
+    var ai = products.findIndex(function (p) { return p.id === activeNodeId; });
+    var aAng = ((ai / total) * 360 + rotationAngle) % 360;
+    var aRad = (aAng * Math.PI) / 180;
+    var ax = cx + radius * Math.cos(aRad);
+    var ay = cy + radius * Math.sin(aRad);
 
-        prod.relatedIds.forEach(function (rid) {
-            var ri = products.findIndex(function (p) { return p.id === rid; });
-            if (ri === -1) return;
-            var rAng = ((ri / total) * 360 + rotationAngle) % 360;
-            var rRad = (rAng * Math.PI) / 180;
-            var rx = cx + radius * Math.cos(rRad);
-            var ry = cy + radius * Math.sin(rRad);
+    prod.relatedIds.forEach(function (rid) {
+        var ri = products.findIndex(function (p) { return p.id === rid; });
+        if (ri === -1) return;
+        var rAng = ((ri / total) * 360 + rotationAngle) % 360;
+        var rRad = (rAng * Math.PI) / 180;
+        var rx = cx + radius * Math.cos(rRad);
+        var ry = cy + radius * Math.sin(rRad);
 
-            var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-            line.setAttribute("x1", ax);
-            line.setAttribute("y1", ay);
-            line.setAttribute("x2", rx);
-            line.setAttribute("y2", ry);
-            line.classList.add("orbital-conn-line");
-            svgEl.appendChild(line);
-        });
-    }
+        var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", ax);
+        line.setAttribute("y1", ay);
+        line.setAttribute("x2", rx);
+        line.setAttribute("y2", ry);
+        line.classList.add("orbital-conn-line");
+        svgEl.appendChild(line);
+    });
+}
 
     function toggleNode(id) {
         var nodes = nodesEl.querySelectorAll(".orbital-node");

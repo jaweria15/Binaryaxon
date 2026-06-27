@@ -6,7 +6,7 @@ const sharedHeader = `
              :class="scrolled ? 'bg-[#050505]/80 backdrop-blur-xl border-b border-white/5 py-3' : 'py-6'">
             <a href="../index.html#ProductSection" class="flex items-center gap-3 group">
                 <div class="w-10 h-10 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center group-hover:bg-[#635091] group-hover:border-[#635091] transition-all duration-300 shadow-lg">
-                    <i data-lucide="arrow-left" class="w-4 h-4 text-white group-hover:-translate-x-1 transition-transform"></i>
+                    <i class="fas fa-arrow-left text-white group-hover:-translate-x-1 transition-transform"></i>
                 </div>
                 <div class="flex flex-col text-left">
                     <span class="text-[10px] text-gray-500 font-mono tracking-widest uppercase">Navigation</span>
@@ -52,7 +52,7 @@ const sharedFooterAndModals = `
                         <p class="text-[#FFC132] font-mono text-xs uppercase tracking-widest mt-1" x-text="demoProductName"></p>
                     </div>
                     <button @click="showDemoModal = false" class="text-gray-500 hover:text-white transition-colors">
-                        <i data-lucide="x" class="w-5 h-5"></i>
+                        <i class="fas fa-times text-xl"></i>
                     </button>
                 </div>
 
@@ -86,8 +86,8 @@ const sharedFooterAndModals = `
                     <button type="submit" class="btn w-full uppercase tracking-wider flex items-center justify-center gap-2 font-bold" :disabled="submitting">
                         <span class="flex items-center justify-center gap-2">
                             <span x-text="submitting ? 'Sending...' : 'Submit Request'"></span>
-                            <i data-lucide="send" class="w-3.5 h-3.5" x-show="!submitting"></i>
-                            <i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin" x-show="submitting"></i>
+                            <i class="fas fa-paper-plane text-xs" x-show="!submitting"></i>
+                            <i class="fas fa-circle-notch fa-spin text-xs" x-show="submitting"></i>
                         </span>
                     </button>
                 </form>
@@ -95,7 +95,7 @@ const sharedFooterAndModals = `
                 <!-- Success Message -->
                 <div x-show="success" x-transition 
                      class="mt-4 p-4 bg-green-500/10 border border-green-500/20 rounded-xl text-green-500 text-center text-sm">
-                    <i data-lucide="check-circle" class="w-4 h-4 mr-2 inline-block align-middle"></i> Your request has been sent successfully!
+                    <i class="fas fa-check-circle mr-2"></i> Your request has been sent successfully!
                 </div>
             </div>
         </div>
@@ -108,7 +108,7 @@ const sharedFooterAndModals = `
          style="display: none;"
          @keydown.escape.window="showLightbox = false">
         <button @click="showLightbox = false" class="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors z-50">
-            <i data-lucide="x" class="w-8 h-8"></i>
+            <i class="fas fa-times text-3xl"></i>
         </button>
         <div class="absolute inset-0" @click="showLightbox = false"></div>
         <div class="relative max-w-5xl w-full max-h-[85vh] flex items-center justify-center p-2 z-10">
@@ -140,7 +140,7 @@ function generateHeroHTML(product) {
         product.features.forEach(feat => {
             featuresHTML += `
                 <div class="flex items-center gap-2">
-                    <i data-lucide="${feat.icon}" class="w-4 h-4 text-[#FFC132] inline-block align-middle"></i>
+                    <i class="${feat.icon}"></i>
                     <span>${feat.text}</span>
                 </div>
             `;
@@ -185,7 +185,7 @@ function generateHeroHTML(product) {
                         <button @click="openDropdown = !openDropdown" class="btn uppercase inline-flex items-center gap-2">
                             <span>
                                 <span>${btn.text}</span>
-                                <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-300 align-middle inline-block" :class="openDropdown ? 'rotate-180' : ''"></i>
+                                <i class="fas fa-chevron-down text-xs transition-transform duration-300" :class="openDropdown ? 'rotate-180' : ''"></i>
                             </span>
                         </button>
                         <div x-show="openDropdown" 
@@ -200,7 +200,7 @@ function generateHeroHTML(product) {
                             ${dropdownLinksHTML}
                             <div class="border-t border-white/5 my-1"></div>
                             <div class="px-6 py-2 text-[10px] text-gray-500 font-mono uppercase tracking-widest flex items-center gap-2">
-                                <i data-lucide="clock" class="w-3 h-3"></i>
+                                <i class="fas fa-clock text-xs"></i>
                                 <span>More Links Coming Soon</span>
                             </div>
                         </div>
@@ -256,7 +256,7 @@ function generateHeroHTML(product) {
                 <div class="glass-panel p-4 overflow-hidden relative group cursor-zoom-in w-full" @click="lightboxImg = activeImg; showLightbox = true">
                     <div class="absolute inset-4 rounded-[1.5rem] bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
                         <div class="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
-                            <i data-lucide="zoom-in" class="w-6 h-6 text-white"></i>
+                            <i class="fas fa-search-plus text-white text-xl"></i>
                         </div>
                     </div>
                     <img :src="activeImg" class="rounded-[1.5rem] w-full shadow-2xl transition-all duration-500" alt="${product.name} Preview">
@@ -295,15 +295,4 @@ function generateHeroHTML(product) {
     document.getElementById('shared-header').innerHTML = sharedHeader;
     document.getElementById('shared-footer-and-modals').innerHTML = sharedFooterAndModals;
     heroEl.innerHTML = generateHeroHTML(product);
-
-    // 3. Initialize Lucide Icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    } else {
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            }
-        });
-    }
 })();

@@ -161,19 +161,19 @@ const productsData = {
         ],
         "features": [
             {
-                "icon": "user-plus",
+                "icon": "fas fa-user-plus text-[#FFC132]",
                 "text": "Employee Onboarding"
             },
             {
-                "icon": "banknote",
+                "icon": "fas fa-money-check-alt text-[#FFC132]",
                 "text": "Automated Payroll"
             },
             {
-                "icon": "calendar-check",
+                "icon": "fas fa-calendar-check text-[#FFC132]",
                 "text": "Attendance & Leave"
             },
             {
-                "icon": "boxes",
+                "icon": "fas fa-boxes text-[#FFC132]",
                 "text": "Asset Management"
             }
         ],

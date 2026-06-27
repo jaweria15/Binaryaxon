@@ -50,8 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const readingDelay = 2000; // ms to pause after typing finishes before next cycle
 
        function typewriteText(element, text, speed, onComplete) {
-    // Remove the problematic line entirely!
-    // element.style.minHeight = getComputedStyle(element).minHeight; // DELETE THIS
+    
 
     element.innerHTML = "";
     let i = 0;

@@ -5,39 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Binary Axon | Tech Reality</title>
-    <meta name="description"
-        content="Binary Axon is a leading technology company shaping the future of digital solutions with AI innovations, custom software, ERP, and accounts management systems.">
+    <meta name="description" content="Binary Axon is a leading technology company shaping the future of digital solutions...">
+
+    <!-- 1. Preconnect (Safe & Fast) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link class="cache-bypass" rel="stylesheet" href="assets/css/style.css?v=1.6">
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&display=swap"
-            rel="stylesheet">
-    </noscript>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- 2. CRITICAL INLINE CSS (Prevent FOUC / CLS) -->
+    <style>
+        /* Sirf hero + header ke liye zaroori styles */
+        .main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 20px 0; background: transparent; transition: all 0.4s ease; }
+        .main-header.scrolled { background: #0D0D0D; padding: 10px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
+        .nav-logo img { max-width: 200px; height: auto; }
+        #heroLogo img { width: 100%; max-width: 260px; height: auto; }
+        #hero-bg-glow { width: min(450px,80vw); height: min(450px,80vw); aspect-ratio: 1/1; }
+        .btn { position: relative; text-decoration: none; color: #fff; background: linear-gradient(45deg,#FFC132,#28134d,#635091); padding: 10px 25px; border-radius: 20px; cursor: pointer; }
+        .btn span { position: relative; z-index: 1; }
+    </style>
+
+    <!-- 3. Full CSS - Non-blocking load (Safe) -->
+    <link rel="preload" as="style" href="assets/css/style.css?v=1.6" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/style.css?v=1.6"></noscript>
+
+    <!-- 4. TAILWIND CDN - NO DEFER! (Isko defer mat karo) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-    <script src="assets/js/logo-cloud.js" defer></script>
-    <script src="assets/js/hero.js" defer></script>
+
+    <!-- 5. Font Awesome - Non-blocking (Safe) -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></noscript>
+
+    <!-- 6. ALL SCRIPTS WITH DEFER (Yeh safe hai) -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="assets/js/logo-cloud.js"></script>
+    <script defer src="assets/js/hero.js"></script>
     <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    </noscript>
-    <link rel="icon" type="image/webp" href="assets/images/logo-favicon.webp">
-    <link rel="shortcut icon" href="assets/images/logo-favicon.webp" type="image/webp">
-    <!-- Add to <head> -->
-<link rel="preload" as="image" href="assets/images/hero-tech-reality.webp">
-<link rel="preload" as="image" href="assets/images/hero-ai-innovation.webp">
-<link rel="preload" as="image" href="assets/images/hero-dev-expertise.webp">
-</head>
+    <script defer src="assets/js/main.js"></script>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="assets/images/logo-favicon.webp">
+        <link rel="preload" as="image" href="assets/images/products/erp-1.webp" fetchpriority="high">
+
+</head>
 <body>
 
     <header class="main-header" id="header">
@@ -134,12 +146,14 @@
                 class="lg:col-span-6 relative w-full h-[350px] sm:h-[450px] md:h-[500px] flex items-center justify-center order-2">
 
                 <!-- PC / Monitor Mockup (Center/Back) -->
-                <div
-                    class="absolute bottom-[10%] left-[20%] w-[60%] z-10 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]">
-                    <div class="border-[6px] border-[#cbd5e1] rounded-t-xl overflow-hidden aspect-video bg-[#0d0d11]">
-                        <img src="assets/images/products/erp-1.webp" alt="ERP System" class="w-full h-full object-cover"
-                            width="480" height="270">
-                    </div>
+                <div class="absolute bottom-[10%] left-[20%] w-[60%] z-10 transition-all duration-500 hover:z-40 hover:scale-105 filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]">
+    <div class="border-[6px] border-[#cbd5e1] rounded-t-xl overflow-hidden aspect-video bg-[#0d0d11]">
+        <img src="assets/images/products/erp-1.webp" alt="ERP System" 
+             class="w-full h-full object-cover" 
+             width="480" height="270"
+             fetchpriority="high"
+             decoding="async">
+    </div>
                     <!-- Metallic Stand and Base -->
                     <div class="w-16 h-12 bg-[#94a3b8] mx-auto"></div>
                     <div class="w-28 h-2 bg-[#cbd5e1] mx-auto rounded-full shadow-md"></div>

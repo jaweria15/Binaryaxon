@@ -6,7 +6,7 @@
     <title>E-Commerce Solutions | Binary Axon</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
@@ -16,16 +16,274 @@
         .screenshot-grid img { cursor: pointer; transition: transform 0.3s ease; }
         .screenshot-grid img:hover { transform: scale(1.05); }
         .nav-logo-img { height: 2rem !important; width: auto !important; }
+        .feature-grid .glass-panel { transition: transform 0.2s ease, border-color 0.2s ease; }
+        .feature-grid .glass-panel:hover { transform: translateY(-4px); border-color: rgba(99, 80, 145, 0.3); }
+        .store-card { transition: transform 0.3s ease, border-color 0.3s ease; }
+        .store-card:hover { transform: translateY(-6px); border-color: #FFC132; }
     </style>
 </head>
-<body x-data="{ activeImg: '../assets/images/products/ecommerce-1.webp', showDemoModal: false, demoProductName: 'E-Commerce Solutions', submitting: false, success: false, showLightbox: false, lightboxImg: '' }">
+<body x-data="{ 
+    activeImg: '../assets/images/products/ecommerce-1.webp', 
+    showDemoModal: false, 
+    demoProductName: 'E-Commerce Solutions', 
+    submitting: false, 
+    success: false, 
+    showLightbox: false, 
+    lightboxImg: '' 
+}">
 
     <div id="shared-header"></div>
 
     <main class="min-h-screen py-32 flex flex-col justify-start">
         <div id="shared-product-hero" data-product-id="ecommerce"></div>
-        
-        <!-- Individual pages can add custom content sections here -->
+
+        <!-- ===== FEATURE SECTIONS START ===== -->
+
+        <!-- 1. INTRODUCTION -->
+        <section class="max-w-7xl mx-auto px-6 py-16">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Overview</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">High-Conversion <span class="accent-gradient">E-Commerce Platforms</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#635091] to-[#FFC132] mx-auto mt-4"></div>
+                <p class="text-gray-400 leading-relaxed text-lg mt-6">
+                    Binary Axon builds bespoke online stores optimized for speed, search visibility, and seamless checkouts. 
+                    From kids' toys and educational products to premium organic foods, we create digital storefronts that 
+                    drive sales and delight customers.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#FFC132]">10k+</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Active SKUs Managed</div>
+                    </div>
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#FFC132]">99.9%</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Uptime Performance</div>
+                    </div>
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#FFC132]">✓</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Custom Storefronts</div>
+                    </div>
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#FFC132]">✓</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">SEO & Speed Optimized</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. OUR PORTFOLIO - Two Stores -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Our Work</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Live <span class="accent-gradient">Storefronts</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#635091] to-[#FFC132] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Explore two successful e-commerce platforms built and powered by Binary Axon.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Creative Kids Hub Card -->
+                <a href="https://creativekidshub.pk/" target="_blank" class="store-card glass-panel p-6 border border-white/5 hover:border-[#FFC132] transition-all no-underline block">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-[#FFC132]/10 flex items-center justify-center text-3xl flex-shrink-0">🧒</div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Creative Kids Hub</h3>
+                            <p class="text-sm text-[#FFC132] font-mono tracking-wider">Kids Toys & Educational Products</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 space-y-2 text-sm text-gray-400">
+                        <p>Pakistan's premier online destination for premium quality toys, educational games, and creative learning tools for children.</p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="px-3 py-1 rounded-full text-[10px] font-mono uppercase bg-white/5 border border-white/10">Toys</span>
+                            <span class="px-3 py-1 rounded-full text-[10px] font-mono uppercase bg-white/5 border border-white/10">Educational</span>
+                            <span class="px-3 py-1 rounded-full text-[10px] font-mono uppercase bg-white/5 border border-white/10">RC Cars</span>
+                            <span class="px-3 py-1 rounded-full text-[10px] font-mono uppercase bg-white/5 border border-white/10">Learning</span>
+                        </div>
+                        <div class="flex items-center gap-2 mt-3 text-[#FFC132] text-sm">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Visit Store →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Quill Products Card -->
+                <a href="https://quillproduct.com/" target="_blank" class="store-card glass-panel p-6 border border-white/5 hover:border-[#FFC132] transition-all no-underline block">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-[#635091]/20 flex items-center justify-center text-3xl flex-shrink-0">🌿</div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Quill Products</h3>
+                            <p class="text-sm text-[#FFC132] font-mono tracking-wider">Premium Organic Food Store</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 space-y-2 text-sm text-gray-400">
+                        <p>Premium organic food in Pakistan — natural herbs, seeds, and superfoods sourced naturally to support real wellness.[reference:0]</p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="px-3 py-1 rounded-full text-[10px] font-mono uppercase bg-white/5 border border-white/10">Organic</span>
+                            <span class="px-3 py-1 rounded-full text-[10px] font-mono uppercase bg-white/5 border border-white/10">Superfoods</span>
+                            <span class="px-3 py-1 rounded-full text-[10px] font-mono uppercase bg-white/5 border border-white/10">Herbs</span>
+                            <span class="px-3 py-1 rounded-full text-[10px] font-mono uppercase bg-white/5 border border-white/10">Wellness</span>
+                        </div>
+                        <div class="flex items-center gap-2 mt-3 text-[#FFC132] text-sm">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Visit Store →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. STORE HIGHLIGHTS - Creative Kids Hub -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Store Highlight</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Creative Kids <span class="accent-gradient">Hub</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#635091] to-[#FFC132] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">
+                        A complete e-commerce solution for kids' toys and educational products. Creative Kids Hub provides 
+                        a nurturing environment where children can explore, learn, and grow through play.[reference:1]
+                    </p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Premium Quality Toys – safe and durable materials[reference:2]</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Fast Delivery Across Pakistan – nationwide shipping[reference:3]</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Educational Learning Fun – creativity & cognitive development[reference:4]</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Best Gifts – perfect for birthdays and holidays[reference:5]</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Hand Picked Products – curated selection[reference:6]</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/ecommerce-1.webp" alt="Creative Kids Hub" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/ecommerce-kids.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. STORE HIGHLIGHTS - Quill Products -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/ecommerce-3.webp" alt="Quill Products" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/ecommerce-quill.webp'; showLightbox = true">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Store Highlight</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Quill <span class="accent-gradient">Products</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#635091] to-[#FFC132] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Pakistan's premier organic food store. Quill Products brings you premium organic food, 
+                        sourced naturally from herbs, seeds, and superfoods — minimally processed to support 
+                        everyday wellness.[reference:7]
+                    </p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Overall Health – eliminate daily medicine use[reference:8]</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Natural Wellness Support – digestion, immunity, well-being[reference:9]</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> No Side Effects – 100% natural ingredients[reference:10]</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Free Shipping & 24/7 Support[reference:11]</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Best Quality – trusted by customers nationwide[reference:12]</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. WHY BINARY AXON FOR E-COMMERCE -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Why Us</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Built for <span class="accent-gradient">E-Commerce Success</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#635091] to-[#FFC132] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">From custom storefronts to enterprise-grade solutions — we deliver results.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 feature-grid">
+                <div class="glass-panel p-6">
+                    <i class="fas fa-rocket text-3xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Speed-First Development</h4>
+                    <p class="text-sm text-gray-400">Lightning-fast load times with 98/100 Lighthouse scores. Every millisecond counts for conversions.</p>
+                </div>
+                <div class="glass-panel p-6">
+                    <i class="fas fa-search text-3xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">SEO-Optimized Architecture</h4>
+                    <p class="text-sm text-gray-400">Built for search visibility from day one. Clean code, structured data, and semantic markup.</p>
+                </div>
+                <div class="glass-panel p-6">
+                    <i class="fas fa-credit-card text-3xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Seamless Checkout Experience</h4>
+                    <p class="text-sm text-gray-400">Multiple payment gateways, one-click checkout, and optimized cart flows that reduce abandonment.</p>
+                </div>
+                <div class="glass-panel p-6">
+                    <i class="fas fa-mobile-alt text-3xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Mobile-First Design</h4>
+                    <p class="text-sm text-gray-400">Fully responsive storefronts that work flawlessly on every device — from phones to desktops.</p>
+                </div>
+                <div class="glass-panel p-6">
+                    <i class="fas fa-boxes text-3xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Inventory Management</h4>
+                    <p class="text-sm text-gray-400">Real-time stock tracking, bulk SKU management, and automated inventory alerts.</p>
+                </div>
+                <div class="glass-panel p-6">
+                    <i class="fas fa-headset text-3xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Ongoing Support & Maintenance</h4>
+                    <p class="text-sm text-gray-400">24/7 monitoring, regular updates, and dedicated support to keep your store running smoothly.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. TECH STACK & CAPABILITIES -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Technology</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Our <span class="accent-gradient">E-Commerce Stack</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#635091] to-[#FFC132] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">We leverage the best platforms and technologies to build stores that perform.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="glass-panel p-4 text-center">
+                    <i class="fab fa-shopify text-4xl text-[#FFC132] mb-2"></i>
+                    <h4 class="font-bold text-white text-sm">Shopify</h4>
+                    <p class="text-xs text-gray-400">Custom themes & headless</p>
+                </div>
+                <div class="glass-panel p-4 text-center">
+                    <i class="fab fa-wordpress text-4xl text-[#FFC132] mb-2"></i>
+                    <h4 class="font-bold text-white text-sm">WordPress + WooCommerce</h4>
+                    <p class="text-xs text-gray-400">Enterprise-grade solutions</p>
+                </div>
+                <div class="glass-panel p-4 text-center">
+                    <i class="fas fa-code text-4xl text-[#FFC132] mb-2"></i>
+                    <h4 class="font-bold text-white text-sm">Custom Development</h4>
+                    <p class="text-xs text-gray-400">Bespoke storefronts from scratch</p>
+                </div>
+                <div class="glass-panel p-4 text-center">
+                    <i class="fas fa-cloud text-4xl text-[#FFC132] mb-2"></i>
+                    <h4 class="font-bold text-white text-sm">Cloud Hosting</h4>
+                    <p class="text-xs text-gray-400">Scalable, secure, 99.9% uptime</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CTA - Get Started -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="glass-panel p-12 text-center relative overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-[#635091] rounded-full opacity-20 blur-3xl"></div>
+                <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-[#FFC132] rounded-full opacity-10 blur-3xl"></div>
+                <div class="relative z-10">
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Ready to Launch?</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Let's Build Your <span class="accent-gradient">E-Commerce Store</span></h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto mt-4">
+                        From concept to launch — we handle everything. Custom design, development, 
+                        optimization, and ongoing support. Schedule a free consultation today.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4 mt-8">
+                        <button @click="showDemoModal = true" class="px-8 py-4 bg-gradient-to-r from-[#635091] to-[#FFC132] rounded-xl font-bold text-white hover:scale-105 transition-transform">
+                            <i class="fas fa-paper-plane mr-2"></i> Start Your Project
+                        </button>
+                        <a href="https://creativekidshub.pk/" target="_blank" class="px-8 py-4 glass-panel border border-white/10 font-bold text-white hover:border-[#FFC132] transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i> View Live Store
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURE SECTIONS END ===== -->
+
     </main>
 
     <div id="shared-footer-and-modals"></div>

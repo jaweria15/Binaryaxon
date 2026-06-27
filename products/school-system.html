@@ -6,7 +6,7 @@
     <title>School System | Binary Axon</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
@@ -14,18 +14,400 @@
         .glass-panel { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 2rem; }
         .accent-gradient { background: linear-gradient(135deg, #FFC132, #635091); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
         .screenshot-grid img { cursor: pointer; transition: transform 0.3s ease; }
-        .screenshot-grid img:hover { transform: scale(1.05); }
+        .screenshot-grid img:hover { transform: scale(1.03); }
         .nav-logo-img { height: 2rem !important; width: auto !important; }
     </style>
 </head>
-<body x-data="{ activeImg: '../assets/images/products/school-1.webp', showDemoModal: false, demoProductName: 'School System', submitting: false, success: false, showLightbox: false, lightboxImg: '' }">
+<body x-data="{ 
+    activeImg: '../assets/images/products/school_1.webp', 
+    showDemoModal: false, 
+    demoProductName: 'School System', 
+    submitting: false, 
+    success: false, 
+    showLightbox: false, 
+    lightboxImg: '' 
+}">
 
     <div id="shared-header"></div>
 
     <main class="min-h-screen py-32 flex flex-col justify-start">
         <div id="shared-product-hero" data-product-id="school-system"></div>
-        
-        <!-- Individual pages can add custom content sections here -->
+
+        <!-- ===== FEATURE SECTIONS START ===== -->
+
+        <!-- 1. INTRODUCTION + WHY US -->
+        <section class="max-w-7xl mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Overview</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2 mb-4">Built for <span class="accent-gradient">Modern Schools</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed text-lg">
+                        Managing a modern school requires more than dedication — it needs the right tools 
+                        to stay connected, organized, and efficient. Binary Axon School Management Software 
+                        simplifies daily operations, reduces administrative workload, and improves communication 
+                        between teachers, parents, and students.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed text-lg mt-4">
+                        From admissions to academics, finance to reporting, it provides a single, secure 
+                        platform that empowers schools to focus on what truly matters — delivering quality education.
+                    </p>
+                </div>
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Why Choose Us</span>
+                    <h3 class="text-2xl font-bold mt-2 mb-6">Designed for Real-World Impact</h3>
+                    <div class="space-y-4">
+                        <div class="glass-panel p-5 border-l-4 border-[#FFC132]">
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-cloud text-[#FFC132] text-xl mt-1"></i>
+                                <div><h4 class="font-bold text-white">Cloud-Based & Accessible Anywhere</h4><p class="text-sm text-gray-400">Manage your school from any device, anytime.</p></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 border-l-4 border-[#635091]">
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-lock text-[#635091] text-xl mt-1"></i>
+                                <div><h4 class="font-bold text-white">Secure Role-Based Access</h4><p class="text-sm text-gray-400">Protect sensitive data with controlled permissions.</p></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 border-l-4 border-[#FFC132]">
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-headset text-[#FFC132] text-xl mt-1"></i>
+                                <div><h4 class="font-bold text-white">Local Support & Training</h4><p class="text-sm text-gray-400">Hands-on support, training, and migration assistance.</p></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 border-l-4 border-[#635091]">
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-cogs text-[#635091] text-xl mt-1"></i>
+                                <div><h4 class="font-bold text-white">Built for Real-Life Scenarios</h4><p class="text-sm text-gray-400">Practical challenges of fee collection and school operations.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. DASHBOARD -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Real-Time Insights</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Dashboard <span class="accent-gradient">Overview</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Real-time overview of school operations — student counts, attendance, admissions, and fee status. Quick access to key metrics and visual reports for informed decisions at a glance.</p>
+            </div>
+            <div class="glass-panel p-4 overflow-hidden">
+                <img src="../assets/images/products/school_1.webp" alt="Dashboard" class="rounded-xl w-full shadow-2xl cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_1.webp'; showLightbox = true">
+            </div>
+        </section>
+
+        <!-- 3. CAMPUS & SHIFT MANAGEMENT -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Multi-Campus</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Campus & <span class="accent-gradient">Shift Management</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Manage multiple campuses within a single system and support different shifts (morning/evening) seamlessly. Administrators can standardize processes across branches while maintaining separate reporting and operations for each campus.</p>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/school_2.webp" alt="Campus Management" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_2.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. STUDENT ENROLLMENT & ADMISSIONS (Upcoming) -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/school_3.webp" alt="Admissions" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_3.webp'; showLightbox = true">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="flex items-center gap-3">
+                        <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Admissions</span>
+                        <span class="inline-block px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider bg-[#FFC132]/10 text-[#FFC132] border border-[#FFC132]/20"><i class="fas fa-clock mr-1"></i> Upcoming</span>
+                    </div>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Student Enrollment & <span class="accent-gradient">Admissions</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Simplify the entire admission cycle, from online application to registration and seat allocation. Parents can complete forms and payments online, while administrators can track inquiries, approvals, and confirmations in real-time.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. STUDENT INFORMATION SYSTEM (SIS) -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Centralized Data</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Student Information <span class="accent-gradient">System (SIS)</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Store and manage comprehensive student records including demographics, medical history, academic progress, and family details. All data is centralized and easily accessible to authorized staff.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-3"><img src="../assets/images/products/school_1.webp" alt="SIS 1" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_1.webp'; showLightbox = true"></div>
+                <div class="glass-panel p-3"><img src="../assets/images/products/school_2.webp" alt="SIS 2" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_2.webp'; showLightbox = true"></div>
+                <div class="glass-panel p-3"><img src="../assets/images/products/school_3.webp" alt="SIS 3" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_3.webp'; showLightbox = true"></div>
+            </div>
+            <p class="text-center text-gray-400 text-sm mt-4">Student page also allows adding multiple parents and guardians.</p>
+        </section>
+
+        <!-- 6. FEE DISCOUNT PACKAGE -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Discounts & Scholarships</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Fee <span class="accent-gradient">Discount Package</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Create customized discount schemes by defining which <strong class="text-white">fee types</strong> should have specific discounts. Apply as <strong class="text-white">fixed amount</strong> or <strong class="text-white">percentage</strong>. Assign packages directly to students — the system automatically adjusts invoices.</p>
+                    <p class="text-gray-400 text-sm mt-4">✓ Transparent, consistent, error-free process</p>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/school_4.webp" alt="Fee Discount" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_4.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. FEE STRUCTURE -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/school_1.webp" alt="Fee Structure" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_1.webp'; showLightbox = true">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Class-Wise Fees</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Fee <span class="accent-gradient">Structure</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Define class-wise fee structures by setting applicable fee heads and amounts for each class. Structures are applied based on effective from–to dates, and the system automatically generates accurate fee invoices for all enrolled students during that period.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. CLASSROOM & SECTION MANAGEMENT -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Organization</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Classroom & <span class="accent-gradient">Section Management</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Create and manage classrooms, sections, and teacher assignments efficiently. Ensure students are enrolled in the correct classes and teachers have the tools they need to manage their groups effectively.</p>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/school_2.webp" alt="Classroom" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_2.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. ATTENDANCE MANAGEMENT -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/school_3.webp" alt="Attendance" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_3.webp'; showLightbox = true">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Tracking</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Attendance <span class="accent-gradient">Management</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Track daily attendance through web or mobile entry. Automated alerts and notifications keep parents informed of absences, while administrators can analyze attendance patterns for performance insights.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. FEE & FINANCE MANAGEMENT -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Financial Control</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Fee & <span class="accent-gradient">Finance Management</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Automate fee invoicing at school, class, or student level with flexibility for discounts, partial payments, and corrections. Generate detailed financial reports such as fee collection, defaulters, and pending balances.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-panel p-6">
+                    <h4 class="font-bold text-white mb-2">Search & Filter Vouchers</h4>
+                    <p class="text-sm text-gray-400">Quickly search and filter student fee vouchers by class, classroom, student, and month. Display net receivable, arrears, total amount, and pending balances.</p>
+                </div>
+                <div class="glass-panel p-6">
+                    <h4 class="font-bold text-white mb-2">Voucher Operations</h4>
+                    <ul class="text-sm text-gray-400 space-y-1 list-disc list-inside">
+                        <li>View & Edit Voucher Amounts</li>
+                        <li>Move Fee Types to next month (with reason)</li>
+                        <li>Print Vouchers (individual or bulk)</li>
+                        <li>Process Payments (full or partial)</li>
+                        <li>Apply Discounts (fixed or percentage)</li>
+                        <li>Extend Expiry Dates</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="glass-panel p-3 mt-6">
+                <img src="../assets/images/products/school_4.webp" alt="Finance" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_4.webp'; showLightbox = true">
+            </div>
+        </section>
+
+        <!-- 11. IMPORT PAYMENT IN BULK -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Bulk Upload</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Import Payment <span class="accent-gradient">in Bulk</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Process registration fee payments in bulk by uploading a bank-provided Excel file (.xlsx or .xls). Hundreds of fee payments can be recorded in a single operation instead of entering them one by one.</p>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/school_1.webp" alt="Bulk Payment" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_1.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. TIMETABLE & SCHEDULING -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/school_2.webp" alt="Timetable" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_2.webp'; showLightbox = true">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Scheduling</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Timetable & <span class="accent-gradient">Scheduling</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Design timetables quickly using user-friendly templates. Prevent scheduling conflicts, manage substitutions, and optimize classroom utilization for smooth academic operations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. BULK OPERATIONS -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Efficiency</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Bulk <span class="accent-gradient">Operations</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Save time by uploading large sets of student data, fee structures, and vouchers in one go. Reduces manual entry efforts and ensures accuracy, consistency, and faster onboarding of information.</p>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/school_3.webp" alt="Bulk Operations" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_3.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 14. CANDIDATE ONBOARDING PROCESS -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Admissions Workflow</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Candidate <span class="accent-gradient">Onboarding Process</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">A structured, step-by-step admission workflow with 8 sequential stages. Each stage is tracked with timestamps and status indicators.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="glass-panel p-4"><div class="text-2xl font-bold text-[#FFC132]">1</div><p class="text-sm text-gray-400">Candidate Addition</p></div>
+                <div class="glass-panel p-4"><div class="text-2xl font-bold text-[#FFC132]">2</div><p class="text-sm text-gray-400">Registration Fee Payment</p></div>
+                <div class="glass-panel p-4"><div class="text-2xl font-bold text-[#FFC132]">3</div><p class="text-sm text-gray-400">Entrance Test Scheduling</p></div>
+                <div class="glass-panel p-4"><div class="text-2xl font-bold text-[#FFC132]">4</div><p class="text-sm text-gray-400">Entrance Test</p></div>
+                <div class="glass-panel p-4"><div class="text-2xl font-bold text-[#FFC132]">5</div><p class="text-sm text-gray-400">Interview Scheduling</p></div>
+                <div class="glass-panel p-4"><div class="text-2xl font-bold text-[#FFC132]">6</div><p class="text-sm text-gray-400">Interview</p></div>
+                <div class="glass-panel p-4"><div class="text-2xl font-bold text-[#FFC132]">7</div><p class="text-sm text-gray-400">Admission Fee Payment</p></div>
+                <div class="glass-panel p-4"><div class="text-2xl font-bold text-[#FFC132]">8</div><p class="text-sm text-gray-400">Enrollment</p></div>
+            </div>
+        </section>
+
+        <!-- 15. TEST & INTERVIEW SLOT MANAGEMENT -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/school_4.webp" alt="Slot Management" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_4.webp'; showLightbox = true">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Scheduling</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Test & Interview <span class="accent-gradient">Slot Management</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Manage entrance test and interview slots from a dedicated screen. Each slot displays date, time range, duration, available seats, and booked candidates.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 16. STUDENT PROMOTION -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Academic Progression</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Student <span class="accent-gradient">Promotion</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Promote students to the next academic session at the end of a year. Process classrooms one by one with progress tracking. Bulk upload via Excel with sample template support.</p>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/school_1.webp" alt="Promotion" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/school_1.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 17. ANALYTICS & REPORTING -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Insights</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Analytics & <span class="accent-gradient">Reporting</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Access ready-made dashboards and build customizable reports across academics, finances, and administration. Gain actionable insights to improve decision-making and track school performance.</p>
+            </div>
+        </section>
+
+        <!-- 18. ROLE-BASED ACCESS CONTROL -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Security</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Role-Based <span class="accent-gradient">Access Control</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Protect sensitive data with role-specific permissions for administrators, teachers, parents, and students. Each user only sees what's relevant to them, ensuring both usability and security.</p>
+            </div>
+        </section>
+
+        <!-- 19-24. UPCOMING FEATURES (grid) -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Roadmap</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Coming <span class="accent-gradient">Soon</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Exciting new features currently in development to further enhance your school management experience.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 opacity-70">
+                    <div class="flex items-center gap-2 mb-2"><i class="fas fa-user-graduate text-[#FFC132]"></i><span class="inline-block px-2 py-0.5 rounded-full text-[9px] font-mono uppercase bg-[#FFC132]/10 text-[#FFC132] border border-[#FFC132]/20">Upcoming</span></div>
+                    <h4 class="font-bold text-white">Parent & Student Portals</h4>
+                    <p class="text-sm text-gray-400">Real-time access to attendance, grades, assignments, and fee details.</p>
+                </div>
+                <div class="glass-panel p-6 opacity-70">
+                    <div class="flex items-center gap-2 mb-2"><i class="fas fa-bullhorn text-[#FFC132]"></i><span class="inline-block px-2 py-0.5 rounded-full text-[9px] font-mono uppercase bg-[#FFC132]/10 text-[#FFC132] border border-[#FFC132]/20">Upcoming</span></div>
+                    <h4 class="font-bold text-white">Communication Hub</h4>
+                    <p class="text-sm text-gray-400">Bulk SMS, emails, or in-app notifications for announcements and reminders.</p>
+                </div>
+                <div class="glass-panel p-6 opacity-70">
+                    <div class="flex items-center gap-2 mb-2"><i class="fas fa-pencil-alt text-[#FFC132]"></i><span class="inline-block px-2 py-0.5 rounded-full text-[9px] font-mono uppercase bg-[#FFC132]/10 text-[#FFC132] border border-[#FFC132]/20">Upcoming</span></div>
+                    <h4 class="font-bold text-white">Quiz & Assignments</h4>
+                    <p class="text-sm text-gray-400">Create, assign, and grade quizzes or assignments digitally.</p>
+                </div>
+                <div class="glass-panel p-6 opacity-70">
+                    <div class="flex items-center gap-2 mb-2"><i class="fas fa-file-alt text-[#FFC132]"></i><span class="inline-block px-2 py-0.5 rounded-full text-[9px] font-mono uppercase bg-[#FFC132]/10 text-[#FFC132] border border-[#FFC132]/20">Upcoming</span></div>
+                    <h4 class="font-bold text-white">Exams & Grading</h4>
+                    <p class="text-sm text-gray-400">Simplify exam scheduling, result entry, and report card generation.</p>
+                </div>
+                <div class="glass-panel p-6 opacity-70">
+                    <div class="flex items-center gap-2 mb-2"><i class="fas fa-book text-[#FFC132]"></i><span class="inline-block px-2 py-0.5 rounded-full text-[9px] font-mono uppercase bg-[#FFC132]/10 text-[#FFC132] border border-[#FFC132]/20">Upcoming</span></div>
+                    <h4 class="font-bold text-white">Homework Diary / Digital Notebook</h4>
+                    <p class="text-sm text-gray-400">Replace traditional diaries with a digital solution for homework and notes.</p>
+                </div>
+                <div class="glass-panel p-6 opacity-70">
+                    <div class="flex items-center gap-2 mb-2"><i class="fas fa-university text-[#FFC132]"></i><span class="inline-block px-2 py-0.5 rounded-full text-[9px] font-mono uppercase bg-[#FFC132]/10 text-[#FFC132] border border-[#FFC132]/20">Upcoming</span></div>
+                    <h4 class="font-bold text-white">1Link Integration</h4>
+                    <p class="text-sm text-gray-400">Pay school fees via banks, ATMs, mobile wallets, and other supported platforms.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURE SECTIONS END ===== -->
+
     </main>
 
     <div id="shared-footer-and-modals"></div>

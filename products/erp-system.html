@@ -6,7 +6,7 @@
     <title>ERP System | Binary Axon</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
@@ -16,16 +16,640 @@
         .screenshot-grid img { cursor: pointer; transition: transform 0.3s ease; }
         .screenshot-grid img:hover { transform: scale(1.05); }
         .nav-logo-img { height: 2rem !important; width: auto !important; }
+        .feature-grid .glass-panel { transition: transform 0.2s ease, border-color 0.2s ease; }
+        .feature-grid .glass-panel:hover { transform: translateY(-4px); border-color: rgba(255, 193, 50, 0.3); }
+        .badge-upcoming { background: rgba(255, 193, 50, 0.1); color: #FFC132; border: 1px solid rgba(255, 193, 50, 0.2); }
     </style>
 </head>
-<body x-data="{ activeImg: '../assets/images/products/erp-1.webp', showDemoModal: false, demoProductName: 'ERP System Pro', submitting: false, success: false, showLightbox: false, lightboxImg: '' }">
+<body x-data="{ 
+    activeImg: '../assets/images/products/erp-1.webp', 
+    showDemoModal: false, 
+    demoProductName: 'ERP System Pro', 
+    submitting: false, 
+    success: false, 
+    showLightbox: false, 
+    lightboxImg: '' 
+}">
 
     <div id="shared-header"></div>
 
     <main class="min-h-screen py-32 flex flex-col justify-start">
         <div id="shared-product-hero" data-product-id="erp-system"></div>
-        
-        <!-- Individual pages can add custom content sections here -->
+
+        <!-- ===== FEATURE SECTIONS START ===== -->
+
+        <!-- 1. INTRODUCTION -->
+        <section class="max-w-7xl mx-auto px-6 py-16">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Overview</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">HRMS Reimagined — <span class="accent-gradient">Intelligent by Design</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 leading-relaxed text-lg mt-6">
+                    Prime HR is a comprehensive, cloud-based Human Resource Management System (HRMS) 
+                    designed to streamline and automate every dimension of the employee lifecycle — 
+                    from onboarding and daily attendance to payroll processing and final settlement. 
+                    Built for multi-company, multi-location enterprises, Prime HR consolidates HR 
+                    operations into a single, role-driven platform.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#FFC132]">23+</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Modules</div>
+                    </div>
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#FFC132]">100+</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Sub-Modules</div>
+                    </div>
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#FFC132]">✓</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Multi-Company Support</div>
+                    </div>
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#FFC132]">✓</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Role-Based Access</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. DASHBOARD -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Real-Time Insights</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Dashboard <span class="accent-gradient">Overview</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">The first screen users see upon login — tailored by role, providing a real-time snapshot of HR KPIs and pending actions.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-panel p-6">
+                    <h3 class="text-xl font-bold text-white mb-4">Admin Dashboard</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-chart-line text-[#FFC132] w-5"></i> Real-time KPIs: Active, Contractual, Daily Wager, Permanent</li>
+                        <li><i class="fas fa-bell text-[#FFC132] w-5"></i> Pending Requests: Leave, Resignations, Profile Updates, Offer Approvals</li>
+                        <li><i class="fas fa-coins text-[#FFC132] w-5"></i> HR Costs & Liabilities breakdown</li>
+                        <li><i class="fas fa-chart-bar text-[#FFC132] w-5"></i> Active Employees trend, New Induction, Absent Without Leave charts</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-6">
+                    <h3 class="text-xl font-bold text-white mb-4">Employee Dashboard</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-user text-[#FFC132] w-5"></i> Profile snapshot: name, designation, tenure</li>
+                        <li><i class="fas fa-calendar-check text-[#FFC132] w-5"></i> Monthly attendance summary</li>
+                        <li><i class="fas fa-star text-[#FFC132] w-5"></i> Star rating & Pay Dashboard shortcut</li>
+                        <li><i class="fas fa-map-pin text-[#FFC132] w-5"></i> Real-time geo-location map view</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="glass-panel p-4 mt-8 overflow-hidden">
+                <img src="../assets/images/products/erp-1.webp" alt="Dashboard" class="rounded-xl w-full shadow-2xl cursor-zoom-in" @click="lightboxImg = '../assets/images/products/erp-1.webp'; showLightbox = true">
+            </div>
+        </section>
+
+        <!-- 3. PERSONAL -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Self-Service</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Personal <span class="accent-gradient">Module</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Employee self-service area providing access to company policies, payslips, and tax documentation.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-file-pdf text-[#FFC132] w-5"></i> Company Policy – view and download PDFs</li>
+                        <li><i class="fas fa-file-invoice text-[#FFC132] w-5"></i> PaySlip – search by company, department, employee, month; merge and yearly download</li>
+                        <li><i class="fas fa-certificate text-[#FFC132] w-5"></i> Tax Certificate – annual tax certificates by company and fiscal year</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/erp-2.webp" alt="Personal Module" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/erp-2.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. EMPLOYEE QUERIES -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/erp-3.webp" alt="Employee Queries" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/erp-3.webp'; showLightbox = true">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Approvals</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Employee <span class="accent-gradient">Queries</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Centralised inbox for HR managers to review and approve employee profile update requests. Highlights records requiring attention or with expired data.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Approve or reject profile changes</li>
+                        <li><i class="fas fa-exclamation-triangle text-[#FFC132] w-5"></i> Colour-coded rows for expired documents</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. ATTENDANCE -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Time & Presence</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Attendance <span class="accent-gradient">Management</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">End-to-end time and attendance management with biometric integration, mobile punch‑ins, and client‑specific policies.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 feature-grid">
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Time Table (Shift Time)</h4><p class="text-xs text-gray-400">Granular shift timing, half‑day thresholds, OT rules</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Shift Category</h4><p class="text-xs text-gray-400">Group shifts (Morning, Evening, Night)</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Shift</h4><p class="text-xs text-gray-400">Named shifts with symbolic codes</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Assign Shift</h4><p class="text-xs text-gray-400">Bulk or individual shift assignment</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Approved Strength</h4><p class="text-xs text-gray-400">Headcount vs. approved per department</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Mobile Attendance</h4><p class="text-xs text-gray-400">Geo‑tagged punch‑in/out records</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Manual Attendance</h4><p class="text-xs text-gray-400">Add or bulk upload attendance</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Machine Logs</h4><p class="text-xs text-gray-400">Raw punch logs from biometric devices</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Employee Overtime Approval</h4><p class="text-xs text-gray-400">Review and approve OT claims</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Short Hour Shift Assignment</h4><p class="text-xs text-gray-400">Reduced‑hour shifts for flexible arrangements</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Client Working Days</h4><p class="text-xs text-gray-400">Client‑specific working day calendars</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Client Allowance Policy</h4><p class="text-xs text-gray-400">Allowance rules tied to clients</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Client Sandwich Policy</h4><p class="text-xs text-gray-400">Rule‑based leave treatment per client</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Register Fingerprint</h4><p class="text-xs text-gray-400">Biometric registration from HRMS</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Scan Fingerprint</h4><p class="text-xs text-gray-400">Live fingerprint verification</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Auto Half‑Day Leave Adjustment</h4><p class="text-xs text-gray-400">Automatic half‑day leave deductions</p></div>
+            </div>
+        </section>
+
+        <!-- 6. LEAVE MANAGEMENT -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Time Off</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Leave <span class="accent-gradient">Management</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Complete leave lifecycle — policy definition, public holiday calendars, employee applications, approvals, and historical records.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-sliders-h text-[#FFC132] w-5"></i> Leave Type Policy – granular rules per company, department, grade, etc.</li>
+                        <li><i class="fas fa-calendar-day text-[#FFC132] w-5"></i> Public Holiday – per‑company holiday calendars</li>
+                        <li><i class="fas fa-pen text-[#FFC132] w-5"></i> Leave Application – self‑service with balance view</li>
+                        <li><i class="fas fa-check-double text-[#FFC132] w-5"></i> Leave Request – multi‑level approval inbox</li>
+                        <li><i class="fas fa-history text-[#FFC132] w-5"></i> Leave History – full audit trail and export</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/erp-4.webp" alt="Leave Management" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/erp-4.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. PAYROLL MANAGEMENT -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Compensation</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Payroll <span class="accent-gradient">Management</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Full‑cycle salary processing engine with WPS, final settlement, and rich reporting.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-6">
+                    <h3 class="text-xl font-bold text-white mb-3">Payroll Setup</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-cog text-[#FFC132] w-5"></i> Salary Components – earnings & deductions</li>
+                        <li><i class="fas fa-users-cog text-[#FFC132] w-5"></i> Payroll Group – company‑bound groups</li>
+                        <li><i class="fas fa-building text-[#FFC132] w-5"></i> Establishment – for WPS compliance</li>
+                        <li><i class="fas fa-coins text-[#FFC132] w-5"></i> Leave Encashment – policy rules</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-6">
+                    <h3 class="text-xl font-bold text-white mb-3">Payroll Process</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-user-cog text-[#FFC132] w-5"></i> Employee Salary Setup</li>
+                        <li><i class="fas fa-upload text-[#FFC132] w-5"></i> Upload Payroll / Salary Adjustments</li>
+                        <li><i class="fas fa-edit text-[#FFC132] w-5"></i> Payroll Inputs</li>
+                        <li><i class="fas fa-play text-[#FFC132] w-5"></i> Initiate Payroll – one‑click processing</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Payroll Request & Approvals</li>
+                        <li><i class="fas fa-file-invoice text-[#FFC132] w-5"></i> Generate WPS / Bank Transfer</li>
+                        <li><i class="fas fa-handshake text-[#FFC132] w-5"></i> Final Settlement – EOS benefits</li>
+                        <li><i class="fas fa-credit-card text-[#FFC132] w-5"></i> Payment Process</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-6">
+                    <h3 class="text-xl font-bold text-white mb-3">Payroll Reports</h3>
+                    <ul class="space-y-1 text-xs text-gray-400">
+                        <li><i class="fas fa-file-alt text-[#FFC132] w-4"></i> Payroll Register, Pay Summary</li>
+                        <li><i class="fas fa-file-alt text-[#FFC132] w-4"></i> Pension Report, Adhoc Payment</li>
+                        <li><i class="fas fa-file-alt text-[#FFC132] w-4"></i> Yearly Salary, Department‑Wise Summary</li>
+                        <li><i class="fas fa-file-alt text-[#FFC132] w-4"></i> Gratuity Report, Consolidated Payment</li>
+                        <li><i class="fas fa-file-alt text-[#FFC132] w-4"></i> Salary Reconciliation, Payroll Reconciliation</li>
+                        <li><i class="fas fa-file-alt text-[#FFC132] w-4"></i> Salary Release Hold, EOS Status</li>
+                        <li><i class="fas fa-file-alt text-[#FFC132] w-4"></i> WPS / Non‑WPS Detail</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. GEO FENCING -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Location Awareness</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Geo <span class="accent-gradient">Fencing</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Location‑based attendance validation and employee movement tracking. Enforces attendance only within approved geographic boundaries.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-map-marked-alt text-[#FFC132] w-5"></i> User Location – GPS coordinates per employee with route map</li>
+                        <li><i class="fas fa-draw-polygon text-[#FFC132] w-5"></i> Polygon – define geographic zones on interactive map</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/erp-5.webp" alt="Geo Fencing" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/erp-5.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. ADVANCE / LOAN -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/erp-6.webp" alt="Advance Loan" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/erp-6.webp'; showLightbox = true">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Financial Assistance</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Advance / <span class="accent-gradient">Loan</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Manage employee financial assistance requests — both salary advances and formal loans — with configurable policies and approval workflow.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-file-contract text-[#FFC132] w-5"></i> Advance/Loan Policy – max instalments, salary eligibility</li>
+                        <li><i class="fas fa-paper-plane text-[#FFC132] w-5"></i> Application – self‑service with amount and repayment schedule</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Request Approval – linked to payroll deductions</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. DOCUMENT ARCHIVING -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Digital Repository</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Document <span class="accent-gradient">Archiving</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Structured digital repository for storing, categorising, and retrieving employee and organisational documents.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-tag text-[#FFC132] w-5"></i> Document Type – categories with mandatory/optional flags</li>
+                        <li><i class="fas fa-shield-alt text-[#FFC132] w-5"></i> Document Policy – collection rules, expiry alerts</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/erp-7.webp" alt="Document Archiving" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/erp-7.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. ASSETS MANAGEMENT -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/erp-8.webp" alt="Assets Management" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/erp-8.webp'; showLightbox = true">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Asset Lifecycle</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Assets <span class="accent-gradient">Management</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Track company‑owned assets from procurement requisition to assignment and inventory management.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-cogs text-[#FFC132] w-5"></i> Assets Management Policy – categories, depreciation, eligibility</li>
+                        <li><i class="fas fa-clipboard-list text-[#FFC132] w-5"></i> Assets Requisition – employee/department requests</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Assets Approval – manager review</li>
+                        <li><i class="fas fa-user-tag text-[#FFC132] w-5"></i> Assets Assignment – record handover</li>
+                        <li><i class="fas fa-warehouse text-[#FFC132] w-5"></i> Inventory – full register with status</li>
+                        <li><i class="fas fa-user text-[#FFC132] w-5"></i> Employee Assets – view assigned assets</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. PROCUREMENT -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Purchasing</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Procurement <span class="accent-gradient">Management</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Manage purchase order lifecycle, from requisition through vendor selection and order fulfilment.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-file-invoice text-[#FFC132] w-5"></i> Purchase Orders – auto‑generated PO numbers, linked to requisitions</li>
+                        <li><i class="fas fa-check text-[#FFC132] w-5"></i> Approve, view, print, and download ECN reports</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/erp-9.webp" alt="Procurement" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/erp-9.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. APPRAISAL (PERFORMANCE MANAGEMENT) -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Performance</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Appraisal <span class="accent-gradient">(Performance Management)</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Structured performance evaluation framework, from KPI definition to scoring and employee appraisal initiation.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-panel p-6">
+                    <h3 class="text-xl font-bold text-white mb-3">Evaluation Setup</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-ruler text-[#FFC132] w-5"></i> Scale – define rating scales (1‑5, Excellent/Good)</li>
+                        <li><i class="fas fa-bullseye text-[#FFC132] w-5"></i> KPI – create role/department KPIs with weightage</li>
+                        <li><i class="fas fa-star-half-alt text-[#FFC132] w-5"></i> Overall Rating – bands based on score ranges</li>
+                        <li><i class="fas fa-cog text-[#FFC132] w-5"></i> Evaluation Setup – assemble forms with Scale, KPI, Rating</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-6">
+                    <h3 class="text-xl font-bold text-white mb-3">Evaluation Process</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-pen text-[#FFC132] w-5"></i> Evaluation Marking – score employees against KPIs</li>
+                        <li><i class="fas fa-play text-[#FFC132] w-5"></i> Initiate Employee Evaluation – launch formal cycles</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14. GATE PASS -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Access Control</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Gate <span class="accent-gradient">Pass</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Control and record employee/visitor entry and exit at facility gates with configurable visit types and scan‑based verification.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-door-open text-[#FFC132] w-5"></i> Visit Type Policy – define types with eligibility rules</li>
+                        <li><i class="fas fa-paper-plane text-[#FFC132] w-5"></i> Visit Application – employee self‑service</li>
+                        <li><i class="fas fa-qrcode text-[#FFC132] w-5"></i> Scan Visit – gate officer validation</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Visit Request – manager approval inbox</li>
+                        <li><i class="fas fa-history text-[#FFC132] w-5"></i> Visit History – full log</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/erp-10.webp" alt="Gate Pass" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/erp-10.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 15. MEAL PASS -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/erp-11.webp" alt="Meal Pass" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/erp-11.webp'; showLightbox = true">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Canteen</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Meal <span class="accent-gradient">Pass</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Manage canteen meal entitlements and consumption tracking for employees.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-utensils text-[#FFC132] w-5"></i> Meal Management – record and track daily meal passes</li>
+                        <li><i class="fas fa-chart-pie text-[#FFC132] w-5"></i> Canteen reports: Meal Canteen, Meal Attendance, Meal Summary</li>
+                        <li><i class="fas fa-link text-[#FFC132] w-5"></i> Integration with attendance for eligibility</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 16. RESIGN (OFFBOARDING) -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Offboarding</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Resign <span class="accent-gradient">(Offboarding)</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">End‑to‑end employee resignation process, from policy definition to application, approval, and final settlement trigger.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-file-signature text-[#FFC132] w-5"></i> Resign Policy – notice period and applicability</li>
+                        <li><i class="fas fa-pen text-[#FFC132] w-5"></i> Resign Application – self‑service form</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Resign Request – manager/HR approval</li>
+                        <li><i class="fas fa-history text-[#FFC132] w-5"></i> Resign History – audit trail</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/erp-12.webp" alt="Resign" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/erp-12.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 17. UTILITIES -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Batch Processing</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Utilities <span class="accent-gradient">Module</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Batch processing tools for payroll and HR administrators to execute system‑level operations.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-clock text-4xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Process Attendance</h4>
+                    <p class="text-sm text-gray-400">Batch‑process raw punch data into computed attendance records</p>
+                </div>
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-file-excel text-4xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Payslip Raw Data</h4>
+                    <p class="text-sm text-gray-400">Extract raw payslip data for external integration or reconciliation</p>
+                </div>
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-share-alt text-4xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Publish Payroll</h4>
+                    <p class="text-sm text-gray-400">Make processed payslips visible to employees in self‑service</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 18. REPORTS -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Insights</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Reports <span class="accent-gradient">Module</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Comprehensive set of pre‑built operational reports across attendance, meals, gate pass, and other HR functions.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Attendance Reports</h4><ul class="text-xs text-gray-400 mt-2 space-y-1"><li>Daily Absenteeism, Strength, Man Hours</li><li>Monthly Absenteeism, Register, Time Sheet</li><li>Attendance Summary, Leave‑Attendance Register, Leave Balance</li></ul></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Meal Reports</h4><ul class="text-xs text-gray-400 mt-2 space-y-1"><li>Meal Canteen Report</li><li>Meal Attendance Report</li><li>Meal Summary</li></ul></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Gate Pass Reports</h4><ul class="text-xs text-gray-400 mt-2 space-y-1"><li>Visit Report – comprehensive log</li></ul></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Other Reports</h4><ul class="text-xs text-gray-400 mt-2 space-y-1"><li>Costing Report</li><li>Employee Card (printable ID)</li><li>Detail of Invoice Report</li></ul></div>
+            </div>
+        </section>
+
+        <!-- 19. LOGS -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Troubleshooting</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Logs <span class="accent-gradient">Module</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">System‑level visibility into application errors for troubleshooting and audit.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-mobile-alt text-[#FFC132] w-5"></i> Mobile Error Logs – view errors from Prime HR mobile app</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/erp-13.webp" alt="Logs" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/erp-13.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 20. SETUP -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Master Data</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Setup <span class="accent-gradient">Module</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">The master data configuration hub — all foundational reference data for the entire system.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Company</h4><p class="text-xs text-gray-400">Multi‑company profiles</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Employee Master</h4><p class="text-xs text-gray-400">20+ tabs, bulk upload, advanced filters</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Organisation Structure</h4><p class="text-xs text-gray-400">Departments, designations, sections, grades</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Geography</h4><p class="text-xs text-gray-400">Country, State, City, Region</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">HR Reference Data</h4><p class="text-xs text-gray-400">Religion, Relation, Skills, Nationality, etc.</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Financial References</h4><p class="text-xs text-gray-400">Bank, Currency, Labour Card, OH Card</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Vendor</h4><p class="text-xs text-gray-400">Supplier master for procurement</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Procurement Items</h4><p class="text-xs text-gray-400">Item and Item Category</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">System Configuration</h4><p class="text-xs text-gray-400">Notifications, Terms, Tags, Attendance Machine, Employee Card Config</p></div>
+            </div>
+        </section>
+
+        <!-- 21. CONFIG -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-user-tag text-4xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Employment Type</h4>
+                    <p class="text-sm text-gray-400">Permanent, Contractual, Daily Wager, etc.</p>
+                </div>
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-venus-mars text-4xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Gender</h4>
+                    <p class="text-sm text-gray-400">Classification options for employee profiles</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 22. SECURITY -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Access Control</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Security <span class="accent-gradient">Module</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Fine‑grained control over user access — permission, role, and user management.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-lock text-4xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Permission</h4>
+                    <p class="text-sm text-gray-400">Page‑level permissions (Read, Write, Edit, Delete, Approve)</p>
+                </div>
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-user-shield text-4xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Role</h4>
+                    <p class="text-sm text-gray-400">Bundle permissions into roles (HR Manager, Payroll Officer, etc.)</p>
+                </div>
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-users-cog text-4xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">User</h4>
+                    <p class="text-sm text-gray-400">Register users, link to employees, assign roles</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 23. ONBOARDING -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Hiring</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Onboarding <span class="accent-gradient">Module</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Manage the pre‑joining process for new hires — from offer letter generation to candidate acceptance.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                        <li><i class="fas fa-file-alt text-[#FFC132] w-5"></i> Offer Form Template – configurable field sets</li>
+                        <li><i class="fas fa-pen text-[#FFC132] w-5"></i> Create Offer – generate formal offer letters</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-5"></i> Offer Approval – multi‑level approval chain</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/erp-14.webp" alt="Onboarding" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/erp-14.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- 24. GENERAL SETTING -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Cross‑Cutting</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">General <span class="accent-gradient">Setting</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Cross‑cutting configuration options for approval workflows, communication, and templates.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Approval Hierarchy</h4><p class="text-xs text-gray-400">Multi‑level approval chains for all workflows</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Employee Communication</h4><p class="text-xs text-gray-400">Broadcast announcements to employee groups</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">User Group Employees</h4><p class="text-xs text-gray-400">Create groups for targeted notifications</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Letter Type</h4><p class="text-xs text-gray-400">HR letter categories (Experience, Warning, etc.)</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Setup Email Template</h4><p class="text-xs text-gray-400">Dynamic email templates with placeholders</p></div>
+                <div class="glass-panel p-4"><h4 class="font-bold text-white text-sm">Setup Letter Template</h4><p class="text-xs text-gray-400">Formatted HR letter templates for printing</p></div>
+            </div>
+        </section>
+
+        <!-- 25. MODULE INDEX TABLE -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Reference</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Module <span class="accent-gradient">Index</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#FFC132] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Quick‑reference index of all Prime HR modules.</p>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-400">
+                    <thead class="text-xs uppercase bg-white/5 border-b border-white/10">
+                        <tr>
+                            <th class="px-4 py-3">#</th>
+                            <th class="px-4 py-3">Module</th>
+                            <th class="px-4 py-3">Primary Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5">
+                        <tr><td class="px-4 py-2">1</td><td class="px-4 py-2 font-medium text-white">Dashboard</td><td>Real‑time HR KPIs and self‑service overview</td></tr>
+                        <tr><td class="px-4 py-2">2</td><td class="px-4 py-2 font-medium text-white">Personal</td><td>Employee access to policy, payslips, tax certificates</td></tr>
+                        <tr><td class="px-4 py-2">3</td><td class="px-4 py-2 font-medium text-white">Employee Queries</td><td>HR review and approval of profile updates</td></tr>
+                        <tr><td class="px-4 py-2">4</td><td class="px-4 py-2 font-medium text-white">Attendance</td><td>Time & attendance with biometric and mobile support</td></tr>
+                        <tr><td class="px-4 py-2">5</td><td class="px-4 py-2 font-medium text-white">Leave Management</td><td>Leave policy, applications, and approvals</td></tr>
+                        <tr><td class="px-4 py-2">6</td><td class="px-4 py-2 font-medium text-white">Payroll Management</td><td>Full‑cycle payroll, WPS, settlement, reporting</td></tr>
+                        <tr><td class="px-4 py-2">7</td><td class="px-4 py-2 font-medium text-white">Geo Fencing</td><td>Location‑based attendance validation</td></tr>
+                        <tr><td class="px-4 py-2">8</td><td class="px-4 py-2 font-medium text-white">Advance / Loan</td><td>Financial assistance with policy‑driven approvals</td></tr>
+                        <tr><td class="px-4 py-2">9</td><td class="px-4 py-2 font-medium text-white">Document Archiving</td><td>Digital repository with policy‑based rules</td></tr>
+                        <tr><td class="px-4 py-2">10</td><td class="px-4 py-2 font-medium text-white">Assets Management</td><td>Asset lifecycle from requisition to inventory</td></tr>
+                        <tr><td class="px-4 py-2">11</td><td class="px-4 py-2 font-medium text-white">Procurement</td><td>Purchase order management</td></tr>
+                        <tr><td class="px-4 py-2">12</td><td class="px-4 py-2 font-medium text-white">Appraisal</td><td>KPI‑based performance evaluation</td></tr>
+                        <tr><td class="px-4 py-2">13</td><td class="px-4 py-2 font-medium text-white">Gate Pass</td><td>Facility entry/exit control</td></tr>
+                        <tr><td class="px-4 py-2">14</td><td class="px-4 py-2 font-medium text-white">Meal Pass</td><td>Canteen meal entitlement tracking</td></tr>
+                        <tr><td class="px-4 py-2">15</td><td class="px-4 py-2 font-medium text-white">Resign / Offboarding</td><td>Resignation workflow and settlement trigger</td></tr>
+                        <tr><td class="px-4 py-2">16</td><td class="px-4 py-2 font-medium text-white">Utilities</td><td>Batch processing tools</td></tr>
+                        <tr><td class="px-4 py-2">17</td><td class="px-4 py-2 font-medium text-white">Reports</td><td>Pre‑built HR, Payroll, Attendance, Meal, Gate Pass reports</td></tr>
+                        <tr><td class="px-4 py-2">18</td><td class="px-4 py-2 font-medium text-white">Logs</td><td>Mobile error logging</td></tr>
+                        <tr><td class="px-4 py-2">19</td><td class="px-4 py-2 font-medium text-white">Setup</td><td>Master data configuration</td></tr>
+                        <tr><td class="px-4 py-2">20</td><td class="px-4 py-2 font-medium text-white">Config</td><td>System‑level classification tables</td></tr>
+                        <tr><td class="px-4 py-2">21</td><td class="px-4 py-2 font-medium text-white">Security</td><td>Role‑based access control</td></tr>
+                        <tr><td class="px-4 py-2">22</td><td class="px-4 py-2 font-medium text-white">Onboarding</td><td>Offer letter generation and approval</td></tr>
+                        <tr><td class="px-4 py-2">23</td><td class="px-4 py-2 font-medium text-white">General Setting</td><td>Approval hierarchies, communication, templates</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===== FEATURE SECTIONS END ===== -->
+
     </main>
 
     <div id="shared-footer-and-modals"></div>

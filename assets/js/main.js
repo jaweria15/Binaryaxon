@@ -154,15 +154,24 @@ function scrollToContact() {
     var detailCard = document.getElementById("orbitalDetailCard");
     var hintEl = document.getElementById("orbitalHint");
     var dynamicBg = document.getElementById("orbitalDynamicBg");
-
+    var cachedViewportWidth = viewport ? viewport.offsetWidth : window.innerWidth;
     var clearBgTimeout = null;
+window.addEventListener("resize", function() {
+    if (viewport) {
+        cachedViewportWidth = viewport.offsetWidth;
+    }
+    positionNodes();
+});
 
+// 3. getRadius() ko optimized banayein taake loop mein forced reflow na ho
+function getRadius() {
+    // Ab yeh har frame par (.offsetWidth) read nahi karega, balki cached value use karega!
+    var base = cachedViewportWidth < 400 ? 140 : 210; 
+    return activeNodeId ? base + 25 : base;
+}
     if (!viewport) return;
 
-    function getRadius() {
-        var base = viewport.offsetWidth < 400 ? 140 : 210;
-        return activeNodeId ? base + 25 : base;
-    }
+    
 
     /* --- Dynamic Background: gradient + icons (stay until card change or close) --- */
     function setDynamicBackground(product) {

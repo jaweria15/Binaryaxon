@@ -32,9 +32,13 @@ window.logoCloudApp = function() {
             });
             
             // Re-distribute on window resize for responsiveness
-            window.addEventListener('resize', () => {
-                this.distributeLogos();
-            });
+           let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        this.distributeLogos();
+    }, 150); // Sirf 150ms ka delay browser ko crash hone se bachayega
+});
         },
         
         distributeLogos() {

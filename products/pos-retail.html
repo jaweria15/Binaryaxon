@@ -6,7 +6,7 @@
     <title>Retail POS | Binary Axon</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
@@ -16,16 +16,431 @@
         .screenshot-grid img { cursor: pointer; transition: transform 0.3s ease; }
         .screenshot-grid img:hover { transform: scale(1.05); }
         .nav-logo-img { height: 2rem !important; width: auto !important; }
+        .feature-grid .glass-panel { transition: transform 0.2s ease, border-color 0.2s ease; }
+        .feature-grid .glass-panel:hover { transform: translateY(-4px); border-color: rgba(99, 80, 145, 0.3); }
+        .report-grid .glass-panel { transition: transform 0.2s ease, border-color 0.2s ease; }
+        .report-grid .glass-panel:hover { transform: translateY(-4px); border-color: rgba(255, 193, 50, 0.3); }
+        .security-grid .glass-panel { transition: transform 0.2s ease, border-color 0.2s ease; }
+        .security-grid .glass-panel:hover { transform: translateY(-4px); border-color: rgba(99, 80, 145, 0.3); }
     </style>
 </head>
-<body x-data="{ activeImg: '../assets/images/products/pos-1.webp', showDemoModal: false, demoProductName: 'Retail POS', submitting: false, success: false, showLightbox: false, lightboxImg: '' }">
+<body x-data="{ 
+    activeImg: '../assets/images/products/pos-1.webp', 
+    showDemoModal: false, 
+    demoProductName: 'Retail POS', 
+    submitting: false, 
+    success: false, 
+    showLightbox: false, 
+    lightboxImg: '' 
+}">
 
     <div id="shared-header"></div>
 
     <main class="min-h-screen py-32 flex flex-col justify-start">
         <div id="shared-product-hero" data-product-id="pos-retail"></div>
-        
-        <!-- Individual pages can add custom content sections here -->
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1: INTRODUCTION                                       -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-16">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Omnichannel Retail</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Intelligent POS &amp; <span class="accent-gradient">Multi‑Channel Pricing</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#1B2631] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 leading-relaxed text-lg mt-6">
+                    A powerful Point‑of‑Sale system that handles retail, wholesale, and e‑commerce channels under one roof. 
+                    With dynamic item‑wise pricing, advanced discount rules, and seamless integration with inventory and 
+                    financials, Retail POS empowers you to sell smarter across every touchpoint.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#FFC132]">3</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Sales Channels</div>
+                    </div>
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#FFC132]">Multi‑Tier</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Pricing Engine</div>
+                    </div>
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#FFC132]">✓</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Freight Calculation</div>
+                    </div>
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#FFC132]">✓</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Free Shipping Rule</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2: MULTI-CHANNEL PRICING MATRIX                      -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Pricing Intelligence</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Item‑Wise &amp; Channel‑Based <span class="accent-gradient">Pricing Matrix</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#1B2631] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">
+                    Instead of a single flat price, the system allows dynamic pricing rules based on item variants, 
+                    sales channel, customer type, and a configurable precedence engine.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 feature-grid">
+                <div class="glass-panel p-4 text-center">
+                    <i class="fas fa-cubes text-3xl text-[#FFC132] mb-2"></i>
+                    <h4 class="font-bold text-white text-sm">Item‑Wise Configuration</h4>
+                    <p class="text-xs text-gray-400">Individual variants (size, color) hold discrete costs and rates</p>
+                    <div class="mt-2 text-[10px] text-gray-500">Example: Red Size M vs Blue Size L</div>
+                </div>
+                <div class="glass-panel p-4 text-center">
+                    <i class="fas fa-store text-3xl text-[#FFC132] mb-2"></i>
+                    <h4 class="font-bold text-white text-sm">Channel‑Based Separation</h4>
+                    <p class="text-xs text-gray-400">Distinct pricing for E‑Commerce, Wholesale, POS/Retail</p>
+                    <div class="mt-2 text-[10px] text-gray-500">Same item, different prices across channels</div>
+                </div>
+                <div class="glass-panel p-4 text-center">
+                    <i class="fas fa-user-tag text-3xl text-[#FFC132] mb-2"></i>
+                    <h4 class="font-bold text-white text-sm">Customer‑Type Specificity</h4>
+                    <p class="text-xs text-gray-400">Automatic adjustment based on buyer group</p>
+                    <div class="mt-2 text-[10px] text-gray-500">Wholesale vs. Retail vs. VIP pricing</div>
+                </div>
+                <div class="glass-panel p-4 text-center">
+                    <i class="fas fa-sort-amount-up text-3xl text-[#FFC132] mb-2"></i>
+                    <h4 class="font-bold text-white text-sm">Rule Precedence Engine</h4>
+                    <p class="text-xs text-gray-400">Priority field resolves conflicts when multiple rules apply</p>
+                    <div class="mt-2 text-[10px] text-gray-500">0 = Highest priority</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 3: ORDER LIFECYCLE & STOCK DEDUCTION                 -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Workflow</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Order Lifecycle &amp; <span class="accent-gradient">Stock Deduction</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#1B2631] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">
+                        The system supports full order lifecycle management — from quotation to delivery — with flexible 
+                        state transitions and inventory allocation rules.
+                    </p>
+                    <ul class="mt-4 space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-clipboard-list text-[#FFC132] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Order States (TBD)</strong>
+                                <p class="text-xs text-gray-500">Configurable state transitions: Pending → Approved → Dispatched → Delivered. Operational review in progress.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-truck text-[#FFC132] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Delivery Challan</strong>
+                                <p class="text-xs text-gray-500">Physical dispatch tracking, stock movement recording, and delivery confirmation with signature capture.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-file-invoice text-[#FFC132] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Sale Invoice</strong>
+                                <p class="text-xs text-gray-500">Final billing, financial settlement, and integration with accounts for auto‑posting.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-warehouse text-[#FFC132] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Stock Deduction Trigger (TBD)</strong>
+                                <p class="text-xs text-gray-500">Determination pending on whether inventory is committed at Delivery Challan or Sale Invoice stage.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/pos-11.webp" alt="Order Lifecycle" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/pos-order-lifecycle.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4: SHIPPING & FREIGHT CALCULATION                    -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/pos-12.webp" alt="Shipping" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/pos-shipping.webp'; showLightbox = true">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Logistics</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Freight Calculation &amp; <span class="accent-gradient">Free Shipping Rules</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#1B2631] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Intelligent shipping cost engine that calculates freight based on location master data and applies 
+                        free‑delivery thresholds automatically.
+                    </p>
+                    <ul class="mt-4 space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-[#FFC132] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Freight Calculation</strong>
+                                <p class="text-xs text-gray-500">Flat/fixed rate mapped against location master data (City/Province/Town). Automated calculation at checkout.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-gift text-[#FFC132] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Free Shipping Threshold</strong>
+                                <p class="text-xs text-gray-500">Automatically applies freight = 0 when order value exceeds Rs. 3,000. Encourages larger purchases.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-route text-[#FFC132] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Shipping Module</strong>
+                                <p class="text-xs text-gray-500">Dedicated freight calculation and route charging. Supports multiple delivery zones and logistics partners.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5: POS REPORTS MODULE                                -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Business Intelligence</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Retail <span class="accent-gradient">Reports Module</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#1B2631] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">
+                    Comprehensive retail reporting suite providing real‑time visibility into sales, purchases, inventory, and rates.
+                    All reports support multi‑channel filtering and period‑over‑period comparison.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 report-grid">
+                <!-- Sale Summary Report -->
+                <div class="glass-panel p-6 border-l-4 border-[#FFC132]">
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-chart-line text-3xl text-[#FFC132]"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Sale Summary Report</h4>
+                            <p class="text-sm text-gray-400 mt-1">
+                                Aggregated sales data by customer, product, channel, and region. Includes total sales, discounts, 
+                                taxes, and net revenue with period‑over‑period comparison.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Customer‑Wise</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Channel‑Wise</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Product‑Wise</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Region‑Wise</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Purchase Summary Report -->
+                <div class="glass-panel p-6 border-l-4 border-[#1B2631]">
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-shopping-cart text-3xl text-[#1B2631]"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Purchase Summary Report</h4>
+                            <p class="text-sm text-gray-400 mt-1">
+                                Aggregated purchase data by vendor, product category, and warehouse. Tracks total purchases, 
+                                returns, discounts, and net cost with comparison analysis.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Vendor‑Wise</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Item‑Wise</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Warehouse‑Wise</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item Ledger Report -->
+                <div class="glass-panel p-6 border-l-4 border-[#635091]">
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-boxes text-3xl text-[#635091]"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Item Ledger Report</h4>
+                            <p class="text-sm text-gray-400 mt-1">
+                                Complete inventory movement history for each item — tracks purchases, sales, returns, transfers, 
+                                and adjustments with quantity and value details.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Stock Movement</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Value Tracking</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Warehouse‑Wise</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Variant‑Wise</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item Rates Report -->
+                <div class="glass-panel p-6 border-l-4 border-[#FFC132]">
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-tags text-3xl text-[#FFC132]"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Item Rates Report</h4>
+                            <p class="text-sm text-gray-400 mt-1">
+                                Comprehensive pricing history and current rates for all items across channels. Shows cost, retail, 
+                                wholesale, and e‑commerce prices with date‑wise changes.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Channel Pricing</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Price History</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Variant‑Wise</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center text-sm text-gray-500">
+                <i class="fas fa-download text-[#FFC132]"></i>
+                <span class="ml-2">All reports support export to Excel, PDF, and CSV formats.</span>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 6: SECURITY MODULE (ROLE, USER, PERMISSION)          -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Access Control</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Security &amp; <span class="accent-gradient">Role‑Based Access</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#1B2631] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">
+                    Granular Role‑Based Access Control (RBAC) ensures that every user has precisely the permissions they need — 
+                    and nothing more. Secure your retail operations with confidence.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 security-grid">
+                <!-- Permission -->
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-lock text-5xl text-[#FFC132] mb-4"></i>
+                    <h4 class="font-bold text-white text-xl">Permission</h4>
+                    <p class="text-sm text-gray-400 mt-2">
+                        Define granular, page‑level permission sets with control over:
+                    </p>
+                    <ul class="text-xs text-gray-400 mt-3 space-y-1 text-left">
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-4"></i> Read — View data and reports</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-4"></i> Write — Create and update records</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-4"></i> Edit — Modify existing entries</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-4"></i> Delete — Remove records</li>
+                        <li><i class="fas fa-check-circle text-[#FFC132] w-4"></i> Approve — Authorize transactions</li>
+                    </ul>
+                    <p class="text-xs text-gray-500 mt-3">Named permission profiles reusable across roles</p>
+                </div>
+
+                <!-- Role -->
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-user-shield text-5xl text-[#635091] mb-4"></i>
+                    <h4 class="font-bold text-white text-xl">Role</h4>
+                    <p class="text-sm text-gray-400 mt-2">
+                        Create and manage system roles by bundling permission sets. Examples:
+                    </p>
+                    <ul class="text-xs text-gray-400 mt-3 space-y-1 text-left">
+                        <li><i class="fas fa-user-tie text-[#635091] w-4"></i> Store Manager — Full access to POS and inventory</li>
+                        <li><i class="fas fa-user-cog text-[#635091] w-4"></i> Cashier — Process sales, issue returns</li>
+                        <li><i class="fas fa-eye text-[#635091] w-4"></i> Auditor — Read‑only access to reports</li>
+                        <li><i class="fas fa-user-check text-[#635091] w-4"></i> Supervisor — Approve discounts and returns</li>
+                    </ul>
+                    <p class="text-xs text-gray-500 mt-3">Assign one or more roles to each user</p>
+                </div>
+
+                <!-- User -->
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-users-cog text-5xl text-[#FFC132] mb-4"></i>
+                    <h4 class="font-bold text-white text-xl">User</h4>
+                    <p class="text-sm text-gray-400 mt-2">
+                        Register and manage system users with:
+                    </p>
+                    <ul class="text-xs text-gray-400 mt-3 space-y-1 text-left">
+                        <li><i class="fas fa-user-circle text-[#FFC132] w-4"></i> User registration and profile management</li>
+                        <li><i class="fas fa-user-tag text-[#FFC132] w-4"></i> Role assignment (single or multiple)</li>
+                        <li><i class="fas fa-toggle-on text-[#FFC132] w-4"></i> Active/Inactive status control</li>
+                        <li><i class="fas fa-key text-[#FFC132] w-4"></i> Password reset and account management</li>
+                    </ul>
+                    <p class="text-xs text-gray-500 mt-3">Link users to employee records (optional)</p>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center text-sm text-gray-400 p-4 glass-panel">
+                <i class="fas fa-shield-alt text-[#FFC132] mr-2"></i>
+                <span>Every action is audited with user, timestamp, and IP logging for complete compliance and accountability.</span>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 7: POS TRANSACTIONS & INTEGRATION                    -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Core Operations</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">POS Transactions &amp; <span class="accent-gradient">System Integration</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#1B2631] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Complete transaction handling with seamless integration to inventory, financials, and CRM.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="glass-panel p-5 text-center">
+                    <i class="fas fa-cash-register text-4xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Sale / Purchase</h4>
+                    <p class="text-xs text-gray-400">Retail counter sales, wholesale orders, and direct purchases with real‑time inventory deduction</p>
+                </div>
+                <div class="glass-panel p-5 text-center">
+                    <i class="fas fa-exchange-alt text-4xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Returns &amp; Exchanges</h4>
+                    <p class="text-xs text-gray-400">Sale return and purchase return workflows with credit notes, refunds, and inventory restocking</p>
+                </div>
+                <div class="glass-panel p-5 text-center">
+                    <i class="fas fa-sync-alt text-4xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Inventory Sync</h4>
+                    <p class="text-xs text-gray-400">Real‑time stock updates across all channels and warehouses. Automatic reorder alerts</p>
+                </div>
+                <div class="glass-panel p-5 text-center">
+                    <i class="fas fa-file-invoice text-4xl text-[#FFC132] mb-3"></i>
+                    <h4 class="font-bold text-white">Invoice &amp; Financials</h4>
+                    <p class="text-xs text-gray-400">Auto‑generated invoices with real‑time posting to general ledger. Split payment support</p>
+                </div>
+            </div>
+            <div class="mt-6 text-center text-sm text-gray-500 p-4 glass-panel border border-white/5">
+                <i class="fas fa-info-circle text-[#FFC132]"></i>
+                <span class="ml-2"><strong>Note:</strong> Booker and Salesman commission logic and field log database mappings are scoped out in the current implementation version.</span>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 8: CTA - CALL TO ACTION                              -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="glass-panel p-12 text-center relative overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-[#1B2631] rounded-full opacity-20 blur-3xl"></div>
+                <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-[#635091] rounded-full opacity-10 blur-3xl"></div>
+                <div class="relative z-10">
+                    <span class="text-[#FFC132] font-mono text-xs tracking-[0.3em] uppercase">Ready to Sell Smarter?</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Modern POS for <span class="accent-gradient">Modern Retail</span></h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto mt-4">
+                        Simplify your retail operations, offer dynamic pricing, and deliver a seamless omnichannel experience. 
+                        Let's build the perfect POS solution for your business.
+                    </p>
+                    <button @click="showDemoModal = true" class="mt-8 px-8 py-4 bg-gradient-to-r from-[#1B2631] to-[#635091] rounded-xl font-bold text-white hover:scale-105 transition-transform">
+                        <i class="fas fa-paper-plane mr-2"></i> Get a Demo
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURE SECTIONS END ===== -->
+
     </main>
 
     <div id="shared-footer-and-modals"></div>

@@ -6,7 +6,7 @@
     <title>Accounts Master | Binary Axon</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
@@ -16,16 +16,522 @@
         .screenshot-grid img { cursor: pointer; transition: transform 0.3s ease; }
         .screenshot-grid img:hover { transform: scale(1.05); }
         .nav-logo-img { height: 2rem !important; width: auto !important; }
+        .feature-grid .glass-panel { transition: transform 0.2s ease, border-color 0.2s ease; }
+        .feature-grid .glass-panel:hover { transform: translateY(-4px); border-color: rgba(123, 36, 28, 0.3); }
+        .report-grid .glass-panel { transition: transform 0.2s ease, border-color 0.2s ease; }
+        .report-grid .glass-panel:hover { transform: translateY(-4px); border-color: rgba(255, 193, 50, 0.3); }
+        .security-grid .glass-panel { transition: transform 0.2s ease, border-color 0.2s ease; }
+        .security-grid .glass-panel:hover { transform: translateY(-4px); border-color: rgba(99, 80, 145, 0.3); }
     </style>
 </head>
-<body x-data="{ activeImg: '../assets/images/products/accounts-1.webp', showDemoModal: false, demoProductName: 'Accounts Master', submitting: false, success: false, showLightbox: false, lightboxImg: '' }">
+<body x-data="{ 
+    activeImg: '../assets/images/products/accounts-1.webp', 
+    showDemoModal: false, 
+    demoProductName: 'Accounts Master', 
+    submitting: false, 
+    success: false, 
+    showLightbox: false, 
+    lightboxImg: '' 
+}">
 
     <div id="shared-header"></div>
 
     <main class="min-h-screen py-32 flex flex-col justify-start">
         <div id="shared-product-hero" data-product-id="accounts-app"></div>
-        
-        <!-- Individual pages can add custom content sections here -->
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1: INTRODUCTION                                       -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-16">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="text-[#7B241C] font-mono text-xs tracking-[0.3em] uppercase">Financial Control</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Double-Entry Accounting <span class="accent-gradient">Reimagined</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#7B241C] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 leading-relaxed text-lg mt-6">
+                    Accounts Master delivers a robust, double‑entry financial engine designed for modern enterprises. 
+                    From multi‑company consolidation and automated voucher posting to intelligent cheque lifecycle 
+                    management and split payment support, it provides real‑time visibility and control over your 
+                    entire financial ecosystem.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#7B241C]">100%</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Double‑Entry Compliance</div>
+                    </div>
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#7B241C]">Real‑Time</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Auto‑Posting</div>
+                    </div>
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#7B241C]">✓</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Split Payments</div>
+                    </div>
+                    <div class="glass-panel p-4 text-center">
+                        <div class="text-3xl font-bold text-[#7B241C]">✓</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Cheque Lifecycle</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2: CHART OF ACCOUNTS & VOUCHERS                      -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#7B241C] font-mono text-xs tracking-[0.3em] uppercase">Core Financials</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Chart of Accounts &amp; <span class="accent-gradient">Voucher Types</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#7B241C] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">
+                        A fully customizable Chart of Accounts (COA) forms the backbone of your financial structure. 
+                        The system supports all standard voucher types to handle every transaction scenario.
+                    </p>
+                    <ul class="mt-4 space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-book text-[#7B241C] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Chart of Accounts</strong>
+                                <p class="text-xs text-gray-500">Multi‑level COA with parent‑child hierarchies, account codes, and detailed descriptions. Supports all standard account types — Assets, Liabilities, Income, Expenses, and Equity.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-file-invoice text-[#7B241C] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Journal Voucher</strong>
+                                <p class="text-xs text-gray-500">General entries, adjustments, reversals, and inter‑company transfers with full audit trail and approval workflows.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-money-bill-wave text-[#7B241C] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Cash Received / Payment Vouchers</strong>
+                                <p class="text-xs text-gray-500">Instant cash settlement with receipt/ payment recording and real‑time cash account updates.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-university text-[#7B241C] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Bank Received / Payment Vouchers</strong>
+                                <p class="text-xs text-gray-500">Online transfers, wire payments, and bank transactions with bank reconciliation support.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/accounts-coa.webp" alt="Chart of Accounts" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/accounts-coa.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 3: AUTO-POSTING & SPLIT PAYMENTS                     -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/spilit-payment.webp" alt="Auto-Posting" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/spilit-payment.webp'; showLightbox = true">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#7B241C] font-mono text-xs tracking-[0.3em] uppercase">Automation</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Auto‑Posting &amp; <span class="accent-gradient">Split Payments</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#7B241C] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">
+                        The system automatically posts financial entries in real‑time upon sales and purchases, 
+                        ensuring your general ledger is always up‑to‑date without manual effort.
+                    </p>
+                    <ul class="mt-4 space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-bolt text-[#7B241C] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Real‑Time Auto‑Posting</strong>
+                                <p class="text-xs text-gray-500">Sales invoices, purchase invoices, and payment receipts automatically update the general ledger. No manual journal entries required.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-credit-card text-[#7B241C] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Split Payments</strong>
+                                <p class="text-xs text-gray-500">Combine Cash, Bank, and Online payment methods in a single invoice. Supports partial payments across multiple channels simultaneously.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-sync-alt text-[#7B241C] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Multi‑Mode Settlement</strong>
+                                <p class="text-xs text-gray-500">Flexible settlement options — full or partial — with automatic reconciliation across payment modes.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4: CHEQUE LIFECYCLE & TRACKING                       -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#7B241C] font-mono text-xs tracking-[0.3em] uppercase">Cheque Management</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Cheque Lifecycle &amp; <span class="accent-gradient">Tracking Dashboard</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#7B241C] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">
+                    Comprehensive cheque handling — from receipt to clearing — with proactive alerts and dashboard visibility.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-file-signature text-5xl text-[#7B241C] mb-3"></i>
+                    <h4 class="font-bold text-white text-lg">Cheque‑in‑Hand</h4>
+                    <p class="text-sm text-gray-400 mt-2">Cheques automatically routed to a temporary "Cheque‑in‑Hand" (Asset Account) ledger until clearing. No instant settlement.</p>
+                    <p class="text-xs text-gray-500 mt-3"><i class="fas fa-arrow-right"></i> Bank transfers and cash settle instantly</p>
+                </div>
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-calendar-day text-5xl text-[#7B241C] mb-3"></i>
+                    <h4 class="font-bold text-white text-lg">Today's Cheques</h4>
+                    <p class="text-sm text-gray-400 mt-2">Dashboard card highlights all cheques due for deposit/clearing on the current date. Never miss a deposit deadline.</p>
+                    <p class="text-xs text-gray-500 mt-3"><i class="fas fa-bell text-[#7B241C]"></i> Proactive reminders and alerts</p>
+                </div>
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-exclamation-triangle text-5xl text-[#7B241C] mb-3"></i>
+                    <h4 class="font-bold text-white text-lg">Overdue Cheques</h4>
+                    <p class="text-sm text-gray-400 mt-2">Critical alerts for cheques that have passed their clearing/maturity date but remain unsettled. Immediate action required.</p>
+                    <p class="text-xs text-gray-500 mt-3"><i class="fas fa-flag text-[#7B241C]"></i> Priority escalation workflow</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5: FINANCIAL REPORTS MODULE                          -->
+        <!-- ============================================================ -->
+      <!-- ============================================================ -->
+<!-- FINANCIAL REPORTS MODULE WITH IMAGES                          -->
+<!-- ============================================================ -->
+<section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+    <div class="text-center mb-12">
+        <span class="text-[#7B241C] font-mono text-xs tracking-[0.3em] uppercase">Business Intelligence</span>
+        <h2 class="text-4xl font-bold tracking-tighter mt-2">Financial <span class="accent-gradient">Reports Module</span></h2>
+        <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#7B241C] to-[#635091] mx-auto mt-4"></div>
+        <p class="text-gray-400 max-w-2xl mx-auto mt-4">
+            Comprehensive financial reporting suite providing real‑time visibility into ledgers, summaries, and transaction details.
+            All reports can be filtered by date range, company, department, and account.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 report-grid">
+        <!-- Detail Ledger Report -->
+        <div class="glass-panel p-6 border-l-4 border-[#7B241C]">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="md:w-1/3">
+                    <img src="../assets/images/Products/detail-ledger.webp" alt="Detail Ledger Report" 
+                         class="rounded-xl w-full h-32 object-cover border border-white/10 cursor-zoom-in"
+                         @click="lightboxImg = '../assets/images/Products/detail-ledger.webp'; showLightbox = true">
+                </div>
+                <div class="md:w-2/3">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-list-ul text-2xl text-[#7B241C] mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Detail Ledger Report</h4>
+                            <p class="text-sm text-gray-400 mt-1">
+                                Complete transactional history for any account — shows every debit, credit, and running balance 
+                                with date, description, voucher number, and reference.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Dr/Cr Breakdown</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Voucher Reference</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Running Balance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ledger Summary Report -->
+        <div class="glass-panel p-6 border-l-4 border-[#635091]">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="md:w-1/3">
+                    <img src="../assets/images/Products/ledger.webp" alt="Ledger Summary Report" 
+                         class="rounded-xl w-full h-32 object-cover border border-white/10 cursor-zoom-in"
+                         @click="lightboxImg = '../assets/images/Products/ledger.webp'; showLightbox = true">
+                </div>
+                <div class="md:w-2/3">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-layer-group text-2xl text-[#635091] mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Ledger Summary Report</h4>
+                            <p class="text-sm text-gray-400 mt-1">
+                                High‑level overview of all accounts with opening balances, total debits, total credits, and closing balances. 
+                                Perfect for monthly/quarterly financial reviews.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Opening Balance</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Closing Balance</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Period Summary</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sale Summary Report -->
+        <div class="glass-panel p-6 border-l-4 border-[#FFC132]">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="md:w-1/3">
+                    <img src="../assets/images/Products/sale-summary.webp" alt="Sale Summary Report" 
+                         class="rounded-xl w-full h-32 object-cover border border-white/10 cursor-zoom-in"
+                         @click="lightboxImg = '../assets/images/Products/sale-summary.webp'; showLightbox = true">
+                </div>
+                <div class="md:w-2/3">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-chart-line text-2xl text-[#FFC132] mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Sale Summary Report</h4>
+                            <p class="text-sm text-gray-400 mt-1">
+                                Aggregated sales data by customer, product, channel, and region. Includes total sales, discounts, 
+                                taxes, and net revenue with period‑over‑period comparison.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Customer‑Wise</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Channel‑Wise</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Product‑Wise</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Purchase Summary Report -->
+        <div class="glass-panel p-6 border-l-4 border-[#1B2631]">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="md:w-1/3">
+                    <img src="../assets/images/Products/purchase-summary.webp" alt="Purchase Summary Report" 
+                         class="rounded-xl w-full h-32 object-cover border border-white/10 cursor-zoom-in"
+                         @click="lightboxImg = '../assets/images/Products/purchase-summary.webp'; showLightbox = true">
+                </div>
+                <div class="md:w-2/3">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-shopping-cart text-2xl text-[#1B2631] mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Purchase Summary Report</h4>
+                            <p class="text-sm text-gray-400 mt-1">
+                                Aggregated purchase data by vendor, product category, and warehouse. Tracks total purchases, 
+                                returns, discounts, and net cost with comparison analysis.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Vendor‑Wise</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Item‑Wise</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Warehouse‑Wise</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item Ledger Report -->
+        <div class="glass-panel p-6 border-l-4 border-[#635091]">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="md:w-1/3">
+                    <img src="../assets/images/Products/item-ledger.webp" alt="Item Ledger Report" 
+                         class="rounded-xl w-full h-32 object-cover border border-white/10 cursor-zoom-in"
+                         @click="lightboxImg = '../assets/images/Products/item-ledger.webp'; showLightbox = true">
+                </div>
+                <div class="md:w-2/3">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-boxes text-2xl text-[#635091] mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Item Ledger Report</h4>
+                            <p class="text-sm text-gray-400 mt-1">
+                                Complete inventory movement history for each item — tracks purchases, sales, returns, transfers, 
+                                and adjustments with quantity and value details.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Stock Movement</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Value Tracking</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Warehouse‑Wise</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item Rates Report -->
+        <div class="glass-panel p-6 border-l-4 border-[#FFC132]">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="md:w-1/3">
+                    <img src="../assets/images/Products/item-rates.webp" alt="Item Rates Report" 
+                         class="rounded-xl w-full h-32 object-cover border border-white/10 cursor-zoom-in"
+                         @click="lightboxImg = '../assets/images/Products/item-rates.webp'; showLightbox = true">
+                </div>
+                <div class="md:w-2/3">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-tags text-2xl text-[#FFC132] mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Item Rates Report</h4>
+                            <p class="text-sm text-gray-400 mt-1">
+                                Comprehensive pricing history and current rates for all items across channels. Shows cost, retail, 
+                                wholesale, and e‑commerce prices with date‑wise changes.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Channel Pricing</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Price History</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-mono bg-white/5 border border-white/10">Variant‑Wise</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-500">
+        <i class="fas fa-download text-[#7B241C]"></i>
+        <span class="ml-2">All reports support export to Excel, PDF, and CSV formats.</span>
+    </div>
+</section>
+        <!-- ============================================================ -->
+        <!-- SECTION 6: SECURITY MODULE (ROLE, USER, PERMISSION)          -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#7B241C] font-mono text-xs tracking-[0.3em] uppercase">Access Control</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Security &amp; <span class="accent-gradient">Role‑Based Access</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#7B241C] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">
+                    Granular Role‑Based Access Control (RBAC) ensures that every user has precisely the permissions they need — 
+                    and nothing more. Secure your financial data with confidence.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 security-grid">
+                <!-- Permission -->
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-lock text-5xl text-[#7B241C] mb-4"></i>
+                    <h4 class="font-bold text-white text-xl">Permission</h4>
+                    <p class="text-sm text-gray-400 mt-2">
+                        Define granular, page‑level permission sets with control over:
+                    </p>
+                    <ul class="text-xs text-gray-400 mt-3 space-y-1 text-left">
+                        <li><i class="fas fa-check-circle text-[#7B241C] w-4"></i> Read — View data and reports</li>
+                        <li><i class="fas fa-check-circle text-[#7B241C] w-4"></i> Write — Create and update records</li>
+                        <li><i class="fas fa-check-circle text-[#7B241C] w-4"></i> Edit — Modify existing entries</li>
+                        <li><i class="fas fa-check-circle text-[#7B241C] w-4"></i> Delete — Remove records</li>
+                        <li><i class="fas fa-check-circle text-[#7B241C] w-4"></i> Approve — Authorize transactions</li>
+                    </ul>
+                    <p class="text-xs text-gray-500 mt-3">Named permission profiles reusable across roles</p>
+                </div>
+
+                <!-- Role -->
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-user-shield text-5xl text-[#635091] mb-4"></i>
+                    <h4 class="font-bold text-white text-xl">Role</h4>
+                    <p class="text-sm text-gray-400 mt-2">
+                        Create and manage system roles by bundling permission sets. Examples:
+                    </p>
+                    <ul class="text-xs text-gray-400 mt-3 space-y-1 text-left">
+                        <li><i class="fas fa-user-tie text-[#635091] w-4"></i> Finance Manager — Full access to all financial modules</li>
+                        <li><i class="fas fa-user-cog text-[#635091] w-4"></i> Accountant — Create/Edit vouchers, run reports</li>
+                        <li><i class="fas fa-eye text-[#635091] w-4"></i> Auditor — Read‑only access to ledgers and reports</li>
+                        <li><i class="fas fa-user-check text-[#635091] w-4"></i> Approver — Approval authority for vouchers</li>
+                    </ul>
+                    <p class="text-xs text-gray-500 mt-3">Assign one or more roles to each user</p>
+                </div>
+
+                <!-- User -->
+                <div class="glass-panel p-6 text-center">
+                    <i class="fas fa-users-cog text-5xl text-[#FFC132] mb-4"></i>
+                    <h4 class="font-bold text-white text-xl">User</h4>
+                    <p class="text-sm text-gray-400 mt-2">
+                        Register and manage system users with:
+                    </p>
+                    <ul class="text-xs text-gray-400 mt-3 space-y-1 text-left">
+                        <li><i class="fas fa-user-circle text-[#FFC132] w-4"></i> User registration and profile management</li>
+                        <li><i class="fas fa-user-tag text-[#FFC132] w-4"></i> Role assignment (single or multiple)</li>
+                        <li><i class="fas fa-toggle-on text-[#FFC132] w-4"></i> Active/Inactive status control</li>
+                        <li><i class="fas fa-key text-[#FFC132] w-4"></i> Password reset and account management</li>
+                    </ul>
+                    <p class="text-xs text-gray-500 mt-3">Link users to employee records (optional)</p>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center text-sm text-gray-400 p-4 glass-panel">
+                <i class="fas fa-shield-alt text-[#7B241C] mr-2"></i>
+                <span>Every action is audited with user, timestamp, and IP logging for complete compliance and accountability.</span>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 7: LOCALIZATION & INTEGRATION                        -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#7B241C] font-mono text-xs tracking-[0.3em] uppercase">Localization</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">PKR‑Native &amp; <span class="accent-gradient">Seamless Integration</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#7B241C] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">
+                        The financial module is fully localized for Pakistani Rupee (PKR) operations, with no multi‑currency 
+                        complexity. It integrates effortlessly with POS, Inventory, and E‑Commerce modules for end‑to‑end visibility.
+                    </p>
+                    <ul class="mt-4 space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-rupee-sign text-[#7B241C] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">PKR Only</strong>
+                                <p class="text-xs text-gray-500">Optimized for local currency transactions. No multi‑currency complexity, ensuring straightforward accounting.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-plug text-[#7B241C] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Native Integration</strong>
+                                <p class="text-xs text-gray-500">Real‑time sync with sales, purchases, inventory, and e‑commerce modules. Automatic financial settlement upon transactions.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-chart-pie text-[#7B241C] text-lg mt-1"></i>
+                            <div>
+                                <strong class="text-white">Unified Ledger</strong>
+                                <p class="text-xs text-gray-500">Consolidated financial view across all business units, departments, and channels. Single source of truth for your finances.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/accounts-integration.webp" alt="Integration" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/accounts-integration.webp'; showLightbox = true">
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 8: CTA - CALL TO ACTION                              -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+            <div class="glass-panel p-12 text-center relative overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-[#7B241C] rounded-full opacity-20 blur-3xl"></div>
+                <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-[#635091] rounded-full opacity-10 blur-3xl"></div>
+                <div class="relative z-10">
+                    <span class="text-[#7B241C] font-mono text-xs tracking-[0.3em] uppercase">Ready to Automate?</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Take Control of <span class="accent-gradient">Your Finances</span></h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto mt-4">
+                        Streamline your accounting, eliminate manual errors, and gain real‑time financial intelligence. 
+                        Let's discuss how Accounts Master can transform your finance operations.
+                    </p>
+                    <button @click="showDemoModal = true" class="mt-8 px-8 py-4 bg-gradient-to-r from-[#7B241C] to-[#635091] rounded-xl font-bold text-white hover:scale-105 transition-transform">
+                        <i class="fas fa-paper-plane mr-2"></i> Request a Demo
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURE SECTIONS END ===== -->
+
     </main>
 
     <div id="shared-footer-and-modals"></div>

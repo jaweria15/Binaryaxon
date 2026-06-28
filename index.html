@@ -11,21 +11,334 @@
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-    <!-- 2. CRITICAL INLINE CSS (Prevent FOUC / CLS) -->
-    <style>
-        /* Sirf hero + header ke liye zaroori styles */
-        .main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 20px 0; background: transparent; transition: all 0.4s ease; }
-        .main-header.scrolled { background: #0D0D0D; padding: 10px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
-        .nav-logo img { max-width: 200px; height: auto; }
-        #heroLogo img { width: 100%; max-width: 260px; height: auto; }
-        #hero-bg-glow { width: min(450px,80vw); height: min(450px,80vw); aspect-ratio: 1/1; }
-        .btn { position: relative; text-decoration: none; color: #fff; background: linear-gradient(45deg,#FFC132,#28134d,#635091); padding: 10px 25px; border-radius: 20px; cursor: pointer; }
-        .btn span { position: relative; z-index: 1; }
-    </style>
+     <style>
+        /* ─── NAVIGATION — stable height, no reflow ─── */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background: transparent;
+            transition: all 0.4s ease;
+            min-height: 80px;
+            /* 👈 stable height */
+        }
 
+        .main-header.scrolled {
+            background: #0D0D0D;
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            min-height: 70px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            min-height: 48px;
+            /* 👈 consistent flex container height */
+        }
+
+        .nav-logo {
+            flex: 0 0 auto;
+            max-width: 150px;
+            transition: opacity 0.4s ease;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .main-header.scrolled .nav-logo {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .nav-logo img {
+            max-width: 180px;
+            height: auto;
+            display: block;
+        }
+
+        /* ─── NAV LINKS — desktop ─── */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            flex-grow: 1;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid transparent;
+            border-radius: 30px;
+            padding: 8px 16px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            border-color: rgba(255, 193, 50, 0.3);
+            box-shadow: 0 0 20px rgba(255, 193, 50, 0.2), inset 0 0 10px rgba(255, 193, 50, 0.1);
+        }
+
+        /* ─── CONTACT BUTTON (desktop) ─── */
+        .nav-contact-btn {
+            flex: 0 0 auto;
+            margin-left: 8px;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+        }
+
+        /* ─── HAMBURGER (hidden on desktop) ─── */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1010;
+            flex: 0 0 42px;
+            /* fixed width */
+            height: 42px;
+            /* fixed height */
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: #fff;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .nav-hamburger.active span:nth-child(1) {
+            transform: translateY(7.5px) rotate(45deg);
+        }
+        .nav-hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-hamburger.active span:nth-child(3) {
+            transform: translateY(-7.5px) rotate(-45deg);
+        }
+
+        /* ─── HERO ─── */
+        #home {
+            min-height: 100dvh;
+            contain: layout style;
+        }
+
+        /* ─── DYNAMIC SLOGAN — FIXES CLS ─── */
+        #dynamic-slogan {
+            display: inline-block;
+            min-width: 280px;
+            /* 👈 holds "Development Expertise" at 50px */
+            text-align: left;
+            transition: none;
+            /* no width transition */
+            will-change: contents;
+            contain: layout style;
+        }
+
+        /* ─── HERO SUBTITLE — stable height ─── */
+        #hero-subtitle {
+            min-height: 80px;
+            /* mobile */
+            word-break: break-word;
+            overflow-wrap: break-word;
+            contain: layout style;
+            display: block;
+        }
+
+        /* ─── HERO GLOW — prevent reflow ─── */
+        #hero-bg-glow {
+            width: min(450px, 80vw) !important;
+            height: min(450px, 80vw) !important;
+            max-width: 450px;
+            max-height: 450px;
+            aspect-ratio: 1 / 1;
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            contain: layout style;
+            transition: background 1s ease !important;
+        }
+
+        /* ─── BACKGROUND CARDS — no reflow ─── */
+        .hero-slogan-bg-card {
+            will-change: opacity;
+            contain: layout style;
+        }
+
+        /* ─── BUTTON ─── */
+        .btn {
+            position: relative;
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(45deg, #FFC132, #28134d, #635091);
+            padding: 10px 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            inset: 1px;
+            background: #0D0D0D;
+            border-radius: 20px;
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            opacity: 0.7;
+        }
+
+        .btn::after {
+            content: "";
+            position: absolute;
+            inset: 0px;
+            background: linear-gradient(45deg, #FFC132, #28134d, #635091);
+            border-radius: 20px;
+            transition: 0.5s;
+            opacity: 0;
+            filter: blur(20px);
+        }
+
+        .btn:hover::after {
+            opacity: 1;
+        }
+
+        /* ─── TYPING CURSOR ─── */
+        .typing-cursor {
+            animation: blink 0.8s infinite;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 1024px) {
+            .nav-hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(13, 13, 13, 0.97);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 32px;
+                z-index: 1005;
+                flex-grow: 0;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 22px;
+                padding: 12px 24px;
+            }
+
+            .nav-contact-btn {
+                display: none;
+                /* hidden on tablet/mobile — we use hamburger */
+            }
+
+            /* Slogan min-width for tablet */
+            #dynamic-slogan {
+                min-width: 240px;
+                text-align: center;
+            }
+
+            #hero-subtitle {
+                min-height: 100px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            /* Slogan min-width for mobile — fits "Development Expertise" at 36px */
+            #dynamic-slogan {
+                min-width: 210px;
+                text-align: center;
+            }
+
+            #hero-subtitle {
+                min-height: 120px;
+                font-size: 0.95rem;
+            }
+
+            .main-header {
+                min-height: 64px;
+                padding: 12px 0;
+            }
+
+            .main-header.scrolled {
+                min-height: 56px;
+                padding: 8px 0;
+            }
+
+            nav {
+                min-height: 40px;
+            }
+
+            .nav-logo img {
+                max-width: 140px;
+            }
+
+            .nav-hamburger {
+                flex: 0 0 36px;
+                height: 36px;
+            }
+
+            .nav-hamburger span {
+                width: 22px;
+                height: 2px;
+            }
+        }
+    </style>
     <!-- 3. Full CSS - Non-blocking load (Safe) -->
-    <link rel="preload" as="style" href="assets/css/style.css?v=1.6" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="assets/css/style.css?v=1.6"></noscript>
+    <link rel="preload" as="style" href="assets/css/style.min.css?v=1.6" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/style.min.css?v=1.6"></noscript>
 
     <!-- 4. TAILWIND CDN - NO DEFER! (Isko defer mat karo) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -46,7 +359,21 @@
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="assets/images/logo-favicon.webp">
         <link rel="preload" as="image" href="assets/images/products/erp-1.webp" fetchpriority="high">
-
+<style>
+        /* Additional Tailwind overrides for CLS */
+        .header-container {
+            width: 100%;
+            padding: 0 5%;
+        }
+        .nav-logo img {
+            max-width: 180px;
+            height: auto;
+        }
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
 

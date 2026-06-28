@@ -12,7 +12,6 @@
                 string productName = Request.Form["productName"] ?? "Not Specified";
                 string name = Request.Form["name"] ?? "Anonymous";
                 string email = Request.Form["email"] ?? "";
-                string phone = Request.Form["phone"] ?? "Not Provided";
                 string description = Request.Form["description"] ?? "";
 
                 System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
@@ -29,11 +28,10 @@
                     "<p><strong>Product:</strong> {0}</p>" +
                     "<p><strong>Name:</strong> {1}</p>" +
                     "<p><strong>Email:</strong> {2}</p>" +
-                    "<p><strong>Phone:</strong> {3}</p>" +
                     "<p><strong>Requirements:</strong></p>" +
-                    "<div style='padding: 15px; background: #f9f9f9; border-radius: 8px;'>{4}</div>" +
+                    "<div style='padding: 15px; background: #f9f9f9; border-radius: 8px;'>{3}</div>" +
                     "</div>",
-                    productName, name, email, phone, description.Replace("\n", "<br/>")
+                    productName, name, email, description.Replace("\n", "<br/>")
                 );
                 demoMail.IsBodyHtml = true;
                 demoMail.Headers.Add("Message-Id", String.Format("<{0}@binaryaxon.com>", Guid.NewGuid().ToString()));

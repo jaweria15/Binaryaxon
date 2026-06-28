@@ -12,7 +12,6 @@ function updateCachedGeometry() {
 
 // Call once on init, and on every resize
 window.addEventListener('resize', updateCachedGeometry);
-updateCachedGeometry(); // Initialize immediately
 
 window.addEventListener('scroll', function () {
     const header = document.getElementById('header');
@@ -172,7 +171,8 @@ function scrollToContact() {
     var dynamicBg = document.getElementById("orbitalDynamicBg");
 
     var clearBgTimeout = null;
-    
+    updateCachedGeometry(); // Initialize immediately
+
 
     if (!viewport) return;
 

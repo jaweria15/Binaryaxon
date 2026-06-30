@@ -1,45 +1,669 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Axon Recruitment | Binary Axon</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
-        body { background-color: #050505; color: white; overflow-x: hidden; }
-        .glass-panel { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 2rem; }
-        .accent-gradient { background: linear-gradient(135deg, #148F77, #635091); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-        .screenshot-grid img { cursor: pointer; transition: transform 0.3s ease; }
-        .screenshot-grid img:hover { transform: scale(1.05); }
-        .nav-logo-img { height: 2rem !important; width: auto !important; }
+        body {
+            background-color: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 2rem;
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #148F77, #635091);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .screenshot-grid img {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .screenshot-grid img:hover {
+            transform: scale(1.05);
+        }
+        .nav-logo-img {
+            height: 2rem !important;
+            width: auto !important;
+        }
+        .feature-badge {
+            background: rgba(20, 143, 119, 0.12);
+            color: #148F77;
+            border: 1px solid rgba(20, 143, 119, 0.25);
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #148F77, #635091);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .border-accent {
+            border-color: rgba(20, 143, 119, 0.3);
+        }
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(20, 143, 119, 0.08);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
-<body x-data="{ 
-    activeImg: '../assets/images/products/recruitment-1.webp',
-    showDemoModal: false,
-    demoProductName: 'Axon Recruitment AI',
-    submitting: false,
-    success: false,
+<body x-data="{
     showLightbox: false,
-    lightboxImg: ''
+    lightboxImg: '',
+    activeTab: 'overview'
 }">
 
     <div id="shared-header"></div>
 
     <main class="min-h-screen py-32 flex flex-col justify-start">
+
+        <!-- ===== HERO ===== -->
         <div id="shared-product-hero" data-product-id="recruitment"></div>
-        
-        <!-- Individual pages can add custom content sections here -->
+
+        <!-- ===== STATS BANNER ===== -->
+        <section class="max-w-7xl mx-auto px-6 -mt-8 mb-12">
+            <div class="glass-panel p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div>
+                    <div class="stat-number">15+</div>
+                    <div class="text-gray-400 text-sm font-mono tracking-wider">Modules</div>
+                </div>
+                <div>
+                    <div class="stat-number">60+</div>
+                    <div class="text-gray-400 text-sm font-mono tracking-wider">Sub-Modules</div>
+                </div>
+                <div>
+                    <div class="stat-number">AI</div>
+                    <div class="text-gray-400 text-sm font-mono tracking-wider">Resume Parsing &amp; Matching</div>
+                </div>
+                <div>
+                    <div class="stat-number">Multi</div>
+                    <div class="text-gray-400 text-sm font-mono tracking-wider">Tenant / Company Support</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== INTRODUCTION ===== -->
+        <section class="max-w-7xl mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div>
+                    <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Overview</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2 mb-4">Recruitment <span class="accent-gradient">Reimagined</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed text-lg">
+                        BinaryAxon Recruitment (AXON RMS) is a comprehensive, AI-driven Applicant Tracking System
+                        designed to streamline and automate the full recruitment lifecycle — from posting job
+                        requisitions and sourcing candidates, through AI-powered resume parsing and ML-based job
+                        matching, to candidate selection and offer management.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed text-lg mt-4">
+                        Built for multi-tenant, multi-company organisations, AXON RMS consolidates every recruitment
+                        workflow into a single, role-driven platform accessible by administrators, recruiters,
+                        and hiring managers alike.
+                    </p>
+                </div>
+                <div>
+                    <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Why AXON RMS</span>
+                    <h3 class="text-2xl font-bold mt-2 mb-6">Intelligent by Design</h3>
+                    <div class="space-y-4">
+                        <div class="glass-panel p-5 border-l-4 border-[#148F77]">
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-robot text-[#148F77] text-xl mt-1"></i>
+                                <div><h4 class="font-bold text-white">AI-Powered Automation</h4><p class="text-sm text-gray-400">Resume parsing, job matching, and candidate enrichment with zero manual effort.</p></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 border-l-4 border-[#635091]">
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-cloud text-[#635091] text-xl mt-1"></i>
+                                <div><h4 class="font-bold text-white">Cloud-Native &amp; Accessible</h4><p class="text-sm text-gray-400">Manage recruitment from anywhere, on any device.</p></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 border-l-4 border-[#148F77]">
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-shield-alt text-[#148F77] text-xl mt-1"></i>
+                                <div><h4 class="font-bold text-white">Role-Based Security</h4><p class="text-sm text-gray-400">Fine-grained permissions for admins, recruiters, and hiring managers.</p></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 border-l-4 border-[#635091]">
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-chart-line text-[#635091] text-xl mt-1"></i>
+                                <div><h4 class="font-bold text-white">Data-Driven Insights</h4><p class="text-sm text-gray-400">Real-time dashboards, reports, and analytics for smarter hiring.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MODULE INDEX (quick reference) ===== -->
+        <section class="max-w-7xl mx-auto px-6 py-12 border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Full Suite</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">All <span class="accent-gradient">Modules</span> at a Glance</h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">15+ modules covering every aspect of the recruitment lifecycle — from sourcing to hiring.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 text-center">
+                <a href="#module-dashboard" class="glass-panel p-3 hover-glow transition-all"><span class="text-xs font-mono text-[#148F77]">01</span><p class="text-sm font-medium mt-1">Dashboard</p></a>
+                <a href="#module-candidates" class="glass-panel p-3 hover-glow transition-all"><span class="text-xs font-mono text-[#148F77]">02</span><p class="text-sm font-medium mt-1">Candidate Management</p></a>
+                <a href="#module-jobs" class="glass-panel p-3 hover-glow transition-all"><span class="text-xs font-mono text-[#148F77]">03</span><p class="text-sm font-medium mt-1">Job Postings</p></a>
+                <a href="#module-applications" class="glass-panel p-3 hover-glow transition-all"><span class="text-xs font-mono text-[#148F77]">04</span><p class="text-sm font-medium mt-1">Applications</p></a>
+                <a href="#module-selection" class="glass-panel p-3 hover-glow transition-all"><span class="text-xs font-mono text-[#148F77]">05</span><p class="text-sm font-medium mt-1">Candidate Selection</p></a>
+                <a href="#module-ai-parsing" class="glass-panel p-3 hover-glow transition-all"><span class="text-xs font-mono text-[#148F77]">06</span><p class="text-sm font-medium mt-1">AI Resume Parsing</p></a>
+                <a href="#module-matching" class="glass-panel p-3 hover-glow transition-all"><span class="text-xs font-mono text-[#148F77]">07</span><p class="text-sm font-medium mt-1">AI Job Matching</p></a>
+                <a href="#module-enrichment" class="glass-panel p-3 hover-glow transition-all"><span class="text-xs font-mono text-[#148F77]">08</span><p class="text-sm font-medium mt-1">Candidate Enrichment</p></a>
+                <a href="#module-extension" class="glass-panel p-3 hover-glow transition-all"><span class="text-xs font-mono text-[#148F77]">09</span><p class="text-sm font-medium mt-1">Profile Sync</p></a>
+                <a href="#module-search" class="glass-panel p-3 hover-glow transition-all"><span class="text-xs font-mono text-[#148F77]">10</span><p class="text-sm font-medium mt-1">Smart Search</p></a>
+                <a href="#module-setup" class="glass-panel p-3 hover-glow transition-all"><span class="text-xs font-mono text-[#148F77]">11</span><p class="text-sm font-medium mt-1">Setup</p></a>
+                <a href="#module-security" class="glass-panel p-3 hover-glow transition-all"><span class="text-xs font-mono text-[#148F77]">12</span><p class="text-sm font-medium mt-1">Security</p></a>
+                <a href="#module-billing" class="glass-panel p-3 hover-glow transition-all"><span class="text-xs font-mono text-[#148F77]">13</span><p class="text-sm font-medium mt-1">Billing</p></a>
+                <a href="#module-reports" class="glass-panel p-3 hover-glow transition-all"><span class="text-xs font-mono text-[#148F77]">14</span><p class="text-sm font-medium mt-1">Reports</p></a>
+                <a href="#module-settings" class="glass-panel p-3 hover-glow transition-all"><span class="text-xs font-mono text-[#148F77]">15</span><p class="text-sm font-medium mt-1">Settings</p></a>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 1. DASHBOARD -->
+        <!-- ============================================================ -->
+        <section id="module-dashboard" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 scroll-mt-24">
+            <div class="text-center mb-12">
+                <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Module 01</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Dashboard <span class="accent-gradient">Overview</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Real-time recruitment KPIs, candidate pipeline, and activity feed — tailored by role for admins and recruiters.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-panel p-6">
+                    <h4 class="font-bold text-white text-lg mb-3"><i class="fas fa-user-tie text-[#148F77] mr-2"></i>Recruiter Dashboard</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[#148F77] mt-0.5"></i> Real-time KPIs: Total Candidates, Active Jobs, Applications Today, Matched Candidates</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[#148F77] mt-0.5"></i> Candidate pipeline funnel by stage (Applied → Screened → Interview → Selected)</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[#148F77] mt-0.5"></i> Recent activity feed: new applications, parsed resumes, enrichment updates</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[#148F77] mt-0.5"></i> Quick-access tiles: New Candidate, New Job, Smart Search</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-6">
+                    <h4 class="font-bold text-white text-lg mb-3"><i class="fas fa-user-shield text-[#635091] mr-2"></i>Admin Dashboard</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[#635091] mt-0.5"></i> Candidate counts by status across all companies and departments</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[#635091] mt-0.5"></i> User type analytics: active recruiters, hiring managers, admins</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[#635091] mt-0.5"></i> Job requisition status summary: Open, On Hold, Closed, Filled</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[#635091] mt-0.5"></i> Recent system activity log (resume uploads, AI parsing events, match queue status)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="glass-panel p-4 mt-6 overflow-hidden">
+                <img src="../assets/images/products/recruitment-1.webp" alt="Dashboard" class="rounded-xl w-full shadow-2xl cursor-zoom-in" @click="lightboxImg = '../assets/images/products/recruitment-1.webp'; showLightbox = true" />
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 2. CANDIDATE MANAGEMENT -->
+        <!-- ============================================================ -->
+        <section id="module-candidates" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 scroll-mt-24">
+            <div class="text-center mb-12">
+                <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Module 02</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Candidate <span class="accent-gradient">Management</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">The core applicant repository — end-to-end profiles with AI-assisted parsing to auto-populate fields from resumes.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-panel p-5 border-l-4 border-[#148F77]">
+                    <h4 class="font-bold text-white"><i class="fas fa-id-card text-[#148F77] mr-2"></i>Candidate Profile</h4>
+                    <ul class="text-sm text-gray-400 mt-2 space-y-1 list-disc list-inside">
+                        <li>15+ data sections: personal, contact, CNIC/ID, DOB, marital status, nationality</li>
+                        <li>Professional summary &amp; career objective</li>
+                        <li>Current/expected salary, notice period, availability</li>
+                        <li>Profile photo upload</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-5 border-l-4 border-[#635091]">
+                    <h4 class="font-bold text-white"><i class="fas fa-briefcase text-[#635091] mr-2"></i>Work Experience</h4>
+                    <ul class="text-sm text-gray-400 mt-2 space-y-1 list-disc list-inside">
+                        <li>Multiple experience entries with company, designation, dates, description</li>
+                        <li>Current employment flag with "To Present" handling</li>
+                        <li>Industry &amp; functional area classification</li>
+                        <li>Auto-populated from AI resume parsing</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-5 border-l-4 border-[#148F77]">
+                    <h4 class="font-bold text-white"><i class="fas fa-graduation-cap text-[#148F77] mr-2"></i>Education</h4>
+                    <ul class="text-sm text-gray-400 mt-2 space-y-1 list-disc list-inside">
+                        <li>Degree, institution, year, grade/GPA, major</li>
+                        <li>Linked to master data (configurable lookups)</li>
+                        <li>Auto-populated from AI resume parsing</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-5 border-l-4 border-[#635091]">
+                    <h4 class="font-bold text-white"><i class="fas fa-code text-[#635091] mr-2"></i>Skills &amp; Languages</h4>
+                    <ul class="text-sm text-gray-400 mt-2 space-y-1 list-disc list-inside">
+                        <li>Skills from managed taxonomy with proficiency levels</li>
+                        <li>AI auto-extraction from resume text</li>
+                        <li>Language proficiencies with spoken/written/reading levels</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-5 border-l-4 border-[#148F77]">
+                    <h4 class="font-bold text-white"><i class="fas fa-file-pdf text-[#148F77] mr-2"></i>Resume Upload &amp; Storage</h4>
+                    <ul class="text-sm text-gray-400 mt-2 space-y-1 list-disc list-inside">
+                        <li>Upload PDF / Word resumes per candidate</li>
+                        <li>Extracted text stored for search and AI processing</li>
+                        <li>Multiple resume versions with active version flag</li>
+                        <li>Trigger AI parsing on upload to auto-fill profile</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-5 border-l-4 border-[#635091]">
+                    <h4 class="font-bold text-white"><i class="fas fa-list-ul text-[#635091] mr-2"></i>Candidate Listing &amp; Filters</h4>
+                    <ul class="text-sm text-gray-400 mt-2 space-y-1 list-disc list-inside">
+                        <li>Grid view with pagination, sorting, quick actions</li>
+                        <li>Filter by skill, experience, education, status, career level</li>
+                        <li>Export to Excel/CSV</li>
+                        <li>Bulk actions: assign to job, update status, delete</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="glass-panel p-4 mt-6 overflow-hidden">
+                <img src="../assets/images/products/recruitment-2.webp" alt="Candidate Management" class="rounded-xl w-full shadow-2xl cursor-zoom-in" @click="lightboxImg = '../assets/images/products/recruitment-2.webp'; showLightbox = true" />
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 3. JOB POSTINGS & REQUISITIONS -->
+        <!-- ============================================================ -->
+        <section id="module-jobs" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Module 03</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Job Postings &amp; <span class="accent-gradient">Requisitions</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Full lifecycle management of open positions — from requisition creation through active posting, pipeline management, and closure.</p>
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-start gap-3"><i class="fas fa-file-signature text-[#148F77] mt-1"></i><div><strong class="text-white">Job Requisition</strong><p class="text-sm text-gray-400">Title, department, location, vacancies, experience, education, salary range, status tracking</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-bullhorn text-[#635091] mt-1"></i><div><strong class="text-white">Job Posting</strong><p class="text-sm text-gray-400">Publish with open/close dates, assign recruiter, link to client/company, custom candidate forms</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-project-diagram text-[#148F77] mt-1"></i><div><strong class="text-white">Hiring Pipeline</strong><p class="text-sm text-gray-400">Configurable stages: Applied → Shortlisted → Phone Screen → Interview → Technical Test → Offer → Selected</p></div></div>
+                    </div>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/recruitment-3.webp" alt="Job Postings" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/recruitment-3.webp'; showLightbox = true" />
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 4. APPLICATIONS -->
+        <!-- ============================================================ -->
+        <section id="module-applications" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/recruitment-4.webp" alt="Applications" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/recruitment-4.webp'; showLightbox = true" />
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Module 04</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Applications <span class="accent-gradient">Tracking</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Every candidate-to-job linkage tracked with source, pipeline stage, and historical status changes with recruiter remarks.</p>
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-start gap-3"><i class="fas fa-user-plus text-[#148F77] mt-1"></i><div><strong class="text-white">Apply Candidate to Job</strong><p class="text-sm text-gray-400">Link existing candidate to open job, record source (LinkedIn, Indeed, Manual, Referral), set initial stage</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-history text-[#635091] mt-1"></i><div><strong class="text-white">Application Tracking</strong><p class="text-sm text-gray-400">View all applications per job, update status with remarks, audit trail of all transitions</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-tasks text-[#148F77] mt-1"></i><div><strong class="text-white">Position Status Tracking</strong><p class="text-sm text-gray-400">Active / On Hold / Rejected / Withdrawn / Offered / Joined — with bulk status updates</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 5. CANDIDATE SELECTION -->
+        <!-- ============================================================ -->
+        <section id="module-selection" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 scroll-mt-24">
+            <div class="text-center mb-12">
+                <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Module 05</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Candidate <span class="accent-gradient">Selection</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Structured workflows for shortlisting, evaluating, and finalising candidates — with multi-stage selection, interview scheduling, and offer tracking.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 text-center">
+                    <div class="text-4xl mb-3 text-[#148F77]"><i class="fas fa-user-check"></i></div>
+                    <h4 class="font-bold text-white">Shortlisting</h4>
+                    <ul class="text-sm text-gray-400 mt-2 text-left space-y-1 list-disc list-inside">
+                        <li>Review applications &amp; move to Shortlisted</li>
+                        <li>Side-by-side candidate comparison</li>
+                        <li>Batch shortlisting with bulk actions</li>
+                        <li>Automated email notifications</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-6 text-center">
+                    <div class="text-4xl mb-3 text-[#635091]"><i class="fas fa-calendar-check"></i></div>
+                    <h4 class="font-bold text-white">Interview Management</h4>
+                    <ul class="text-sm text-gray-400 mt-2 text-left space-y-1 list-disc list-inside">
+                        <li>Schedule with date, time, interviewer, location/link</li>
+                        <li>Multi-round tracking (HR Screen, Technical, Final)</li>
+                        <li>Feedback capture with rating &amp; recommendation</li>
+                        <li>Interview history per candidate per job</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-6 text-center">
+                    <div class="text-4xl mb-3 text-[#148F77]"><i class="fas fa-handshake"></i></div>
+                    <h4 class="font-bold text-white">Offer Management</h4>
+                    <ul class="text-sm text-gray-400 mt-2 text-left space-y-1 list-disc list-inside">
+                        <li>Generate offer: salary, joining date, designation</li>
+                        <li>Approval workflow with configurable approvers</li>
+                        <li>Status: Pending, Accepted, Declined, Negotiating</li>
+                        <li>Link to onboarding / HRMS handoff</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="glass-panel p-4 mt-6 overflow-hidden">
+                <img src="../assets/images/products/recruitment-5.webp" alt="Candidate Selection" class="rounded-xl w-full shadow-2xl cursor-zoom-in" @click="lightboxImg = '../assets/images/products/recruitment-5.webp'; showLightbox = true" />
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 6. AI RESUME PARSING -->
+        <!-- ============================================================ -->
+        <section id="module-ai-parsing" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Module 06</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">AI <span class="accent-gradient">Resume Parsing</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Multi-model pipeline that automatically extracts structured information from uploaded resumes — PDF, Word, and scanned documents via OCR.</p>
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-start gap-3"><i class="fas fa-file-upload text-[#148F77] mt-1"></i><div><strong class="text-white">Document Ingestion</strong><p class="text-sm text-gray-400">PDF (PdfPig), Word (Syncfusion DocIO), scanned docs via Tesseract OCR v5.2.0</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fab fa-google text-[#635091] mt-1"></i><div><strong class="text-white">Gemini AI Parsing (Primary)</strong><p class="text-sm text-gray-400">LLM prompt-engineered to extract name, contact, experience, education, skills, languages, salary</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-server text-[#148F77] mt-1"></i><div><strong class="text-white">Ollama Parsing (Fallback)</strong><p class="text-sm text-gray-400">Local LLM for offline / privacy-sensitive deployments — Llama, Mistral, etc.</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-magic text-[#635091] mt-1"></i><div><strong class="text-white">Profile Auto-Population</strong><p class="text-sm text-gray-400">Parsed data fills candidate fields with recruiter review step, confidence indicators, and audit log</p></div></div>
+                    </div>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/recruitment-6.webp" alt="AI Resume Parsing" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/recruitment-6.webp'; showLightbox = true" />
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 7. AI JOB-CANDIDATE MATCHING -->
+        <!-- ============================================================ -->
+        <section id="module-matching" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/recruitment-7.webp" alt="AI Job Matching" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/recruitment-7.webp'; showLightbox = true" />
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Module 07</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">AI Job-Candidate <span class="accent-gradient">Matching</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Microsoft ML.NET model scores candidate suitability against open requisitions — processed asynchronously via a background worker.</p>
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-start gap-3"><i class="fas fa-queue text-[#148F77] mt-1"></i><div><strong class="text-white">Matching Queue</strong><p class="text-sm text-gray-400">New/updated candidates enqueued, processed async with throttling and retry</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-brain text-[#635091] mt-1"></i><div><strong class="text-white">ML Scoring Engine</strong><p class="text-sm text-gray-400">Features: skill overlap, experience match, education alignment, career level, location → score 0–100</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-chart-bar text-[#148F77] mt-1"></i><div><strong class="text-white">Match Results &amp; Recommendations</strong><p class="text-sm text-gray-400">Ranked candidates per job, filter by threshold, one-click apply from recommendation list</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 8. CANDIDATE ENRICHMENT (Apollo.io) -->
+        <!-- ============================================================ -->
+        <section id="module-enrichment" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 scroll-mt-24">
+            <div class="text-center mb-12">
+                <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Module 08</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Candidate <span class="accent-gradient">Enrichment</span> <span class="text-sm font-mono text-[#148F77] bg-white/5 px-3 py-1 rounded-full border border-white/10">Apollo.io</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Automatically supplement candidate profiles with verified professional data — employment history, seniority, company details, and contact information.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 text-center">
+                    <div class="text-4xl mb-3 text-[#148F77]"><i class="fas fa-search"></i></div>
+                    <h4 class="font-bold text-white">Apollo People Search</h4>
+                    <ul class="text-sm text-gray-400 mt-2 text-left space-y-1 list-disc list-inside">
+                        <li>Search by name, email, or LinkedIn URL</li>
+                        <li>Verified: employer, title, location, seniority</li>
+                        <li>Company data: industry, size, website</li>
+                        <li>Contact: verified email &amp; phone</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-6 text-center">
+                    <div class="text-4xl mb-3 text-[#635091]"><i class="fas fa-cogs"></i></div>
+                    <h4 class="font-bold text-white">Enrichment Background Worker</h4>
+                    <ul class="text-sm text-gray-400 mt-2 text-left space-y-1 list-disc list-inside">
+                        <li>Automatic trigger for new candidates</li>
+                        <li>Async processing via background worker</li>
+                        <li>Rate-limit aware (Apollo API quotas)</li>
+                        <li>Enrichment log for audit</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-6 text-center">
+                    <div class="text-4xl mb-3 text-[#148F77]"><i class="fas fa-code-branch"></i></div>
+                    <h4 class="font-bold text-white">Profile Merge</h4>
+                    <ul class="text-sm text-gray-400 mt-2 text-left space-y-1 list-disc list-inside">
+                        <li>Enriched data merged into existing profile</li>
+                        <li>Conflict detection (non-empty fields not overwritten)</li>
+                        <li>Recruiter review step for conflicting data</li>
+                        <li>Source tagged on each field for traceability</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="glass-panel p-4 mt-6 overflow-hidden">
+                <img src="../assets/images/products/recruitment-8.webp" alt="Candidate Enrichment" class="rounded-xl w-full shadow-2xl cursor-zoom-in" @click="lightboxImg = '../assets/images/products/recruitment-8.webp'; showLightbox = true" />
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 9. PROFILE SYNC -- CHROME EXTENSION -->
+        <!-- ============================================================ -->
+        <section id="module-extension" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Module 09</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Profile Sync <span class="accent-gradient">Chrome Extension</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Manifest v3 extension that captures candidate profiles directly from LinkedIn, Indeed, and GitHub — and syncs them instantly into AXON RMS.</p>
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-start gap-3"><i class="fab fa-linkedin text-[#148F77] mt-1"></i><div><strong class="text-white">LinkedIn Profile Scraper</strong><p class="text-sm text-gray-400">Auto-detects profile pages, extracts name, headline, location, experience, education, skills — one-click sync</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fab fa-indeed text-[#635091] mt-1"></i><div><strong class="text-white">Indeed Profile Scraper</strong><p class="text-sm text-gray-400">Captures CV/resume pages — work history, education, skills, contact details</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fab fa-github text-[#148F77] mt-1"></i><div><strong class="text-white">GitHub Profile Sync</strong><p class="text-sm text-gray-400">Captures developer profile: name, bio, location, repositories, skills — ideal for technical roles</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-plug text-[#635091] mt-1"></i><div><strong class="text-white">ATS Bridge (ats_bridge.js)</strong><p class="text-sm text-gray-400">Injects session credentials, enables authenticated API calls, supports multiple environments</p></div></div>
+                    </div>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/recruitment-9.webp" alt="Chrome Extension" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/recruitment-9.webp'; showLightbox = true" />
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 10. SMART SEARCH -->
+        <!-- ============================================================ -->
+        <section id="module-search" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/recruitment-10.webp" alt="Smart Search" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/recruitment-10.webp'; showLightbox = true" />
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Module 10</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Smart <span class="accent-gradient">Search</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Advanced candidate discovery combining full-text search, structured attribute filtering, and AI match scoring.</p>
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-start gap-3"><i class="fas fa-search text-[#148F77] mt-1"></i><div><strong class="text-white">Full-Text Search</strong><p class="text-sm text-gray-400">Lucene.Net powered — names, resume text, skills, job titles, companies, Boolean operators</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-sliders-h text-[#635091] mt-1"></i><div><strong class="text-white">Structured Attribute Filters</strong><p class="text-sm text-gray-400">Skill, experience, education, career level, location, functional area, salary range, availability</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-star text-[#148F77] mt-1"></i><div><strong class="text-white">Search Results Management</strong><p class="text-sm text-gray-400">Paginated cards, sort by relevance/experience/name, shortlist directly, export to Excel, save queries</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 11. SETUP -->
+        <!-- ============================================================ -->
+        <section id="module-setup" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 scroll-mt-24">
+            <div class="text-center mb-12">
+                <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Module 11</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Setup — <span class="accent-gradient">Master Data Hub</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Foundational reference data that drives dropdowns, filters, and matching across the system.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="glass-panel p-4"><i class="fas fa-building text-[#148F77] mr-2"></i><span class="text-sm font-medium text-white">Company &amp; Client</span><p class="text-xs text-gray-400 mt-1">Multi-tenant profiles, legal/contact/billing details</p></div>
+                <div class="glass-panel p-4"><i class="fas fa-sitemap text-[#635091] mr-2"></i><span class="text-sm font-medium text-white">Organisation Structure</span><p class="text-xs text-gray-400 mt-1">Department, designation, functional area, career level</p></div>
+                <div class="glass-panel p-4"><i class="fas fa-tools text-[#148F77] mr-2"></i><span class="text-sm font-medium text-white">Skills &amp; Languages</span><p class="text-xs text-gray-400 mt-1">Managed taxonomy, proficiency levels, language master</p></div>
+                <div class="glass-panel p-4"><i class="fas fa-university text-[#635091] mr-2"></i><span class="text-sm font-medium text-white">Education Reference</span><p class="text-xs text-gray-400 mt-1">Degree types, institutions, subjects/majors</p></div>
+                <div class="glass-panel p-4"><i class="fas fa-globe text-[#148F77] mr-2"></i><span class="text-sm font-medium text-white">Geography</span><p class="text-xs text-gray-400 mt-1">Country, province/state, city master lists</p></div>
+                <div class="glass-panel p-4"><i class="fas fa-file-alt text-[#635091] mr-2"></i><span class="text-sm font-medium text-white">Candidate Form Templates</span><p class="text-xs text-gray-400 mt-1">Custom forms per job posting, undertaking templates</p></div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 12. SECURITY -->
+        <!-- ============================================================ -->
+        <section id="module-security" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Module 12</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Security &amp; <span class="accent-gradient">Access Control</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Fine-grained control over who can see or perform actions on each area of the application.</p>
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-start gap-3"><i class="fas fa-users text-[#148F77] mt-1"></i><div><strong class="text-white">Users</strong><p class="text-sm text-gray-400">Local auth + Google/Facebook OAuth, active/inactive status, password reset, account lock</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-user-tag text-[#635091] mt-1"></i><div><strong class="text-white">Roles</strong><p class="text-sm text-gray-400">Super Admin, Recruiter, Hiring Manager, Viewer — bundle permissions, company-scoped</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-lock text-[#148F77] mt-1"></i><div><strong class="text-white">Permissions</strong><p class="text-sm text-gray-400">Page-level: Read, Write, Edit, Delete, Approve — per module and sub-module</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-clipboard-list text-[#635091] mt-1"></i><div><strong class="text-white">Session &amp; Audit</strong><p class="text-sm text-gray-400">Token expiry, login history, last-access tracking, trigger-based error logging</p></div></div>
+                    </div>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/recruitment-11.webp" alt="Security" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/recruitment-11.webp'; showLightbox = true" />
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 13. BILLING -->
+        <!-- ============================================================ -->
+        <section id="module-billing" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="glass-panel p-3">
+                        <img src="../assets/images/products/recruitment-12.webp" alt="Billing" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/recruitment-12.webp'; showLightbox = true" />
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Module 13</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Billing <span class="accent-gradient">&amp; Invoicing</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">Manage invoicing for recruitment services rendered to clients — invoice generation, line-item detail, and payment tracking.</p>
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-start gap-3"><i class="fas fa-file-invoice text-[#148F77] mt-1"></i><div><strong class="text-white">Invoice Management</strong><p class="text-sm text-gray-400">Create invoices linked to client and engagement, auto-generated numbers, line-item detail, status tracking (Draft/Sent/Paid/Overdue)</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-file-invoice-dollar text-[#635091] mt-1"></i><div><strong class="text-white">Invoice Reports</strong><p class="text-sm text-gray-400">Summary by client/period/status, revenue by recruiter, outstanding aging, export to PDF</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 14. REPORTS -->
+        <!-- ============================================================ -->
+        <section id="module-reports" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 scroll-mt-24">
+            <div class="text-center mb-12">
+                <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Module 14</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">Reports &amp; <span class="accent-gradient">Analytics</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mx-auto mt-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Pre-built operational and analytical reports covering the full recruitment pipeline, candidate metrics, job performance, and AI activity.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="glass-panel p-5"><i class="fas fa-users text-[#148F77] text-2xl"></i><h4 class="font-bold text-white mt-2">Candidate Reports</h4><ul class="text-xs text-gray-400 mt-1 space-y-0.5 list-disc list-inside"><li>Candidate Register</li><li>By Source / By Status</li><li>Skill Coverage Report</li></ul></div>
+                <div class="glass-panel p-5"><i class="fas fa-briefcase text-[#635091] text-2xl"></i><h4 class="font-bold text-white mt-2">Job &amp; Requisition Reports</h4><ul class="text-xs text-gray-400 mt-1 space-y-0.5 list-disc list-inside"><li>Open Requisitions</li><li>Time-to-Fill</li><li>Requisition Status Summary</li><li>Recruiter Performance</li></ul></div>
+                <div class="glass-panel p-5"><i class="fas fa-robot text-[#148F77] text-2xl"></i><h4 class="font-bold text-white mt-2">AI &amp; Matching Reports</h4><ul class="text-xs text-gray-400 mt-1 space-y-0.5 list-disc list-inside"><li>Match Score Distribution</li><li>AI Parsing Activity Log</li><li>Enrichment Coverage</li><li>ML Model Accuracy</li></ul></div>
+                <div class="glass-panel p-5"><i class="fas fa-chart-pie text-[#635091] text-2xl"></i><h4 class="font-bold text-white mt-2">Dashboard Analytics</h4><ul class="text-xs text-gray-400 mt-1 space-y-0.5 list-disc list-inside"><li>Candidate counts by status</li><li>Monthly application volume</li><li>Hired vs. Rejected ratio</li><li>User activity report</li></ul></div>
+            </div>
+            <div class="glass-panel p-4 mt-6 overflow-hidden">
+                <img src="../assets/images/products/recruitment-13.webp" alt="Reports" class="rounded-xl w-full shadow-2xl cursor-zoom-in" @click="lightboxImg = '../assets/images/products/recruitment-13.webp'; showLightbox = true" />
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 15. SETTINGS & CONFIGURATION -->
+        <!-- ============================================================ -->
+        <section id="module-settings" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Module 15</span>
+                    <h2 class="text-4xl font-bold tracking-tighter mt-2">Settings &amp; <span class="accent-gradient">Configuration</span></h2>
+                    <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mt-4 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">System-level and application-level configuration that governs AXON RMS behaviour, integrations, notifications, and menu structure.</p>
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-start gap-3"><i class="fas fa-sliders-h text-[#148F77] mt-1"></i><div><strong class="text-white">General Settings</strong><p class="text-sm text-gray-400">Currency, date format, pagination, AI service keys (Gemini/Ollama), Apollo API, resume storage</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-envelope text-[#635091] mt-1"></i><div><strong class="text-white">Email Notifications</strong><p class="text-sm text-gray-400">SMTP config, template management, per-event toggles, BCC/CC routing</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-bars text-[#148F77] mt-1"></i><div><strong class="text-white">Menu Configuration</strong><p class="text-sm text-gray-400">Dynamic menu builder, show/hide modules per role, ordering and grouping</p></div></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-terminal text-[#635091] mt-1"></i><div><strong class="text-white">System Logs &amp; Monitoring</strong><p class="text-sm text-gray-400">Log4Net integration, error log viewer, matching queue monitor, AI parsing error log</p></div></div>
+                    </div>
+                </div>
+                <div class="glass-panel p-3">
+                    <img src="../assets/images/products/recruitment-14.webp" alt="Settings" class="rounded-xl w-full cursor-zoom-in" @click="lightboxImg = '../assets/images/products/recruitment-14.webp'; showLightbox = true" />
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CTA / DEMO REQUEST -->
+        <!-- ============================================================ -->
+        <section class="max-w-7xl mx-auto px-6 py-20 border-t border-white/5">
+            <div class="glass-panel p-12 text-center max-w-3xl mx-auto">
+                <span class="text-[#148F77] font-mono text-xs tracking-[0.3em] uppercase">Ready to Transform Recruitment?</span>
+                <h2 class="text-4xl font-bold tracking-tighter mt-2">See AXON RMS <span class="accent-gradient">in Action</span></h2>
+                <div class="w-12 h-1 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] mx-auto mt-4 mb-6"></div>
+                <p class="text-gray-400 max-w-xl mx-auto">Book a live demo and discover how AI-driven recruitment can streamline your hiring process.</p>
+                <button class="mt-8 px-8 py-3 rounded-full bg-gradient-to-r from-[#148F77] to-[#635091] text-white font-semibold hover:shadow-lg hover:shadow-[#148F77]/20 transition-all" @click="window.dispatchEvent(new CustomEvent('open-demo-modal', { detail: { productName: 'Axon Recruitment AI' } }))">
+                    <i class="fas fa-play-circle mr-2"></i>Request a Demo
+                </button>
+            </div>
+        </section>
+
     </main>
 
     <div id="shared-footer-and-modals"></div>
 
+    <!-- ===== LIGHTBOX ===== -->
+    <div x-show="showLightbox" x-cloak class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4" x-transition.opacity @click.away="showLightbox = false" @keydown.escape="showLightbox = false">
+        <div class="relative max-w-5xl w-full">
+            <button class="absolute -top-12 right-0 text-white/80 hover:text-white text-3xl" @click="showLightbox = false">&times;</button>
+            <img :src="lightboxImg" alt="Lightbox" class="rounded-2xl w-full shadow-2xl" />
+        </div>
+    </div>
+
+    <script>
+        // Listen for demo modal open events
+        document.addEventListener('open-demo-modal', function(e) {
+            if (window.dispatchEvent) {
+                window.dispatchEvent(new CustomEvent('open-demo-modal', {
+                    detail: { productName: e.detail.productName || 'Axon Recruitment AI' }
+                }));
+            }
+        });
+    </script>
+
     <script src="../assets/js/products-data.js"></script>
     <script src="../assets/js/product-layout.js"></script>
     <script src="../assets/js/demo-modal.js"></script>
+
 </body>
 </html>

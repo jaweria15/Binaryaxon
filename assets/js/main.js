@@ -1,18 +1,8 @@
-// --- Add these variables at the top of your orbital IIFE ---
+// ─── Variables (global scope) ───────────────────────────────────────────────
 var cachedRadius = 210;
 var cx = 0, cy = 0;
 
-function updateCachedGeometry() {
-    cachedRadius = viewport.offsetWidth < 400 ? 140 : 210;
-    if (activeNodeId) cachedRadius += 25;
-    
-    cx = viewport.offsetWidth / 2;
-    cy = viewport.offsetHeight / 2;
-}
-
-// Call once on init, and on every resize
-window.addEventListener('resize', updateCachedGeometry);
-
+// ─── SCROLL HEADER ────────────────────────────────────────────────────────────
 window.addEventListener('scroll', function () {
     const header = document.getElementById('header');
     const heroLogo = document.getElementById('heroLogo');
@@ -27,6 +17,7 @@ window.addEventListener('scroll', function () {
     }
 });
 
+// ─── HAMBURGER MENU ──────────────────────────────────────────────────────────
 (function () {
     var hamburger = document.getElementById('navHamburger');
     var navLinks = document.getElementById('navLinks');
@@ -44,10 +35,12 @@ window.addEventListener('scroll', function () {
         });
     });
 })();
-const section = document.getElementById('stackSection');
+
+// ─── STACK CARDS (renamed to stackSection) ──────────────────────────────────
+const stackSection = document.getElementById('stackSection');
 const cards = document.querySelectorAll('.stack-card');
 
-if (section && cards.length > 0) {
+if (stackSection && cards.length > 0) {
     const bgColors = [
         "linear-gradient(135deg,#33395D,#1c1f33)",
         "linear-gradient(135deg,#7052A5,#3c2c75)",
@@ -78,33 +71,29 @@ if (section && cards.length > 0) {
             }
         }
 
-        section.style.background = bgColors[current];
+        stackSection.style.background = bgColors[current];
         current = (current + 1) % total;
     }
 
     setInterval(rotateCards, 3000);
 }
 
+// ─── SERVICE DETAILS ─────────────────────────────────────────────────────────
 function showDetail(serviceId, element) {
-    // 1. Remove active class from all cards
     document.querySelectorAll('.service-selector-card').forEach(card => {
         card.classList.remove('active');
     });
 
-    // 2. Add active class to clicked card
     element.classList.add('active');
 
-    // 3. Hide all content sections
     document.querySelectorAll('.detail-content').forEach(content => {
         content.classList.remove('active');
     });
 
-    // 4. Show the specific content
     const activeContent = document.getElementById('content-' + serviceId);
     if (activeContent) {
         activeContent.classList.add('active');
     }
-
 }
 
 function scrollToContact() {
@@ -113,12 +102,14 @@ function scrollToContact() {
     });
 }
 
-
-
-
-
-/* ========== RADIAL ORBITAL TIMELINE ========== */
+// ════════════════════════════════════════════════════════════════════════════
+//  RADIAL ORBITAL TIMELINE – GUARDED AGAINST MISSING ELEMENTS
+// ════════════════════════════════════════════════════════════════════════════
 (function () {
+    // ─── GUARD: Only run if the orbital viewport exists ──────────────────────
+    var viewport = document.getElementById("orbitalViewport");
+    if (!viewport) return;
+
     var products = [
         {
             id: 1, title: "School Management", date: "2024",
@@ -163,7 +154,6 @@ function scrollToContact() {
     var activeNodeId = null;
 
     var sectionEl = document.querySelector(".orbital-section");
-    var viewport = document.getElementById("orbitalViewport");
     var nodesEl = document.getElementById("orbitalNodes");
     var svgEl = document.getElementById("orbitalSvg");
     var detailCard = document.getElementById("orbitalDetailCard");
@@ -171,21 +161,30 @@ function scrollToContact() {
     var dynamicBg = document.getElementById("orbitalDynamicBg");
 
     var clearBgTimeout = null;
-    updateCachedGeometry(); // Initialize immediately
 
+    function updateCachedGeometry() {
+        cachedRadius = viewport.offsetWidth < 400 ? 140 : 210;
+        if (activeNodeId) cachedRadius += 25;
 
-    if (!viewport) return;
+        cx = viewport.offsetWidth / 2;
+        cy = viewport.offsetHeight / 2;
+    }
+
+    updateCachedGeometry();
+
+    window.addEventListener('resize', function () {
+        updateCachedGeometry();
+        positionNodes();
+    });
 
     function getRadius() {
-    return cachedRadius; // Now returns a cached number, no layout read!
-}
+        return cachedRadius;
+    }
 
-    /* --- Dynamic Background: gradient + icons (stay until card change or close) --- */
     function setDynamicBackground(product) {
         if (clearBgTimeout) { clearTimeout(clearBgTimeout); clearBgTimeout = null; }
         if (!dynamicBg) return;
 
-        /* Remove old icons immediately so we don't get wiped by a previous timeout */
         dynamicBg.innerHTML = "";
         dynamicBg.className = "orbital-dynamic-bg";
         if (sectionEl) sectionEl.removeAttribute("data-bg-gradient");
@@ -266,73 +265,70 @@ function scrollToContact() {
     }
 
     function positionNodes() {
-    var total = products.length;
-    var nodes = nodesEl.querySelectorAll(".orbital-node");
-    
-    // 1. READ PHASE: Calculate all transforms without writing to DOM
-    var transforms = [];
-    var zIndices = [];
-    var opacities = [];
-    var activeId = activeNodeId; // Cache the current active ID
+        var total = products.length;
+        var nodes = nodesEl.querySelectorAll(".orbital-node");
 
-    nodes.forEach(function (node, i) {
-        var angle = ((i / total) * 360 + rotationAngle) % 360;
-        var rad = (angle * Math.PI) / 180;
-        var x = cachedRadius * Math.cos(rad);
-        var y = cachedRadius * Math.sin(rad);
-        var zIdx = Math.round(100 + 50 * Math.cos(rad));
-        var isActive = parseInt(node.dataset.id) === activeId;
-        var op = isActive ? 1 : Math.max(0.4, 0.4 + 0.6 * ((1 + Math.sin(rad)) / 2));
-        
-        transforms.push({ x: x, y: y });
-        zIndices.push(zIdx);
-        opacities.push(op);
-    });
+        var transforms = [];
+        var zIndices = [];
+        var opacities = [];
+        var activeId = activeNodeId;
 
-    // 2. WRITE PHASE: Apply all styles at once
-    nodes.forEach(function (node, i) {
-        node.style.transform = "translate(" + transforms[i].x + "px," + transforms[i].y + "px)";
-        node.style.zIndex = node.classList.contains("active") ? 200 : zIndices[i];
-        node.style.opacity = opacities[i];
-    });
+        nodes.forEach(function (node, i) {
+            var angle = ((i / total) * 360 + rotationAngle) % 360;
+            var rad = (angle * Math.PI) / 180;
+            var x = cachedRadius * Math.cos(rad);
+            var y = cachedRadius * Math.sin(rad);
+            var zIdx = Math.round(100 + 50 * Math.cos(rad));
+            var isActive = parseInt(node.dataset.id) === activeId;
+            var op = isActive ? 1 : Math.max(0.4, 0.4 + 0.6 * ((1 + Math.sin(rad)) / 2));
 
-    drawConnections();
-}
+            transforms.push({ x: x, y: y });
+            zIndices.push(zIdx);
+            opacities.push(op);
+        });
+
+        nodes.forEach(function (node, i) {
+            node.style.transform = "translate(" + transforms[i].x + "px," + transforms[i].y + "px)";
+            node.style.zIndex = node.classList.contains("active") ? 200 : zIndices[i];
+            node.style.opacity = opacities[i];
+        });
+
+        drawConnections();
+    }
 
     function drawConnections() {
-    while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
-    if (!activeNodeId) return;
+        while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
+        if (!activeNodeId) return;
 
-    var prod = products.find(function (p) { return p.id === activeNodeId; });
-    if (!prod) return;
+        var prod = products.find(function (p) { return p.id === activeNodeId; });
+        if (!prod) return;
 
-    var total = products.length;
-    var radius = cachedRadius;
+        var total = products.length;
+        var radius = cachedRadius;
 
-    // Use cached cx and cy instead of reading offsetWidth/offsetHeight
-    var ai = products.findIndex(function (p) { return p.id === activeNodeId; });
-    var aAng = ((ai / total) * 360 + rotationAngle) % 360;
-    var aRad = (aAng * Math.PI) / 180;
-    var ax = cx + radius * Math.cos(aRad);
-    var ay = cy + radius * Math.sin(aRad);
+        var ai = products.findIndex(function (p) { return p.id === activeNodeId; });
+        var aAng = ((ai / total) * 360 + rotationAngle) % 360;
+        var aRad = (aAng * Math.PI) / 180;
+        var ax = cx + radius * Math.cos(aRad);
+        var ay = cy + radius * Math.sin(aRad);
 
-    prod.relatedIds.forEach(function (rid) {
-        var ri = products.findIndex(function (p) { return p.id === rid; });
-        if (ri === -1) return;
-        var rAng = ((ri / total) * 360 + rotationAngle) % 360;
-        var rRad = (rAng * Math.PI) / 180;
-        var rx = cx + radius * Math.cos(rRad);
-        var ry = cy + radius * Math.sin(rRad);
+        prod.relatedIds.forEach(function (rid) {
+            var ri = products.findIndex(function (p) { return p.id === rid; });
+            if (ri === -1) return;
+            var rAng = ((ri / total) * 360 + rotationAngle) % 360;
+            var rRad = (rAng * Math.PI) / 180;
+            var rx = cx + radius * Math.cos(rRad);
+            var ry = cy + radius * Math.sin(rRad);
 
-        var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-        line.setAttribute("x1", ax);
-        line.setAttribute("y1", ay);
-        line.setAttribute("x2", rx);
-        line.setAttribute("y2", ry);
-        line.classList.add("orbital-conn-line");
-        svgEl.appendChild(line);
-    });
-}
+            var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            line.setAttribute("x1", ax);
+            line.setAttribute("y1", ay);
+            line.setAttribute("x2", rx);
+            line.setAttribute("y2", ry);
+            line.classList.add("orbital-conn-line");
+            svgEl.appendChild(line);
+        });
+    }
 
     function toggleNode(id) {
         var nodes = nodesEl.querySelectorAll(".orbital-node");
@@ -347,6 +343,8 @@ function scrollToContact() {
             sectionEl.classList.remove("orbit-expanded");
             clearDynamicBackground();
             hintEl.innerHTML = '<i class="fas fa-hand-pointer"></i> Click a node to explore';
+            updateCachedGeometry();
+            positionNodes();
             return;
         }
 
@@ -369,6 +367,7 @@ function scrollToContact() {
         setDynamicBackground(prod);
         showDetail(prod);
         hintEl.innerHTML = '<i class="fas fa-times-circle"></i> Click empty space to close';
+        updateCachedGeometry();
         positionNodes();
     }
 
@@ -436,215 +435,39 @@ function scrollToContact() {
 
     buildNodes();
     animate();
-
-    window.addEventListener("resize", positionNodes);
+    setTimeout(positionNodes, 50);
 })();
-// Legacy productApp removed
 
-
-// Add this to main.js to make the 'About Us' section animate
+// ─── GSAP ABOUT US ──────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-    gsap.registerPlugin(ScrollTrigger);
+    if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
 
-    gsap.to(".reveal-card", {
-        scrollTrigger: {
-            trigger: "#Aboutus",
-            start: "top 80%",
-        },
-        opacity: 1,
-        y: 0,
-        stagger: 0.2,
-        duration: 1,
-        ease: "power2.out"
-    });
+        gsap.to(".reveal-card", {
+            scrollTrigger: {
+                trigger: "#Aboutus",
+                start: "top 80%",
+            },
+            opacity: 1,
+            y: 0,
+            stagger: 0.2,
+            duration: 1,
+            ease: "power2.out"
+        });
 
-    gsap.to(["#about-sub", "#about-title", "#about-line"], {
-        scrollTrigger: {
-            trigger: "#Aboutus",
-            start: "top 80%",
-        },
-        opacity: 1,
-        duration: 1,
-        stagger: 0.1
-    });
+        gsap.to(["#about-sub", "#about-title", "#about-line"], {
+            scrollTrigger: {
+                trigger: "#Aboutus",
+                start: "top 80%",
+            },
+            opacity: 1,
+            duration: 1,
+            stagger: 0.1
+        });
+    }
 });
 
-
-
-// Add this to your main.js or index.html
-
-
-
-// Replace your existing initTechScene function with this:
-// const initSoftwareBackground = () => {
-//     const container = document.getElementById('tech-canvas-container');
-//     const scene = new THREE.Scene();
-//     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-//     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-
-//     renderer.setSize(window.innerWidth, window.innerHeight);
-//     renderer.setClearColor(0x050505, 1); // Solid dark background
-//     container.appendChild(renderer.domElement);
-
-//     // --- SOFTWARE COMPANY VISUALS ---
-
-//     // 1. Floating Code Particles (Binary/Matrix Style)
-//     const particleCount = 2000;
-//     const particlesGeo = new THREE.BufferGeometry();
-//     const particlesPos = new Float32Array(particleCount * 3);
-
-//     for (let i = 0; i < particleCount; i++) {
-//         particlesPos[i*3] = (Math.random() - 0.5) * 30;
-//         particlesPos[i*3+1] = (Math.random() - 0.5) * 20;
-//         particlesPos[i*3+2] = (Math.random() - 0.5) * 30 - 10;
-//     }
-
-//     particlesGeo.setAttribute('position', new THREE.BufferAttribute(particlesPos, 3));
-
-//     // Create two types of particles
-//     const binaryParticles = new THREE.Points(
-//         particlesGeo,
-//         new THREE.PointsMaterial({ 
-//             color: 0x635091, 
-//             size: 0.1,
-//             transparent: true,
-//             opacity: 0.6
-//         })
-//     );
-//     scene.add(binaryParticles);
-
-//     // 2. Floating Code Snippets (using small cubes to represent code blocks)
-//     const codeBlocksGeo = new THREE.BoxGeometry(0.3, 0.1, 0.2);
-//     const codeMaterial = new THREE.MeshStandardMaterial({ color: 0xFFC132, emissive: 0x221100 });
-
-//     for (let i = 0; i < 50; i++) {
-//         const block = new THREE.Mesh(codeBlocksGeo, codeMaterial);
-//         block.position.set(
-//             (Math.random() - 0.5) * 25,
-//             (Math.random() - 0.5) * 15,
-//             (Math.random() - 0.5) * 25 - 5
-//         );
-//         block.rotation.x = Math.random() * Math.PI;
-//         block.rotation.y = Math.random() * Math.PI;
-//         scene.add(block);
-//     }
-
-//     // 3. Central "Axon" Structure - Neural Network Style
-//     const axonGroup = new THREE.Group();
-
-//     // Central sphere (the "brain")
-//     const coreGeo = new THREE.IcosahedronGeometry(1.2, 2);
-//     const coreMat = new THREE.MeshPhongMaterial({
-//         color: 0x635091,
-//         emissive: 0x221144,
-//         wireframe: true,
-//         transparent: true,
-//         opacity: 0.9
-//     });
-//     const core = new THREE.Mesh(coreGeo, coreMat);
-//     axonGroup.add(core);
-
-//     // Connection lines (neural network style)
-//     const connections = [];
-//     for (let i = 0; i < 8; i++) {
-//         const points = [];
-//         points.push(new THREE.Vector3(0, 0, 0));
-//         points.push(new THREE.Vector3(
-//             (Math.random() - 0.5) * 5,
-//             (Math.random() - 0.5) * 5,
-//             (Math.random() - 0.5) * 5
-//         ));
-
-//         const lineGeo = new THREE.BufferGeometry().setFromPoints(points);
-//         const lineMat = new THREE.LineBasicMaterial({ color: 0x635091, transparent: true, opacity: 0.3 });
-//         const line = new THREE.Line(lineGeo, lineMat);
-//         axonGroup.add(line);
-//         connections.push(line);
-//     }
-
-//     // Floating binary digits (0s and 1s as text sprites)
-//     const canvas = document.createElement('canvas');
-//     canvas.width = 64;
-//     canvas.height = 64;
-//     const ctx = canvas.getContext('2d');
-//     ctx.fillStyle = '#FFC132';
-//     ctx.font = 'Bold 40px "Fira Code"';
-//     ctx.textAlign = 'center';
-//     ctx.textBaseline = 'middle';
-
-//     const textures = ['0', '1', '</>', '{ }', '()', '[]'];
-//     for (let i = 0; i < 30; i++) {
-//         ctx.clearRect(0, 0, 64, 64);
-//         ctx.fillStyle = i % 2 === 0 ? '#635091' : '#FFC132';
-//         ctx.fillText(textures[i % textures.length], 32, 32);
-
-//         const texture = new THREE.CanvasTexture(canvas);
-//         const material = new THREE.SpriteMaterial({ map: texture, transparent: true });
-//         const sprite = new THREE.Sprite(material);
-
-//         sprite.position.set(
-//             (Math.random() - 0.5) * 15,
-//             (Math.random() - 0.5) * 10,
-//             (Math.random() - 0.5) * 15 - 5
-//         );
-//         sprite.scale.set(0.5, 0.5, 0.5);
-//         scene.add(sprite);
-//     }
-
-//     scene.add(axonGroup);
-
-//     // 4. Grid floor (tech foundation)
-//     const gridHelper = new THREE.GridHelper(40, 40, 0x635091, 0x333333);
-//     gridHelper.position.y = -3;
-//     gridHelper.position.z = -5;
-//     scene.add(gridHelper);
-
-//     // Lighting
-//     const light1 = new THREE.PointLight(0x635091, 1, 30);
-//     light1.position.set(2, 3, 4);
-//     scene.add(light1);
-
-//     const light2 = new THREE.PointLight(0xFFC132, 0.5, 30);
-//     light2.position.set(-2, -1, 3);
-//     scene.add(light2);
-
-//     const ambientLight = new THREE.AmbientLight(0x404040);
-//     scene.add(ambientLight);
-
-//     camera.position.set(0, 2, 12);
-//     camera.lookAt(0, 0, -2);
-
-//     // Animation
-//     const animate = () => {
-//         requestAnimationFrame(animate);
-
-//         // Rotate central group slowly
-//         axonGroup.rotation.y += 0.002;
-//         axonGroup.rotation.x += 0.001;
-
-//         // Float particles
-//         binaryParticles.rotation.y += 0.0005;
-
-//         // Pulse core
-//         const scale = 1 + Math.sin(Date.now() * 0.003) * 0.1;
-//         core.scale.set(scale, scale, scale);
-
-//         renderer.render(scene, camera);
-//     };
-
-//     window.addEventListener('resize', () => {
-//         camera.aspect = window.innerWidth / window.innerHeight;
-//         camera.updateProjectionMatrix();
-//         renderer.setSize(window.innerWidth, window.innerHeight);
-//     });
-
-//     animate();
-// };
-
-// Initialize the new background
-// initSoftwareBackground();
-
-
+// ─── ENHANCED PRODUCT APP ──────────────────────────────────────────────────
 function enhancedProductApp() {
     return {
         activeIndex: 0,
@@ -906,7 +729,6 @@ function enhancedProductApp() {
             this.animateText();
             this.startAutoSwitch();
 
-            // Handle URL parameters for Demo Modal
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.has('openDemo')) {
                 const productSlug = urlParams.get('openDemo');
@@ -918,13 +740,11 @@ function enhancedProductApp() {
                 }
             }
 
-            // Track mouse movement for dynamic background
             document.addEventListener('mousemove', (e) => {
                 this.mouseX = (e.clientX / window.innerWidth) * 100;
                 this.mouseY = (e.clientY / window.innerHeight) * 100;
             });
 
-            // Stop auto-switch when user hovers over cards
             const cards = document.querySelectorAll('.service-card, .product-card');
             cards.forEach(card => {
                 card.addEventListener('mouseenter', () => this.stopAutoSwitch());
@@ -934,8 +754,6 @@ function enhancedProductApp() {
 
         startAutoSwitch() {
             if (this.autoSwitchTimer) clearInterval(this.autoSwitchTimer);
-
-            // Switch to next product every 8 seconds (text animation takes ~5 seconds)
             this.autoSwitchTimer = setInterval(() => {
                 if (!this.isAnimating) {
                     this.nextProduct();
@@ -954,12 +772,10 @@ function enhancedProductApp() {
             const total = this.products.length;
             let diff = index - this.activeIndex;
 
-            // Wrap around logic
             if (diff > total / 2) diff -= total;
             if (diff < -total / 2) diff += total;
 
             if (diff === 0) {
-                // Active Center Card
                 return `
                     z-index: 100; 
                     transform: translateX(0) translateZ(200px) scale(1.2) rotateY(0deg); 
@@ -968,7 +784,6 @@ function enhancedProductApp() {
                     box-shadow: 0 30px 40px -15px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,193,50,0.3);
                 `;
             } else {
-                // Side Cards
                 const direction = diff > 0 ? 1 : -1;
                 const xPos = direction * 220;
                 const zPos = Math.abs(diff) * -200;
@@ -989,7 +804,6 @@ function enhancedProductApp() {
             const el = document.getElementById('product-desc');
             if (!el) return;
 
-            // Stop any current typing animation
             if (this.typingInterval) {
                 clearInterval(this.typingInterval);
             }
@@ -997,10 +811,8 @@ function enhancedProductApp() {
             this.isAnimating = true;
             const text = this.products[this.activeIndex].desc;
 
-            // Clear previous content
             el.innerHTML = '';
 
-            // Create typing effect
             let i = 0;
             this.typingInterval = setInterval(() => {
                 if (i < text.length) {
@@ -1030,6 +842,7 @@ function enhancedProductApp() {
     }
 }
 
+// ─── SERVICES APP ──────────────────────────────────────────────────────────
 function servicesApp() {
     return {
         showAll: false,
@@ -1106,7 +919,6 @@ function servicesApp() {
 
         loadMore() {
             this.showAll = true;
-            // Smooth scroll to newly visible services
             setTimeout(() => {
                 const newServices = document.querySelectorAll('.service-card');
                 if (newServices.length > 3) {
@@ -1117,37 +929,24 @@ function servicesApp() {
 
         showLess() {
             this.showAll = false;
-            // Scroll back to services section
             document.getElementById('Services').scrollIntoView({ behavior: 'smooth' });
         },
 
-        init() {
-            // Add animation delay classes
-            this.services.forEach((_, index) => {
-                if (index >= 3) {
-                    // These will appear when load more is clicked
-                }
-            });
-        }
+        init() { }
     }
 }
 
-// Add this CSS for animation delays (add to your style.css)
-const style = document.createElement('style');
-style.textContent = `
-    .animation-delay-200 {
-        animation-delay: 200ms;
-    }
-    .animation-delay-400 {
-        animation-delay: 400ms;
-    }
+// ─── ADD ANIMATION DELAY STYLES ──────────────────────────────────────────
+const styleEl = document.createElement('style');
+styleEl.textContent = `
+    .animation-delay-200 { animation-delay: 200ms; }
+    .animation-delay-400 { animation-delay: 400ms; }
 `;
-document.head.appendChild(style);
+document.head.appendChild(styleEl);
 
-// Form Submission Implementation (SMTP via .aspx)
+// ─── FORM SUBMISSION ──────────────────────────────────────────────────────
 (function () {
     window.sendEmail = function (form, alpineData) {
-        // Change button text to indicate sending
         const btn = form.querySelector('button[type="submit"]');
         if (!btn) return;
 
@@ -1155,11 +954,9 @@ document.head.appendChild(style);
         btn.innerHTML = '<span>Sending...</span>';
         btn.disabled = true;
 
-        // Determine which endpoint to use based on form ID or hidden fields
-        // productName field is present in demo form
         const isDemo = form.querySelector('input[name="productName"]') !== null;
         const action = isDemo ? 'send-demo.aspx' : 'send-lead.aspx';
-        
+
         const formData = new FormData(form);
 
         fetch(action, {
@@ -1169,24 +966,24 @@ document.head.appendChild(style);
             },
             body: formData
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                if (isDemo) {
-                    alpineData.demoSubmitted = true;
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    if (isDemo) {
+                        alpineData.demoSubmitted = true;
+                    } else {
+                        alpineData.submitted = true;
+                    }
+                    console.log('SUCCESS!');
                 } else {
-                    alpineData.submitted = true;
+                    throw new Error(data.message || 'Server responded with an error');
                 }
-                console.log('SUCCESS!');
-            } else {
-                throw new Error(data.message || 'Server responded with an error');
-            }
-        })
-        .catch(error => {
-            console.error('FAILED...', error);
-            alert('Error: ' + error.message);
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-        });
+            })
+            .catch(error => {
+                console.error('FAILED...', error);
+                alert('Error: ' + error.message);
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
     };
 })();
